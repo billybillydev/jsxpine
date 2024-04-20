@@ -1,0 +1,318 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+pre.astro-code {
+  margin: 0.5rem;
+}
+
+code {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.component-preview {
+  @apply relative flex flex-wrap gap-4 justify-center items-center border border-slate-200 rounded-lg m-2 resize p-8;
+  background-image: url('/icons/grid_dot.svg');
+  background-repeat: repeat;
+  background-size: 1.5rem;
+  justify-items: baseline;
+}
+
+.astro-code {
+  padding: 1rem;
+  border-radius: 0.44rem;
+}
+
+.btn-circle {
+  @apply min-w-[4rem] max-w-lg rounded-full flex items-center justify-center p-0 before:pt-[100%];
+}
+
+[data-loading] {
+  display: none;
+}
+
+.htmx-indicator {
+  display: none;
+}
+.htmx-request .htmx-indicator {
+  display: flex;
+}
+.htmx-request.htmx-indicator {
+  display: flex;
+}
+.htmx-request #content {
+  display: none;
+}
+.htmx-request#content {
+  display: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.modal,
+.sidebar {
+  @apply fixed top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center bg-black/50;
+
+  /* Animate when opening */
+  animation: fadeIn 150ms ease forwards;
+}
+
+.modal {
+  @apply z-50;
+}
+
+.sidebar {
+  @apply z-40;
+}
+
+.underlay {
+  /* underlay takes up the entire viewport. This is only
+	required if you want to click to dismiss the popup */
+  @apply absolute top-0 bottom-0 left-0 right-0 -z-10 bg-black/50;
+}
+
+.modal > .modal-content {
+  @apply relative flex flex-col justify-between w-full max-w-2xl bg-white rounded-md xs:w-4/5;
+
+  /* Animate when opening */
+  animation: zoomIn 250ms ease;
+}
+
+.sidebar > .sidebar-content {
+  @apply fixed top-0 flex flex-col w-full h-screen max-w-xl overflow-y-hidden bg-white;
+}
+
+.sidebar > .slide-to-left {
+  @apply left-0;
+  animation: slideLeftIn 500ms ease forwards;
+}
+
+.sidebar > .slide-to-right {
+  @apply right-0;
+  animation: slideRightIn 500ms ease forwards;
+}
+
+.modal.closing,
+.sidebar.closing {
+  /* Animate when closing */
+  animation: fadeOut 500ms ease forwards;
+}
+
+.modal.closing > .modal-content {
+  /* Animate when closing */
+  animation: zoomOut 250ms ease forwards;
+}
+
+.sidebar.closing > .slide-to-left {
+  /* Animate when closing */
+  animation: slideLeftOut 500ms ease forwards;
+}
+
+.notification-item.closing.slide-to-left {
+  /* Animate when closing */
+  animation: slideLeftOutAndHide 500ms ease forwards;
+}
+
+.sidebar.closing > .slide-to-right {
+  /* Animate when closing */
+  animation: slideRightOut 500ms ease forwards;
+}
+
+.notification-item.closing.slide-to-right {
+  /* Animate when closing */
+  animation: slideRightOutAndHide 500ms ease forwards;
+}
+
+.notification-container {
+  @apply absolute flex flex-col max-w-sm overflow-hidden;
+}
+
+.notification-item {
+  @apply box-border relative z-40 p-2 bg-white;
+}
+
+.notification-item.slide-to-left {
+  animation: slideLeftInAndShow 500ms ease forwards;
+}
+
+.notification-item.slide-to-right {
+  animation: slideRightInAndShow 500ms ease forwards;
+}
+
+.absolute-top-left {
+  @apply top-0 left-0;
+}
+.absolute-top-right {
+  @apply top-0 right-0;
+}
+.absolute-bottom-left {
+  @apply bottom-0 left-0;
+}
+.absolute-bottom-right {
+  @apply bottom-0 right-0;
+}
+.absolute-top-center {
+  @apply top-0 left-1/2;
+}
+.absolute-bottom-center {
+  @apply bottom-0 left-1/2;
+}
+
+.splide {
+  padding: 20px 0;
+}
+
+.splide__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splide__slide.is-active > img {
+  transform: scale(1);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes slideLeftIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeftOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRightIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRightOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideLeftInAndShow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    max-height: 100vh;
+  }
+}
+
+@keyframes slideLeftOutAndHide {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    max-height: 100vh;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+@keyframes slideRightInAndShow {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    max-height: 100vh;
+  }
+}
+
+@keyframes slideRightOutAndHide {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    max-height: 100vh;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+    max-height: 0;
+  }
+}

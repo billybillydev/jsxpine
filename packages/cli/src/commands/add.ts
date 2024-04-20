@@ -1,0 +1,245 @@
+import { existsSync, promises as fs } from "fs";
+import path from "path";
+import chalk from "chalk";
+import { Command } from "commander";
+import ora from "ora";
+import prompts from "prompts";
+import { z } from "zod";
+import { getConfig } from "../utils/get-config";
+import { handleError } from "../utils/handle-error";
+import { logger } from "../utils/logger";
+import {
+	fetchAlpineData,
+	fetchTree,
+	getRegistryIndex,
+	resolveTree,
+	transformObjectToDirectory
+} from "../utils/registry";
+
+const addOptionsSchema = z.object({
+	components: z.array(z.string()).optional(),
+	yes: z.boolean(),
+	overwrite: z.boolean(),
+	cwd: z.string(),
+	path: z.string().optional(),
+	nodep: z.boolean()
+});
+
+export const add = new Command()
+	.command("add")
+	.description("add components to your project")
+	.argument("[components...]", "name of components")
+	.option(
+		"--nodep",
+		"disable adding & installing dependencies (advanced)",
+		false
+	)
+	.option("-y, --yes", "Skip confirmation prompt.", false)
+	.option("-o, --overwrite", "overwrite existing files.", false)
+	.option(
+		"-c, --cwd <cwd>",
+		"the working directory. defaults to the current directory.",
+		process.cwd()
+	)
+	.option("-p, --path <path>", "the path to add the component to.")
+	.action(async (components: string[], opts) => {
+		logger.warn(
+			"Running the following command will overwrite existing files."
+		);
+		logger.warn(
+			"Make sure you have committed your changes before proceeding."
+		);
+		logger.warn("");
+
+		try {
+			const options = addOptionsSchema.parse({
+				components,
+				...opts
+			});
+
+			const cwd = path.resolve(options.cwd);
+
+			if (!existsSync(cwd)) {
+				logger.error(
+					`The path ${cwd} does not exist. Please try again.`
+				);
+				process.exitCode = 1;
+				return;
+			}
+
+			const config = await getConfig(cwd);
+			if (!config) {
+				logger.warn(
+					`Configuration is missing. Please run ${chalk.green(
+						`init`
+					)} to create a components.json file.`
+				);
+				process.exitCode = 1;
+				return;
+			}
+
+			const registryIndex = await getRegistryIndex();
+
+			let selectedComponents = options.components;
+			if (!options.components?.length) {
+				const { components } = await prompts({
+					type: "multiselect",
+					name: "components",
+					message: "Which components would you like to add?",
+					hint: "Space to select. A to toggle all. Enter to submit.",
+					instructions: false,
+					choices: registryIndex.map((item) => ({
+						title: item.name,
+						value: item.name
+					}))
+				});
+				selectedComponents = components;
+			}
+
+			if (!selectedComponents?.length) {
+				logger.warn("No components selected. Exiting.");
+				process.exitCode = 0;
+				return;
+			}
+
+			const registryTree = await resolveTree(
+				registryIndex,
+				selectedComponents
+			);
+			const componentPayload = await fetchTree(registryTree);
+			const alpineDataPayload = await fetchAlpineData();
+			if (!registryTree.length) {
+				logger.warn("Selected components not found. Exiting.");
+				process.exitCode = 0;
+				return;
+			}
+
+			if (!options.yes) {
+				const { proceed } = await prompts({
+					type: "confirm",
+					name: "proceed",
+					message: `Ready to install components and dependencies. Proceed?`,
+					initial: true
+				});
+
+				if (!proceed) {
+					process.exitCode = 0;
+					return;
+				}
+			}
+			const spinner = ora(`Installing components...`).start();
+			const componentDir = config.resolvedPaths.components;
+			// Install alpine dependencies.
+			const alpineDependencies: string[] = [];
+			const alpineDataPath = path.join(
+				config.resolvedPaths.alpine,
+				"data"
+			);
+			if (!existsSync(componentDir)) {
+				await fs.mkdir(componentDir);
+			}
+			if (!existsSync(alpineDataPath)) {
+				await fs.mkdir(alpineDataPath);
+			}
+			for (const item of componentPayload) {
+				spinner.text = `\nInstalling ${item}...\n`;
+
+				const directoryPath = path.resolve(componentDir, item.name);
+				if (existsSync(directoryPath) && !options.overwrite) {
+					logger.warn(
+						`\nComponent ${
+							item.name
+						} already exists. Use ${chalk.green(
+							"--overwrite"
+						)} to overwrite.\n`
+					);
+					spinner.stop();
+					process.exitCode = 1;
+					return;
+				} else if (!existsSync(directoryPath)) {
+					await fs.mkdir(directoryPath);
+				}
+				await Promise.all(
+					await transformObjectToDirectory(
+						item.components,
+						directoryPath
+					)
+				);
+				alpineDependencies.push(...item.alpineDependencies);
+				const alpineDependenciesObject = item.alpineDependencies.reduce(
+					(acc, cur) => {
+						// Because alpineDataPayload keys are ts file names.
+						const dependencyKey = `${cur}.ts`;
+						acc[dependencyKey] = alpineDataPayload[dependencyKey];
+						return acc;
+					},
+					<Record<string, any>>{}
+				);
+
+				await Promise.all(
+					await transformObjectToDirectory(
+						alpineDependenciesObject,
+						alpineDataPath
+					)
+				);
+			}
+			// Updated alpine script
+			await fs.writeFile(
+				path.join(config.resolvedPaths.alpine, "index.ts"),
+				updateAlpineScriptWithData(alpineDependencies),
+				"utf8"
+			);
+			logger.info("");
+			logger.info("");
+			spinner.succeed(`Done.`);
+		} catch (error) {
+			handleError(error);
+		}
+	});
+
+function camelize(s: string) {
+	return s.replace(/-./g, (x) => x[1].toUpperCase());
+}
+
+const updateAlpineScriptWithData = (dataComponents: string[]) => `
+import Alpine from "alpinejs";
+import focus from "@alpinejs/focus";
+import collapse from "@alpinejs/collapse";
+import manage from "alpinejs-manage";
+
+import { logDirective } from "$alpine/directive/log";
+import { nowMagic } from "$alpine/magic/now";
+import { clipboardMagic } from "$alpine/magic/clipboard";
+import { capitalizeDirective } from "$alpine/directive/capitalize";
+import { formatDateMagic } from "$alpine/magic/format-date";
+import { dateFormatDirective } from "$alpine/directive/format-date";
+
+/* Data */
+${dataComponents
+	.map(
+		(dataName) =>
+			`Alpine.data("${camelize(
+				dataName
+			)}", await import("$scripts/alpine/data/${dataName}").then(m => m["${camelize(
+				dataName
+			)}Data"]));`
+	)
+	.join("\n")}
+
+/* Directive */
+Alpine.directive("capitalize", capitalizeDirective);
+Alpine.directive("date-format", dateFormatDirective);
+Alpine.directive("log", logDirective);
+
+/* Magic */
+Alpine.magic("clipboard", clipboardMagic);
+Alpine.magic("formatDate", formatDateMagic);
+Alpine.magic("now", nowMagic);
+
+/* Plugins */
+Alpine.plugin(collapse);
+Alpine.plugin(focus);
+Alpine.plugin(manage);
+
+export default Alpine;
+`;

@@ -872,6 +872,10 @@ h6 {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -886,6 +890,10 @@ h6 {
 
 .z-\[2\] {
   z-index: 2;
+}
+
+.col-span-1 {
+  grid-column: span 1 / span 1;
 }
 
 .m-2 {
@@ -906,6 +914,10 @@ h6 {
   margin-bottom: 0.25rem;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .mt-12 {
   margin-top: 3rem;
 }
@@ -916,6 +928,10 @@ h6 {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.ml-8 {
+  margin-left: 2rem;
 }
 
 .block {
@@ -932,6 +948,10 @@ h6 {
 
 .grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .size-0 {
@@ -1286,6 +1306,10 @@ h6 {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .max-h-\[40rem\] {
   max-height: 40rem;
 }
@@ -1300,10 +1324,6 @@ h6 {
 
 .w-52 {
   width: 13rem;
-}
-
-.w-auto {
-  width: auto;
 }
 
 .w-full {
@@ -1385,8 +1405,24 @@ h6 {
   row-gap: 1.5rem;
 }
 
-.overflow-auto {
-  overflow: auto;
+.gap-y-1 {
+  row-gap: 0.25rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 
 .whitespace-nowrap {
@@ -1419,6 +1455,14 @@ h6 {
 
 .border-r {
   border-right-width: 1px;
+}
+
+.border-r-2 {
+  border-right-width: 2px;
+}
+
+.border-l-2 {
+  border-left-width: 2px;
 }
 
 .border-danger-500 {
@@ -1572,6 +1616,10 @@ h6 {
   padding: 1rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1597,12 +1645,26 @@ h6 {
   padding-bottom: 0.5rem;
 }
 
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .pb-24 {
   padding-bottom: 6rem;
 }
 
 .pt-12 {
   padding-top: 3rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
 .text-left {
@@ -1942,8 +2004,29 @@ body {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-pre.astro-code {
-  margin: 0.5rem;
+pre {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@media (min-width: 1280px) {
+  pre {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 
 code {
@@ -1953,9 +2036,7 @@ code {
 
 .component-preview {
   position: relative;
-  margin: 0.5rem;
   display: flex;
-  resize: both;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -1969,11 +2050,6 @@ code {
   background-repeat: repeat;
   background-size: 1.5rem;
   justify-items: baseline;
-}
-
-.astro-code {
-  padding: 1rem;
-  border-radius: 0.44rem;
 }
 
 .btn-circle {
@@ -2377,9 +2453,34 @@ input[type='number'] {
   .md\:w-3\/4 {
     width: 75%;
   }
+
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @media (min-width: 1024px) {
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
+  .lg\:ml-4 {
+    margin-left: 1rem;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:grid {
+    display: grid;
+  }
+
   .lg\:w-auto {
     width: auto;
   }
@@ -2391,16 +2492,96 @@ input[type='number'] {
   .lg\:grow-0 {
     flex-grow: 0;
   }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .lg\:p-4 {
+    padding: 1rem;
+  }
+
+  .lg\:p-0 {
+    padding: 0px;
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @media (min-width: 1280px) {
+  .xl\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .xl\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
+  .xl\:ml-8 {
+    margin-left: 2rem;
+  }
+
   .xl\:w-64 {
     width: 16rem;
+  }
+
+  .xl\:w-\[80\%\] {
+    width: 80%;
+  }
+
+  .xl\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .xl\:p-0 {
+    padding: 0px;
+  }
+
+  .xl\:p-4 {
+    padding: 1rem;
+  }
+
+  .xl\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
 .\[\&\:has\(svg\)\]\:pl-11:has(svg) {
   padding-left: 2.75rem;
+}
+
+.\[\&\>em\]\:text-slate-500>em {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
+.\[\&\>h2\]\:font-medium>h2 {
+  font-weight: 500;
+}
+
+.\[\&\>h2\]\:text-slate-700>h2 {
+  --tw-text-opacity: 1;
+  color: rgb(51 65 85 / var(--tw-text-opacity));
+}
+
+.\[\&\>h2\]\:underline>h2 {
+  text-decoration-line: underline;
+}
+
+.\[\&\>h2\]\:underline-offset-2>h2 {
+  text-underline-offset: 2px;
 }
 
 .\[\&\>svg\+div\]\:translate-y-\[-3px\]>svg+div {

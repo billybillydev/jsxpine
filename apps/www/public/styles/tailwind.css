@@ -12,8 +12,9 @@ body {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-pre.astro-code {
-  margin: 0.5rem;
+
+pre {
+  @apply relative overflow-x-auto flex text-xs xl:text-sm border border-danger-500 justify-center items-center px-8 w-full py-2;
 }
 
 code {
@@ -22,16 +23,11 @@ code {
 }
 
 .component-preview {
-  @apply relative flex flex-wrap gap-4 justify-center items-center border border-slate-200 rounded-lg m-2 resize p-8;
+  @apply relative flex flex-wrap gap-4 justify-center items-center border border-slate-200 rounded-lg p-8;
   background-image: url('/icons/grid_dot.svg');
   background-repeat: repeat;
   background-size: 1.5rem;
   justify-items: baseline;
-}
-
-.astro-code {
-  padding: 1rem;
-  border-radius: 0.44rem;
 }
 
 .btn-circle {

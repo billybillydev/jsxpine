@@ -5,6 +5,7 @@ module.exports = {
 	content: [
 		"./src/components/**/*.jsx",
 		"./src/controllers/**/*.jsx",
+		"./src/layouts/**/*.jsx",
 		"./src/pages/**/*.jsx",
 		"./src/views/**/*.jsx",
 	],

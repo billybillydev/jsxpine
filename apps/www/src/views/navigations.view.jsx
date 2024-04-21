@@ -56,7 +56,7 @@ export function LeftSidebar({ currentPage }) {
 
 	const getLinkClasses = (/** @type {string | string[]} */ link) => {
 		const baseClasses =
-			"block py-2 px-6 my-1 transition-colors border-l hover:border-slate-400 text-slate-500 hover:text-slate-900";
+			"block py-2 px-6 transition-colors border-l-2 hover:border-slate-400 text-slate-500 hover:text-slate-900";
 
 		if (isCurrentPage(link)) {
 			return baseClasses + " border-slate-500 text-slate-900";
@@ -65,13 +65,13 @@ export function LeftSidebar({ currentPage }) {
 		}
 	};
 	return (
-		<nav aria-labelledby="grid-left" class="w-52 xl:w-64 p-4 border-r">
+		<nav aria-labelledby="grid-left" class="lg:px-8 xl:px-12 py-4 flex flex-col gap-y-4">
 			{SIDEBAR.map((item) => (
 				<section>
-					<h2 class="mt-4 font-semibold text-slate-700" x-capitalize>
+					<h2 class="font-semibold text-slate-700" x-capitalize>
 						{item.header}
 					</h2>
-					<ul>
+					<ul class="gap-y-1">
 						{[...item.menu].map(([_, menu]) => {
 							return (
 								<li class={getLinkClasses(menu.link)}>
@@ -93,7 +93,7 @@ export function LeftSidebar({ currentPage }) {
 export function RightSidebar(props) {
     return (
 			<nav aria-labelledby="grid-right">
-				<div class="px-8 border-l">
+				<div class="px-8">
 					<TableOfContents {...props} />
 				</div>
 			</nav>

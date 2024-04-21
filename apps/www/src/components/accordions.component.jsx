@@ -38,7 +38,7 @@ export function GroupAccordionTrigger({
 	return (
 		<div
 			x-on:click="setActiveAccordion(id)"
-			class={clsx("flex items-center justify-center cursor-pointer", className)}
+			class={clsx("flex w-full items-center justify-center cursor-pointer", className)}
 			{...restProps}
 		>
 			{children}
@@ -58,7 +58,7 @@ export function GroupAccordionItem({
 	return (
 		<div
 			x-data="{ id: $id('accordion-item') }"
-			class={clsx("flex flex-col w-full", className)}
+			class={clsx("flex flex-col", className)}
 			{...restProps}
 		>
 			{children}

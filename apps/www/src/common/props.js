@@ -20,7 +20,7 @@
 
 /**
  * @typedef HTMLTagWithChildren
- * @type {Omit<JSX.HtmlTag, "className"> & CLSXClassProps & import("hono/jsx").PropsWithChildren}
+ * @type {Omit<JSX.HtmlTag, "className"> & {children?: JSX.Element | JSX.Element[]} & CLSXClassProps}
  */
 
 /**

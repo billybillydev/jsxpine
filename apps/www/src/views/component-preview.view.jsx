@@ -1,24 +1,28 @@
-import { Tabs, TabHeaderItem, TabsBody, TabsHeader, TabBodyItem } from "$components/tabs.component";
-import { raw } from "hono/html";
+import { CodeViewer } from "$components/code-viewer.component";
+import {
+	Tabs,
+	TabHeaderItem,
+	TabsBody,
+	TabsHeader,
+	TabBodyItem
+} from "$components/tabs.component";
 
 /**
- * @type {import("$common/props").JSXComponent<import("$common/props").HTMLTagWithChildren>}
+ * @type {import("$common/props").JSXComponent<import("$common/props").HTMLTagWithChildren & {filename: string}>}
  */
 export function ComponentPreview(props) {
-    return (
-        <Tabs>
-            <TabsHeader>
-                <TabHeaderItem title="Preview" />
-                <TabHeaderItem title="Code" />
-            </TabsHeader>
-            <TabsBody>
-                <TabBodyItem>
-                <div id={props.id} class="component-preview">
-                    {props.children}
-                </div>
-                </TabBodyItem>
-                <TabBodyItem class="max-h-[40rem] w-auto overflow-auto">
-                {/* <Tooltip
+	return (
+		<Tabs>
+			<TabsHeader>
+				<TabHeaderItem title="Preview" />
+				<TabHeaderItem title="Code" />
+			</TabsHeader>
+			<TabsBody class="">
+				<TabBodyItem id={props.id} class="component-preview">
+					{props.children}
+				</TabBodyItem>
+				<TabBodyItem class="max-h-[40rem] rounded overflow-y-auto">
+					{/* <Tooltip
                     triggerOnHover={false}
                     position="right"
                     text="Copied !"
@@ -35,10 +39,11 @@ export function ComponentPreview(props) {
                         text="Copy"
                     />
                 </Tooltip> */}
-                {/* <Code code={data} lang="tsx" wrap /> */}
-                <p>{props.children?.toString()}</p>
-                </TabBodyItem>
-            </TabsBody>
-        </Tabs>
-    )
+					<CodeViewer
+						path={`src/views/examples/${props.filename}.example.jsx`}
+					/>
+				</TabBodyItem>
+			</TabsBody>
+		</Tabs>
+	);
 }

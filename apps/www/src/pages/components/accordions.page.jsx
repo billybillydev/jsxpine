@@ -1,6 +1,7 @@
 import { ComponentPresentation } from "$views/component-presentation";
 import { ComponentPreview } from "$views/component-preview.view";
 import { GroupAccordionExample } from "$views/examples/accordions/group.example";
+import { SoloAccordionExample } from "$views/examples/accordions/solo.example";
 import { MainLayout } from "src/layouts/main.layout";
 
 /**
@@ -26,6 +27,9 @@ export function AccordionsPage(props) {
 				<section>
 					<h2>Solo Accordion</h2>
 					<p>Enables accordion feature individually</p>
+					<ComponentPreview filename="accordions/solo">
+						<SoloAccordionExample />
+					</ComponentPreview>
 				</section>
 
 				<section>

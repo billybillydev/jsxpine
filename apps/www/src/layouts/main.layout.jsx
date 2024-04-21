@@ -27,7 +27,7 @@ export function MainLayout(props) {
 									}
 								})
 							`}
-					class="xl:p-4 lg:p-0 p-2 mx-auto w-full md:w-3/4 lg:w-full xl:w-[80%] flex lg:col-span-3 xl:col-span-4 overflow-y-auto scroll-smooth"
+					class="lg:py-4 xl:px-[10%] p-2 mx-auto w-full flex lg:col-span-3 xl:col-span-4 overflow-y-auto scroll-smooth"
 				>
 					{children}
 				</main>

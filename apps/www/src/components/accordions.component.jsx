@@ -87,6 +87,26 @@ export function GroupAccordionList({
 }
 
 /**
+ * Solo Accordion Trigger props
+ * @type {import("$common/props").JSXComponent<AccordionProps>}
+ */
+export function SoloAccordionTrigger(props) {
+	const { class: className, children, ...restProps } = props;
+	return (
+		<div
+			x-bind="trigger"
+			class={clsx(
+				"flex items-center justify-center cursor-pointer",
+				className
+			)}
+			{...restProps}
+		>
+			{children}
+		</div>
+	);
+}
+
+/**
  * Solo Accordion Content props
  * @type {import("$common/props").JSXComponent<AccordionProps>}
  */

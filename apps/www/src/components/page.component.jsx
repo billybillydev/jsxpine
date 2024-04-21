@@ -11,9 +11,9 @@ import clsx from 'clsx';
 
 /**
  * Type for Page component props
- * @template {!Object} T
- * @typedef {Object} PageProps
- * @type {T & import('src/common/props').CLSXClassProps & JSX.HtmlTag & JSX.ElementChildrenAttribute & { isHTMX?: boolean, currentUrl?: string, seo: SeoData}}
+ * @template {Object} T
+ * @typedef PageProps
+ * @type {import('$common/props').HTMLTagWithChildren & { isHTMX?: boolean, currentUrl?: string, seo: SeoData} & T}
  */
 
 /**
@@ -22,11 +22,9 @@ import clsx from 'clsx';
  */
 
 /**
- * @template {!Object} T
- * @param {PageProps<T>} props
- * @returns {string}
- */
-export function Page({children, seo, class: className }) {
+ * @type {import("$common/props").JSXComponent<PageProps<{}>>}
+*/
+export function Page({ children, seo, class: className }) {
 	return (
 		<html lang="en">
 			<head>
@@ -36,8 +34,8 @@ export function Page({children, seo, class: className }) {
 				{seo.description ? (
 					<meta name="description" content={seo.description} />
 				) : null}
-				<link rel="stylesheet" href="public/styles/index.css" />
-				<script src="public/script/app.js" defer="true"></script>
+				<link rel="stylesheet" href="/public/styles/index.css" />
+				<script src="/public/script/app.js" defer="true"></script>
 				<script
 					src="https://unpkg.com/htmx.org@1.9.11"
 					integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"

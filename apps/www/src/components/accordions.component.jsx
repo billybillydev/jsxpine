@@ -2,13 +2,12 @@ import clsx from "clsx";
 
 /**
  * @typedef AccordionProps
- * @type {Omit<JSX.HtmlTag, "className"> & JSX.ElementChildrenAttribute & import("src/common/props").CLSXClassProps}
+ * @type {import("$common/props").HTMLTagWithChildren}
  */
 
 /**
  * Group Accordion Content props
- * @param {AccordionProps} props
- * @returns {string}
+ * @type {import("$common/props").JSXComponent<AccordionProps>}
  */
 export function GroupAccordionContent({
 	children,
@@ -29,8 +28,7 @@ export function GroupAccordionContent({
 
 /**
  * Group Accordion Trigger props
- * @param {AccordionProps} props
- * @returns {string}
+ * @type {import("$common/props").JSXComponent<AccordionProps>}
  */
 export function GroupAccordionTrigger({
 	children,
@@ -50,8 +48,7 @@ export function GroupAccordionTrigger({
 
 /**
  * Group Accordion Item props
- * @param {AccordionProps} props
- * @returns {string}
+ * @type {import("$common/props").JSXComponent<AccordionProps>}
  */
 export function GroupAccordionItem({
 	children,
@@ -71,8 +68,7 @@ export function GroupAccordionItem({
 
 /**
  * Group Accordion List props
- * @param {AccordionProps} props
- * @returns {string}
+ * @type {import("$common/props").JSXComponent<AccordionProps>}
  */
 export function GroupAccordionList({
 	children,
@@ -92,8 +88,7 @@ export function GroupAccordionList({
 
 /**
  * Solo Accordion Content props
- * @param {AccordionProps} props
- * @returns {string}
+ * @type {import("$common/props").JSXComponent<AccordionProps>}
  */
 export function SoloAccordionContent({
 	children,
@@ -109,8 +104,7 @@ export function SoloAccordionContent({
 
 /**
  * Solo Accordion Trigger props
- * @param {AccordionProps} props
- * @returns {string}
+ * @type {import("$common/props").JSXComponent<AccordionProps>}
  */
 export function SoloAccordionItem({
 	children,
@@ -133,8 +127,7 @@ export function SoloAccordionItem({
 
 /**
  * Solo Accordion props
- * @param {AccordionProps} props
- * @returns {string}
+ * @type {import("$common/props").JSXComponent<AccordionProps>}
  */
 export function SoloAccordion({
 	children,

@@ -1,7 +1,6 @@
 /**
  * Seo component props
- * @param {import("$components/page.component").SeoData} props
- * @returns {string}
+ @type {import("$common/props").JSXComponent<import("$components/page.component").SeoData>}
  */
 export function SEO({ title }) {
 	return <div x-data={`seo("${title}")`} />;

@@ -13,7 +13,7 @@ export function HomePage() {
 		{
 			title: "Components",
 			description: "The building blocks for our UI.",
-			url: "/components/accordions#overview",
+			url: "/components",
 			img: "/Components.jpg"
 		},
 		{

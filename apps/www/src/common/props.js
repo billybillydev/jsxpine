@@ -24,6 +24,11 @@
  */
 
 /**
+ * @typedef HTMLTag
+ * @type {Omit<JSX.HtmlTag, "className"> & CLSXClassProps}
+ */
+
+/**
  * @typedef HTMLTagWithChildren
  * @type {import("hono/jsx").PropsWithChildren<Omit<JSX.HtmlTag, "className"> & CLSXClassProps>}
  */

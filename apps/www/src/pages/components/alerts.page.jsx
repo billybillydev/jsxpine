@@ -26,9 +26,7 @@ export async function AlertsPage(props) {
 					return (
 						<section>
 							<h2 id={`${lowerType}-alert`}>{type} Alert</h2>
-							<ComponentPreview filename={`alerts/${lowerType}`}>
-								<Component />
-							</ComponentPreview>
+							<ComponentPreview filename={`alerts/${lowerType}`} />
 						</section>
 					);
 				})}

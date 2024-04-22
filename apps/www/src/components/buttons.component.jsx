@@ -1,6 +1,11 @@
 /**
+ * @typedef HTMLButtonTagWithChildren
+ * @type {import("hono/jsx").PropsWithChildren<Omit<JSX.HtmlButtonTag, "className"> & import("$common/props").CLSXClassProps>}
+ */
+
+/**
  * @typedef {Object} ButtonProps
- * @type {{ text?: string } & import("$common/props").HTMLTagWithChildren & import("$common/props").BorderRadiusProps & import("$common/props").SizeProps & import("$common/props").VariantColorProps}
+ * @type {{ text?: string } & HTMLButtonTagWithChildren & import("$common/props").BorderRadiusProps & import("$common/props").SizeProps & import("$common/props").VariantColorProps}
  */
 
 import clsx from "clsx";

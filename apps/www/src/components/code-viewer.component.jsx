@@ -2,18 +2,15 @@ import { raw } from "hono/html";
 import { getHighlighter } from "shikiji";
 
 /**
- * @typedef {Object} CodeEditorProps
- * @property {string} path
+ * @typedef {Object} CodeViewerProps
+ * @property {string} text
  */
 
 /**
  * CodeEditor component props
- * @type {import("$common/props").JSXComponent<CodeEditorProps>}
+ * @type {import("$common/props").JSXComponent<CodeViewerProps>}
  */
-export async function CodeViewer({ path }) {
-	// Use the appropriate method for Node.js and Deno
-    const file = Bun.file(path);
-    const text = await file.text();
+export async function CodeViewer({ text }) {
     const langs = ["javascript"];
 	const themes = ["vitesse-dark", "nord"];
 

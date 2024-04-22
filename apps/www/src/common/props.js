@@ -1,4 +1,9 @@
 /**
+ * @typedef BorderRadiusProps
+ * @property {import("src/common/types").BorderRadiusType} [borderRadius]
+ */
+
+/**
  * @typedef CLSXClassProps
  * @property {string | string[] | Record<string, boolean> | Record<string, boolean>[]} [class]
  */
@@ -20,10 +25,15 @@
 
 /**
  * @typedef HTMLTagWithChildren
- * @type {Omit<JSX.HtmlTag, "className"> & {children?: JSX.Element | JSX.Element[]} & CLSXClassProps}
+ * @type {import("hono/jsx").PropsWithChildren<Omit<JSX.HtmlTag, "className"> & CLSXClassProps>}
  */
 
 /**
  * @template {Object} T
  * @typedef {(props: T) => string} JSXComponent
+ */
+
+/**
+ * @typedef ThemeColorProps
+ * @property {import("src/common/types").ThemeColorType} [type]
  */

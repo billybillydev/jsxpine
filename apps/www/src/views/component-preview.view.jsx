@@ -1,3 +1,4 @@
+import { Button } from "$components/buttons.component";
 import { CodeViewer } from "$components/code-viewer.component";
 import {
 	Tabs,
@@ -6,42 +7,44 @@ import {
 	TabsHeader,
 	TabBodyItem
 } from "$components/tabs.component";
+import { Tooltip } from "$components/tooltip.component";
 
 /**
  * @type {import("$common/props").JSXComponent<import("$common/props").HTMLTagWithChildren & {filename: string}>}
  */
-export function ComponentPreview(props) {
+export async function ComponentPreview(props) {
+	// Use the appropriate method for Node.js and Deno
+	const file = Bun.file(`src/views/examples/${props.filename}.example.jsx`);
+	const text = await file.text();
 	return (
 		<Tabs>
 			<TabsHeader>
 				<TabHeaderItem title="Preview" />
 				<TabHeaderItem title="Code" />
 			</TabsHeader>
-			<TabsBody class="">
+			<TabsBody>
 				<TabBodyItem id={props.id} class="component-preview">
 					{props.children}
 				</TabBodyItem>
 				<TabBodyItem class="max-h-[40rem] rounded overflow-y-auto">
-					{/* <Tooltip
-                    triggerOnHover={false}
-                    position="right"
-                    text="Copied !"
-                    type="success"
-                >
-                    <Button
-                        variant="inversed"
-                        x-on:click={`
-                            await $clipboard(${JSON.stringify(data)});
-                            let timeout;
-                            visible = true;
-                            timeout = setTimeout(() => visible = false, 2500);
-                        `}
-                        text="Copy"
-                    />
-                </Tooltip> */}
-					<CodeViewer
-						path={`src/views/examples/${props.filename}.example.jsx`}
-					/>
+					<Tooltip
+						triggerOnHover={false}
+						position="right"
+						text="Copied !"
+						type="success"
+					>
+						<Button
+							variant="inversed"
+							x-on:click={`
+                                await $clipboard(${JSON.stringify(text)});
+                                let timeout;
+                                visible = true;
+                                timeout = setTimeout(() => visible = false, 2500);
+                            `}
+							text="Copy"
+						/>
+					</Tooltip>
+					<CodeViewer text={text} />
 				</TabBodyItem>
 			</TabsBody>
 		</Tabs>

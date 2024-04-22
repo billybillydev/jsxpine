@@ -1,7 +1,7 @@
 import mosiuiMini from "tailwindcss-mosiui-mini";
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
 	content: [
 		"./src/components/**/*.jsx",
 		"./src/controllers/**/*.jsx",

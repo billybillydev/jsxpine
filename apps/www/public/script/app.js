@@ -5910,7 +5910,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 /**
  * Tooltip alpine data
- * @param {boolean} triggerOnHover
+ * @param {boolean} [triggerOnHover]
  * @returns {import("alpinejs").AlpineComponent<TooltipDataOutput>}
  */
 
@@ -5921,10 +5921,10 @@ function tooltipData() {
     init: function init() {
       var _this = this;
       if (triggerOnHover) {
-        this.$refs.content.addEventListener("mouseenter", function () {
+        this.$refs.tooltipContent.addEventListener("mouseenter", function () {
           _this.visible = true;
         });
-        this.$refs.content.addEventListener("mouseleave", function () {
+        this.$refs.tooltipContent.addEventListener("mouseleave", function () {
           _this.visible = false;
         });
       }

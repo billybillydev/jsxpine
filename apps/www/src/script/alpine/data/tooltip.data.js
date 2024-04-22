@@ -8,7 +8,7 @@
 
 /**
  * Tooltip alpine data
- * @param {boolean} triggerOnHover
+ * @param {boolean} [triggerOnHover]
  * @returns {import("alpinejs").AlpineComponent<TooltipDataOutput>}
  */
 
@@ -17,10 +17,10 @@ export function tooltipData(triggerOnHover = true) {
     visible: false,
     init() {
       if (triggerOnHover) {
-        this.$refs.content.addEventListener("mouseenter", () => {
+        this.$refs.tooltipContent.addEventListener("mouseenter", () => {
           this.visible = true;
         });
-        this.$refs.content.addEventListener("mouseleave", () => {
+        this.$refs.tooltipContent.addEventListener("mouseleave", () => {
           this.visible = false;
         });
       }

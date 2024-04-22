@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "bun run --hot src/index.tsx",
-    "tailwind": "bunx tailwindcss -i ./public/styles/tailwind.css -o ./public/styles/index.css --watch",
+    "tailwind": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css --watch",
     "mix": "bunx mix watch",
     "start": "concurrently \"bun dev\" \"bun tailwind\" \"bun mix\""
   },

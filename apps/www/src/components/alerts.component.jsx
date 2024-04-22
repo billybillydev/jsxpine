@@ -13,15 +13,13 @@ export function Alert({ class: className, title, children }) {
 	return (
 		<div
 			class={clsx(
-				"relative w-full flex flex-col gap-y-2 rounded-lg border bg-white text-slate-800 p-4 [&>svg]:absolute [&>svg]:text-foreground [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11",
-				className
+				"relative w-full flex flex-col gap-y-2 rounded-lg border p-4 [&>svg]:absolute [&>svg]:text-foreground [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11",
+				className || "bg-white text-slate-800"
 			)}
 		>
 			{/* <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" x2="20" y1="19" y2="19"></line></svg> */}
 			<h4 class="mb-1 font-medium leading-none tracking-tight">{title}</h4>
-			<div class="text-sm opacity-90">
-				{children}
-			</div>
+			<div class="text-sm opacity-90">{children}</div>
 		</div>
 	);
 }
@@ -57,7 +55,7 @@ export function SecondaryAlert({ children, title, variant = "solid" }) {
 	 */
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-secondary text-white"],
-		["outlined", "border-transparent text-secondary bg-slate-100"],
+		["outlined", "border-transparent text-secondary bg-slate-200"],
 		["inversed", "border-secondary text-secondary"]
 	]);
 

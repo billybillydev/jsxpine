@@ -1,13 +1,12 @@
+import { MainLayout } from "$layouts/main.layout";
 import { ComponentPresentation } from "$views/component-presentation";
 import { ComponentPreview } from "$views/component-preview.view";
 import { GroupAccordionExample } from "$views/examples/accordions/group.example";
 import { SoloAccordionExample } from "$views/examples/accordions/solo.example";
-import { MainLayout } from "src/layouts/main.layout";
 
 /**
  * Accordions page props
- * @param {import("$components/page.component").PageContext<{}>} props 
- * @returns {string}
+ * @type {import("$common/props").JSXComponent<import("$components/page.component").PageContext<{}>>}
  */
 export function AccordionsPage(props) {
 	return (
@@ -17,7 +16,7 @@ export function AccordionsPage(props) {
 					<h1>Accordions</h1>
 				</section>
 				<section>
-					<h2>Overview</h2>
+					<h2 id="overview">Overview</h2>
 					<p>
 						Accordions are great way to compact content blocs and display
 						required ones by clicking on it.
@@ -25,7 +24,7 @@ export function AccordionsPage(props) {
 				</section>
 
 				<section>
-					<h2>Solo Accordion</h2>
+					<h2 id="solo-accordion">Solo Accordion</h2>
 					<p>Enables accordion feature individually</p>
 					<ComponentPreview filename="accordions/solo">
 						<SoloAccordionExample />
@@ -33,7 +32,7 @@ export function AccordionsPage(props) {
 				</section>
 
 				<section>
-					<h2>Group Accordion</h2>
+					<h2 id="group-accordion">Group Accordion</h2>
 					<p>
 						Groups accordions and display only one (closing previous opened
 						one).

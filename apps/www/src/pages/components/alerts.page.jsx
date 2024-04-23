@@ -3,7 +3,7 @@ import { ComponentPresentation } from "$views/component-presentation";
 import { ComponentPreview } from "$views/component-preview.view";
 
 /**
- * Accordions page props
+ * Alerts page props
  * @type {import("$common/props").JSXComponent<import("$components/page.component").PageContext<{}>>}
  */
 export async function AlertsPage(props) {

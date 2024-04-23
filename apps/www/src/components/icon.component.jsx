@@ -1,11 +1,11 @@
-import { SVG } from "$pages/components/svg.component";
+import { SVG } from "$components/svg.component";
 import { icons } from "@iconify-json/ri";
 import { iconToSVG, getIconData } from "@iconify/utils";
 import clsx from "clsx";
 
 /**
  * @typedef IconProps
- * @type {{size?: number, name: string, color?: string, applyDefsId?: string} & import("$pages/components/svg.component").SVGProps}
+ * @type {{size?: number, name: string, color?: string, applyDefsId?: string} & import("$components/svg.component").SVGProps}
  */
 
 /**

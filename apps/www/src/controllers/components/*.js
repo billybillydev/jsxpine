@@ -7,6 +7,7 @@ import { checkboxController } from "$controllers/components/checkbox.controller"
 import { inputsController } from "$controllers/components/inputs.controller";
 import { radioController } from "$controllers/components/radio.controller";
 import { selectController } from "$controllers/components/select.controller";
+import { tabsController } from "$controllers/components/tabs.controller";
 import { Hono } from "hono";
 
 export const componentsController = new Hono()
@@ -21,4 +22,5 @@ export const componentsController = new Hono()
 	.route("/checkbox", checkboxController)
 	.route("/inputs", inputsController)
 	.route("/radio", radioController)
-	.route("/select", selectController);
+	.route("/select", selectController)
+	.route("/tabs", tabsController);

@@ -24,8 +24,8 @@ export async function AlertsPage(props) {
 						`$views/examples/alerts/${lowerType}.example`
 					).then((m) => m[`${type}AlertExample`]);
 					return (
-						<section>
-							<h2 id={`${lowerType}-alert`}>{type} Alert</h2>
+						<section id={`${lowerType}-alert`}>
+							<h2>{type} Alert</h2>
 							<ComponentPreview filename={`alerts/${lowerType}`} />
 						</section>
 					);

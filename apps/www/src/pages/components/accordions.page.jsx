@@ -13,22 +13,22 @@ export function AccordionsPage(props) {
 				<section class="text-center">
 					<h1>Accordions</h1>
 				</section>
-				<section>
-					<h2 id="overview">Overview</h2>
+				<section id="overview">
+					<h2>Overview</h2>
 					<p>
 						Accordions are great way to compact content blocs and display
 						required ones by clicking on it.
 					</p>
 				</section>
 
-				<section>
-					<h2 id="solo-accordion">Solo Accordion</h2>
+				<section id="solo-accordion">
+					<h2>Solo Accordion</h2>
 					<p>Enables accordion feature individually</p>
 					<ComponentPreview filename="accordions/solo" />
 				</section>
 
-				<section>
-					<h2 id="group-accordion">Group Accordion</h2>
+				<section id="group-accordion">
+					<h2>Group Accordion</h2>
 					<p>
 						Groups accordions and display only one (closing previous opened
 						one).

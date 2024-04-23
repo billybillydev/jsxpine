@@ -2,6 +2,7 @@ import { accordionsController } from "$controllers/components/accordions.control
 import { alertsController } from "$controllers/components/alerts.controller";
 import { badgesController } from "$controllers/components/badges.controller";
 import { buttonsController } from "$controllers/components/buttons.controller";
+import { cardController } from "$controllers/components/card.controller";
 import { Hono } from "hono";
 
 export const componentsController = new Hono()
@@ -11,4 +12,5 @@ export const componentsController = new Hono()
 	.route("/accordions", accordionsController)
 	.route("/alerts", alertsController)
 	.route("/badges", badgesController)
-	.route("/buttons", buttonsController);
+	.route("/buttons", buttonsController)
+	.route("/card", cardController);

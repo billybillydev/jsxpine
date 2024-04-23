@@ -33,6 +33,12 @@
  * @type {import("hono/jsx").PropsWithChildren<Omit<JSX.HtmlTag, "className"> & CLSXClassProps>}
  */
 
+
+/**
+ * @typedef PositionProps
+ * @property {import("src/common/types").DirectionType} [position]
+ */
+
 /**
  * @template {Object} T
  * @typedef {(props: T) => string} JSXComponent

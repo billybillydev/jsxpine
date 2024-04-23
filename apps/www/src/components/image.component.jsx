@@ -1,4 +1,10 @@
 /**
+ * @typedef {Object} ImageType
+ * @property {string} src
+ * @property {string} [alt]
+ */
+
+/**
  * @typedef ImageProps
  * @type {Omit<JSX.HtmlImageTag, "className" | "loading"> & import("$common/props").CLSXClassProps}
  */

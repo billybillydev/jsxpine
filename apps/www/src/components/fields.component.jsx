@@ -15,7 +15,7 @@ import clsx from "clsx";
 
 /**
  * Default Field props
- * @template {(import("$components/inputs.component").InputProps | import("$components/inputs.component").SelectInputProps) & Record<string, unknown>} T
+ * @template {(import("$components/inputs.component").InputProps | import("$components/inputs.component").SelectInputProps | import("$components/inputs.component").NumberInputProps) & Record<string, unknown>} T
  * @param {FieldProps<T>} props
  * @returns {string}
  */

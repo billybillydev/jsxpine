@@ -90,21 +90,11 @@ export function CardBody(props) {
 						// 	return <ButtonControl />;
 						// }
 						if (control.type) {
-							// const buttonControlMap = new Map([
-							// 	["primary", PrimaryButton],
-							// 	["secondary", SecondaryButton],
-							// 	["success", SuccessButton],
-							// 	["danger", DangerButton],
-							// 	["info", InfoButton],
-							// 	["warning", WarningButton]
-							// ]);
-							// const ButtonControl = buttonControlMap.get(control.type);
 							const componentName = `${capitalize(control.type)}Button`;
 							const ButtonControl = await import(
 								`$components/buttons.component`
 							).then(
 								/**
-								 *
 								 * @param {Record<string, Function>} m
 								 * @returns {Function}
 								 */

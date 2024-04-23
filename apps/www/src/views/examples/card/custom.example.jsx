@@ -1,6 +1,6 @@
 import { SecondaryButton } from "$components/buttons.component";
 import { Card } from "$components/card.component";
-import { Icon } from "$pages/components/icon.component";
+import { Icon } from "$components/icon.component";
 
 export function CustomCardExample() {
 	return (

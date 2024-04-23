@@ -3,6 +3,7 @@ import { alertsController } from "$controllers/components/alerts.controller";
 import { badgesController } from "$controllers/components/badges.controller";
 import { buttonsController } from "$controllers/components/buttons.controller";
 import { cardController } from "$controllers/components/card.controller";
+import { inputsController } from "$controllers/components/inputs.controller";
 import { Hono } from "hono";
 
 export const componentsController = new Hono()
@@ -13,4 +14,5 @@ export const componentsController = new Hono()
 	.route("/alerts", alertsController)
 	.route("/badges", badgesController)
 	.route("/buttons", buttonsController)
-	.route("/card", cardController);
+	.route("/card", cardController)
+	.route("/inputs", inputsController);

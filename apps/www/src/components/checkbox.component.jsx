@@ -1,6 +1,7 @@
 import clsx from "clsx";
 
 /**
+ * Checkbox component props
  * @type {import("$common/props").JSXComponent<import("$components/inputs.component").CheckboxInputProps>}
  */
 export function Checkbox(props) {

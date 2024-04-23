@@ -113,7 +113,7 @@ export function Tabs({ children, class: className, direction = "vertical" }) {
 		<div
 			x-data={`tabs("${direction}")`}
 			class={clsx(
-				"relative w-full h-full flex",
+				"relative w-full flex",
 				className,
 				directionClassMap.get(direction)
 			)}

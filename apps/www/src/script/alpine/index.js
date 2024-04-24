@@ -3,9 +3,9 @@ import focus from "@alpinejs/focus";
 import Alpine from "alpinejs";
 import manage from "alpinejs-manage";
 
-import { calendarData } from "./data/calendar.data";
+// import { calendarData } from "./data/calendar.data";
 import { carouselData } from "./data/carousel.data";
-import { datepickerData } from "./data/datepicker.data";
+// import { datepickerData } from "./data/datepicker.data";
 import { dropdownData } from "./data/dropdown.data";
 import { dropdownSelectData } from "./data/dropdown-select.data";
 import { groupAccordionData } from "./data/group-accordion.data";
@@ -29,9 +29,9 @@ import { nowMagic } from "./magic/now.magic";
 import { treeData } from "./data/tree.data";
 
 /* Data */
-Alpine.data("calendar", calendarData);
+// Alpine.data("calendar", calendarData);
 Alpine.data("carousel", carouselData);
-Alpine.data("datepicker", datepickerData);
+// Alpine.data("datepicker", datepickerData);
 Alpine.data("dropdown", dropdownData);
 Alpine.data("dropdownSelect", dropdownSelectData);
 Alpine.data("groupAccordion", groupAccordionData)

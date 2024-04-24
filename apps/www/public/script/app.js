@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/@alpinejs/collapse/dist/module.esm.js":
@@ -7,7 +8,6 @@
   \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   collapse: () => (/* binding */ src_default),
@@ -119,7 +119,6 @@ var module_default = src_default;
   \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ module_default),
@@ -1157,7 +1156,6 @@ focus-trap/dist/focus-trap.esm.js:
   \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ u)
@@ -1173,7 +1171,6 @@ function r(t){t.magic("manage",()=>a=>{let e=document.querySelector(a);if(e)retu
   \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Alpine: () => (/* binding */ src_default),
@@ -4535,185 +4532,12 @@ var module_default = src_default;
 
 /***/ }),
 
-/***/ "./src/script/alpine/data/calendar.data.js":
-/*!*************************************************!*\
-  !*** ./src/script/alpine/data/calendar.data.js ***!
-  \*************************************************/
-/***/ (() => {
-
-// import { CalendarType, DateFormatType } from "$common/types";
-// import { calendarTypeMap } from "$scripts/alpine/utils/calendar";
-
-// export function calendarData(inputs: {
-//   date?: string;
-//   format?: DateFormatType;
-//   calendarType?: CalendarType;
-//   disabledDates?: string[];
-//   minYear?: number | undefined;
-//   maxYear?: number | undefined;
-// }) {
-//   return {
-//     async init() {
-//       if (this.minYear && this.maxYear && this.maxYear < this.maxYear) {
-//         throw new Error("max year cannot be lesser than min year");
-//       }
-//       this.dateRegulation(this.fullDate);
-
-//       this.$watch("fullDate", (fullDateValue) => {
-//         this.dateRegulation(fullDateValue);
-//       });
-//       this.$watch("selectedMonth", () => {
-//         this.dispatchDate("select-month");
-//         this.calculateDaysInMonth();
-//       });
-//       this.$watch("selectedYear", () => {
-//         this.dispatchDate("select-year");
-//         this.calculateDaysInMonth();
-//       });
-//     },
-//     type: inputs?.calendarType ?? "gregorian",
-//     format: inputs?.format ?? "MMMM d, YYYY",
-//     selectedMonth: -1,
-//     selectedYear: 0,
-//     selectedDay: "",
-//     minYear: inputs?.minYear,
-//     maxYear: inputs?.maxYear,
-//     fullDate: inputs?.date || new Date().toDateString(),
-//     daysInMonth: [],
-//     blankDaysInMonth: [],
-//     disabledDates: inputs?.disabledDates ?? [],
-//     months: inputs?.calendarType
-//       ? calendarTypeMap.get(inputs?.calendarType).months
-//       : calendarTypeMap.get("gregorian").months,
-//     weekDays: inputs?.calendarType
-//       ? calendarTypeMap.get(inputs?.calendarType).weekDays
-//       : calendarTypeMap.get("gregorian").weekDays,
-//     weekDayNamesShorten() {
-//       return this.weekDays.map((day) => day.slice(0, 3));
-//     },
-//     selectDay(day: number) {
-//       let selectedDate = new Date(this.selectedYear, this.selectedMonth, day);
-//       this.selectedDay = day;
-//       this.fullDate = selectedDate;
-//     },
-//     selectMonth(monthName: string) {
-//       this.selectedMonth = this.months.findIndex(
-//         (month) => month === monthName
-//       );
-//       if (this.selectedMonth < 0) {
-//         this.selectedMonth = 1;
-//       }
-//     },
-//     selectPreviousMonth() {
-//       if (this.selectedMonth === 0) {
-//         this.selectedYear--;
-//         this.selectedMonth = 12;
-//       }
-//       this.selectedMonth--;
-//     },
-//     selectNextMonth() {
-//       if (this.selectedMonth == 11) {
-//         this.selectedMonth = 0;
-//         this.selectedYear++;
-//       } else {
-//         this.selectedMonth++;
-//       }
-//     },
-//     selectYear(year: number) {
-//       this.selectedYear = String(year);
-//     },
-//     selectTodayAsDate() {
-//       this.fullDate = new Date().toISOString();
-//     },
-//     isSelectedDay(day: number) {
-//       const d = new Date(this.selectedYear, this.selectedMonth, day);
-//       return (
-//         this.$formatDate(this.fullDate, this.format, this.type) ===
-//         this.$formatDate(d, this.format, this.type)
-//       );
-//     },
-//     isToday(day: number) {
-//       const today = new Date();
-//       const d = new Date(this.selectedYear, this.selectedMonth, day);
-//       return today.toDateString() === d.toDateString();
-//     },
-//     isDisabledDay(day: number) {
-//       const date = new Date(this.selectedYear, this.selectedMonth, day);
-//       if (this.minYear && this.minYear > -1) {
-//         return this.selectedYear < this.minYear;
-//       }
-//       if (this.maxYear && this.maxYear > -1) {
-//         return this.selectedYear > this.maxYear;
-//       }
-//       return this.disabledDates.some((d) => {
-//         return new Date(d).toDateString() === date.toDateString();
-//       });
-//     },
-//     isDisabledPreviousMonth() {
-//       return this.selectedMonth === 0 && this.selectedYear <= this.minYear;
-//     },
-//     isDisabledNextMonth() {
-//       return this.selectedMonth === 11 && this.selectedYear >= this.maxYear;
-//     },
-//     calculateDaysInMonth() {
-//       let daysInMonth = new Date(
-//         this.selectedYear,
-//         this.selectedMonth + 1,
-//         0
-//       ).getDate();
-//       // find where to start calendar day of week
-//       let dayOfWeek = new Date(this.selectedYear, this.selectedMonth).getDay();
-//       let blankdaysArray = [];
-//       for (var i = 1; i <= dayOfWeek; i++) {
-//         blankdaysArray.push(i);
-//       }
-//       let daysArray = [];
-//       for (var i = 1; i <= daysInMonth; i++) {
-//         daysArray.push(i);
-//       }
-//       this.blankDaysInMonth = blankdaysArray;
-//       this.daysInMonth = daysArray;
-//     },
-//     dispatchDate(dispatchName: string) {
-//       const date = new Date(
-//         this.selectedYear,
-//         this.selectedMonth,
-//         this.selectedDay
-//       );
-//       this.$dispatch(dispatchName, {
-//         formattedDate: this.$formatDate(
-//           date.toDateString(),
-//           this.format,
-//           this.type
-//         ),
-//         date,
-//         dateInMilliseconds: Date.parse(date.toDateString()),
-//       });
-//     },
-//     dateRegulation(fullDate: string) {
-//       this.$dispatch("select-date", {
-//         formattedDate: this.$formatDate(fullDate, this.format, this.type),
-//         date: new Date(fullDate),
-//         dateInMilliseconds: Date.parse(this.fullDate),
-//       });
-//       const currentDate: Date = new Date(fullDate);
-//       this.selectedMonth = currentDate.getMonth();
-//       this.selectedYear = currentDate.getFullYear();
-//       this.selectedDay = currentDate.getDate();
-//       this.calculateDaysInMonth();
-//     },
-//   };
-// }
-
-/***/ }),
-
 /***/ "./src/script/alpine/data/carousel.data.js":
 /*!*************************************************!*\
   !*** ./src/script/alpine/data/carousel.data.js ***!
   \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   carouselData: () => (/* binding */ carouselData)
@@ -4803,51 +4627,12 @@ function carouselData(carouselInputs) {
 
 /***/ }),
 
-/***/ "./src/script/alpine/data/datepicker.data.js":
-/*!***************************************************!*\
-  !*** ./src/script/alpine/data/datepicker.data.js ***!
-  \***************************************************/
-/***/ (() => {
-
-// import { CalendarType, DateFormatType } from "$common/types";
-
-// export function datepickerData(
-//   date: string,
-//   format: DateFormatType,
-//   calendarType: CalendarType = "gregorian"
-// ) {
-//   return {
-//     datePickerOpen: false,
-//     datePickerValue: date
-//       ? format
-//         ? this.$formatDate(date, format, calendarType)
-//         : date
-//       : "",
-//     open() {
-//       this.datePickerOpen = true;
-//     },
-//     close() {
-//       this.datePickerOpen = false;
-//     },
-//     toggle() {
-//       this.datePickerOpen = !this.datePickerOpen;
-//     },
-//     pickDate(selectedDate) {
-//       this.datePickerValue = selectedDate;
-//       this.datePickerOpen = false;
-//     },
-//   };
-// }
-
-/***/ }),
-
 /***/ "./src/script/alpine/data/dropdown-select.data.js":
 /*!********************************************************!*\
   !*** ./src/script/alpine/data/dropdown-select.data.js ***!
   \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   dropdownSelectData: () => (/* binding */ dropdownSelectData)
@@ -5021,7 +4806,6 @@ function dropdownSelectData() {
   \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   dropdownData: () => (/* binding */ dropdownData)
@@ -5229,7 +5013,6 @@ function dropdownData() {
   \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   groupAccordionData: () => (/* binding */ groupAccordionData)
@@ -5265,7 +5048,6 @@ function groupAccordionData() {
   \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   imagepickerData: () => (/* binding */ imagepickerData)
@@ -5400,7 +5182,6 @@ function imagepickerData() {
   \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   modalData: () => (/* binding */ modalData)
@@ -5465,7 +5246,6 @@ function modalData() {
   \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   paginationData: () => (/* binding */ paginationData)
@@ -5532,7 +5312,6 @@ function paginationData(pages) {
   \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   progressData: () => (/* binding */ progressData)
@@ -5613,60 +5392,127 @@ function progressData() {
 /*!*****************************************************!*\
   !*** ./src/script/alpine/data/rest-gallery.data.js ***!
   \*****************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// import { ImageType } from "$common/types";
-// import { RestGalleryRestEffectType } from "$components/gallery/rest/types";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   restGalleryData: () => (/* binding */ restGalleryData)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+/**
+ * @typedef {Object} RestGalleryDataOutput
+ * @property {import("$components/image.component").ImageType[]} images
+ * @property {number} nbDisplayedImages
+ * @property {number} nbRestImages
+ * @property {import("$components/image.component").ImageType[]} displayedImages
+ * @property {Function} showAllImages
+ * @property {Function} updateRestImageHeight
+ * @property {(images: import("$components/image.component").ImageType[]) => Promise<void>} initializeImage
+ */
 
-// export function restGalleryData(
-//   images: ImageType[] = [],
-//   nbDisplayedImages: number = 3,
-//   restEffect: RestGalleryRestEffectType = "show-all"
-// ) {
-//   return {
-//     async init() {
-//       this.initializeImage(this.images);
-
-//       this.$watch("images", async (imagesValue) => {
-//         this.initializeImage(imagesValue);
-//       });
-//     },
-//     images,
-//     nbDisplayedImages,
-//     nbRestImages: 0,
-//     displayedImages: [],
-//     showAllImages() {
-//       this.displayedImages = this.images;
-//     },
-//     clickOnRestImage() {
-//       switch (restEffect) {
-//         case "zoom":
-//           break;
-//         case "show-all":
-//         default:
-//           this.showAllImages();
-//           break;
-//       }
-//     },
-//     updateRestImageHeight() {
-//       const firstChildrenHeight =
-//         this.$refs.restGallery.children[1].getBoundingClientRect().height;
-//       if (this.$refs.restImage) {
-//         this.$refs.restImage.style.height = firstChildrenHeight + "px";
-//       }
-//     },
-//     async initializeImage(images) {
-//       this.displayedImages = images.slice(0, this.nbDisplayedImages);
-//       this.nbRestImages = images.length - this.nbDisplayedImages;
-//       await this.$nextTick();
-//       this.updateRestImageHeight();
-//       window.addEventListener("resize", async () => {
-//         await this.$nextTick();
-//         this.updateRestImageHeight();
-//       });
-//     },
-//   };
-// }
+/**
+ * Rest Gallery data props
+ * @param {import("$components/image.component").ImageType[]} images
+ * @param {number} nbDisplayedImages
+ * @param {import("$components/galleries.component").RestGalleryRestEffectType} restEffect
+ * @returns {import("alpinejs").AlpineComponent<RestGalleryDataOutput>}
+ */
+function restGalleryData() {
+  var images = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var nbDisplayedImages = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 3;
+  var restEffect = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "show-all";
+  return {
+    init: function init() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _this.initializeImage(_this.images);
+              _this.$watch("images", /*#__PURE__*/function () {
+                var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(imagesValue) {
+                  return _regeneratorRuntime().wrap(function _callee$(_context) {
+                    while (1) switch (_context.prev = _context.next) {
+                      case 0:
+                        _this.initializeImage(imagesValue);
+                      case 1:
+                      case "end":
+                        return _context.stop();
+                    }
+                  }, _callee);
+                }));
+                return function (_x) {
+                  return _ref.apply(this, arguments);
+                };
+              }());
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    images: images,
+    nbDisplayedImages: nbDisplayedImages,
+    nbRestImages: 0,
+    displayedImages: [],
+    showAllImages: function showAllImages() {
+      this.displayedImages = this.images;
+    },
+    clickOnRestImage: function clickOnRestImage() {
+      switch (restEffect) {
+        case "zoom":
+          break;
+        case "show-all":
+        default:
+          this.showAllImages();
+          break;
+      }
+    },
+    updateRestImageHeight: function updateRestImageHeight() {
+      var firstChildrenHeight = this.$refs.restGallery.children[1].getBoundingClientRect().height;
+      if (this.$refs.restImage) {
+        this.$refs.restImage.style.height = firstChildrenHeight + "px";
+      }
+    },
+    initializeImage: function initializeImage(images) {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
+            case 0:
+              _this2.displayedImages = images.slice(0, _this2.nbDisplayedImages);
+              _this2.nbRestImages = images.length - _this2.nbDisplayedImages;
+              _context4.next = 4;
+              return _this2.$nextTick();
+            case 4:
+              _this2.updateRestImageHeight();
+              window.addEventListener("resize", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+                return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+                  while (1) switch (_context3.prev = _context3.next) {
+                    case 0:
+                      _context3.next = 2;
+                      return _this2.$nextTick();
+                    case 2:
+                      _this2.updateRestImageHeight();
+                    case 3:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }, _callee3);
+              })));
+            case 6:
+            case "end":
+              return _context4.stop();
+          }
+        }, _callee4);
+      }))();
+    }
+  };
+}
 
 /***/ }),
 
@@ -5676,7 +5522,6 @@ function progressData() {
   \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   sidebarData: () => (/* binding */ sidebarData)
@@ -5732,7 +5577,6 @@ function sidebarData() {
   \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   soloAccordionData: () => (/* binding */ soloAccordionData)
@@ -5784,7 +5628,6 @@ function soloAccordionData() {
   \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   switchCheckboxData: () => (/* binding */ switchCheckboxData)
@@ -5829,7 +5672,6 @@ function switchCheckboxData() {
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   tabsData: () => (/* binding */ tabsData)
@@ -5891,7 +5733,6 @@ function tabsData() {
   \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   tooltipData: () => (/* binding */ tooltipData)
@@ -5955,7 +5796,6 @@ function tooltipData() {
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   treeData: () => (/* binding */ treeData)
@@ -6015,7 +5855,6 @@ function treeData(root) {
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   zoomData: () => (/* binding */ zoomData)
@@ -6090,7 +5929,6 @@ function zoomData() {
   \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   capitalizeDirective: () => (/* binding */ capitalizeDirective)
@@ -6117,7 +5955,6 @@ function capitalizeDirective(el) {
   \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   dateFormatDirective: () => (/* binding */ dateFormatDirective)
@@ -6141,7 +5978,6 @@ function dateFormatDirective(el, _ref) {
   \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   logDirective: () => (/* binding */ logDirective)
@@ -6172,7 +6008,6 @@ function logDirective(el, _ref, _ref2) {
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -6181,40 +6016,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _alpinejs_focus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @alpinejs/focus */ "./node_modules/@alpinejs/focus/dist/module.esm.js");
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 /* harmony import */ var alpinejs_manage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! alpinejs-manage */ "./node_modules/alpinejs-manage/dist/manage.esm.js");
-/* harmony import */ var _data_calendar_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data/calendar.data */ "./src/script/alpine/data/calendar.data.js");
-/* harmony import */ var _data_calendar_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_data_calendar_data__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _data_carousel_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./data/carousel.data */ "./src/script/alpine/data/carousel.data.js");
-/* harmony import */ var _data_datepicker_data__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./data/datepicker.data */ "./src/script/alpine/data/datepicker.data.js");
-/* harmony import */ var _data_datepicker_data__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_data_datepicker_data__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _data_dropdown_data__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./data/dropdown.data */ "./src/script/alpine/data/dropdown.data.js");
-/* harmony import */ var _data_dropdown_select_data__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./data/dropdown-select.data */ "./src/script/alpine/data/dropdown-select.data.js");
-/* harmony import */ var _data_group_accordion_data__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./data/group-accordion.data */ "./src/script/alpine/data/group-accordion.data.js");
-/* harmony import */ var _data_imagepicker_data__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./data/imagepicker.data */ "./src/script/alpine/data/imagepicker.data.js");
-/* harmony import */ var _data_modal_data__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./data/modal.data */ "./src/script/alpine/data/modal.data.js");
-/* harmony import */ var _data_pagination_data__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./data/pagination.data */ "./src/script/alpine/data/pagination.data.js");
-/* harmony import */ var _data_progress_data__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./data/progress.data */ "./src/script/alpine/data/progress.data.js");
-/* harmony import */ var _data_rest_gallery_data__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./data/rest-gallery.data */ "./src/script/alpine/data/rest-gallery.data.js");
-/* harmony import */ var _data_rest_gallery_data__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_data_rest_gallery_data__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _data_sidebar_data__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./data/sidebar.data */ "./src/script/alpine/data/sidebar.data.js");
-/* harmony import */ var _data_solo_accordion_data__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./data/solo-accordion.data */ "./src/script/alpine/data/solo-accordion.data.js");
-/* harmony import */ var _data_switch_checkbox_data__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./data/switch-checkbox.data */ "./src/script/alpine/data/switch-checkbox.data.js");
-/* harmony import */ var _data_tabs_data__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./data/tabs.data */ "./src/script/alpine/data/tabs.data.js");
-/* harmony import */ var _data_tooltip_data__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./data/tooltip.data */ "./src/script/alpine/data/tooltip.data.js");
-/* harmony import */ var _data_zoom_data__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./data/zoom.data */ "./src/script/alpine/data/zoom.data.js");
-/* harmony import */ var _directive_capitalize_directive__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./directive/capitalize.directive */ "./src/script/alpine/directive/capitalize.directive.js");
-/* harmony import */ var _directive_format_date_directive__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./directive/format-date.directive */ "./src/script/alpine/directive/format-date.directive.js");
-/* harmony import */ var _directive_log_directive__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./directive/log.directive */ "./src/script/alpine/directive/log.directive.js");
-/* harmony import */ var _magic_clipboard_magic__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./magic/clipboard.magic */ "./src/script/alpine/magic/clipboard.magic.js");
-/* harmony import */ var _magic_format_date_magic__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./magic/format-date.magic */ "./src/script/alpine/magic/format-date.magic.js");
-/* harmony import */ var _magic_now_magic__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./magic/now.magic */ "./src/script/alpine/magic/now.magic.js");
-/* harmony import */ var _data_tree_data__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./data/tree.data */ "./src/script/alpine/data/tree.data.js");
+/* harmony import */ var _data_carousel_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data/carousel.data */ "./src/script/alpine/data/carousel.data.js");
+/* harmony import */ var _data_dropdown_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./data/dropdown.data */ "./src/script/alpine/data/dropdown.data.js");
+/* harmony import */ var _data_dropdown_select_data__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./data/dropdown-select.data */ "./src/script/alpine/data/dropdown-select.data.js");
+/* harmony import */ var _data_group_accordion_data__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./data/group-accordion.data */ "./src/script/alpine/data/group-accordion.data.js");
+/* harmony import */ var _data_imagepicker_data__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./data/imagepicker.data */ "./src/script/alpine/data/imagepicker.data.js");
+/* harmony import */ var _data_modal_data__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./data/modal.data */ "./src/script/alpine/data/modal.data.js");
+/* harmony import */ var _data_pagination_data__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./data/pagination.data */ "./src/script/alpine/data/pagination.data.js");
+/* harmony import */ var _data_progress_data__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./data/progress.data */ "./src/script/alpine/data/progress.data.js");
+/* harmony import */ var _data_rest_gallery_data__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./data/rest-gallery.data */ "./src/script/alpine/data/rest-gallery.data.js");
+/* harmony import */ var _data_sidebar_data__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./data/sidebar.data */ "./src/script/alpine/data/sidebar.data.js");
+/* harmony import */ var _data_solo_accordion_data__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./data/solo-accordion.data */ "./src/script/alpine/data/solo-accordion.data.js");
+/* harmony import */ var _data_switch_checkbox_data__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./data/switch-checkbox.data */ "./src/script/alpine/data/switch-checkbox.data.js");
+/* harmony import */ var _data_tabs_data__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./data/tabs.data */ "./src/script/alpine/data/tabs.data.js");
+/* harmony import */ var _data_tooltip_data__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./data/tooltip.data */ "./src/script/alpine/data/tooltip.data.js");
+/* harmony import */ var _data_zoom_data__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./data/zoom.data */ "./src/script/alpine/data/zoom.data.js");
+/* harmony import */ var _directive_capitalize_directive__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./directive/capitalize.directive */ "./src/script/alpine/directive/capitalize.directive.js");
+/* harmony import */ var _directive_format_date_directive__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./directive/format-date.directive */ "./src/script/alpine/directive/format-date.directive.js");
+/* harmony import */ var _directive_log_directive__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./directive/log.directive */ "./src/script/alpine/directive/log.directive.js");
+/* harmony import */ var _magic_clipboard_magic__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./magic/clipboard.magic */ "./src/script/alpine/magic/clipboard.magic.js");
+/* harmony import */ var _magic_format_date_magic__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./magic/format-date.magic */ "./src/script/alpine/magic/format-date.magic.js");
+/* harmony import */ var _magic_now_magic__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./magic/now.magic */ "./src/script/alpine/magic/now.magic.js");
+/* harmony import */ var _data_tree_data__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./data/tree.data */ "./src/script/alpine/data/tree.data.js");
 
 
 
 
 
+// import { calendarData } from "./data/calendar.data";
 
-
+// import { datepickerData } from "./data/datepicker.data";
 
 
 
@@ -6238,35 +6069,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* Data */
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("calendar", _data_calendar_data__WEBPACK_IMPORTED_MODULE_4__.calendarData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("carousel", _data_carousel_data__WEBPACK_IMPORTED_MODULE_5__.carouselData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("datepicker", _data_datepicker_data__WEBPACK_IMPORTED_MODULE_6__.datepickerData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("dropdown", _data_dropdown_data__WEBPACK_IMPORTED_MODULE_7__.dropdownData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("dropdownSelect", _data_dropdown_select_data__WEBPACK_IMPORTED_MODULE_8__.dropdownSelectData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("groupAccordion", _data_group_accordion_data__WEBPACK_IMPORTED_MODULE_9__.groupAccordionData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("imagepicker", _data_imagepicker_data__WEBPACK_IMPORTED_MODULE_10__.imagepickerData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("modal", _data_modal_data__WEBPACK_IMPORTED_MODULE_11__.modalData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("pagination", _data_pagination_data__WEBPACK_IMPORTED_MODULE_12__.paginationData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("progress", _data_progress_data__WEBPACK_IMPORTED_MODULE_13__.progressData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("restGallery", _data_rest_gallery_data__WEBPACK_IMPORTED_MODULE_14__.restGalleryData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("soloAccordion", _data_solo_accordion_data__WEBPACK_IMPORTED_MODULE_16__.soloAccordionData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("sidebar", _data_sidebar_data__WEBPACK_IMPORTED_MODULE_15__.sidebarData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("switchCheckbox", _data_switch_checkbox_data__WEBPACK_IMPORTED_MODULE_17__.switchCheckboxData);
+// Alpine.data("calendar", calendarData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("carousel", _data_carousel_data__WEBPACK_IMPORTED_MODULE_4__.carouselData);
+// Alpine.data("datepicker", datepickerData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("dropdown", _data_dropdown_data__WEBPACK_IMPORTED_MODULE_5__.dropdownData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("dropdownSelect", _data_dropdown_select_data__WEBPACK_IMPORTED_MODULE_6__.dropdownSelectData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("groupAccordion", _data_group_accordion_data__WEBPACK_IMPORTED_MODULE_7__.groupAccordionData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("imagepicker", _data_imagepicker_data__WEBPACK_IMPORTED_MODULE_8__.imagepickerData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("modal", _data_modal_data__WEBPACK_IMPORTED_MODULE_9__.modalData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("pagination", _data_pagination_data__WEBPACK_IMPORTED_MODULE_10__.paginationData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("progress", _data_progress_data__WEBPACK_IMPORTED_MODULE_11__.progressData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("restGallery", _data_rest_gallery_data__WEBPACK_IMPORTED_MODULE_12__.restGalleryData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("soloAccordion", _data_solo_accordion_data__WEBPACK_IMPORTED_MODULE_14__.soloAccordionData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("sidebar", _data_sidebar_data__WEBPACK_IMPORTED_MODULE_13__.sidebarData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("switchCheckbox", _data_switch_checkbox_data__WEBPACK_IMPORTED_MODULE_15__.switchCheckboxData);
 // Alpine.data("table", tableData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tabs", _data_tabs_data__WEBPACK_IMPORTED_MODULE_18__.tabsData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tooltip", _data_tooltip_data__WEBPACK_IMPORTED_MODULE_19__.tooltipData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tree", _data_tree_data__WEBPACK_IMPORTED_MODULE_27__.treeData);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("zoom", _data_zoom_data__WEBPACK_IMPORTED_MODULE_20__.zoomData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tabs", _data_tabs_data__WEBPACK_IMPORTED_MODULE_16__.tabsData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tooltip", _data_tooltip_data__WEBPACK_IMPORTED_MODULE_17__.tooltipData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tree", _data_tree_data__WEBPACK_IMPORTED_MODULE_25__.treeData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("zoom", _data_zoom_data__WEBPACK_IMPORTED_MODULE_18__.zoomData);
 
 /* Directive */
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].directive("capitalize", _directive_capitalize_directive__WEBPACK_IMPORTED_MODULE_21__.capitalizeDirective);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].directive("date-format", _directive_format_date_directive__WEBPACK_IMPORTED_MODULE_22__.dateFormatDirective);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].directive("log", _directive_log_directive__WEBPACK_IMPORTED_MODULE_23__.logDirective);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].directive("capitalize", _directive_capitalize_directive__WEBPACK_IMPORTED_MODULE_19__.capitalizeDirective);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].directive("date-format", _directive_format_date_directive__WEBPACK_IMPORTED_MODULE_20__.dateFormatDirective);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].directive("log", _directive_log_directive__WEBPACK_IMPORTED_MODULE_21__.logDirective);
 
 /* Magic */
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].magic("clipboard", _magic_clipboard_magic__WEBPACK_IMPORTED_MODULE_24__.clipboardMagic);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].magic("formatDate", _magic_format_date_magic__WEBPACK_IMPORTED_MODULE_25__.formatDateMagic);
-alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].magic("now", _magic_now_magic__WEBPACK_IMPORTED_MODULE_26__.nowMagic);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].magic("clipboard", _magic_clipboard_magic__WEBPACK_IMPORTED_MODULE_22__.clipboardMagic);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].magic("formatDate", _magic_format_date_magic__WEBPACK_IMPORTED_MODULE_23__.formatDateMagic);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].magic("now", _magic_now_magic__WEBPACK_IMPORTED_MODULE_24__.nowMagic);
 
 /* Plugins */
 alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].plugin(_alpinejs_collapse__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -6282,7 +6113,6 @@ alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].plugin(alpinejs_manage__WEBPACK
   \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   clipboardMagic: () => (/* binding */ clipboardMagic)
@@ -6325,7 +6155,6 @@ function clipboardMagic() {
   \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   formatDateMagic: () => (/* binding */ formatDateMagic)
@@ -6427,7 +6256,6 @@ function formatDateMagic() {
   \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   nowMagic: () => (/* binding */ nowMagic)
@@ -6471,18 +6299,6 @@ function nowMagic() {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -6513,9 +6329,8 @@ function nowMagic() {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!***************************!*\
   !*** ./src/script/app.js ***!
   \***************************/

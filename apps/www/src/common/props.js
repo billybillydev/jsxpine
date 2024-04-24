@@ -36,7 +36,7 @@
 
 /**
  * @typedef PositionProps
- * @property {import("src/common/types").DirectionType} [position]
+ * @property {import("src/common/types").PositionType} [position]
  */
 
 /**

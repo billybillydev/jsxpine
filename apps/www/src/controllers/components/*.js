@@ -5,6 +5,7 @@ import { badgesController } from "$controllers/components/badges.controller";
 import { buttonsController } from "$controllers/components/buttons.controller";
 import { cardController } from "$controllers/components/card.controller";
 import { checkboxController } from "$controllers/components/checkbox.controller";
+import { dropdownController } from "$controllers/components/dropdown.controller";
 import { inputsController } from "$controllers/components/inputs.controller";
 import { radioController } from "$controllers/components/radio.controller";
 import { rangeSliderController } from "$controllers/components/range-slider.controller";
@@ -25,6 +26,7 @@ export const componentsController = new Hono()
 	.route("/buttons", buttonsController)
 	.route("/card", cardController)
 	.route("/checkbox", checkboxController)
+	.route("/dropdown", dropdownController)
 	.route("/inputs", inputsController)
 	.route("/radio", radioController)
 	// .route("/range-slider", rangeSliderController)

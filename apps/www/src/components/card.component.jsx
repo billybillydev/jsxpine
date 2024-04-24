@@ -27,7 +27,7 @@ import clsx from "clsx";
 
 /**
  * @typedef CardProps
- * @type {{ image?: import("$components/image.component").ImageType } & CardBodyProps & import("$common/props").HTMLTagWithChildren & import("$common/props").PositionProps}
+ * @type {{ image?: import("$components/image.component").ImageType } & CardBodyProps & import("$common/props").HTMLTagWithChildren & import("$common/props").DirectionProps}
  */
 
 /**
@@ -131,7 +131,7 @@ export function Card(props) {
 	const {
 		children,
 		class: className,
-		position = "vertical",
+		direction = "vertical",
 		image,
 		title,
 		text,
@@ -142,7 +142,7 @@ export function Card(props) {
 	/**
 	 * @type {Map<import("$common/types").DirectionType, string>}
 	 */
-	const positionClassMap = new Map([
+	const directionClassMap = new Map([
 		["vertical", "flex-col"],
 		["horizontal", "flex-row"]
 	]);
@@ -150,7 +150,7 @@ export function Card(props) {
 		<div
 			class={clsx(
 				"flex rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm w-full",
-				positionClassMap.get(position),
+				directionClassMap.get(direction),
 				className
 			)}
 		>
@@ -159,7 +159,7 @@ export function Card(props) {
 					{image ? (
 						<CardImage
 							class={
-								position === "vertical" ? "w-full h-auto" : "w-auto h-full"
+								direction === "vertical" ? "w-full h-auto" : "w-auto h-full"
 							}
 							src={image.src}
 							alt={image.alt}

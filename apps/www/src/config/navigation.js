@@ -499,10 +499,6 @@ export const SIDEBAR = [
               slug: "tooltip-as-text",
             },
             {
-              text: "Tooltip as HTML",
-              slug: "tooltip-as-html",
-            },
-            {
               text: "Tooltip as Component",
               slug: "tooltip-as-component",
             },

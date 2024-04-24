@@ -7,7 +7,7 @@ import { textSizeClassMap } from "$common/classes";
 
 /**
  * @typedef TooltipProps
- * @type {{ text?: string, component?: JSX.HtmlTag, triggerOnHover?: boolean, position?: TooltipPositionType } & import("$common/props").HTMLTagWithChildren & import("$common/props").SizeProps & import("$common/props").ThemeColorProps}
+ * @type {{ text?: string, component?: JSX.Element, triggerOnHover?: boolean, position?: TooltipPositionType } & import("$common/props").HTMLTagWithChildren & import("$common/props").SizeProps & import("$common/props").ThemeColorProps}
  */
 
 /**

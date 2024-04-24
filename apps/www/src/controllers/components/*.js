@@ -8,6 +8,7 @@ import { inputsController } from "$controllers/components/inputs.controller";
 import { radioController } from "$controllers/components/radio.controller";
 import { selectController } from "$controllers/components/select.controller";
 import { tabsController } from "$controllers/components/tabs.controller";
+import { tooltipsController } from "$controllers/components/tooltips.controller";
 import { Hono } from "hono";
 
 export const componentsController = new Hono()
@@ -23,4 +24,5 @@ export const componentsController = new Hono()
 	.route("/inputs", inputsController)
 	.route("/radio", radioController)
 	.route("/select", selectController)
-	.route("/tabs", tabsController);
+	.route("/tabs", tabsController)
+	.route("/tooltips", tooltipsController);

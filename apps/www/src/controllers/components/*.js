@@ -8,9 +8,9 @@ import { carouselController } from "$controllers/components/carousel.controller"
 import { checkboxController } from "$controllers/components/checkbox.controller";
 import { dropdownController } from "$controllers/components/dropdown.controller";
 import { galleriesController } from "$controllers/components/galleries.controller";
+import { imagePickerController } from "$controllers/components/imagepicker.controller";
 import { inputsController } from "$controllers/components/inputs.controller";
 import { radioController } from "$controllers/components/radio.controller";
-import { rangeSliderController } from "$controllers/components/range-slider.controller";
 import { selectController } from "$controllers/components/select.controller";
 import { tabsController } from "$controllers/components/tabs.controller";
 import { tooltipsController } from "$controllers/components/tooltips.controller";
@@ -30,6 +30,7 @@ export const componentsController = new Hono()
 	.route("/carousel", carouselController)
 	.route("/checkbox", checkboxController)
 	.route("/dropdown", dropdownController)
+	.route("/imagepicker", imagePickerController)
 	.route("/inputs", inputsController)
 	.route("/galleries", galleriesController)
 	.route("/radio", radioController)

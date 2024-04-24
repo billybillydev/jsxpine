@@ -14,7 +14,7 @@ import clsx from "clsx";
 
 /**
  * @typedef RestGalleryProps
- * @type {{ images: import("$components/image.component").ImageType[], nbDisplayedImages?: number, restEffect?: RestGalleryRestEffectType, zoom?: boolean } & import("$common/props").HTMLTag}
+ * @type {{ images?: import("$components/image.component").ImageType[], nbDisplayedImages?: number, restEffect?: RestGalleryRestEffectType, zoom?: boolean } & import("$common/props").HTMLTag}
  */
 
 /**
@@ -23,7 +23,7 @@ import clsx from "clsx";
  */
 export function CarouselGallery(props) {
 	const {
-		images,
+		images = [],
 		thumbnailWidth = "10rem",
 		direction = "horizontal",
 		zoom = false,

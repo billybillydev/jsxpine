@@ -247,12 +247,12 @@ export const SIDEBAR = [
 							slug: "overview"
 						},
 						{
-							text: "Default ImagePicker",
-							slug: "default-imagepicker"
+							text: "Single ImagePicker",
+							slug: "single-imagepicker"
 						},
 						{
 							text: "Multiple Files ImagePicker",
-							slug: "multiple-files-imagepicker"
+							slug: "multiple-imagepicker"
 						}
 					]
 				}

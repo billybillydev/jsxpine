@@ -1,5 +1,6 @@
 import { SecondaryButton } from "$components/buttons.component";
-import { ImagePicker } from "$components/image-picker.component";
+import { RestGallery } from "$components/galleries.components";
+import { ImagePicker } from "$components/imagepicker.component";
 
 export function MultipleImagePickerExample() {
 	return (

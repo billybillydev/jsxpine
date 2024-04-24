@@ -1,5 +1,5 @@
 import { Button } from "$components/buttons.component";
-import { ImagePicker } from "$components/image-picker.component";
+import { ImagePicker } from "$components/imagepicker.component";
 import { Image } from "$components/image.component";
 
 export function SingleImagePickerExample() {

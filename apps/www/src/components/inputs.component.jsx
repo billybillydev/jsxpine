@@ -40,7 +40,7 @@ import clsx from "clsx";
 
 /**
  * @typedef SelectInputProps
- * @type {{ value?: string | number | string[], placeholder?: string, items: SelectOptionType[], hidePlaceholder?: boolean } & Omit<JSX.HtmlSelectTag, "className"> & import("$common/props").CLSXClassProps}
+ * @type {{ value?: string | number | string[], placeholder?: string, items?: SelectOptionType[], hidePlaceholder?: boolean } & Omit<JSX.HtmlSelectTag, "className"> & import("$common/props").CLSXClassProps}
  */
 
 /**

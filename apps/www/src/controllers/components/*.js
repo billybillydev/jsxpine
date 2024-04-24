@@ -10,6 +10,7 @@ import { dropdownController } from "$controllers/components/dropdown.controller"
 import { galleriesController } from "$controllers/components/galleries.controller";
 import { imagePickerController } from "$controllers/components/imagepicker.controller";
 import { inputsController } from "$controllers/components/inputs.controller";
+import { paginationsController } from "$controllers/components/paginations.controller";
 import { radioController } from "$controllers/components/radio.controller";
 import { selectController } from "$controllers/components/select.controller";
 import { switchController } from "$controllers/components/switch.controller";
@@ -34,6 +35,7 @@ export const componentsController = new Hono()
 	.route("/imagepicker", imagePickerController)
 	.route("/inputs", inputsController)
 	.route("/galleries", galleriesController)
+	.route("/paginations", paginationsController)
 	.route("/radio", radioController)
 	// .route("/range-slider", rangeSliderController)
 	.route("/select", selectController)

@@ -26,7 +26,7 @@ export function Select(props) {
 			class={clsx("relative w-full", className)}
 			{...{
 				...restProps,
-				"@keydown.escape": "if(selectOpen){ selectOpen=false; }",
+				"@keydown.escape": "if (selectOpen){ selectOpen = false; }",
 				"@keydown.down.prevent": `
                     if (selectOpen) {
                         selectableItemActiveNext();
@@ -55,7 +55,7 @@ export function Select(props) {
 				<span
 					x-text={`selectedItem ? selectedItem.label : "${placeholder}"`}
 					class="truncate text-center"
-				></span>
+				/>
 				{!noInputIcon && (
 					<span class="right-0 flex items-center pointer-events-none">
 						<Icon name="expand-up-down-line" stroke-width="0.5" />

@@ -1,3 +1,4 @@
+import { tailwindThemeConfig } from "$config/design";
 import { icons } from "@iconify-json/ri/index.js";
 
 /**
@@ -38,4 +39,9 @@ const iconsKeys = [...Object.keys(icons.icons)];
 /**
  * Variant Color Type enum
  * @typedef {"solid" | "outlined" | "inversed"} VariantColorType
+ */
+
+export const specificSizes = [...Object.keys(tailwindThemeConfig.width)];
+/**
+ * @typedef {typeof specificSizes[number]} SpecificSizeType
  */

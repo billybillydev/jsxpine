@@ -10,6 +10,10 @@ export async function AlertsPage(props) {
 	return (
 		<MainLayout {...props}>
 			<ComponentPresentation>
+				<section class="text-center">
+					<h1>Alerts</h1>
+				</section>
+				
 				{[
 					"Default",
 					"Primary",

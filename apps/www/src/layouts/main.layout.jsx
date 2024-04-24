@@ -5,7 +5,7 @@ import { LeftSidebar, RightSidebar } from "$views/navigations.view";
  * @type {import("$common/props").JSXComponent<import("$components/page.component").PageProps<{}>>}
  */
 export function MainLayout(props) {
-	const { currentUrl, children, class: className = "bg-slate-100 h-screen flex flex-col overflow-y-hidden relative", ...restProps } = props;
+	const { currentUrl, children, class: className = "bg-slate-100 h-screen flex flex-col", ...restProps } = props;
 	return (
 		<Page class={className} {...restProps}>
 			<div class="flex lg:grid lg:grid-cols-5 xl:grid-cols-6 overflow-y-hidden relative">
@@ -27,7 +27,7 @@ export function MainLayout(props) {
 									}
 								})
 							`}
-					class="lg:py-4 xl:px-[10%] p-2 mx-auto w-full flex lg:col-span-3 xl:col-span-4 overflow-y-auto scroll-smooth"
+					class="relative lg:py-4 xl:px-[10%] p-2 mx-auto w-full lg:col-span-3 xl:col-span-4 overflow-y-auto"
 				>
 					{children}
 				</main>

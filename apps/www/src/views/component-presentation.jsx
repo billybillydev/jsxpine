@@ -10,7 +10,7 @@ export function ComponentPresentation({ children, class: className }) {
 		"[&_h2]:underline [&_h2]:underline-offset-2 [&_h2]:font-medium [&_h2]:text-slate-700";
 	return (
 		<div
-			class={clsx("flex flex-col gap-y-6 w-full", className, emClass, h2Class)}
+			class={clsx("relative flex flex-col gap-y-6 w-full py-4", className, emClass, h2Class)}
 		>
 			{children}
 		</div>

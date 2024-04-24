@@ -160,7 +160,7 @@ export const SIDEBAR = [
 						{ text: "Default Carousel", slug: "default-carousel" },
 						{ text: "With Indicators", slug: "with-indicators" },
 						{ text: "Carousel Direction", slug: "carousel-direction" },
-						{ text: "Loop", slug: "loop" },
+						{ text: "Loop", slug: "carousel-loop" },
 						{ text: "Custom Slides", slug: "custom-slides" },
 						{ text: "Custom Navigations", slug: "custom-navigations" },
 						{ text: "Custom Indicators", slug: "custom-indicators" },

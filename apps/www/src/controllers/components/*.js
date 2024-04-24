@@ -4,6 +4,7 @@ import { avatarController } from "$controllers/components/avatar.controller";
 import { badgesController } from "$controllers/components/badges.controller";
 import { buttonsController } from "$controllers/components/buttons.controller";
 import { cardController } from "$controllers/components/card.controller";
+import { carouselController } from "$controllers/components/carousel.controller";
 import { checkboxController } from "$controllers/components/checkbox.controller";
 import { dropdownController } from "$controllers/components/dropdown.controller";
 import { inputsController } from "$controllers/components/inputs.controller";
@@ -25,6 +26,7 @@ export const componentsController = new Hono()
 	.route("/badges", badgesController)
 	.route("/buttons", buttonsController)
 	.route("/card", cardController)
+	.route("/carousel", carouselController)
 	.route("/checkbox", checkboxController)
 	.route("/dropdown", dropdownController)
 	.route("/inputs", inputsController)

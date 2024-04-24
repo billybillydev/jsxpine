@@ -26,6 +26,7 @@ import { logDirective } from "./directive/log.directive";
 import { clipboardMagic } from "./magic/clipboard.magic";
 import { formatDateMagic } from "./magic/format-date.magic";
 import { nowMagic } from "./magic/now.magic";
+import { treeData } from "./data/tree.data";
 
 /* Data */
 Alpine.data("calendar", calendarData);
@@ -45,7 +46,7 @@ Alpine.data("switchCheckbox", switchCheckboxData);
 // Alpine.data("table", tableData);
 Alpine.data("tabs", tabsData);
 Alpine.data("tooltip", tooltipData);
-// Alpine.data("tree", treeData);
+Alpine.data("tree", treeData);
 Alpine.data("zoom", zoomData);
 
 /* Directive */

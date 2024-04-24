@@ -5949,6 +5949,66 @@ function tooltipData() {
 
 /***/ }),
 
+/***/ "./src/script/alpine/data/tree.data.js":
+/*!*********************************************!*\
+  !*** ./src/script/alpine/data/tree.data.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   treeData: () => (/* binding */ treeData)
+/* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+/**
+ * @typedef {Object} TreeOutputData
+ * @property {import("$components/trees.component").TreeType}
+ * @property {Map<string, TreeType>} treeMap
+ * @property {(item: import("$components/trees.component").TreeType) => void} selectedItem
+ * @property {(parentId: string) => void} goToParent
+ * @property {(treeItem: import("$components/trees.component").TreeType) => void} recursiveTreeMap
+ */
+
+/**
+ * Tree alpine data
+ * @param {import("$components/trees.component").TreeType} root 
+ * @returns {import("alpinejs").AlpineComponent<TreeOutputData>}
+ */
+function treeData(root) {
+  return {
+    init: function init() {
+      this.recursiveTreeMap(this.root);
+    },
+    root: root,
+    treeMap: new Map([]),
+    selectedItem: root,
+    selectItem: function selectItem(item) {
+      this.selectedItem = item;
+      this.items = this.selectedItem.children;
+    },
+    goToParent: function goToParent(parentId) {
+      this.selectedItem = this.treeMap.get(parentId);
+    },
+    recursiveTreeMap: function recursiveTreeMap(treeItem) {
+      var _this = this;
+      this.treeMap.set(treeItem.id, treeItem);
+      if (treeItem.children) {
+        _toConsumableArray(treeItem.children).forEach(function (tree) {
+          _this.recursiveTreeMap(tree);
+        });
+      }
+    }
+  };
+}
+
+/***/ }),
+
 /***/ "./src/script/alpine/data/zoom.data.js":
 /*!*********************************************!*\
   !*** ./src/script/alpine/data/zoom.data.js ***!
@@ -6147,6 +6207,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _magic_clipboard_magic__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./magic/clipboard.magic */ "./src/script/alpine/magic/clipboard.magic.js");
 /* harmony import */ var _magic_format_date_magic__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./magic/format-date.magic */ "./src/script/alpine/magic/format-date.magic.js");
 /* harmony import */ var _magic_now_magic__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./magic/now.magic */ "./src/script/alpine/magic/now.magic.js");
+/* harmony import */ var _data_tree_data__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./data/tree.data */ "./src/script/alpine/data/tree.data.js");
+
 
 
 
@@ -6193,7 +6255,7 @@ alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("switchCheckbox", _data_sw
 // Alpine.data("table", tableData);
 alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tabs", _data_tabs_data__WEBPACK_IMPORTED_MODULE_18__.tabsData);
 alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tooltip", _data_tooltip_data__WEBPACK_IMPORTED_MODULE_19__.tooltipData);
-// Alpine.data("tree", treeData);
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("tree", _data_tree_data__WEBPACK_IMPORTED_MODULE_27__.treeData);
 alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].data("zoom", _data_zoom_data__WEBPACK_IMPORTED_MODULE_20__.zoomData);
 
 /* Directive */

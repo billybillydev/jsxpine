@@ -13,6 +13,7 @@ import { inputsController } from "$controllers/components/inputs.controller";
 import { modalsController } from "$controllers/components/modals.controller";
 import { paginationsController } from "$controllers/components/paginations.controller";
 import { radioController } from "$controllers/components/radio.controller";
+import { ratingsController } from "$controllers/components/ratings.controller";
 import { selectController } from "$controllers/components/select.controller";
 import { sidebarController } from "$controllers/components/sidebar.controller";
 import { switchController } from "$controllers/components/switch.controller";
@@ -40,6 +41,7 @@ export const componentsController = new Hono()
 	.route("/modals", modalsController)
 	.route("/paginations", paginationsController)
 	.route("/radio", radioController)
+	.route("/ratings", ratingsController)
 	// .route("/range-slider", rangeSliderController)
 	.route("/select", selectController)
 	.route("/sidebar", sidebarController)

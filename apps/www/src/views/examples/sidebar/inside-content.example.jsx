@@ -1,31 +1,33 @@
-import { SuccessButton } from "$components/buttons.component";
-import { Modal, ModalContent } from "$components/modals.component";
+import { SecondaryButton } from "$components/buttons.component";
+import {
+	Sidebar,
+	SidebarContent
+} from "$components/sidebar.component";
 
-export function SimpleButtonTriggerModalExample() {
+export function InsideContentSidebarExample() {
 	return (
 		<div
-			id="simple-modal-preview"
-			class="relative w-full h-96 overflow-y-auto flex items-center justify-center"
+			class="w-full h-96 flex items-center justify-center"
+			id="simple-sidebar-preview"
 		>
-			<Modal>
-				<SuccessButton
-					variant="outlined"
-					borderRadius="pill"
+			<Sidebar>
+				<SecondaryButton
+					variant="inversed"
+					text="Secondary Button"
 					x-bind="trigger"
-					text="Success Button as Trigger"
 				/>
-				<ModalContent
-					type="simple"
-					selector="#simple-modal-preview"
-					class="w-full h-full"
+				<SidebarContent
+					class="w-full"
+					position="bottom"
+					selector="#simple-sidebar-preview"
 				>
-					<div class="relative flex flex-wrap items-center w-full h-full px-8 py-4">
+					<div class="relative flex flex-wrap items-center w-full h-full p-2 md:p-8">
 						<div class="relative w-full max-w-sm mx-auto lg:mb-0">
 							<div class="relative text-center">
 								<div class="flex flex-col mb-6 space-y-2">
-									<h1 class="text-2xl font-semibold tracking-tight">
+									<h2 class="text-2xl font-semibold tracking-tight">
 										Create an account
-									</h1>
+									</h2>
 									<p class="text-sm text-neutral-500">
 										Enter your email below to create your account
 									</p>
@@ -91,8 +93,8 @@ export function SimpleButtonTriggerModalExample() {
 							</p>
 						</div>
 					</div>
-				</ModalContent>
-			</Modal>
+				</SidebarContent>
+			</Sidebar>
 		</div>
 	);
 }

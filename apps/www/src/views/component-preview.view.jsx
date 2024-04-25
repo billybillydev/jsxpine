@@ -27,7 +27,7 @@ export async function ComponentPreview(props) {
 				<TabHeaderItem title="Code" />
 			</TabsHeader>
 			<TabsBody>
-				<TabBodyItem id={props.id} class="component-preview">
+				<TabBodyItem class="component-preview">
 					<Component {...restProps} />
 				</TabBodyItem>
 				<TabBodyItem class="max-h-[40rem] rounded overflow-y-auto">

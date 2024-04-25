@@ -75,7 +75,8 @@ export function TabsHeader({ children, class: className }) {
  * TabsBodyItem component props
  * @type {import("$common/props").JSXComponent<TabBodyItemProps>}
  */
-export function TabBodyItem({ class: className, children }) {
+export function TabBodyItem(props) {
+	const { class: className, children } = props;
 	return (
 		<div
 			x-bind:id="$id(tabId + '-content')"

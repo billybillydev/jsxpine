@@ -87,7 +87,7 @@ export function Select(props) {
 					>
 						<Icon
 							name="check-line"
-							x-show="selectedItem.value == item.value"
+							x-show="selectedItem?.value == item.value"
 							class="absolute left-0 w-4 h-4 ml-2 stroke-current text-neutral-400"
 						/>
 						<span class="block font-medium truncate" x-text="item.label"></span>

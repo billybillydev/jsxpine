@@ -17,6 +17,7 @@ import { ratingsController } from "$controllers/components/ratings.controller";
 import { selectController } from "$controllers/components/select.controller";
 import { sidebarController } from "$controllers/components/sidebar.controller";
 import { switchController } from "$controllers/components/switch.controller";
+import { tableController } from "$controllers/components/table.controller";
 import { tabsController } from "$controllers/components/tabs.controller";
 import { tooltipsController } from "$controllers/components/tooltips.controller";
 import { treesController } from "$controllers/components/trees.controller";
@@ -46,6 +47,7 @@ export const componentsController = new Hono()
 	.route("/select", selectController)
 	.route("/sidebar", sidebarController)
 	.route("/switch", switchController)
+	.route("/table", tableController)
 	.route("/tabs", tabsController)
 	.route("/tooltips", tooltipsController)
 	.route("/trees", treesController);

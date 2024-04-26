@@ -29,7 +29,7 @@ import clsx from "clsx";
 /**
  * @typedef {Object} DefaultSelectOptionType
  * @property {string} label
- * @property {string} [value]
+ * @property {string | number} [value]
  * @property {boolean} [disabled]
  */
 
@@ -212,7 +212,7 @@ export function SelectInput(props) {
 				{placeholder}
 			</option>
 			{items.map((item) => {
-				return <option value={item.value}>{item.label}</option>;
+				return <option value={String(item.value)}>{item.label}</option>;
 			})}
 		</select>
 	);

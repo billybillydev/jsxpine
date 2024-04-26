@@ -27,6 +27,7 @@ import { clipboardMagic } from "./magic/clipboard.magic";
 import { formatDateMagic } from "./magic/format-date.magic";
 import { nowMagic } from "./magic/now.magic";
 import { treeData } from "./data/tree.data";
+import { tableData } from "./data/table.data";
 
 /* Data */
 // Alpine.data("calendar", calendarData);
@@ -43,7 +44,7 @@ Alpine.data("restGallery", restGalleryData);
 Alpine.data("soloAccordion", soloAccordionData)
 Alpine.data("sidebar", sidebarData);
 Alpine.data("switchCheckbox", switchCheckboxData);
-// Alpine.data("table", tableData);
+Alpine.data("table", tableData);
 Alpine.data("tabs", tabsData);
 Alpine.data("tooltip", tooltipData);
 Alpine.data("tree", treeData);

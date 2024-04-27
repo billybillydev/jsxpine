@@ -6,12 +6,32 @@ import { LeftSidebar, RightSidebar } from "$views/navigations.view";
 /**
  * @type {import("$common/props").JSXComponent<import("$components/page.component").PageProps<{}>>}
  */
-export function MainLayout(props) {
-	const { currentUrl, children, class: className = "bg-slate-100 h-screen flex flex-col", ...restProps } = props;
+export function RootLayout(props) {
+	const {
+		children,
+		class: className = "bg-slate-100 h-screen flex flex-col",
+		...restProps
+	} = props;
 	return (
 		<Page class={className} {...restProps}>
 			<Header />
-			<div class="flex lg:grid lg:grid-cols-5 xl:grid-cols-6 overflow-y-hidden relative">
+			{children}
+			<Footer />
+		</Page>
+	);
+}
+
+/**
+ * @type {import("$common/props").JSXComponent<import("$components/page.component").PageProps<{}>>}
+ */
+export function MainLayout(props) {
+	const { currentUrl, children, ...restProps } = props;
+	return (
+		<RootLayout {...restProps}>
+			<div
+				id="main-content"
+				class="flex lg:grid lg:grid-cols-5 xl:grid-cols-6 overflow-y-hidden relative"
+			>
 				<aside
 					title="Site Navigation"
 					class="col-span-1 sticky top-0 py-6 overflow-hidden hidden lg:flex border-r"
@@ -41,7 +61,6 @@ export function MainLayout(props) {
 					<RightSidebar currentPage={currentUrl || ""} />
 				</aside>
 			</div>
-			<Footer />
-		</Page>
+		</RootLayout>
 	);
 }

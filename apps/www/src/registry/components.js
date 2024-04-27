@@ -24,11 +24,11 @@ export const components = [
 		alpineDependencies: [],
 		registryDependencies: []
 	},
-	{
-		name: "calendar",
-		alpineDependencies: ["calendar"],
-		registryDependencies: ["button", "icon", "input", "select"]
-	},
+	// {
+	// 	name: "calendar",
+	// 	alpineDependencies: ["calendar"],
+	// 	registryDependencies: ["button", "icon", "input", "select"]
+	// },
 	{
 		name: "card",
 		alpineDependencies: [],
@@ -44,11 +44,11 @@ export const components = [
 		alpineDependencies: [],
 		registryDependencies: []
 	},
-	{
-		name: "datepicker",
-		alpineDependencies: ["datepicker"],
-		registryDependencies: ["calendar", "icon"]
-	},
+	// {
+	// 	name: "datepicker",
+	// 	alpineDependencies: ["datepicker"],
+	// 	registryDependencies: ["calendar", "icon"]
+	// },
 	{
 		name: "dropdown",
 		alpineDependencies: ["dropdown"],

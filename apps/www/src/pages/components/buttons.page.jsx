@@ -27,7 +27,7 @@ export function ButtonsPage(props) {
 
 				<section id="alpine-interop">
 					<h2>Alpine Interop</h2>
-					<p>We can use alpine properties such as _@click_ or _x:on-click_.</p>
+					<p>We can use alpine properties such as <em>@click</em> or <em>x:on-click</em>.</p>
 					<ComponentPreview filename="buttons/alpine-interop" />
 				</section>
 

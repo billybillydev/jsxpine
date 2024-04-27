@@ -27,7 +27,7 @@ export function Header() {
 							class="opacity-90 hover:opacity-100 hover:bg-blue-100 p-2 rounded-full transition-colors"
 							href={"https://twitter.com/" + SITE.twitter}
 						>
-							<img class="h-7" src="/icons/twitter.svg" alt="twitter logo" />
+							<img class="h-7" src="/public/icons/twitter.svg" alt="twitter logo" />
 						</a>
 					)}
 					{SITE.github && (
@@ -36,7 +36,7 @@ export function Header() {
 							class="opacity-80 hover:opacity-100 hover:bg-slate-200 p-2 rounded-full transition-colors"
 							href={"https://github.com/" + SITE.github}
 						>
-							<img class="h-7" src="/icons/github.svg" alt="github logo" />
+							<img class="h-7" src="/public/icons/github.svg" alt="github logo" />
 						</a>
 					)}
 					{SITE.linkedin && (
@@ -45,7 +45,7 @@ export function Header() {
 							class="opacity-80 hover:opacity-100 hover:bg-blue-50 p-2 rounded-full transition-colors"
 							href={"https://linkedin.com/in/" + SITE.linkedin}
 						>
-							<img class="h-7" src="/icons/linkedin.svg" alt="linkedin logo" />
+							<img class="h-7" src="/public/icons/linkedin.svg" alt="linkedin logo" />
 						</a>
 					)}
 				</div>

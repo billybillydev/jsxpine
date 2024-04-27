@@ -8,8 +8,6 @@ const app = new Hono();
 
 const staticFileMiddleware = serveStatic({ root: "./" });
 
-console.log({ staticFileMiddleware });
-
 app
 	.use("/public/*", staticFileMiddleware)
 	.route("/", homeController)

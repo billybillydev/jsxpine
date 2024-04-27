@@ -116,52 +116,50 @@ export const items = [
 		name: { text: "Richard Hendricks" },
 		age: { text: 30 },
 		address: {
-			component: raw(<AddressComponent text="Pied Piper HQ, Palo Alto" />)
+			component: (<AddressComponent text="Pied Piper HQ, Palo Alto" />).toString()
 		},
 		action: {
-			component: raw(<EditButtonComponent />)
+			component: (<EditButtonComponent />).toString()
 		}
 	},
 	{
 		name: { text: "Erlich Bachman" },
 		age: { text: 40 },
 		address: {
-			component: raw(
-				<AddressComponent text="5230 Penfield Ave, Woodland Hills" />
-			)
+			component: (<AddressComponent text="5230 Penfield Ave, Woodland Hills" />).toString()
 		},
 		action: {
-			component: raw(<EditButtonComponent />)
+			component: (<EditButtonComponent />).toString()
 		}
 	},
 	{
 		name: { text: "Monica Hall" },
 		age: { text: 35 },
 		address: {
-			component: raw(<AddressComponent text="2030 Stewart Drive, Sunnyvale" />)
+			component: (<AddressComponent text="2030 Stewart Drive, Sunnyvale" />).toString()
 		},
 		action: {
-			component: raw(<EditButtonComponent />)
+			component: (<EditButtonComponent />).toString()
 		}
 	},
 	{
 		name: { text: "Dinesh Chugtai" },
 		age: { text: 28 },
 		address: {
-			component: raw(<AddressComponent text="Pied Piper HQ, Palo Alto" />)
+			component: (<AddressComponent text="Pied Piper HQ, Palo Alto" />).toString()
 		},
 		action: {
-			component: raw(<EditButtonComponent />)
+			component: (<EditButtonComponent />).toString()
 		}
 	},
 	{
 		name: { text: "Gilfoyle" },
 		age: { text: 32 },
 		address: {
-			component: raw(<AddressComponent text="Pied Piper HQ, Palo Alto" />)
+			component: (<AddressComponent text="Pied Piper HQ, Palo Alto" />).toString()
 		},
 		action: {
-			component: raw(<EditButtonComponent />)
+			component: (<EditButtonComponent />).toString()
 		}
 	}
 ];

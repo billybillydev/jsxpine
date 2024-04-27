@@ -55,7 +55,7 @@ import clsx from "clsx";
 
 /**
  * @typedef {Object} TableBodyCellContentComponentType
- * @property {import("hono/utils/html").HtmlEscapedString} component
+ * @property {string} component
  */
 
 /**

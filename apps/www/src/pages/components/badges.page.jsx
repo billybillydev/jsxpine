@@ -1,6 +1,6 @@
-import { MainLayout } from "$layouts/main.layout";
+import { MainLayout } from "$views/layouts.view";
 import { capitalize } from "$lib";
-import { ComponentPresentation } from "$views/component-presentation";
+import { ComponentPresentation } from "$views/component-presentation.view";
 import { ComponentPreview } from "$views/component-preview.view";
 
 /**

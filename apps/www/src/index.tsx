@@ -6,8 +6,12 @@ import { componentsController } from "$controllers/components/*";
 
 const app = new Hono();
 
+const staticFileMiddleware = serveStatic({ root: "./" });
+
+console.log({ staticFileMiddleware });
+
 app
-	.use("/public/*", serveStatic({ root: "./" }))
+	.use("/public/*", staticFileMiddleware)
 	.route("/", homeController)
 	.route("/components", componentsController);
 

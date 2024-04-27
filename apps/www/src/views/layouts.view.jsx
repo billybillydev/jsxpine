@@ -1,4 +1,6 @@
 import { Page } from "$components/page.component";
+import { Footer } from "$views/footer.view";
+import { Header } from "$views/header.view";
 import { LeftSidebar, RightSidebar } from "$views/navigations.view";
 
 /**
@@ -8,6 +10,7 @@ export function MainLayout(props) {
 	const { currentUrl, children, class: className = "bg-slate-100 h-screen flex flex-col", ...restProps } = props;
 	return (
 		<Page class={className} {...restProps}>
+			<Header />
 			<div class="flex lg:grid lg:grid-cols-5 xl:grid-cols-6 overflow-y-hidden relative">
 				<aside
 					title="Site Navigation"
@@ -38,6 +41,7 @@ export function MainLayout(props) {
 					<RightSidebar currentPage={currentUrl || ""} />
 				</aside>
 			</div>
+			<Footer />
 		</Page>
 	);
 }

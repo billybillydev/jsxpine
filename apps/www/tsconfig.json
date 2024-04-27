@@ -20,8 +20,6 @@
 			"$config/*": ["src/config/*"],
 			"$components": ["src/components"],
 			"$components/*": ["src/components/*"],
-			"$layouts": ["src/layouts"],
-			"$layouts/*": ["src/layouts/*"],
 			"$middlewares": ["src/middlewares"],
 			"$middlewares/*": ["src/middlewares/*"],
 			"$controllers": ["src/controllers"],

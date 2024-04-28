@@ -1,4 +1,4 @@
-import { RadioInput } from "$components/inputs.component";
+import { RadioInput } from "$components/input.component";
 
 export function RadioInputExample() {
 	return (

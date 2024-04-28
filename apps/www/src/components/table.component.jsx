@@ -1,5 +1,5 @@
 import { Icon } from "$components/icon.component";
-import { TextInput } from "$components/inputs.component";
+import { TextInput } from "$components/input.component";
 import { Select } from "$components/select.component";
 import clsx from "clsx";
 
@@ -70,7 +70,7 @@ import clsx from "clsx";
 
 /**
  * @typedef {Object} TableSearchFilterProps
- * @type {{ index: string, operator: TableFilterOperatorType } & import("$components/inputs.component").InputProps}
+ * @type {{ index: string, operator: TableFilterOperatorType } & import("$components/input.component").InputProps}
  */
 
 /**

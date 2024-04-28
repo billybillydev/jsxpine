@@ -1,0 +1,16 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"moduleResolution": "Node"
+	},
+	"include": ["/**/*.ts", "utils.js", "alpine-dependencies.js", "common.js", "registry.js", "components.js"],
+	"exclude": ["node_modules"]
+}

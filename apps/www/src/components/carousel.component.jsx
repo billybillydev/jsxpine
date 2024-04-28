@@ -1,4 +1,4 @@
-import { Button } from "$components/buttons.component";
+import { Button } from "$components/button.component";
 import { Icon } from "$components/icon.component";
 import { Image } from "$components/image.component";
 import clsx from "clsx";

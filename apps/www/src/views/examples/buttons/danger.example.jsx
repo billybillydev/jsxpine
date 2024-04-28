@@ -1,4 +1,4 @@
-import { DangerButton } from "$components/buttons.component";
+import { DangerButton } from "$components/button.component";
 
 export function DangerButtonExample() {
 	return (

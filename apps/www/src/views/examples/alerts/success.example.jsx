@@ -1,4 +1,4 @@
-import { SuccessAlert } from "$components/alerts.component";
+import { SuccessAlert } from "$components/alert.component";
 
 export function SuccessAlertExample() {
 	return (

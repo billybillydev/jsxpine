@@ -1,6 +1,6 @@
+import { tailwindThemeConfig } from "$common/tailwind-config";
 import { specificSizes } from "$common/types";
 import { Image } from "$components/image.component";
-import { tailwindThemeConfig } from "$config/design";
 import clsx from "clsx";
 
 /**

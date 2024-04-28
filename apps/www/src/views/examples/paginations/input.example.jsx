@@ -1,4 +1,4 @@
-import { InputPagination } from "$components/paginations.component";
+import { InputPagination } from "$components/pagination.component";
 
 export function InputPaginationExample() {
 	return (

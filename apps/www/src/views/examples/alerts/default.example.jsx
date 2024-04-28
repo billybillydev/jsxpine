@@ -1,4 +1,4 @@
-import { Alert } from "$components/alerts.component";
+import { Alert } from "$components/alert.component";
 
 export function DefaultAlertExample() {
 	return (

@@ -2,7 +2,7 @@ import {
 	SoloAccordion,
 	SoloAccordionContent,
 	SoloAccordionTrigger
-} from "$components/accordions.component";
+} from "$components/accordion.component";
 
 export function SoloAccordionExample() {
 	return (

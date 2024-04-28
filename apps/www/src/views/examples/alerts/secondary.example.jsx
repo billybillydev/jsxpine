@@ -1,4 +1,4 @@
-import { SecondaryAlert } from "$components/alerts.component";
+import { SecondaryAlert } from "$components/alert.component";
 
 export function SecondaryAlertExample() {
 	return (

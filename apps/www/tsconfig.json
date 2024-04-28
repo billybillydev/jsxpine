@@ -24,6 +24,8 @@
 			"$middlewares/*": ["src/middlewares/*"],
 			"$controllers": ["src/controllers"],
 			"$controllers/*": ["src/controllers/*"],
+			"$registry": ["src/registry"],
+			"$registry/*": ["src/registry/*"],
 			"$services": ["src/services"],
 			"$services/*": ["src/services/*"],
 			"$pages": ["src/pages"],

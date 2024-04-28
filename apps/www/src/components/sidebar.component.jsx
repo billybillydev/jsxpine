@@ -1,9 +1,9 @@
 /**
  * @typedef {Object} SidebarTriggerProps
- * @type {import("$components/buttons.component").ButtonProps}
+ * @type {import("$components/button.component").ButtonProps}
  */
 
-import { Button } from "$components/buttons.component";
+import { Button } from "$components/button.component";
 import { Icon } from "$components/icon.component";
 import clsx from "clsx";
 

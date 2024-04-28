@@ -1,8 +1,8 @@
-import { SelectField } from "$components/fields.component";
+import { SelectField } from "$components/field.component";
 
 export function SelectInputExample() {
 	/**
-	 * @type {Array<import("$components/inputs.component").SelectOptionType>}
+	 * @type {Array<import("$components/input.component").SelectOptionType>}
 	 */
 	const items = [
 		{

@@ -1,4 +1,4 @@
-import { SecondaryButton } from "$components/buttons.component";
+import { SecondaryButton } from "$components/button.component";
 import { Card } from "$components/card.component";
 import { Icon } from "$components/icon.component";
 

@@ -1,9 +1,15 @@
 {
+	"name": "www",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "bun run --hot src/index.tsx",
 		"tailwind": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css --watch",
 		"mix": "bunx mix watch",
-		"start": "concurrently \"bun dev\" \"bun tailwind\" \"bun mix\""
+		"start": "concurrently \"bun dev\" \"bun tailwind\" \"bun mix\"",
+		"build:common": "bun run build-scripts/common.js",
+		"build:components": "bun run build-scripts/components.js",
+		"build:alpine": "bun run build-scripts/alpine-dependencies.js",
+		"build:registry": "bun run build-scripts/registry.js"
 	},
 	"dependencies": {
 		"@alpinejs/collapse": "^3.12.3",
@@ -31,8 +37,5 @@
 		"typed-htmx": "^0.2.1",
 		"zod": "^3.22.4"
 	},
-	"module": "src/index.js",
-	"resolutions": {
-		"string-width": "4.2.3"
-	}
+	"module": "src/index.js"
 }

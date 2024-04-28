@@ -1,4 +1,4 @@
-import { DangerAlert } from "$components/alerts.component";
+import { DangerAlert } from "$components/alert.component";
 
 export function DangerAlertExample() {
 	return (

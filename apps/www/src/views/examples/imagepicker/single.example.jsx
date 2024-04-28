@@ -1,4 +1,4 @@
-import { Button } from "$components/buttons.component";
+import { Button } from "$components/button.component";
 import { ImagePicker } from "$components/imagepicker.component";
 import { Image } from "$components/image.component";
 

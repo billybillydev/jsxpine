@@ -1,4 +1,4 @@
-import { SelectPagination } from "$components/paginations.component";
+import { SelectPagination } from "$components/pagination.component";
 
 export function SelectPaginationExample() {
 	return (

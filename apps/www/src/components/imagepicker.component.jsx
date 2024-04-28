@@ -1,6 +1,6 @@
 /**
  * @typedef ImagePickerProps
- * @type {Omit<import("$components/inputs.component").InputProps, "accept">}
+ * @type {Omit<import("$components/input.component").InputProps, "accept">}
  */
 
 /**

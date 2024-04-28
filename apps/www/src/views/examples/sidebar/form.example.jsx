@@ -1,4 +1,4 @@
-import { PrimaryButton } from "$components/buttons.component";
+import { PrimaryButton } from "$components/button.component";
 import { Sidebar, SidebarContent } from "$components/sidebar.component";
 
 export function FormSidebarExample() {

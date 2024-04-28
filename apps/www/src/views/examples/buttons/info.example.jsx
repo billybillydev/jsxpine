@@ -1,4 +1,4 @@
-import { InfoButton } from "$components/buttons.component";
+import { InfoButton } from "$components/button.component";
 
 export function InfoButtonExample() {
 	return (

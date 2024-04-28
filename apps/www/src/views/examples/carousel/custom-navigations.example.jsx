@@ -1,4 +1,4 @@
-import { PrimaryButton, InfoButton } from "$components/buttons.component";
+import { PrimaryButton, InfoButton } from "$components/button.component";
 import { Carousel } from "$components/carousel.component";
 import { Icon } from "$components/icon.component";
 

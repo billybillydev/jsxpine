@@ -1,6 +1,6 @@
 /**
  * @typedef SwitchProps
- * @type {{ label: string } & import("$components/inputs.component").InputProps & import("$common/props").ThemeColorProps}
+ * @type {{ label: string } & import("$components/input.component").InputProps & import("$common/props").ThemeColorProps}
  */
 
 import clsx from "clsx";

@@ -1,5 +1,5 @@
-import { SuccessButton } from "$components/buttons.component";
-import { Modal, ModalContent } from "$components/modals.component";
+import { SuccessButton } from "$components/button.component";
+import { Modal, ModalContent } from "$components/modal.component";
 
 export function SimpleButtonTriggerModalExample() {
 	return (

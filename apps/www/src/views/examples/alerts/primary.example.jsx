@@ -1,4 +1,4 @@
-import { PrimaryAlert } from "$components/alerts.component";
+import { PrimaryAlert } from "$components/alert.component";
 
 export function PrimaryAlertExample() {
 	/**

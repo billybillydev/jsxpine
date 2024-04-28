@@ -1,4 +1,4 @@
-import { CheckboxInput } from "$components/inputs.component";
+import { CheckboxInput } from "$components/input.component";
 
 export function CheckboxInputExample() {
 	return (

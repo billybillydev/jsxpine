@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 
 /**
  * Type for Seo props
@@ -23,7 +23,7 @@ import clsx from 'clsx';
 
 /**
  * @type {import("$common/props").JSXComponent<PageProps<{}>>}
-*/
+ */
 export function Page({ children, seo, class: className }) {
 	return (
 		<html lang="en">
@@ -47,7 +47,6 @@ export function Page({ children, seo, class: className }) {
 			<body
 				class={clsx(className)}
 				hx-ext="response-targets"
-				hx-boost="true"
 				x-data="{ currentUrl: new URL(window.location) }"
 				x-effect={`
 					navigation.addEventListener('navigate', ({ destination }) => {

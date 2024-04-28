@@ -1,4 +1,4 @@
-import { Button } from "$components/buttons.component"
+import { Button } from "$components/button.component"
 
 export function AlpineInteropButtonExample() {
     return (

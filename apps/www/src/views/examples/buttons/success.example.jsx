@@ -1,4 +1,4 @@
-import { SuccessButton } from "$components/buttons.component";
+import { SuccessButton } from "$components/button.component";
 
 export function SuccessButtonExample() {
 	return (

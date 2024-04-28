@@ -1,19 +1,18 @@
 {
-  "name": "astropine",
+  "name": "jsxpine",
   "version": "0.0.1",
-  "description": "monorepo for astropine",
+  "description": "monorepo for jsxpine",
   "author": {
     "name": "billybillydev",
     "url": "https://twitter.com/billybillydev"
   },
   "private": true,
   "scripts": {
-    "build": "pnpm build:registry && pnpm --filter www build",
-    "build:cli": "pnpm --filter astropine build",
+    "start": "pnpm build:registry && pnpm --filter www start",
+    "build:cli": "pnpm --filter jsxpine build",
     "build:registry": "pnpm --filter www build:registry",
     "dev": "pnpm --filter www start",
-    "dev:cli": "pnpm --filter astropine start:dev",
-    "preview": "pnpm --filter www preview",
+    "dev:cli": "pnpm --filter jsxpine start:dev",
     "test": "pnpm --filter www test",
     "check": "pnpm --filter www check",
     "check:watch": "pnpm --filter www check:watch",
@@ -24,7 +23,7 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm -r sync",
     "ci:publish": "changeset publish",
-    "ci:build": "pnpm --filter astropine build",
+    "ci:build": "pnpm --filter jsxpine build",
     "ci:release": "pnpm ci:build && pnpm ci:publish",
     "pub:beta": "cd packages/cli && pnpm pub:beta",
     "pub:release": "cd packages/cli && pnpm pub:release"
@@ -34,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/billybillydev/astropine.git"
+    "url": "https://github.com/billybillydev/jsxpine.git"
   },
   "license": "MIT",
   "type": "module",

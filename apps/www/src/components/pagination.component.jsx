@@ -3,20 +3,20 @@
  * @type {{ selectedPage?: number, pages: number, firstButtonLabel?: string, previousButtonLabel?: string, nextButtonLabel?: string, lastButtonLabel?: string, customFirstButton?: JSX.Element, customPreviousButton?: JSX.Element, customNextButton?: JSX.Element, customLastButton?: JSX.Element } & import("$common/props").HTMLTag}
  */
 
-import { Button } from "$components/buttons.component";
+import { Button } from "$components/button.component";
 import { Icon } from "$components/icon.component";
-import { NumberInput } from "$components/inputs.component";
+import { NumberInput } from "$components/input.component";
 import { Select } from "$components/select.component";
 import clsx from "clsx";
 
 /**
  * @typedef {Object} InputPaginationProps
- * @type {PaginationProps & Omit<import("$components/inputs.component").InputProps, "class">}
+ * @type {PaginationProps & Omit<import("$components/input.component").InputProps, "class">}
  */
 
 /**
  * @typedef {Object} SelectPaginationProps
- * @type {PaginationProps & Omit<import("$components/inputs.component").SelectInputProps, "class">}
+ * @type {PaginationProps & Omit<import("$components/input.component").SelectInputProps, "class">}
  */
 
 /**

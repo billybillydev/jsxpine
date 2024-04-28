@@ -1,4 +1,4 @@
-import { SecondaryButton } from "$components/buttons.component";
+import { SecondaryButton } from "$components/button.component";
 import { Tooltip } from "$components/tooltip.component";
 
 export function CustomTriggerTooltipExample() {

@@ -1,4 +1,4 @@
-import { PrimaryButton } from "$components/buttons.component";
+import { PrimaryButton } from "$components/button.component";
 
 export function PrimaryButtonExample() {
 	return (

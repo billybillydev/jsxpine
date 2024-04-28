@@ -1,4 +1,4 @@
-import { RestGallery } from "$components/galleries.components";
+import { RestGallery } from "$components/gallery.component";
 
 /**
  * @type {import("$common/props").JSXComponent<{ images: import("$components/image.component").ImageType[]}>}

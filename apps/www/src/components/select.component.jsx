@@ -1,6 +1,6 @@
 /**
  * @typedef SelectProps
- * @type {import("$components/inputs.component").SelectInputProps & { noInputIcon?: boolean }}
+ * @type {import("$components/input.component").SelectInputProps & { noInputIcon?: boolean }}
  */
 
 import { Icon } from "$components/icon.component";

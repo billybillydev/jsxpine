@@ -1,4 +1,4 @@
-import { EmailField, DateField, FileField, NumberField, PasswordField, TextareaField, TextField, TimeField } from "$components/fields.component";
+import { EmailField, DateField, FileField, NumberField, PasswordField, TextareaField, TextField, TimeField } from "$components/field.component";
 
 export function MainInputExample() {
 	return (

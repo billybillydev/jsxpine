@@ -1,4 +1,4 @@
-import { WarningButton } from "$components/buttons.component";
+import { WarningButton } from "$components/button.component";
 
 export function WarningButtonExample() {
 	return (

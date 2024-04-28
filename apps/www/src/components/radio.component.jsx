@@ -1,6 +1,6 @@
 /**
  * Radio component props
- * @type {import("$common/props").JSXComponent<import("$components/inputs.component").RadioInputProps>}
+ * @type {import("$common/props").JSXComponent<import("$components/input.component").RadioInputProps>}
  */
 export function Radio(props) {
 	const { children, class: className, id, ...restProps } = props;

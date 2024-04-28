@@ -3,7 +3,7 @@ import {
 	GroupAccordionItem,
 	GroupAccordionTrigger,
 	GroupAccordionContent
-} from "$components/accordions.component";
+} from "$components/accordion.component";
 
 export function GroupAccordionExample() {
 	return (

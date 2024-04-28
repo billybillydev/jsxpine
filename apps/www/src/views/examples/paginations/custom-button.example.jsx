@@ -1,5 +1,5 @@
-import { PrimaryButton } from "$components/buttons.component";
-import { SelectPagination } from "$components/paginations.component";
+import { PrimaryButton } from "$components/button.component";
+import { SelectPagination } from "$components/pagination.component";
 
 export function CustomButtonPaginationExample() {
 	return (

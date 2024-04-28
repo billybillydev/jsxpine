@@ -2,7 +2,7 @@ import { Select } from "$components/select.component";
 
 export function DefaultSelectExample() {
 	/**
-	 * @type {import("$components/inputs.component").SelectOptionType[]}
+	 * @type {import("$components/input.component").SelectOptionType[]}
 	 */
 	const items = [
 		{

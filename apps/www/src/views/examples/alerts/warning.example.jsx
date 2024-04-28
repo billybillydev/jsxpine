@@ -1,4 +1,4 @@
-import { WarningAlert } from "$components/alerts.component";
+import { WarningAlert } from "$components/alert.component";
 
 export function WarningAlertExample() {
 	return (

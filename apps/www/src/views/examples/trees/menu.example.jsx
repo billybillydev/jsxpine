@@ -1,10 +1,10 @@
-import { Button } from "$components/buttons.component";
+import { Button } from "$components/button.component";
 import { Icon } from "$components/icon.component";
-import { MenuTree } from "$components/trees.component";
+import { MenuTree } from "$components/tree.component";
 
 export function MenuTreeExample() {
 	/**
-	 * @type {import("$components/trees.component").TreeType}
+	 * @type {import("$components/tree.component").TreeType}
 	 */
 	const root = {
 		id: "root",

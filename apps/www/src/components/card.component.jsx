@@ -6,7 +6,7 @@ import {
 	SecondaryButton,
 	SuccessButton,
 	WarningButton
-} from "$components/buttons.component";
+} from "$components/button.component";
 import { capitalize } from "$lib";
 import clsx from "clsx";
 
@@ -92,7 +92,7 @@ export function CardBody(props) {
 						if (control.type) {
 							const componentName = `${capitalize(control.type)}Button`;
 							const ButtonControl = await import(
-								`$components/buttons.component`
+								`$components/button.component`
 							).then(
 								/**
 								 * @param {Record<string, Function>} m

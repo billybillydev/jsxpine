@@ -1,4 +1,4 @@
-import { Button, PrimaryButton, SuccessButton, SecondaryButton, WarningButton } from "$components/buttons.component";
+import { Button, PrimaryButton, SuccessButton, SecondaryButton, WarningButton } from "$components/button.component";
 
 export function OverviewButtonExample() {
     return (

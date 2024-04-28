@@ -2,7 +2,7 @@ import {
 	Modal,
 	ModalTrigger,
 	ModalContent
-} from "$components/modals.component";
+} from "$components/modal.component";
 
 export function FullScreenModalExample() {
 	return (

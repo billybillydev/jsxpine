@@ -7,8 +7,7 @@ export async function resolveImport(
 ) {
 	const matchPath = createMatchPath(config.absoluteBaseUrl, config.paths);
 	return matchPath(importPath, undefined, () => true, [
-		".ts",
-		".astro",
-		".js"
+		"tsx",
+		"jsx"
 	]);
 }

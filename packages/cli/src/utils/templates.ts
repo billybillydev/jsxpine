@@ -96,28 +96,6 @@ body {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-pre.astro-code {
-  margin: 0.5rem;
-}
-
-code {
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', 'Courier New', monospace;
-}
-
-.component-preview {
-  @apply relative flex flex-wrap gap-4 justify-center items-center border border-slate-200 rounded-lg m-2 resize p-8;
-  background-image: url('/icons/grid_dot.svg');
-  background-repeat: repeat;
-  background-size: 1.5rem;
-  justify-items: baseline;
-}
-
-.astro-code {
-  padding: 1rem;
-  border-radius: 0.44rem;
-}
-
 .btn-circle {
   @apply min-w-[4rem] max-w-lg rounded-full flex items-center justify-center p-0 before:pt-[100%];
 }
@@ -246,12 +224,12 @@ import focus from "@alpinejs/focus";
 import collapse from "@alpinejs/collapse";
 import manage from "alpinejs-manage";
 
-import { logDirective } from "$alpine/directive/log";
-import { nowMagic } from "$alpine/magic/now";
-import { clipboardMagic } from "$alpine/magic/clipboard";
-import { capitalizeDirective } from "$alpine/directive/capitalize";
-import { formatDateMagic } from "$alpine/magic/format-date";
-import { dateFormatDirective } from "$alpine/directive/format-date";
+import { logDirective } from "$alpine/directive/log.directive";
+import { nowMagic } from "$alpine/magic/now.magic";
+import { clipboardMagic } from "$alpine/magic/clipboard.magic";
+import { capitalizeDirective } from "$alpine/directive/capitalize.directive";
+import { formatDateMagic } from "$alpine/magic/format-date.magic";
+import { dateFormatDirective } from "$alpine/directive/format-date.directive";
 
 /* Data */
 // By adding components, corresponding data will be added progressively

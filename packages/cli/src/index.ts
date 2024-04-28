@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Credit to @shadcn-svelte for the original code. It has been slightly modified to fit the needs of this project.
+// Credit to @shadcn for the original code. It has been slightly modified to fit the needs of this project.
 import { Command } from "commander";
 import { add, init, update } from "./commands";
 import { getPackageInfo } from "./utils/get-package-info";

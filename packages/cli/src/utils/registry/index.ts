@@ -1,15 +1,16 @@
 import { existsSync, promises as fs } from "fs";
-import fetch from "node-fetch";
 import path from "path";
+import fetch from "node-fetch";
 import * as z from "zod";
 import { Config } from "../get-config";
-import { registryIndexSchema, registryItemSchema } from "./schema";
+import { registryIndexSchema, registryItemSchema, registryItemWithComponentSchema, registryWithComponentSchema } from "./schema";
 
 
 export const baseUrl =
-	process.env.COMPONENTS_REGISTRY_URL ?? "https://www.astropine-ui.com";
+	process.env.COMPONENTS_REGISTRY_URL ?? "https://www.jsxpine.com/public";
 
 export type RegistryItem = z.infer<typeof registryItemSchema>;
+export type RegistryComponentItem = z.infer<typeof registryItemWithComponentSchema>;
 
 export async function getRegistryIndex() {
 	try {
@@ -95,12 +96,11 @@ export async function resolveTree(
 
 export async function fetchTree(
 	tree: z.infer<typeof registryIndexSchema>
-) {
+): Promise<RegistryComponentItem[]> {
 	try {
 		const paths = tree.map((item) => `components/${item.name}.json`);
 		const result = await fetchRegistry(paths);
-		// return registryWithComponentSchema.parse(result);
-		return result;
+		return registryWithComponentSchema.parse(result);
 	} catch (error) {
 		throw new Error(`Failed to fetch tree from registry.`);
 	}
@@ -131,21 +131,20 @@ export async function getComponentTargetPath(
 	// 	return null;
 	// }
 
-	return path.join(
-		config.resolvedPaths["components"],
-		item
-	);
+	return path.join(config.resolvedPaths["components"], item);
 }
 
-async function fetchRegistry(paths: string[]) {
+async function fetchRegistry(paths: string[]): Promise<RegistryItem[]> {
 	try {
 		const results = await Promise.all(
 			paths.map(async (path) => {
-				const response = await fetch(`${baseUrl}/registry/${path}`);
-				return await response.json();
+				const url = `${baseUrl}/registry/${path}`;
+				const res = await fetch(url);
+				const json = await res.json();
+				return json as RegistryItem;
 			})
 		);
-		
+
 		return results;
 	} catch (error) {
 		console.log(error);

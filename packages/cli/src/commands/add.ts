@@ -79,7 +79,6 @@ export const add = new Command()
 			}
 
 			const registryIndex = await getRegistryIndex();
-
 			let selectedComponents = options.components;
 			if (!options.components?.length) {
 				const { components } = await prompts({
@@ -135,60 +134,58 @@ export const add = new Command()
 				config.resolvedPaths.alpine,
 				"data"
 			);
+			
 			if (!existsSync(componentDir)) {
 				await fs.mkdir(componentDir);
 			}
 			if (!existsSync(alpineDataPath)) {
 				await fs.mkdir(alpineDataPath);
+			} else {
+				const files = await fs.readdir(alpineDataPath, {
+					withFileTypes: true
+				});
+				for (const file of files) {
+					if (file.isFile()) {
+						alpineDependencies.push(file.name.split(".")[0]);
+					}
+				}
 			}
 			for (const item of componentPayload) {
-				spinner.text = `\nInstalling ${item}...\n`;
+				spinner.text = `\nInstalling ${item.name}...\n`;
 
-				const directoryPath = path.resolve(componentDir, item.name);
-				if (existsSync(directoryPath) && !options.overwrite) {
-					logger.warn(
-						`\nComponent ${
-							item.name
-						} already exists. Use ${chalk.green(
-							"--overwrite"
-						)} to overwrite.\n`
+				await fs.writeFile(
+					path.join(componentDir, `${item.name}.component.jsx`),
+					item.component,
+					"utf8"
+				);
+				
+				if (item.alpineDependencies.length) {
+					alpineDependencies.push(...item.alpineDependencies);
+					const alpineDependenciesObject =
+						item.alpineDependencies.reduce((acc, cur) => {
+							// Because alpineDataPayload keys are ts file names.
+							const dependencyKey = `${cur}.data.js`;
+							acc[dependencyKey] =
+								alpineDataPayload[dependencyKey];
+							return acc;
+						}, <Record<string, any>>{});
+
+					await Promise.all(
+						await transformObjectToDirectory(
+							alpineDependenciesObject,
+							alpineDataPath
+						)
 					);
-					spinner.stop();
-					process.exitCode = 1;
-					return;
-				} else if (!existsSync(directoryPath)) {
-					await fs.mkdir(directoryPath);
 				}
-				await Promise.all(
-					await transformObjectToDirectory(
-						item.components,
-						directoryPath
-					)
-				);
-				alpineDependencies.push(...item.alpineDependencies);
-				const alpineDependenciesObject = item.alpineDependencies.reduce(
-					(acc, cur) => {
-						// Because alpineDataPayload keys are ts file names.
-						const dependencyKey = `${cur}.ts`;
-						acc[dependencyKey] = alpineDataPayload[dependencyKey];
-						return acc;
-					},
-					<Record<string, any>>{}
-				);
-
-				await Promise.all(
-					await transformObjectToDirectory(
-						alpineDependenciesObject,
-						alpineDataPath
-					)
-				);
 			}
 			// Updated alpine script
-			await fs.writeFile(
-				path.join(config.resolvedPaths.alpine, "index.ts"),
-				updateAlpineScriptWithData(alpineDependencies),
-				"utf8"
-			);
+			if (alpineDependencies.length) {
+				await fs.writeFile(
+					path.join(config.resolvedPaths.alpine, "index.js"),
+					updateAlpineScriptWithData(alpineDependencies),
+					"utf8"
+				);
+			}
 			logger.info("");
 			logger.info("");
 			spinner.succeed(`Done.`);
@@ -207,12 +204,12 @@ import focus from "@alpinejs/focus";
 import collapse from "@alpinejs/collapse";
 import manage from "alpinejs-manage";
 
-import { logDirective } from "$alpine/directive/log";
-import { nowMagic } from "$alpine/magic/now";
-import { clipboardMagic } from "$alpine/magic/clipboard";
-import { capitalizeDirective } from "$alpine/directive/capitalize";
-import { formatDateMagic } from "$alpine/magic/format-date";
-import { dateFormatDirective } from "$alpine/directive/format-date";
+import { logDirective } from "$alpine/directive/log.directive";
+import { nowMagic } from "$alpine/magic/now.magic";
+import { clipboardMagic } from "$alpine/magic/clipboard.magic";
+import { capitalizeDirective } from "$alpine/directive/capitalize.directive";
+import { formatDateMagic } from "$alpine/magic/format-date.magic";
+import { dateFormatDirective } from "$alpine/directive/format-date.directive";
 
 /* Data */
 ${dataComponents
@@ -220,7 +217,7 @@ ${dataComponents
 		(dataName) =>
 			`Alpine.data("${camelize(
 				dataName
-			)}", await import("$scripts/alpine/data/${dataName}").then(m => m["${camelize(
+			)}", await import("$scripts/alpine/data/${dataName}.data").then(m => m["${camelize(
 				dataName
 			)}Data"]));`
 	)

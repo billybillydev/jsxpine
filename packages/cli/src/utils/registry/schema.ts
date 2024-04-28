@@ -4,15 +4,14 @@ import * as z from "zod";
 // TODO: Extract this to a shared package.
 export const registryItemSchema = z.object({
 	name: z.string(),
-	alpineDependencies: z.array(z.string()).optional(),
-	registryDependencies: z.array(z.string()).optional(),
+	alpineDependencies: z.array(z.string()),
+	registryDependencies: z.array(z.string()),
 });
 
 export const registryIndexSchema = z.array(registryItemSchema);
 
-const componentTreeSchema = z.record([z.string(), z.union([z.string(), componentTreeSchema])]);
 export const registryItemWithComponentSchema = registryItemSchema.extend({
-	components: componentTreeSchema,
+	component: z.string(),
 });
 export const registryWithComponentSchema = z.array(registryItemWithComponentSchema);
 

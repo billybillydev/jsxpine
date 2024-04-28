@@ -24,8 +24,6 @@ certs/
 .nvmrc
 .yarn/
 
-apps2
-
 apps/www/public/registry
 apps/www/public/script
 apps/www/public/styles

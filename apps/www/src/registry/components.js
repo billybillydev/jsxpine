@@ -82,7 +82,7 @@ export const components = [
 	{
 		name: "input",
 		alpineDependencies: [],
-		registryDependencies: []
+		registryDependencies: ["icon"]
 	},
 	{
 		name: "modal",

@@ -91,7 +91,7 @@ export const update = new Command()
 					const component = registryIndex.find(
 						(comp) => comp.name === file.name
 					);
-					// is a valid shadcn component
+					// is a valid jsxpine component
 					component && existingComponents.push(component);
 				}
 			}

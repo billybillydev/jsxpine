@@ -15,7 +15,7 @@ import * as templates from "../utils/templates";
 
 
 const PROJECT_DEPENDENCIES = [
-	"tailwind-merge",
+	"clsx",
 	"@iconify/utils",
 	"@iconify-json/ri",
 	"tailwindcss-mosiui-mini",
@@ -26,7 +26,7 @@ const PROJECT_DEPENDENCIES = [
 
 export const init = new Command()
 	.command("init")
-	.description("Configure your Astro project.")
+	.description("Configure your Node.JS project.")
 	.option("-y, --yes", "Skip confirmation prompt.")
 	.option(
 		"-c, --cwd <cwd>",
@@ -37,10 +37,10 @@ export const init = new Command()
 		const cwd = path.resolve(options.cwd);
 
 		logger.warn(
-			"This command assumes an Astro project with TypeScript, AlpineJS and Tailwind CSS."
+			"This command assumes a Node.JS project with at least AlpineJS and Tailwind CSS."
 		);
 		logger.warn(
-			"If you don't have these, follow the manual steps at https://astropine-ui.com/docs/installation."
+			"If you don't have these, follow the manual steps at https://jsxpine.com/docs/installation."
 		);
 		logger.warn("");
 
@@ -86,7 +86,7 @@ export const init = new Command()
 			);
 			logger.info("");
 			logger.info(
-				"Don't forget to add the aliases you configured to your svelte.config.js!"
+				"Don't forget to add the aliases you configured in your tsconfig.json !"
 			);
 			logger.info("");
 		} catch (e) {
@@ -180,7 +180,7 @@ async function promptForConfig(
 	]);
 
 	const config = rawConfigSchema.parse({
-		$schema: "https://astropine-ui.com/schema.json",
+		$schema: "https://jsxpine.com/schema.json",
 		// style: options.style,
 		tailwind: {
 			config: options.tailwindConfig,
@@ -257,8 +257,7 @@ async function runInit(cwd: string, config: Config) {
 			const alpineDependencies = await alpineRes.json();
 			for await (const directory of [
 				"directive",
-				"magic",
-				"utils"
+				"magic"
 			]) {
 				const alpineDependencyPath = path.join(dirname, directory);
 				if (!existsSync(alpineDependencyPath)) {
@@ -276,7 +275,7 @@ async function runInit(cwd: string, config: Config) {
 
 	// Write app.ts script
 	await fs.writeFile(
-		`${config.resolvedPaths.scripts}/app.ts`,
+		`${config.resolvedPaths.scripts}/app.js`,
 		templates.APP_SCRIPT,
 		"utf8"
 	);
@@ -304,7 +303,7 @@ async function runInit(cwd: string, config: Config) {
 
 	// Write alpinejs file.
 	await fs.writeFile(
-		`${config.resolvedPaths.alpine}/index.ts`,
+		`${config.resolvedPaths.alpine}/index.js`,
 		templates.ALPINE_JS,
 		"utf8"
 	);

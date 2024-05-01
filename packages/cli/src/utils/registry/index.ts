@@ -147,7 +147,7 @@ async function fetchRegistry(paths: string[]): Promise<RegistryItem[]> {
 
 		return results;
 	} catch (error) {
-		console.log(error);
+		console.log("In fetchRegistry : ", error);
 		throw new Error(`Failed to fetch registry from ${baseUrl}.`);
 	}
 }

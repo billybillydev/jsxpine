@@ -7,7 +7,7 @@ import { registryIndexSchema, registryItemSchema, registryItemWithComponentSchem
 
 
 export const baseUrl =
-	process.env.COMPONENTS_REGISTRY_URL ?? "https://www.jsxpine.com/public";
+	process.env.COMPONENTS_REGISTRY_URL ?? "https://jsxpine.com/public";
 
 export type RegistryItem = z.infer<typeof registryItemSchema>;
 export type RegistryComponentItem = z.infer<typeof registryItemWithComponentSchema>;

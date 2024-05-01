@@ -233,10 +233,8 @@ async function promptForConfig(
 async function runInit(cwd: string, config: Config) {
 	const spinner = ora(`Initializing project...`)?.start();
 	// Ensure all resolved paths directories exist.
-	console.log("\n", config.resolvedPaths)
 	for (const [key, resolvedPath] of Object.entries(config.resolvedPaths)) {
 		// Determine if the path is a file or directory.
-		console.log({ key, resolvedPath })
 		let dirname = path.extname(resolvedPath)
 			? path.dirname(resolvedPath)
 			: resolvedPath;
@@ -250,7 +248,6 @@ async function runInit(cwd: string, config: Config) {
 			}
 			const commonRes = await fetch(baseUrl + "/registry/common.json");
 			const common = await commonRes.json();
-			console.log({ common });
 			await Promise.all(
 				await transformObjectToDirectory(common, commonDirName)
 			);
@@ -258,7 +255,6 @@ async function runInit(cwd: string, config: Config) {
 		if (key === "alpine") {
 			const alpineRes = await fetch(baseUrl + "/registry/alpine.json");
 			const alpineDependencies = await alpineRes.json();
-			console.log({ alpineDependencies });
 			for await (const directory of [
 				"directive",
 				"magic"

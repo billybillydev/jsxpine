@@ -35,8 +35,7 @@ const PROJECT_DEV_DEPENDENCIES = [
 	"tailwindcss-mosiui-mini",
 	"typed-html",
 	"typed-htmx",
-	"alpinejs",
-	"jsxpine"
+	"alpinejs"
 ] as const;
 
 export const init = new Command()

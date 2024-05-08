@@ -27,7 +27,7 @@ const PROJECT_DEPENDENCIES = [
 	"@alpinejs/collapse",
 	"@alpinejs/focus",
 	"alpinejs-manage",
-	"laravel-mix"
+	"laravel-mix",
 ] as const;
 
 const PROJECT_DEV_DEPENDENCIES = [
@@ -336,6 +336,7 @@ async function runInit(cwd: string, config: Config) {
 		packageManager,
 		[
 			packageManager === "npm" ? "install" : "add",
+			"--dev",
 			...PROJECT_DEV_DEPENDENCIES
 		],
 		{

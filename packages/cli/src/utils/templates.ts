@@ -211,7 +211,7 @@ export default {
 `;
 
 export const APP_SCRIPT = `
-import Alpine from "$alpine";
+import Alpine from "./alpine";
 
 window.Alpine = Alpine;
 
@@ -224,12 +224,12 @@ import focus from "@alpinejs/focus";
 import collapse from "@alpinejs/collapse";
 import manage from "alpinejs-manage";
 
-import { logDirective } from "$alpine/directive/log.directive";
-import { nowMagic } from "$alpine/magic/now.magic";
-import { clipboardMagic } from "$alpine/magic/clipboard.magic";
-import { capitalizeDirective } from "$alpine/directive/capitalize.directive";
-import { formatDateMagic } from "$alpine/magic/format-date.magic";
-import { dateFormatDirective } from "$alpine/directive/format-date.directive";
+import { logDirective } from "./directive/log.directive";
+import { nowMagic } from "./magic/now.magic";
+import { clipboardMagic } from "./magic/clipboard.magic";
+import { capitalizeDirective } from "./directive/capitalize.directive";
+import { formatDateMagic } from "./magic/format-date.magic";
+import { dateFormatDirective } from "./directive/format-date.directive";
 
 /* Data */
 // By adding components, corresponding data will be added progressively

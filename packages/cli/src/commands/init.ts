@@ -35,7 +35,8 @@ const PROJECT_DEV_DEPENDENCIES = [
 	"tailwindcss-mosiui-mini",
 	"typed-html",
 	"typed-htmx",
-	"alpinejs"
+	"alpinejs",
+	"jsxpine"
 ] as const;
 
 export const init = new Command()
@@ -194,7 +195,7 @@ async function promptForConfig(
 	]);
 
 	const config = rawConfigSchema.parse({
-		$schema: "https://jsxpine.com/schema.json",
+		$schema: "https://jsxpine.com/public/schema.json",
 		// style: options.style,
 		tailwind: {
 			config: options.tailwindConfig,

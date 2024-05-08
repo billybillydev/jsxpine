@@ -90,6 +90,11 @@ export const components = [
 		registryDependencies: []
 	},
 	{
+		name: "page",
+		alpineDependencies: [],
+		registryDependencies: []
+	},
+	{
 		name: "pagination",
 		alpineDependencies: ["pagination"],
 		registryDependencies: ["button", "icon", "input", "select"]

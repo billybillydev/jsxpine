@@ -6,22 +6,36 @@ import { Command } from "commander";
 import { execa } from "execa";
 import ora from "ora";
 import prompts from "prompts";
-import { DEFAULT_APP_SCRIPT_DIRECTORY, DEFAULT_COMPONENTS_DIRECTORY, DEFAULT_TAILWIND_CONFIG_FILE, DEFAULT_TAILWIND_CSS_FILE, getConfig, rawConfigSchema, resolveConfigPaths } from "../utils/get-config";
+import {
+	DEFAULT_APP_SCRIPT_DIRECTORY,
+	DEFAULT_COMPONENTS_DIRECTORY,
+	DEFAULT_TAILWIND_CONFIG_FILE,
+	DEFAULT_TAILWIND_CSS_FILE,
+	getConfig,
+	rawConfigSchema,
+	resolveConfigPaths
+} from "../utils/get-config";
 import { getPackageManager } from "../utils/get-package-manager";
 import { handleError } from "../utils/handle-error";
 import { logger } from "../utils/logger";
 import { baseUrl, transformObjectToDirectory } from "../utils/registry";
 import * as templates from "../utils/templates";
 
-
 const PROJECT_DEPENDENCIES = [
-	"clsx",
 	"@iconify/utils",
 	"@iconify-json/ri",
-	"tailwindcss-mosiui-mini",
 	"@alpinejs/collapse",
 	"@alpinejs/focus",
-	"alpinejs-manage"
+	"alpinejs-manage",
+	"laravel-mix"
+] as const;
+
+const PROJECT_DEV_DEPENDENCIES = [
+	"clsx",
+	"tailwindcss-mosiui-mini",
+	"typed-html",
+	"typed-htmx",
+	"alpinejs"
 ] as const;
 
 export const init = new Command()
@@ -255,10 +269,7 @@ async function runInit(cwd: string, config: Config) {
 		if (key === "alpine") {
 			const alpineRes = await fetch(baseUrl + "/registry/alpine.json");
 			const alpineDependencies = await alpineRes.json();
-			for await (const directory of [
-				"directive",
-				"magic"
-			]) {
+			for await (const directory of ["directive", "magic"]) {
 				const alpineDependencyPath = path.join(dirname, directory);
 				if (!existsSync(alpineDependencyPath)) {
 					await fs.mkdir(alpineDependencyPath);
@@ -317,6 +328,16 @@ async function runInit(cwd: string, config: Config) {
 	await execa(
 		packageManager,
 		[packageManager === "npm" ? "install" : "add", ...PROJECT_DEPENDENCIES],
+		{
+			cwd
+		}
+	);
+	await execa(
+		packageManager,
+		[
+			packageManager === "npm" ? "install" : "add",
+			...PROJECT_DEV_DEPENDENCIES
+		],
 		{
 			cwd
 		}

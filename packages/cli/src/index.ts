@@ -11,8 +11,8 @@ async function main() {
 	const packageInfo = getPackageInfo();
 
 	const program = new Command()
-		.name("astropine")
-		.description("Add astropine components to your project")
+		.name("jsx")
+		.description("Add jsx components to your project")
 		.version(
 			packageInfo.version || "1.0.0",
 			"-v, --version",

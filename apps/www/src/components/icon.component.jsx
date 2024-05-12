@@ -23,13 +23,15 @@ export function Icon(props) {
 	} = props;
 	const iconData = getIconData(icons, name);
 	if (!iconData) {
-		throw new Error("Icon data is null or undefined");
+		console.error("Icon data is null or undefined");
+		return "";
 	}
 	const iconSvg = iconToSVG(iconData, {
 		height: "auto"
 	});
 	if (!iconSvg) {
-		throw new Error(`Icon "${name}" is missing`);
+		console.error(`Icon "${name}" is missing`);
+		return "";
 	}
 	const {
 		attributes: { viewBox },

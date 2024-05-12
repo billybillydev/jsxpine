@@ -28,6 +28,7 @@ const PROJECT_DEPENDENCIES = [
 	"@alpinejs/focus",
 	"alpinejs-manage",
 	"laravel-mix",
+	"tailwind"
 ] as const;
 
 const PROJECT_DEV_DEPENDENCIES = [

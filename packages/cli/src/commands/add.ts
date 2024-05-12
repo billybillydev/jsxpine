@@ -134,7 +134,7 @@ export const add = new Command()
 				config.resolvedPaths.alpine,
 				"data"
 			);
-			
+
 			if (!existsSync(componentDir)) {
 				await fs.mkdir(componentDir);
 			}
@@ -158,7 +158,7 @@ export const add = new Command()
 					item.component,
 					"utf8"
 				);
-				
+
 				if (item.alpineDependencies.length) {
 					alpineDependencies.push(...item.alpineDependencies);
 					const alpineDependenciesObject =
@@ -211,15 +211,20 @@ import { capitalizeDirective } from "./directive/capitalize.directive";
 import { formatDateMagic } from "./magic/format-date.magic";
 import { dateFormatDirective } from "./directive/format-date.directive";
 
+${dataComponents
+	.map(
+		(dataName) =>
+			`import { ${camelize(
+				dataName
+			)}Data } from "./data/${dataName}.data";`
+	)
+	.join("\n")}
+
 /* Data */
 ${dataComponents
 	.map(
 		(dataName) =>
-			`Alpine.data("${camelize(
-				dataName
-			)}", await import("./data/${dataName}.data").then(m => m["${camelize(
-				dataName
-			)}Data"]));`
+			`Alpine.data("${camelize(dataName)}", ${camelize(dataName)}Data);`
 	)
 	.join("\n")}
 

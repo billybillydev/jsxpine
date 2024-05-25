@@ -1,6 +1,6 @@
 {
 	"name": "jsxpine",
-	"version": "0.2.11",
+	"version": "0.2.12",
 	"description": "Add jsx components to your app.",
 	"publishConfig": {
 		"access": "public"
@@ -47,8 +47,7 @@
 		"release": "changeset version",
 		"pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
 		"pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
-		"pub:release": "pnpm build && pnpm publish --access public",
-		"temp": "pnpm build && pnpm start config"
+		"pub:release": "pnpm build && pnpm publish --access public"
 	},
 	"dependencies": {
 		"@alpinejs/collapse": "^3.13.10",

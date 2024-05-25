@@ -1,12 +1,12 @@
 {
 	"name": "www",
-	"version": "0.1.3",
+	"version": "0.0.1",
 	"scripts": {
 		"dev": "bun run --hot src/index.tsx",
 		"tailwind:dev": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css --watch",
 		"tailwind:prod": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css",
 		"mix": "bunx mix watch",
-		"start:dev": "concurrently \"bun dev\" \"bun tailwind\" \"bun mix\"",
+		"start:dev": "concurrently \"bun dev\" \"bun tailwind:dev\" \"bun mix\"",
 		"build:common": "bun run build-scripts/common.js",
 		"build:components": "bun run build-scripts/components.js",
 		"build:alpine": "bun run build-scripts/alpine-dependencies.js",

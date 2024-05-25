@@ -2,6 +2,15 @@
  * Dropdown alpine data output
  * @typedef {Object} DropdownDataOutput
  * @property {import("src/common/types").PositionType} position
+ * @property {object} originalBoundingClientRect
+ * @property {number} originalBoundingClientRect.x
+ * @property {number} originalBoundingClientRect.y
+ * @property {number} originalBoundingClientRect.width
+ * @property {number} originalBoundingClientRect.height
+ * @property {number} originalBoundingClientRect.top
+ * @property {number} originalBoundingClientRect.bottom
+ * @property {number} originalBoundingClientRect.left
+ * @property {number} originalBoundingClientRect.right
  * @property {number} duration
  * @property {boolean} visible
  * @property {Function} show
@@ -11,11 +20,12 @@
  * @property {Record<string, Function>} hover
  * @property {Record<string, Function>} trigger
  * @property {Record<string, Function>} closer
+ * @property {Record<string, Function>} toggler
  * @property {Record<string, Function>} shower
- * @property {Function} setPositionClasses
- * @property {Function} resetPositionClasses
- * @property {Function} setAlpineAttributes
- * @property {Function} selectPositionUpdate
+ * @property {(position: import("src/common/types").PositionType) => void} setPositionClasses
+ * @property {(position: import("src/common/types").PositionType) => void} resetPositionClasses
+ * @property {(position: import("src/common/types").PositionType) => void} setAlpineAttributes
+ * @property {(position: import("src/common/types").PositionType) => import("src/common/types").PositionType} updatePosition
  */
 
 /**
@@ -26,13 +36,13 @@
  */
 export function dropdownData(position = "bottom", duration) {
 	/**
-	 * @type {Map<import("src/common/types").PositionType, string>}
+	 * @type {Map<import("src/common/types").PositionType, {x: string[], y: string[]}>}
 	 */
 	const positionClassMap = new Map([
-		["top", "-translate-x-1/2 left-1/2 bottom-full"],
-		["bottom", "-translate-x-1/2 left-1/2 top-full"],
-		["left", "-translate-y-1/2 top-1/2 right-full"],
-		["right", "-translate-y-1/2 top-1/2 left-full"]
+		["top", { x: ["-translate-x-1/2", "left-1/2"], y: ["bottom-full"] }],
+		["bottom", { x: ["-translate-x-1/2", "left-1/2"], y: ["top-full"] }],
+		["left", { y: ["-translate-y-1/2", "top-1/2"], x: ["right-full"] }],
+		["right", { y: ["-translate-y-1/2", "top-1/2"], x: ["left-full"] }]
 	]);
 
 	/**
@@ -95,25 +105,35 @@ export function dropdownData(position = "bottom", duration) {
 
 	return {
 		init() {
-			this.$watch("visible", () => {
-				window.addEventListener("resize", () => {
-					this.selectPositionUpdate();
+			const positionUpdated = this.updatePosition(this.position);
+			const positionClass = positionClassMap.get(positionUpdated);
+			if (positionClass) {
+				this.$refs.content.classList.add(
+					...positionClass.x,
+					...positionClass.y
+				);
+				this.originalBoundingClientRect =
+					this.$refs.content.getBoundingClientRect();
+				this.setAlpineAttributes(positionUpdated);
+			}
+			this.$watch("visible", (visibleValue) => {
+				this.$refs.content.addEventListener("animationend", () => {
+					if (!visibleValue) {
+						this.$refs.content.style.left = "";
+					}
 				});
 			});
-			this.setPositionClasses();
-			this.setAlpineAttributes();
 		},
 		position,
 		duration,
 		visible: false,
+		originalBoundingClientRect: null,
 		async show() {
 			this.visible = true;
 			await this.$nextTick();
-			this.selectPositionUpdate();
-			this.setPositionClasses();
-			this.setAlpineAttributes();
+			this.setPositionClasses(this.position);
 		},
-		hide() {
+		async hide() {
 			this.visible = false;
 		},
 		toggle() {
@@ -132,6 +152,15 @@ export function dropdownData(position = "bottom", duration) {
 				this.show();
 			}
 		},
+		toggler: {
+			["@click"]() {
+				if (this.visible) {
+					this.hide();
+				} else {
+					this.show();
+				}
+			}
+		},
 		closer: {
 			["@click.away"]() {
 				this.hide();
@@ -145,20 +174,67 @@ export function dropdownData(position = "bottom", duration) {
 				return this.visible;
 			}
 		},
-		setPositionClasses() {
-			const positionClass = positionClassMap.get(this.position);
+		async setPositionClasses(position) {
+			const positionUpdated = this.updatePosition(position);
+			const positionClass = positionClassMap.get(positionUpdated);
+
 			if (positionClass) {
-				this.$refs.content.classList.add(...positionClass.split(" "));
+				this.$refs.content.classList.add(
+					...positionClass.x,
+					...positionClass.y
+				);
+				if (["top", "bottom"].includes(positionUpdated)) {
+					if (this.originalBoundingClientRect.right > window.innerWidth) {
+						this.$refs.content.classList.remove(...positionClass.x);
+						// const delta =
+						// 	this.$refs.trigger.getBoundingClientRect().left +
+						// 	this.originalBoundingClientRect.width -
+						// 	window.innerWidth;
+						// this.$refs.content.style.left = `-${delta}px`;
+						this.$refs.content.style.right = `0px`;
+					}
+					if (this.originalBoundingClientRect.left < 0) {
+						this.$refs.content.classList.remove(...positionClass.x);
+						// this.$refs.content.style.left = `-${
+						// 	this.$refs.trigger.getBoundingClientRect().left
+						// }px`;
+						this.$refs.content.style.left = `0px`;
+					}
+				}
+				if (["left", "right"].includes(positionUpdated)) {
+					console.log("left or right position");
+					if (
+						this.$refs.trigger.getBoundingClientRect().bottom +
+							this.$refs.content.clientHeight >
+						window.innerHeight
+					) {
+						this.$refs.content.style.left =
+							this.$refs.trigger.getBoundingClientRect().bottom +
+							this.$refs.content.clientHeight -
+							window.innerHeight;
+					} else {
+						this.$refs.content.classList.add(...positionClass.y);
+					}
+				}
+				await this.$nextTick();
+				await new Promise((resolve) =>
+					setTimeout(() => {
+						resolve(this.setAlpineAttributes(positionUpdated));
+					}, 1000)
+				);
 			}
 		},
-		resetPositionClasses() {
-			const positionClass = positionClassMap.get(this.position);
+		resetPositionClasses(position) {
+			const positionClass = positionClassMap.get(position);
 			if (positionClass) {
-				this.$refs.content.classList.remove(...positionClass.split(" "));
+				this.$refs.content.classList.remove(
+					...positionClass.x,
+					...positionClass.y
+				);
 			}
 		},
-		setAlpineAttributes() {
-			const transitionClass = transitionClassMap.get(this.position);
+		setAlpineAttributes(position) {
+			const transitionClass = transitionClassMap.get(position);
 			if (transitionClass) {
 				this.$refs.content.style.transitionDuration = `${this.duration}ms`;
 				this.$refs.content.setAttribute("x-transition:enter", `ease-out`);
@@ -181,30 +257,43 @@ export function dropdownData(position = "bottom", duration) {
 				);
 			}
 		},
-		selectPositionUpdate() {
-			switch (this.position) {
-				case "bottom":
-					if (
-						this.$refs.content.getBoundingClientRect().bottom >
-						window.innerHeight
-					) {
-						this.resetPositionClasses();
-						this.position = "top";
-					} else {
-						this.position = "bottom";
-					}
-					break;
+		updatePosition(position) {
+			switch (position) {
 				case "top":
 					if (this.$refs.content.getBoundingClientRect().top < 0) {
-						this.resetPositionClasses();
-						this.position = "bottom";
-					} else {
-						this.position = "top";
+						// this.resetPositionClasses(position);
+						return "bottom";
 					}
-					break;
-
+					// this.$refs.content.style.transform = `translateX(0px)`;
+					return position;
+				case "right":
+					if (
+						this.$refs.trigger.getBoundingClientRect().right +
+							this.$refs.content.clientWidth >
+						window.innerWidth
+					) {
+						// this.resetPositionClasses(position);
+						return "left";
+					}
+					return position;
+				case "left":
+					if (this.$refs.content.getBoundingClientRect().left < 0) {
+						console.log(this.$refs.content.getBoundingClientRect().left);
+						// this.resetPositionClasses(position);
+						return "right";
+					}
+					return position;
+				case "bottom":
 				default:
-					break;
+					if (
+						this.$refs.trigger.getBoundingClientRect().bottom +
+							this.$refs.content.clientHeight >
+						window.innerHeight
+					) {
+						this.resetPositionClasses("bottom");
+						return "top";
+					}
+					return "bottom";
 			}
 		}
 	};

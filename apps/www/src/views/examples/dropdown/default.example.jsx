@@ -6,7 +6,7 @@ import {
 
 export function DefaultDropdownExample() {
 	return (
-		<Dropdown position="top">
+		<Dropdown>
 			<DropdownTrigger class="inline-flex items-center justify-center h-12 py-2 pl-3 pr-12 text-sm font-medium transition-colors bg-white border rounded-md text-neutral-700 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none disabled:opacity-50 disabled:pointer-events-none">
 				<img
 					src="https://cdn.devdojo.com/images/may2023/adam.jpeg"
@@ -32,7 +32,7 @@ export function DefaultDropdownExample() {
 				</svg>
 			</DropdownTrigger>
 			<DropdownContent>
-				<div class="p-1 w-64 mt-1 bg-white border rounded-md shadow-md border-neutral-200/70 text-neutral-700">
+				<div class="p-1 w-64 my-1 bg-white border rounded-md shadow-md border-neutral-200/70 text-neutral-700">
 					<div class="px-2 py-1.5 text-sm font-semibold">My Account</div>
 					<div class="h-px my-1 -mx-1 bg-neutral-200"></div>
 					<a

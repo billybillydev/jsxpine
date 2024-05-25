@@ -5,6 +5,7 @@ export function HoverDropdownExample() {
 			<Dropdown position="bottom" x-bind="hover">
 				<a
 					href="#_"
+					x-ref="trigger"
 					class="flex items-center justify-center h-12 py-2 px-4 text-sm font-medium transition-colors bg-white group border rounded-md text-neutral-700 hover:bg-neutral-100 hover:underline active:bg-white focus:bg-white focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
 				>
 					@thedevdojo

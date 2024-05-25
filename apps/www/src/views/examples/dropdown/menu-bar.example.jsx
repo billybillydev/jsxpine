@@ -9,10 +9,10 @@ export function MenuBarDropdownExample() {
 		<ul class="flex items-center bg-white justify-evenly flex-1 p-2 gap-x-2 list-none border rounded-md text-neutral-700 group border-neutral-200/80">
 			<li class="grow flex items-center justify-center">
 				<Dropdown
-					class="p-2 hover:rounded-md bg-white border border-transparent hover:border-slate-200 w-full flex items-center justify-center"
+					class="hover:rounded-md bg-white border border-transparent hover:border-slate-200 w-full flex items-center justify-center"
 					x-bind:class="{ 'hover:rounded bg-white hover:bg-slate-200' : visible }"
 				>
-					<DropdownTrigger class="flex items-center justify-center w-full">
+					<DropdownTrigger class="p-2 flex items-center justify-center w-full">
 						<span>File</span>
 					</DropdownTrigger>
 					<DropdownContent>
@@ -104,10 +104,10 @@ export function MenuBarDropdownExample() {
 			<li class="grow flex items-center justify-center">
 				<Dropdown
 					position="right"
-					class="p-2 hover:rounded-md bg-white border border-transparent hover:border-slate-200 w-full flex items-center justify-center"
+					class="hover:rounded-md bg-white border border-transparent hover:border-slate-200 w-full flex items-center justify-center"
 					x-bind:class="{ 'hover:rounded bg-white hover:bg-slate-200' : visible }"
 				>
-					<DropdownTrigger class="flex items-center justify-center w-full">
+					<DropdownTrigger class="p-2 flex items-center justify-center w-full">
 						<span>Edit</span>
 					</DropdownTrigger>
 					<DropdownContent>
@@ -208,10 +208,10 @@ export function MenuBarDropdownExample() {
 			<li class="grow flex items-center justify-center">
 				<Dropdown
 					position="left"
-					class="p-2 hover:rounded-md bg-white border border-transparent hover:border-slate-200 w-full flex items-center justify-center"
+					class="hover:rounded-md bg-white border border-transparent hover:border-slate-200 w-full flex items-center justify-center"
 					x-bind:class="{ 'hover:rounded bg-white hover:bg-slate-200' : visible }"
 				>
-					<DropdownTrigger class="flex items-center justify-center w-full">
+					<DropdownTrigger class="p-2 flex items-center justify-center w-full">
 						<span>View</span>
 					</DropdownTrigger>
 					<DropdownContent>
@@ -312,10 +312,10 @@ export function MenuBarDropdownExample() {
 			<li class="grow flex items-center justify-center">
 				<Dropdown
 					position="top"
-					class="p-2 hover:rounded-md bg-white border border-transparent hover:border-slate-200 w-full flex items-center justify-center"
+					class="hover:rounded-md bg-white border border-transparent hover:border-slate-200 w-full flex items-center justify-center"
 					x-bind:class="{ 'hover:rounded bg-white hover:bg-slate-200' : visible }"
 				>
-					<DropdownTrigger class="flex items-center justify-center w-full">
+					<DropdownTrigger class="p-2 flex items-center justify-center w-full">
 						<span>Profiles</span>
 					</DropdownTrigger>
 					<DropdownContent>

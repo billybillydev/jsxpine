@@ -18,6 +18,8 @@ FROM base as build
 COPY --link bun.lockb package.json ./
 RUN bun install --production
 
+COPY --link . .
+
 RUN bun run build:registry
 
 # Copy application code

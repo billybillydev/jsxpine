@@ -1,4 +1,4 @@
-name: Fly Deploy
+name: App Deployment
 on:
   push:
     branches:

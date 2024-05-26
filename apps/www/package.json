@@ -7,11 +7,11 @@
 		"tailwind:prod": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css",
 		"mix": "bunx mix watch",
 		"start:dev": "concurrently \"bun dev\" \"bun tailwind:dev\" \"bun mix\"",
+		"start:prod": "bun run src/index.tsx && bun tailwind:prod && bunx mix",
 		"build:common": "bun run build-scripts/common.js",
 		"build:components": "bun run build-scripts/components.js",
 		"build:alpine": "bun run build-scripts/alpine-dependencies.js",
-		"build:registry": "bun run build-scripts/registry.js",
-		"start:prod": "bun run src/index.tsx && bun tailwind:prod && bunx mix"
+		"build:registry": "bun run build-scripts/registry.js"
 	},
 	"dependencies": {
 		"@alpinejs/collapse": "^3.12.3",

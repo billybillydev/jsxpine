@@ -16,7 +16,8 @@ FROM base as build
 
 # Install node modules
 COPY --link bun.lockb package.json ./
-RUN bun install --production
+
+RUN bun ci --production
 
 COPY --link . .
 

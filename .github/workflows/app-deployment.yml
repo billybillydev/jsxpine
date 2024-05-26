@@ -1,6 +1,8 @@
 name: App Deployment
 on:
   push:
+    paths:
+      - apps/*
     branches:
       - main
 jobs:
@@ -11,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: cd apps/www && flyctl deploy --remote-only
+      - run: flyctl deploy --remote-only ./apps/www
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

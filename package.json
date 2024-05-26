@@ -26,8 +26,8 @@
 		"format:write": "pnpm -r format:write",
 		"preinstall": "npx only-allow pnpm",
 		"postinstall": "pnpm -r sync",
-		"ci:version": "changeset version",
-		"ci:release": "changeset publish",
+		"ci:version": "changeset version --ignore www",
+		"ci:release": "changeset publish --ignore www",
 		"pub:beta": "cd packages/cli && pnpm pub:beta",
 		"pub:release": "cd packages/cli && pnpm pub:release"
 	},

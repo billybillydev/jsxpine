@@ -11,14 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
-      - uses: actions/checkout@v2
-      # - name: Use Node.js 18
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: 1.0.11
+      - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
         with:
           version: 0.2.55

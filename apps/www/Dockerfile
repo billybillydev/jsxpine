@@ -22,7 +22,7 @@ COPY --link . .
 
 RUN bun run build:registry
 RUN bun run tailwind:prod
-RUN bunx mix
+RUN npx mix
 
 # Copy application code
 COPY --link . .

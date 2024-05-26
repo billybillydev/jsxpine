@@ -12,6 +12,10 @@ jobs:
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
       - uses: actions/checkout@v4
+      # - name: Use Node.js 18
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 18
       - uses: superfly/flyctl-actions/setup-flyctl@master
         with:
           version: 0.2.55

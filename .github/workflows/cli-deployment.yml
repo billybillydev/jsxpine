@@ -40,15 +40,14 @@ jobs:
       - name: Bump version
         run: pnpm ci:release
 
-      - name: Create Version and Publish
-        run: |
-          pnpm ci:release
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "chore(release): version bump"
-          git push
-          pnpm pub:release
+      - name: Create Version PR or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1.4.1
+        with:
+          commit: "chore(release): version packages"
+          title: "chore(release): version packages"
+          version: node .github/changeset-version.js
+          publish: npx changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

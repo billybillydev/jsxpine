@@ -4,8 +4,8 @@ name: CLI Deployment
 
 on:
   push:
-    paths:
-      - packages/**
+    paths-ignore:
+      - apps/**
     branches:
       - main
 

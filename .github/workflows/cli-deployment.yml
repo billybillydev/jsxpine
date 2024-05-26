@@ -5,7 +5,7 @@ name: CLI Deployment
 on:
   push:
     paths:
-      - packages/*
+      - packages/**
     branches:
       - main
 

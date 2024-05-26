@@ -2,7 +2,7 @@ name: App Deployment
 on:
   push:
     paths:
-      - apps/*
+      - apps/**
     branches:
       - main
 jobs:

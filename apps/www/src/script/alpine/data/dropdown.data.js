@@ -1,8 +1,5 @@
 /**
- * Dropdown alpine data output
- * @typedef {Object} DropdownDataOutput
- * @property {import("src/common/types").PositionType} position
- * @property {object} originalBoundingClientRect
+ * @typedef OriginalBoundingClientRect
  * @property {number} originalBoundingClientRect.x
  * @property {number} originalBoundingClientRect.y
  * @property {number} originalBoundingClientRect.width
@@ -11,6 +8,13 @@
  * @property {number} originalBoundingClientRect.bottom
  * @property {number} originalBoundingClientRect.left
  * @property {number} originalBoundingClientRect.right
+ */
+
+/**
+ * Dropdown alpine data output
+ * @typedef {Object} DropdownDataOutput
+ * @property {import("src/common/types").PositionType} position
+ * @property {OriginalBoundingClientRect | null} originalBoundingClientRect
  * @property {number} duration
  * @property {boolean} visible
  * @property {Function} show
@@ -183,30 +187,32 @@ export function dropdownData(position = "bottom", duration) {
 					...positionClass.x,
 					...positionClass.y
 				);
-				if (["top", "bottom"].includes(positionUpdated)) {
-					if (this.originalBoundingClientRect.right > window.innerWidth) {
-						this.$refs.content.classList.remove(...positionClass.x);
-						// const delta =
-						// 	this.$refs.trigger.getBoundingClientRect().left +
-						// 	this.originalBoundingClientRect.width -
-						// 	window.innerWidth;
-						// this.$refs.content.style.left = `-${delta}px`;
-						this.$refs.content.style.right = `0px`;
-					} else if (this.originalBoundingClientRect.left < 0) {
-						this.$refs.content.classList.remove(...positionClass.x);
-						// this.$refs.content.style.left = `-${
-						// 	this.$refs.trigger.getBoundingClientRect().left
-						// }px`;
-						this.$refs.content.style.left = `0px`;
+				if (this.originalBoundingClientRect) {
+					if (["top", "bottom"].includes(positionUpdated)) {
+						if (this.originalBoundingClientRect.right > window.innerWidth) {
+							this.$refs.content.classList.remove(...positionClass.x);
+							// const delta =
+							// 	this.$refs.trigger.getBoundingClientRect().left +
+							// 	this.originalBoundingClientRect.width -
+							// 	window.innerWidth;
+							// this.$refs.content.style.left = `-${delta}px`;
+							this.$refs.content.style.right = `0px`;
+						} else if (this.originalBoundingClientRect.left < 0) {
+							this.$refs.content.classList.remove(...positionClass.x);
+							// this.$refs.content.style.left = `-${
+							// 	this.$refs.trigger.getBoundingClientRect().left
+							// }px`;
+							this.$refs.content.style.left = `0px`;
+						}
 					}
-				}
-				if (["left", "right"].includes(positionUpdated)) {
-					if (this.originalBoundingClientRect.bottom > window.innerHeight) {
-						this.$refs.content.classList.remove(...positionClass.y);
-						this.$refs.content.style.bottom = `0px`;
-					} else if (this.originalBoundingClientRect.top < 0) {
-						this.$refs.content.classList.remove(...positionClass.y);
-						this.$refs.content.style.top = `0px`;
+					if (["left", "right"].includes(positionUpdated)) {
+						if (this.originalBoundingClientRect.bottom > window.innerHeight) {
+							this.$refs.content.classList.remove(...positionClass.y);
+							this.$refs.content.style.bottom = `0px`;
+						} else if (this.originalBoundingClientRect.top < 0) {
+							this.$refs.content.classList.remove(...positionClass.y);
+							this.$refs.content.style.top = `0px`;
+						}
 					}
 				}
 				await this.$nextTick();

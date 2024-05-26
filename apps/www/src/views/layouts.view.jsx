@@ -30,7 +30,7 @@ export function MainLayout(props) {
 		<RootLayout {...restProps}>
 			<div
 				id="main-content"
-				class="flex lg:grid lg:grid-cols-5 xl:grid-cols-6 overflow-y-hidden relative"
+				class="flex lg:grid lg:grid-cols-5 xl:grid-cols-6 overflow-y-hidden relative grow"
 			>
 				<aside
 					title="Site Navigation"

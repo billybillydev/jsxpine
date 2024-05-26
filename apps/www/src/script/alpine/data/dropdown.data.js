@@ -192,8 +192,7 @@ export function dropdownData(position = "bottom", duration) {
 						// 	window.innerWidth;
 						// this.$refs.content.style.left = `-${delta}px`;
 						this.$refs.content.style.right = `0px`;
-					}
-					if (this.originalBoundingClientRect.left < 0) {
+					} else if (this.originalBoundingClientRect.left < 0) {
 						this.$refs.content.classList.remove(...positionClass.x);
 						// this.$refs.content.style.left = `-${
 						// 	this.$refs.trigger.getBoundingClientRect().left
@@ -202,18 +201,12 @@ export function dropdownData(position = "bottom", duration) {
 					}
 				}
 				if (["left", "right"].includes(positionUpdated)) {
-					console.log("left or right position");
-					if (
-						this.$refs.trigger.getBoundingClientRect().bottom +
-							this.$refs.content.clientHeight >
-						window.innerHeight
-					) {
-						this.$refs.content.style.left =
-							this.$refs.trigger.getBoundingClientRect().bottom +
-							this.$refs.content.clientHeight -
-							window.innerHeight;
-					} else {
-						this.$refs.content.classList.add(...positionClass.y);
+					if (this.originalBoundingClientRect.bottom > window.innerHeight) {
+						this.$refs.content.classList.remove(...positionClass.y);
+						this.$refs.content.style.bottom = `0px`;
+					} else if (this.originalBoundingClientRect.top < 0) {
+						this.$refs.content.classList.remove(...positionClass.y);
+						this.$refs.content.style.top = `0px`;
 					}
 				}
 				await this.$nextTick();
@@ -261,10 +254,9 @@ export function dropdownData(position = "bottom", duration) {
 			switch (position) {
 				case "top":
 					if (this.$refs.content.getBoundingClientRect().top < 0) {
-						// this.resetPositionClasses(position);
+						this.resetPositionClasses(position);
 						return "bottom";
 					}
-					// this.$refs.content.style.transform = `translateX(0px)`;
 					return position;
 				case "right":
 					if (
@@ -272,14 +264,13 @@ export function dropdownData(position = "bottom", duration) {
 							this.$refs.content.clientWidth >
 						window.innerWidth
 					) {
-						// this.resetPositionClasses(position);
+						this.resetPositionClasses(position);
 						return "left";
 					}
 					return position;
 				case "left":
 					if (this.$refs.content.getBoundingClientRect().left < 0) {
-						console.log(this.$refs.content.getBoundingClientRect().left);
-						// this.resetPositionClasses(position);
+						this.resetPositionClasses(position);
 						return "right";
 					}
 					return position;

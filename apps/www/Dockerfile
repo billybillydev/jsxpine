@@ -22,6 +22,8 @@ RUN bun i --production
 COPY --link . .
 
 RUN bun run build:registry
+RUN bun run tailwind:prod
+RUN bunx mix
 
 # Copy application code
 COPY --link . .
@@ -34,4 +36,4 @@ COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD [ "bun", "run", "start:prod" ]
+CMD [ "bun", "run", "src/index.tsx" ]

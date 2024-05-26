@@ -182,7 +182,7 @@ export const add = new Command()
 			if (alpineDependencies.length) {
 				await fs.writeFile(
 					path.join(config.resolvedPaths.alpine, "index.js"),
-					updateAlpineScriptWithData(alpineDependencies),
+					updateAlpineScriptWithData(Array.from(new Set(alpineDependencies))),
 					"utf8"
 				);
 			}

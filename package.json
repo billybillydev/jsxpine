@@ -26,7 +26,7 @@
 		"format:write": "pnpm -r format:write",
 		"preinstall": "npx only-allow pnpm",
 		"postinstall": "pnpm -r sync",
-		"ci:release": "changeset version --ignore apps/*",
+		"ci:release": "changeset version",
 		"pub:beta": "cd packages/cli && pnpm pub:beta",
 		"pub:release": "cd packages/cli && pnpm pub:release"
 	},

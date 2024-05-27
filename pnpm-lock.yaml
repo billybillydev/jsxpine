@@ -75,27 +75,9 @@ importers:
 
   packages/cli:
     dependencies:
-      '@alpinejs/collapse':
-        specifier: ^3.13.10
-        version: 3.13.10
-      '@alpinejs/focus':
-        specifier: ^3.13.10
-        version: 3.13.10
-      '@iconify-json/ri':
-        specifier: ^1.1.20
-        version: 1.1.20
-      '@iconify/utils':
-        specifier: ^2.1.23
-        version: 2.1.23
-      alpinejs-manage:
-        specifier: ^1.0.4
-        version: 1.0.4
       chalk:
         specifier: 5.2.0
         version: 5.2.0
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
       commander:
         specifier: ^10.0.0
         version: 10.0.1
@@ -114,9 +96,6 @@ importers:
       prompts:
         specifier: ^2.4.2
         version: 2.4.2
-      tailwindcss-mosiui-mini:
-        specifier: ^0.1.4
-        version: 0.1.4(tailwindcss@3.3.5)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -180,19 +159,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /@alpinejs/collapse@3.13.10:
-    resolution: {integrity: sha512-D4CRrwXdhuJdQX8gJvYBajMj90I85huf395eB8E+PfGy2QQZOxZxd92TWzaMLnMQlFHPkZ+chZmFuewjZ7y52Q==}
-    dev: false
-
   /@alpinejs/collapse@3.13.2:
     resolution: {integrity: sha512-0osMzn5yUrnGSbvFoPltwV2UnbFNL0Gn99wfIRPklhkbgWXrwji1dtpklZsHsLwDqzGC6Pp8Kw1FlCU7gEC0Yw==}
-    dev: false
-
-  /@alpinejs/focus@3.13.10:
-    resolution: {integrity: sha512-4W4AvVtqq3Ozosa+PEopIJqAIoyWOll24t/LClNmQPPl3exsns84sfN+V5SVPLfbBH+uoaCkxEq2rae6U7/MBA==}
-    dependencies:
-      focus-trap: 6.9.4
-      tabbable: 5.3.3
     dev: false
 
   /@alpinejs/focus@3.13.2:
@@ -223,10 +191,6 @@ packages:
 
   /@antfu/utils@0.7.6:
     resolution: {integrity: sha512-pvFiLP2BeOKA/ZOS6jxx4XhKzdVLHDhGlFEaZ2flWWYf2xOqVniqpk38I04DFRyz+L0ASggl7SkItTc+ZLju4w==}
-    dev: false
-
-  /@antfu/utils@0.7.8:
-    resolution: {integrity: sha512-rWQkqXRESdjXtc+7NRfK9lASQjpXJu1ayp7qi1d23zZorY+wBHVLHHoVcMsEnkqEBWTFqbztO7/QdJFzyEcLTg==}
     dev: false
 
   /@babel/code-frame@7.22.13:
@@ -1947,12 +1911,6 @@ packages:
       '@iconify/types': 2.0.0
     dev: false
 
-  /@iconify-json/ri@1.1.20:
-    resolution: {integrity: sha512-yScIGjLFBCJKWKskQTWRjNI2Awoq+VRDkRxEsCQvSfdz41n+xkRtFG2K6J1OVI90ClRHfjFC8VJ2+WzxxyFjTQ==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: false
-
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: false
@@ -1966,20 +1924,6 @@ packages:
       debug: 4.3.4
       kolorist: 1.8.0
       local-pkg: 0.4.3
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@iconify/utils@2.1.23:
-    resolution: {integrity: sha512-YGNbHKM5tyDvdWZ92y2mIkrfvm5Fvhe6WJSkWu7vvOFhMtYDP0casZpoRz0XEHZCrYsR4stdGT3cZ52yp5qZdQ==}
-    dependencies:
-      '@antfu/install-pkg': 0.1.1
-      '@antfu/utils': 0.7.8
-      '@iconify/types': 2.0.0
-      debug: 4.3.4
-      kolorist: 1.8.0
-      local-pkg: 0.5.0
-      mlly: 1.7.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -2612,10 +2556,6 @@ packages:
 
   /alpinejs-manage@1.0.3:
     resolution: {integrity: sha512-UuLYLG5csgGuI5Kd87RmJjQFHYPC9aU32vbuWG7MMkio2KzDe0yaoj+qvt3GGbgcECaHoVJGWMNOaF/OPYe4PA==}
-    dev: false
-
-  /alpinejs-manage@1.0.4:
-    resolution: {integrity: sha512-yDLyOGpy0/NVZW4qjlQ4MIHjVeUmcc4aOvEIZBJzBXnbcKhmgh50UF2rHGQVX7e9H2nhEXqtd1AN0n48pDlKPw==}
     dev: false
 
   /alpinejs@3.13.2:
@@ -3341,10 +3281,6 @@ packages:
       tree-kill: 1.2.2
       yargs: 17.7.2
     dev: true
-
-  /confbox@0.1.7:
-    resolution: {integrity: sha512-uJcB/FKZtBMCJpK8MQji6bJHgu1tixKPxRLeGkNzBoOZzpnZUJm0jm2/sBDWcuBx1dYgxV4JU+g5hmNxCyAmdA==}
-    dev: false
 
   /connect-history-api-fallback@2.0.0:
     resolution: {integrity: sha512-U73+6lQFmfiNPrYbXqr6kZ1i1wiRqXnp2nhMsINseWXO8lDau0LGEffJ8kQi4EjLZympVgRdvqjAgiZ1tgzDDA==}
@@ -5314,14 +5250,6 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
-  /local-pkg@0.5.0:
-    resolution: {integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==}
-    engines: {node: '>=14'}
-    dependencies:
-      mlly: 1.7.0
-      pkg-types: 1.1.1
-    dev: false
-
   /locate-path@5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
@@ -5598,15 +5526,6 @@ packages:
     resolution: {integrity: sha512-VC5fg6ySUscaWUpI4gxCBTQMH2RdUpNrk+MsbpCYtIvf9SBJdiUey4qE7BXviJsJR4nDQxCZ+3yaYNW3guz/Pw==}
     engines: {node: '>= 8.0.0'}
     dev: true
-
-  /mlly@1.7.0:
-    resolution: {integrity: sha512-U9SDaXGEREBYQgfejV97coK0UL1r+qnF2SyO9A3qcI8MzKnsIFKHNVEkrDyNncQTKQQumsasmeq84eNMdBfsNQ==}
-    dependencies:
-      acorn: 8.11.3
-      pathe: 1.1.2
-      pkg-types: 1.1.1
-      ufo: 1.5.3
-    dev: false
 
   /ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
@@ -6002,10 +5921,6 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
 
-  /pathe@1.1.2:
-    resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
-    dev: false
-
   /pbkdf2@3.1.2:
     resolution: {integrity: sha512-iuh7L6jA7JEGu2WxDwtQP1ddOpaJNC4KlDEFfdQajSGgGPNi4OyDc2R7QnbY2bR9QjBVGwgvTdNJZoE7RaxUMA==}
     engines: {node: '>=0.12'}
@@ -6043,14 +5958,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
-
-  /pkg-types@1.1.1:
-    resolution: {integrity: sha512-ko14TjmDuQJ14zsotODv7dBlwxKhUKQEhuhmbqo1uCi9BB0Z2alo/wAXg6q1dTR5TyuqYyWhjtfe/Tsh+X28jQ==}
-    dependencies:
-      confbox: 0.1.7
-      mlly: 1.7.0
-      pathe: 1.1.2
-    dev: false
 
   /postcss-calc@8.2.4(postcss@8.4.31):
     resolution: {integrity: sha512-SmWMSJmB8MRnnULldx0lQIyhSNvuDl9HfrZkaqqE/WHAhToYsAvDq+yAsA/kIyINDszOp3Rh0GFoNuH5Ypsm3Q==}
@@ -7723,10 +7630,6 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
-
-  /ufo@1.5.3:
-    resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
-    dev: false
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

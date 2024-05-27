@@ -50,8 +50,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
           NODE_ENV: "production"
-      - name: Publish the package
-        run: pnpm pub:release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN_ACCESS }}
-          NODE_ENV: "production"
+          version: pnpm ci:release
+          publish: pnpm ci:release

@@ -2,4 +2,4 @@
 "jsxpine": patch
 ---
 
-updated cli package.json
+Update cli package.json

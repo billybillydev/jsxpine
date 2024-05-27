@@ -1,5 +1,14 @@
 # jsxpine
 
+## 0.2.15
+
+### Patch Changes
+
+- 9fae24e: fixed cli-deployment config 17
+- 9fae24e: fixed cli deployment
+- 4580345: Update cli package.json
+- a626977: Cleaned add command
+
 ## 0.2.13
 
 ### Patch Changes

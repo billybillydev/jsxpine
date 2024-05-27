@@ -12,7 +12,7 @@ on:
 jobs:
   release:
     if: ${{ github.repository_owner == 'believelody' }}
-    name: Create a PR for release workflow
+    name: Create release workflow
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -28,27 +28,26 @@ jobs:
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
+          registry-url: 'https://registry.npmjs.org'
           node-version: 18
           cache: "pnpm"
 
       - name: Install NPM Dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
 
       - name: Build the package
         run: pnpm build:cli
-      
-      - name: Bump version
-        run: pnpm ci:version
 
-      - name: Commit changesets
-        id: changesets
-        uses: changesets/action@v1.4.1
+      - name: ⏫ Bumping version
+        uses: jpb06/bump-package@latest
         with:
-          commit: "chore(release): version packages"
-          title: "chore(release): version packages"
-          version: pnpm ci:release
-          publish: pnpm ci:release
+          major-keywords: BREAKING CHANGE
+          minor-keywords: feat,minor
+          patch-keywords: fix,chore
+          should-default-to-patch: true
+
+      - name: Publish package
+        run: pnpm pub:release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+          NPM_ACCESS_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
           NODE_ENV: "production"

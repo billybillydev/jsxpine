@@ -28,6 +28,9 @@
 		"postinstall": "pnpm -r sync",
 		"ci:version": "changeset version",
 		"ci:release": "changeset publish",
+		"bump:patch": "cd packages/cli && pnpm bump:patch",
+		"bump:minor": "cd packages/cli && pnpm bump:minor",
+		"bump:major": "cd packages/cli && pnpm bump:major",
 		"pub:beta": "cd packages/cli && pnpm pub:beta",
 		"pub:release": "cd packages/cli && pnpm pub:release"
 	},
@@ -37,6 +40,9 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/believelody/jsxpine.git"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
 	},
 	"license": "MIT",
 	"type": "module",

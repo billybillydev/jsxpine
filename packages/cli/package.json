@@ -1,6 +1,6 @@
 {
 	"name": "jsxpine",
-	"version": "0.2.13",
+	"version": "0.0.1",
 	"description": "Add jsx components to your app.",
 	"publishConfig": {
 		"access": "public"
@@ -44,8 +44,9 @@
 		"clean": "rimraf dist && rimraf components",
 		"format:write": "prettier --write .",
 		"format:check": "prettier --check .",
-		"version": "changeset version",
-		"release": "changeset publish",
+		"bump:patch": "pnpm version patch",
+		"bump:minor": "pnpm version minor",
+		"bump:major": "pnpm version major",
 		"pub:beta": "pnpm publish --no-git-checks --access public --tag beta",
 		"pub:next": "pnpm publish --no-git-checks --access public --tag next",
 		"pub:release": "pnpm publish --access public"

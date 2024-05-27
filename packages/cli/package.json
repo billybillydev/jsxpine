@@ -5,11 +5,11 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"license": "MIT",
 	"author": {
 		"name": "billybillydev",
 		"url": "https://twitter.com/billybillydev"
 	},
+	"license": "MIT",
 	"homepage": "https://github.com/believelody/jsxpine#readme",
 	"repository": {
 		"type": "git",

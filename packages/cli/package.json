@@ -1,6 +1,6 @@
 {
 	"name": "jsxpine",
-	"version": "0.0.2",
+	"version": "0.2.16",
 	"description": "Add jsx components to your app.",
 	"publishConfig": {
 		"access": "public"

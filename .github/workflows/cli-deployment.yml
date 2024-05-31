@@ -1,22 +1,20 @@
 # Adapted from create-t3-app.
 
-name: CLI Deployment
+name: Release
 
 on:
   push:
-    paths:
-      - packages/**
     branches:
       - main
 
 jobs:
   release:
     if: ${{ github.repository_owner == 'believelody' }}
-    name: Create release workflow
+    name: Create a PR for release workflow
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -28,26 +26,28 @@ jobs:
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
-          registry-url: 'https://registry.npmjs.org'
+          version: 8.6.1
           node-version: 18
           cache: "pnpm"
 
       - name: Install NPM Dependencies
         run: pnpm install
 
+      # - name: Check for errors
+      #   run: pnpm check
+
       - name: Build the package
         run: pnpm build:cli
 
-      - name: ⏫ Bumping version
-        uses: jpb06/bump-package@latest
+      - name: Create Version PR or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1.4.1
         with:
-          major-keywords: BREAKING CHANGE
-          minor-keywords: feat,minor
-          patch-keywords: fix,chore
-          should-default-to-patch: true
-
-      - name: Publish package
-        run: pnpm pub:release
+          commit: "chore(release): version packages"
+          title: "chore(release): version packages"
+          version: node .github/changeset-version.js
+          publish: npx changeset publish
         env:
-          NPM_ACCESS_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
           NODE_ENV: "production"

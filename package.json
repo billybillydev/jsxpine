@@ -44,9 +44,13 @@
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
 	},
+	"packageManager": "pnpm@8.5.1",
 	"license": "MIT",
 	"type": "module",
-	"devDependencies": {
-		"@changesets/cli": "^2.26.1"
+	"dependencies": {
+		"@changesets/changelog-github": "^0.4.8",
+		"@changesets/cli": "^2.26.1",
+		"@commitlint/cli": "^17.6.3",
+		"@commitlint/config-conventional": "^17.6.3"
 	}
 }

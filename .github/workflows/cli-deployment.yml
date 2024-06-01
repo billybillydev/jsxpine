@@ -1,6 +1,6 @@
 # Adapted from create-t3-app.
 
-name: Release
+name: CLI Deploy
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   release:
-    if: ${{ github.repository_owner == 'believelody' }}
+    if: ${{ github.repository_owner == 'billybillydev' }}
     name: Create a PR for release workflow
     runs-on: ubuntu-latest
     steps:

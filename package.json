@@ -26,7 +26,7 @@
 		"format:write": "pnpm -r format:write",
 		"preinstall": "npx only-allow pnpm",
 		"postinstall": "pnpm -r sync",
-		"ci:version": "changeset version",
+		"ci:version": "changeset add && changeset version",
 		"ci:release": "changeset publish",
 		"bump:patch": "cd packages/cli && pnpm bump:patch",
 		"bump:minor": "cd packages/cli && pnpm bump:minor",

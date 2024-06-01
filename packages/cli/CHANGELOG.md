@@ -1,5 +1,13 @@
 # jsxpine
 
+## 0.2.18
+
+### Patch Changes
+
+- 8f6463d: cleanup package.json
+- 249db5a: update cli package.json
+- build package
+
 ## 0.2.15
 
 ### Patch Changes

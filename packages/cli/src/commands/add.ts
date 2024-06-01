@@ -8,13 +8,8 @@ import { z } from "zod";
 import { getConfig } from "../utils/get-config";
 import { handleError } from "../utils/handle-error";
 import { logger } from "../utils/logger";
-import {
-	fetchAlpineData,
-	fetchTree,
-	getRegistryIndex,
-	resolveTree,
-	transformObjectToDirectory
-} from "../utils/registry";
+import { fetchAlpineData, fetchTree, getRegistryIndex, resolveTree, transformObjectToDirectory } from "../utils/registry";
+
 
 const addOptionsSchema = z.object({
 	components: z.array(z.string()).optional(),

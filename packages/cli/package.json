@@ -1,6 +1,6 @@
 {
 	"name": "jsxpine",
-	"version": "0.2.17",
+	"version": "0.2.18",
 	"description": "Add jsx components to your app.",
 	"publishConfig": {
 		"access": "public"
@@ -10,10 +10,10 @@
 		"url": "https://twitter.com/billybillydev"
 	},
 	"license": "MIT",
-	"homepage": "https://github.com/believelody/jsxpine#readme",
+	"homepage": "https://github.com/billybillydev/jsxpine#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/believelody/jsxpine.git",
+		"url": "git+https://github.com/billybillydev/jsxpine.git",
 		"directory": "packages/cli"
 	},
 	"files": [

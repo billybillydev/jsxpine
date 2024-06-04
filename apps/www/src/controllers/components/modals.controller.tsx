@@ -1,11 +1,19 @@
 import { ModalsPage } from "$pages/components/modals.page";
 import { Hono } from "hono";
+import { AppVariables } from "src";
 
-export const modalsController = new Hono().get((ctx) => {
-	return ctx.html(
-		<ModalsPage
-			seo={{ title: "Modals Components Documentation" }}
-			currentUrl={new URL(ctx.req.url).pathname}
-		/>
-	);
-});
+export const modalsController = new Hono<{ Variables: AppVariables }>().get(
+	(ctx) => {
+		return ctx.html(
+			<ModalsPage
+				{...{
+					seo: {
+						title: "Modals Components Documentation",
+						robots: ["index", "follow"]
+					},
+					...ctx.var
+				}}
+			/>
+		);
+	}
+);

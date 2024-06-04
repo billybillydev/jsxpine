@@ -30,9 +30,8 @@
 
 /**
  * @typedef HTMLTagWithChildren
- * @type {import("hono/jsx").PropsWithChildren<Omit<JSX.HtmlTag, "className"> & CLSXClassProps>}
+ * @type {JSX.ElementChildrenAttribute & Omit<JSX.HtmlTag, "className"> & CLSXClassProps}
  */
-
 
 /**
  * @typedef PositionProps

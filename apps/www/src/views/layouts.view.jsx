@@ -25,7 +25,7 @@ export function RootLayout(props) {
  * @type {import("$common/props").JSXComponent<import("$components/page.component").PageProps<{}>>}
  */
 export function MainLayout(props) {
-	const { currentUrl, children, ...restProps } = props;
+	const { currentPath, children, ...restProps } = props;
 	return (
 		<RootLayout {...restProps}>
 			<div
@@ -37,7 +37,7 @@ export function MainLayout(props) {
 					class="col-span-1 sticky top-0 py-6 overflow-hidden hidden lg:flex border-r"
 				>
 					<div class="overflow-y-auto w-full">
-						<LeftSidebar currentPage={currentUrl || ""} />
+						<LeftSidebar currentPage={currentPath || ""} />
 					</div>
 				</aside>
 				<main
@@ -58,7 +58,7 @@ export function MainLayout(props) {
 					title="Site Table of Contents"
 					class="col-span-1 sticky top-0 pt-6 grow hidden lg:flex border-l"
 				>
-					<RightSidebar currentPage={currentUrl || ""} />
+					<RightSidebar currentPage={currentPath || ""} />
 				</aside>
 			</div>
 		</RootLayout>

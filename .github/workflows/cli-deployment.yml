@@ -1,12 +1,14 @@
 name: CLI Deploy
 on:
   pull_request:
+    paths:
+      - packages/**
     branches:
       - main
     types:
       - closed
 jobs:
-  deploy_when_merged:
+  publish_when_merged:
     if: ${{ github.event.pull_request.merged == true && github.repository_owner == 'billybillydev' && contains(github.event.pull_request.labels.*.name,'cli') }}
     runs-on: ubuntu-latest
     steps:

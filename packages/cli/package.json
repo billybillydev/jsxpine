@@ -46,7 +46,7 @@
 		"format:check": "prettier --check .",
 		"pub:beta": "pnpm publish --no-git-checks --access public --tag beta",
 		"pub:next": "pnpm publish --no-git-checks --access public --tag next",
-		"pub:release": "pnpm publish --access public"
+		"pub:release": "pnpm publish --access public --no-git-checks"
 	},
 	"dependencies": {
 		"chalk": "5.2.0",

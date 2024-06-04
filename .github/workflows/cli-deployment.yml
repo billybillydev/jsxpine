@@ -3,10 +3,11 @@ on:
   pull_request:
     branches:
       - main
-    types: [ closed, labeled ]
+    types:
+      - closed
 jobs:
   deploy_when_merged:
-    if: ${{ github.event.pull_request.merged == true && github.repository_owner == 'billybillydev' && github.event.label.name == 'cli' }}
+    if: ${{ github.event.pull_request.merged == true && github.repository_owner == 'billybillydev' && contains(github.event.pull_request.labels.*.name,'cli') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,17 +20,18 @@ jobs:
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
-          version: 8.6.1
+          registry-url: https://registry.npmjs.org
           node-version: 18
           cache: "pnpm"
 
       - name: Install NPM Dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build the package
         run: pnpm build:cli
 
       - name: Publish package
+        shell: bash
         run: pnpm pub:release
         env:
           NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}

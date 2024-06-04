@@ -1,5 +1,17 @@
 # jsxpine
 
+## 0.2.19
+
+### Patch Changes
+
+- fix cli deploy
+
+## 0.2.18
+
+### Patch Changes
+
+- fix cli deploy
+
 ## 0.2.18
 
 ### Patch Changes

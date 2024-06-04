@@ -20,11 +20,12 @@ jobs:
       - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
+          registry-url: https://registry.npmjs.org
           node-version: 20
           cache: "pnpm"
 
       - name: Install NPM Dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build the package
         run: pnpm build:cli

@@ -1,11 +1,19 @@
 import { ButtonsPage } from "$pages/components/buttons.page";
 import { Hono } from "hono";
+import { AppVariables } from "src";
 
-export const buttonsController = new Hono().get((ctx) => {
-    return ctx.html(
+export const buttonsController = new Hono<{ Variables: AppVariables }>().get(
+	(ctx) => {
+		return ctx.html(
 			<ButtonsPage
-				seo={{ title: "Buttons Components Documentation" }}
-				currentUrl={new URL(ctx.req.url).pathname}
+				{...{
+					seo: {
+						title: "Buttons Components Documentation",
+						robots: ["index", "follow"]
+					},
+					...ctx.var
+				}}
 			/>
 		);
-})
+	}
+);

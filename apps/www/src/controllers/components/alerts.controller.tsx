@@ -1,11 +1,19 @@
 import { AlertsPage } from "$pages/components/alerts.page";
 import { Hono } from "hono";
+import { AppVariables } from "src";
 
-export const alertsController = new Hono().get((ctx) => {
-	return ctx.html(
-		<AlertsPage
-			seo={{ title: "Alerts Components Documentation" }}
-			currentUrl={new URL(ctx.req.url).pathname}
-		/>
-	);
-});
+export const alertsController = new Hono<{ Variables: AppVariables }>().get(
+	(ctx) => {
+		return ctx.html(
+			<AlertsPage
+				{...{
+					seo: {
+						title: "Alerts Components Documentation",
+						robots: ["index", "follow"]
+					},
+					...ctx.var
+				}}
+			/>
+		);
+	}
+);

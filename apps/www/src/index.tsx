@@ -8,6 +8,8 @@ import { notFoundController } from "$controllers/404.controller";
 
 export type AppVariables = {
 	isHTMX?: boolean;
+	currentPath: string;
+	url: URL;
 };
 
 const app = new Hono<{ Variables: AppVariables }>();
@@ -17,6 +19,11 @@ const staticFileMiddleware = serveStatic({ root: "./" });
 app
 	.use("/public/*", staticFileMiddleware)
 	.use(htmxMiddleware)
+	.use("*", async ({ set, req }, next) => {
+		set("currentPath", req.path);
+		set("url", new URL(req.url));
+		await next();
+	})
 	.route("/", homeController)
 	.route("/components", componentsController)
 	.route("/404-not-found", notFoundController)

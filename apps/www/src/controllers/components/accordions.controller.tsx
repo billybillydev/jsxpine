@@ -1,11 +1,19 @@
-import { AccordionsPage } from "$pages/components/accordions.page"
-import { Hono } from "hono"
+import { AccordionsPage } from "$pages/components/accordions.page";
+import { Hono } from "hono";
+import { AppVariables } from "src";
 
-export const accordionsController = new Hono().get((ctx) => {
-    return ctx.html(
+export const accordionsController = new Hono<{ Variables: AppVariables }>().get(
+	(ctx) => {
+		return ctx.html(
 			<AccordionsPage
-				seo={{ title: "Accordions Components Documentation" }}
-				currentUrl={new URL(ctx.req.url).pathname}
+				{...{
+					seo: {
+						title: "Accordions Components Documentation",
+						robots: ["index", "follow"]
+					},
+					...ctx.var
+				}}
 			/>
 		);
-})
+	}
+);

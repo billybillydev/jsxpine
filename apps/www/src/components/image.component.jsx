@@ -13,7 +13,9 @@
  * Image Component props
  * @type {import("$common/props").JSXComponent<ImageProps>}
  */
-export function Image({ ...restProps }) {
+export function Image(props) {
+    const { ...restProps } = props;
+    
     return (
         <img {...{ ...restProps, loading: "lazy" }} />
     )

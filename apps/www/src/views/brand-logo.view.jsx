@@ -7,6 +7,6 @@ import { Image } from "$components/image.component";
  */
 export function BrandLogo({ class: className }) {
 	return (
-		<Image src="/public/icons/astropine.svg" alt="JSXPine Logo" class={className} />
+		<Image src="/public/icons/logo_2.svg" alt="JSXPine Logo" class={className} />
 	);
 }

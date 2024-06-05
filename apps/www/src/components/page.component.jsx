@@ -29,13 +29,14 @@ import clsx from "clsx";
  * @property {string} [lang] The page language
  * @property {string} [dir] The page direction
  * @property {RobotsMetaData} [robots] Information about robots indexing. Contains two boolean properties: index and follow.
+ * @property {OpenGraphMetaData} [openGraph] The openGraph meta data
  */
 
 /**
  * Type for Page component props
  * @template {Object} T
  * @typedef PageProps
- * @type {import('$common/props').HTMLTagWithChildren & { isHTMX?: boolean, currentPath?: string, seo: SeoData, url?: URL } & T}
+ * @type {import('$common/props').HTMLTagWithChildren & { isHTMX?: boolean, currentPath?: string, seo: SeoData, url?: URL, favicon?: string } & T}
  */
 
 /**
@@ -82,18 +83,10 @@ export function Page(props) {
 		seo,
 		class: className,
 		url,
+		favicon,
 		...restProps
 	} = props;
 
-	/** @type {OpenGraphMetaData} */
-	const openGraph = {
-		title: seo.title,
-		description: seo.description,
-		url: url?.href ?? "",
-		site_name: "",
-		type: "",
-		image: url ? `${url.origin}/absolute/path/to/image` : ""
-	};
 	return (
 		<html lang="en">
 			<head>
@@ -103,7 +96,8 @@ export function Page(props) {
 				{seo.description ? (
 					<meta name="description" content={seo.description} />
 				) : null}
-				<SeoOpenGraph {...openGraph} />
+				{ seo.openGraph ? <SeoOpenGraph {...seo.openGraph} /> : null }
+				{ favicon ? <link rel="shortcut icon" href={favicon} type="image/x-icon" /> : null }
 				<link rel="stylesheet" href="/public/styles/index.css" />
 				<script src="/public/script/app.js" defer="true"></script>
 				<script

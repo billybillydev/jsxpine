@@ -28,7 +28,7 @@ export function HomePage() {
 			<div class="bg-slate-100 min-h-screen text-center">
 				<header class="pt-12 pb-24 px-4 bg-gradient-to-br from-slate-700 to-black">
 					<div class="relative flex items-center justify-center gap-x-2 p-4">
-						<BrandLogo class="size-12 bg-white rounded-lg m-2 object-contain object-center" />
+						<BrandLogo class="size-16 rounded-lg m-2 object-contain object-center" />
 						<h1 class="text-white font-medium drop-shadow-sm">{SITE.title}</h1>
 					</div>
 					<p class="text-lg mt-4 text-slate-300">{SITE.description}</p>

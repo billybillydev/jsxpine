@@ -10,10 +10,32 @@ export function RootLayout(props) {
 	const {
 		children,
 		class: className = "bg-slate-100 h-screen flex flex-col",
+		seo,
+		url,
 		...restProps
 	} = props;
+
+	const favicon = "/public/icons/logo_2.svg";
+
+	/** @type {import("$components/page.component").OpenGraphMetaData} */
+	const openGraph = {
+		title: seo.title,
+		description: seo.description,
+		url: url?.href ?? "",
+		site_name: "",
+		type: "",
+		image: url ? url.origin.concat(favicon) : ""
+	};
+
+	seo.openGraph = openGraph;
+
 	return (
-		<Page class={className} {...restProps}>
+		<Page
+			class={className}
+			favicon={favicon}
+			seo={seo}
+			{...restProps}
+		>
 			<Header />
 			{children}
 			<Footer />

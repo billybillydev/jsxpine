@@ -1,5 +1,3 @@
-import { raw } from "hono/html";
-
 /**
  * @type {import("$components/table.component").TableHeadColumnType[]}
  */
@@ -169,7 +167,7 @@ export const items = [
  */
 export function AddressComponent(props) {
 	const { text } = props;
-	return <p class="text-slate-600 italic">{text}</p>;
+	return <p class="text-slate-600 italic" safe>{text}</p>;
 }
 
 /**
@@ -178,7 +176,7 @@ export function AddressComponent(props) {
 export function ButtonComponent(props) {
 	const { text } = props;
 	return (
-		<button class="btn btn-info-outlined rounded py-1 px-2 text-center w-full">
+		<button class="btn btn-info-outlined rounded py-1 px-2 text-center w-full" safe>
 			{text}
 		</button>
 	);

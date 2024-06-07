@@ -45,7 +45,7 @@ export function DropdownContent(props) {
 			x-bind="closer"
 			class={clsx("absolute z-[999]", className)}
 			x-ref="content"
-			x-cloak
+			x-cloak="true"
 			{...restProps}
 		>
 			{children}

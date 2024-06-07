@@ -53,7 +53,7 @@ export function MainInputExample() {
 			<FileField
 				label="Select files"
 				x-on:input="console.log($event.target.value)"
-				multiple="true"
+				multiple
 			/>
 			<div class="col-span-2">
 				<TextareaField

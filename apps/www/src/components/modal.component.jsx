@@ -13,7 +13,7 @@ import clsx from "clsx";
 
 /**
  * @typedef {Object} ModalContentProps
- * @type {{ selector?: import("$common/props").HTMLTag["id"], type?: ModalContentType } & import("$common/props").HTMLTag}
+ * @type {{ selector?: string, type?: ModalContentType } & import("$common/props").HTMLTag}
  */
 
 /**
@@ -46,7 +46,7 @@ export function SimpleModalContent(props) {
 					selector !== "body" ? "absolute" : "fixed",
 					className
 				)}
-				x-cloak
+				x-cloak="true"
 			>
 				<div
 					x-bind="shower"

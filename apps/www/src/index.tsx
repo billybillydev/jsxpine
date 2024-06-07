@@ -5,6 +5,7 @@ import { serverConfig } from "$config/server";
 import { componentsController } from "$controllers/components/*";
 import { htmxMiddleware } from "$middlewares/htmx.middleware";
 import { notFoundController } from "$controllers/404.controller";
+import { RootLayout } from "$views/layouts.view";
 
 export type AppVariables = {
 	isHTMX?: boolean;
@@ -25,6 +26,13 @@ app
 		await next();
 	})
 	.route("/", homeController)
+	.route("/about", new Hono().get((ctx) => {
+		return ctx.html(
+			<RootLayout id={"about"} seo={{ title: "About Page" }}>
+				<div>This is about page</div>
+			</RootLayout>
+		)
+	}))
 	.route("/components", componentsController)
 	.route("/404-not-found", notFoundController)
 	.notFound(ctx => ctx.redirect("/404-not-found"));

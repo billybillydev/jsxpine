@@ -7,7 +7,7 @@ export function Radio(props) {
 	return (
 		<div>
 			<input type="radio" id={id} class="hidden peer" {...restProps} />
-			<label for={id} class={className}>
+			<label for={String(id)} class={className}>
 				{children}
 			</label>
 		</div>

@@ -17,7 +17,7 @@ export function HorizontalCardExample() {
 					action: "console.log('card component')"
 				}
 			]}
-			position="horizontal"
+			direction="horizontal"
 		/>
 	);
 }

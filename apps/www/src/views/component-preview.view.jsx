@@ -18,6 +18,7 @@ export async function ComponentPreview(props) {
 	const file = Bun.file(`src/views/examples/${props.filename}.example.jsx`);
 	const text = await file.text();
 	
+	/** @type {import("@kitajs/html").Component} */
 	const Component = await import(`$views/examples/${props.filename}.example.jsx`).then((m) => Object.values(m)[0]);
 
 	return (

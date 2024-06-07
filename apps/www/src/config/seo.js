@@ -9,14 +9,6 @@ export const SITE = {
 	keywords: `shadcn,JSX,TailwindCSS,Alpine JS,Pine UI,Dev Dojo`
 };
 
-export const OPEN_GRAPH = {
-  image: {
-    src: "",
-    alt: "",
-  },
-  twitter: "billybillydev",
-};
-
 /**
  * @typedef SiteConfig
  * @type {typeof SITE}

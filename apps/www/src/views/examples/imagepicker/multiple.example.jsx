@@ -5,7 +5,7 @@ import { ImagePicker } from "$components/imagepicker.component";
 export function MultipleImagePickerExample() {
 	return (
 		<ImagePicker
-			multiple="true"
+			multiple
 			x-on:selected-images={`
                 console.log($event.detail);
                 $manage("#multi-images-preview").images = $event.detail.selectedImages

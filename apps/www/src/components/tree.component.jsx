@@ -1,9 +1,9 @@
+import clsx from "clsx";
+
 /**
- * @typedef TreeType
+ * @typedef TreeType 
  * @type {Record<string, unknown> & { id: string, label?: string, icon?: string | import("$common/props").HTMLTag, parent?: string, children?: TreeType[] }}
  */
-
-import clsx from "clsx";
 
 /**
  * @typedef TreeProps

@@ -47,7 +47,7 @@ export function Pagination(props) {
 			{customFirstButton ?? (
 				<Button x-on:click="selectFirstPage" x-bind:disabled="isFirstPage">
 					{firstButtonLabel ? (
-						<span>{firstButtonLabel}</span>
+						<span safe>{firstButtonLabel}</span>
 					) : (
 						<Icon name="arrow-left-double-line" />
 					)}
@@ -56,7 +56,7 @@ export function Pagination(props) {
 			{customPreviousButton ?? (
 				<Button x-on:click="selectPreviousPage" x-bind:disabled="isFirstPage">
 					{previousButtonLabel ? (
-						<span>{previousButtonLabel}</span>
+						<span safe>{previousButtonLabel}</span>
 					) : (
 						<Icon name="arrow-left-s-line" />
 					)}
@@ -66,7 +66,7 @@ export function Pagination(props) {
 			{customNextButton ?? (
 				<Button x-on:click="selectNextPage" x-bind:disabled="isLastPage">
 					{nextButtonLabel ? (
-						<span>{nextButtonLabel}</span>
+						<span safe>{nextButtonLabel}</span>
 					) : (
 						<Icon name="arrow-right-s-line" />
 					)}
@@ -75,7 +75,7 @@ export function Pagination(props) {
 			{customLastButton ?? (
 				<Button x-on:click="selectLastPage" x-bind:disabled="isLastPage">
 					{lastButtonLabel ? (
-						<span>{lastButtonLabel}</span>
+						<span safe>{lastButtonLabel}</span>
 					) : (
 						<Icon name="arrow-right-double-line" />
 					)}

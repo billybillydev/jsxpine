@@ -1,6 +1,7 @@
-import { MainLayout } from "$views/layouts.view";
+import { capitalize } from "$lib";
 import { ComponentPresentation } from "$views/component-presentation.view";
 import { ComponentPreview } from "$views/component-preview.view";
+import { MainLayout } from "$views/layouts.view";
 
 /**
  * Alerts page props
@@ -13,24 +14,19 @@ export async function AlertsPage(props) {
 				<section class="text-center">
 					<h1>Alerts</h1>
 				</section>
-				
 				{[
-					"Default",
-					"Primary",
-					"Secondary",
-					"Success",
-					"Danger",
-					"Info",
-					"Warning"
-				].map(async (type) => {
-					const lowerType = type.toLowerCase();
-					const Component = await import(
-						`$views/examples/alerts/${lowerType}.example`
-					).then((m) => m[`${type}AlertExample`]);
+					"default",
+					"primary",
+					"secondary",
+					"success",
+					"danger",
+					"info",
+					"warning"
+				].map((type) => {
 					return (
-						<section id={`${lowerType}-alert`}>
-							<h2>{type} Alert</h2>
-							<ComponentPreview filename={`alerts/${lowerType}`} />
+						<section id={`${type}-alert`}>
+							<h2 safe>{capitalize(type)} Alerts</h2>
+							<ComponentPreview filename={`alerts/${type}`} />
 						</section>
 					);
 				})}

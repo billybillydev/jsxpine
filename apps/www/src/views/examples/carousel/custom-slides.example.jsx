@@ -12,7 +12,7 @@ export function CustomSlidesCarouselExample(props) {
 					class={`min-w-full h-full flex flex-col gap-y-2 items-center p-2 md:p-6 ${item.color}`}
 				>
 					<h3>This is Slide {index + 1}</h3>
-					<p class="text-sm flex items-start">{item.text}</p>
+					<p class="text-sm flex items-start" safe>{item.text}</p>
 				</div>
 			))}
 		</Carousel>

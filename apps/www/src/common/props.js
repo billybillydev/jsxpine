@@ -30,7 +30,7 @@
 
 /**
  * @typedef HTMLTagWithChildren
- * @type {JSX.ElementChildrenAttribute & Omit<JSX.HtmlTag, "className"> & CLSXClassProps}
+ * @type {Html.PropsWithChildren<HTMLTag>}
  */
 
 /**
@@ -40,7 +40,7 @@
 
 /**
  * @template {Object} T
- * @typedef {(props: T) => string} JSXComponent
+ * @typedef {(props: T) => JSX.Element} JSXComponent
  */
 
 /**

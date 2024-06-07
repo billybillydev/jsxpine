@@ -35,7 +35,7 @@ export function BadgesPage(props) {
 				].map((type) => {
 					return (
 						<section id={`${type}-page`}>
-							<h2>{capitalize(type)} Badge</h2>
+							<h2 safe>{capitalize(type)} Badge</h2>
 							<ComponentPreview filename={`badges/${type}`} />
 						</section>
 					);

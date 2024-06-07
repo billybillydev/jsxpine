@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 /**
  * Component Presentation props
- * @type {import("$common/props").JSXComponent<import("$common/props").HTMLTagWithChildren>}
+ * @param {import("$common/props").HTMLTagWithChildren} props
  */
 export function ComponentPresentation({ children, class: className }) {
 	const emClass = "[&_em]:text-slate-500";

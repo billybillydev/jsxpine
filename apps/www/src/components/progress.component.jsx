@@ -48,7 +48,7 @@ export function BarProgress(props) {
 					`absolute h-full ease-linear`,
 					type ? themeColorClassMap.get(type) : "bg-neutral-700"
 				)}
-				x-cloak
+				x-cloak="true"
 			></span>
 		</div>
 	);
@@ -79,7 +79,7 @@ export function CounterProgress(props) {
 				x-bind:style="`transition-duration: ${interval}ms;`"
 				class="ease-linear"
 				x-text="progress"
-				x-cloak
+				x-cloak="true"
 			></span>
 		</div>
 	);

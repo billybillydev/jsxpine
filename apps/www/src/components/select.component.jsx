@@ -1,10 +1,10 @@
+import { Icon } from "$components/icon.component";
+import clsx from "clsx";
+
 /**
  * @typedef SelectProps
  * @type {import("$components/input.component").SelectInputProps & { noInputIcon?: boolean }}
  */
-
-import { Icon } from "$components/icon.component";
-import clsx from "clsx";
 
 /**
  * Select component props
@@ -74,7 +74,7 @@ export function Select(props) {
 				}}
 				x-bind:class="{ 'bottom-0 mb-10' : selectDropdownPosition == 'top', 'top-0 mt-10' : selectDropdownPosition == 'bottom' }"
 				class="absolute flex flex-col z-10 grow py-1 mt-1 overflow-y-auto text-sm bg-white rounded-md shadow-md max-h-56 ring-1 ring-black ring-opacity-5 focus:outline-none"
-				x-cloak
+				x-cloak="true"
 			>
 				<template x-for="item in selectableItems" x-bind:key="item.value">
 					<li

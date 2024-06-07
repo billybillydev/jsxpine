@@ -1,4 +1,3 @@
-import { raw } from "hono/html";
 import { getHighlighter } from "shikiji";
 
 /**
@@ -27,5 +26,5 @@ export async function CodeViewer({ text }) {
 			mergeWhitespaces: false
 		}
 	);
-	return raw(htmlContent);
+	return htmlContent.toString();
 }

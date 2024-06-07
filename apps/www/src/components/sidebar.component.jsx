@@ -1,15 +1,15 @@
-/**
- * @typedef {Object} SidebarTriggerProps
- * @type {import("$components/button.component").ButtonProps}
- */
-
 import { Button } from "$components/button.component";
 import { Icon } from "$components/icon.component";
 import clsx from "clsx";
 
 /**
+ * @typedef {Object} SidebarTriggerProps 
+ * @type {import("$components/button.component").ButtonProps}
+ */
+
+/**
  * @typedef {Object} SidebarContentProps
- * @type {{ selector?: import("$common/props").HTMLTag["id"], title?: string } & import("$common/props").PositionProps & import("$common/props").HTMLTagWithChildren}
+ * @type {{ selector?: string, title?: string } & import("$common/props").PositionProps & import("$common/props").HTMLTagWithChildren}
  */
 
 /**
@@ -152,6 +152,7 @@ export function SidebarContent(props) {
 							<h2
 								class="text-base font-semibold leading-6 text-gray-900 w-full"
 								id="slide-over-title"
+								safe
 							>
 								{title}
 							</h2>

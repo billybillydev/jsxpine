@@ -7,7 +7,7 @@ export function HomePage() {
 		{
 			title: "Core",
 			description: "Base colors, typography, shadows, and more.",
-			url: "/core/introduction",
+			url: "/about",
 			img: "/Core.jpg"
 		},
 		{
@@ -29,9 +29,9 @@ export function HomePage() {
 				<header class="pt-12 pb-24 px-4 bg-gradient-to-br from-slate-700 to-black">
 					<div class="relative flex items-center justify-center gap-x-2 p-4">
 						<BrandLogo class="size-16 rounded-lg m-2 object-contain object-center" />
-						<h1 class="text-white font-medium drop-shadow-sm">{SITE.title}</h1>
+						<h1 class="text-white font-medium drop-shadow-sm" safe>{SITE.title}</h1>
 					</div>
-					<p class="text-lg mt-4 text-slate-300">{SITE.description}</p>
+					<p class="text-lg mt-4 text-slate-300" safe>{SITE.description}</p>
 				</header>
 				<nav>
 					<ul class="flex flex-wrap justify-center gap-4 container md:w-3/4 lg:w-full mx-auto text-left mt-12">
@@ -41,8 +41,8 @@ export function HomePage() {
 									href={url}
 									class="flex flex-col bg-white rounded-md hover:-translate-y-1 hover:shadow-lg transition-all grow lg:grow-0 items-center p-4"
 								>
-									<h2 class="text-lg font-medium">{title}</h2>
-									<p class="text-slate-500">{description}</p>
+									<h2 class="text-lg font-medium" safe>{title}</h2>
+									<p class="text-slate-500" safe>{description}</p>
 								</a>
 							</div>
 						))}

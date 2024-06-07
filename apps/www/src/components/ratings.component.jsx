@@ -1,10 +1,10 @@
+import { Icon } from "$components/icon.component";
+import clsx from "clsx";
+
 /**
  * @typedef {Object} LinearGradientDefsProps
  * @type {{ applyDefsId: string, color: { empty: string, fill: string }, percentageValue: number} & import("$common/props").HTMLTag}
  */
-
-import { Icon } from "$components/icon.component";
-import clsx from "clsx";
 
 /**
  * @typedef {Object} RatingsProps

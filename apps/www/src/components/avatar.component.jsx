@@ -85,7 +85,7 @@ export function Avatar(props) {
 			{image ? (
 				<Image src={image.src} alt={image.alt} />
 			) : (
-				<span class={textColor}>{fallbackText}</span>
+				<span class={textColor} safe>{fallbackText}</span>
 			)}
 		</div>
 	);

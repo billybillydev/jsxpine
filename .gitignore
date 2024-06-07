@@ -27,3 +27,5 @@ certs/
 apps/www/public/registry
 apps/www/public/script
 apps/www/public/styles
+
+.vscode

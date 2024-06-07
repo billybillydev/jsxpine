@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 /**
  * Group Accordion Content props
- * @type {import("$common/props").JSXComponent<AccordionProps>}
+ * @param {AccordionProps} props
  */
 export function GroupAccordionContent({
 	children,
@@ -28,7 +28,7 @@ export function GroupAccordionContent({
 
 /**
  * Group Accordion Trigger props
- * @type {import("$common/props").JSXComponent<AccordionProps>}
+ * @param {AccordionProps} props
  */
 export function GroupAccordionTrigger({
 	children,
@@ -48,7 +48,7 @@ export function GroupAccordionTrigger({
 
 /**
  * Group Accordion Item props
- * @type {import("$common/props").JSXComponent<AccordionProps>}
+ * @param {AccordionProps} props
  */
 export function GroupAccordionItem({
 	children,
@@ -68,7 +68,7 @@ export function GroupAccordionItem({
 
 /**
  * Group Accordion List props
- * @type {import("$common/props").JSXComponent<AccordionProps>}
+ * @param {AccordionProps} props
  */
 export function GroupAccordionList({
 	children,
@@ -88,7 +88,7 @@ export function GroupAccordionList({
 
 /**
  * Solo Accordion Trigger props
- * @type {import("$common/props").JSXComponent<AccordionProps>}
+ * @param {AccordionProps} props
  */
 export function SoloAccordionTrigger(props) {
 	const { class: className, children, ...restProps } = props;
@@ -108,7 +108,7 @@ export function SoloAccordionTrigger(props) {
 
 /**
  * Solo Accordion Content props
- * @type {import("$common/props").JSXComponent<AccordionProps>}
+ * @param {AccordionProps} props
  */
 export function SoloAccordionContent({
 	children,
@@ -124,7 +124,7 @@ export function SoloAccordionContent({
 
 /**
  * Solo Accordion Trigger props
- * @type {import("$common/props").JSXComponent<AccordionProps>}
+ * @param {AccordionProps} props
  */
 export function SoloAccordionItem({
 	children,

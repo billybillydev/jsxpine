@@ -1,9 +1,9 @@
+import clsx from "clsx";
+
 /**
- * @typedef SwitchProps
+ * @typedef SwitchProps 
  * @type {{ label: string } & import("$components/input.component").InputProps & import("$common/props").ThemeColorProps}
  */
-
-import clsx from "clsx";
 
 /**
  * Switch component props
@@ -53,7 +53,7 @@ export function Switch(props) {
 					colorType.get(type)?.button
 				}' : 'bg-neutral-200'`}
 				class="relative transition-colors duration-200 inline-flex focus:outline-none rounded-full grow"
-				x-cloak
+				x-cloak="true"
 			>
 				<span
 					x-bind:class="switchOn ? 'left-full -translate-x-[110%]' : 'translate-x-0.5'"
@@ -69,7 +69,7 @@ export function Switch(props) {
 					}' : switchOn, 'text-gray-400': !switchOn }`}
 					x-text="label"
 					class="text-sm select-none"
-					x-cloak
+					x-cloak="true"
 				/>
 			</template>
 		</div>

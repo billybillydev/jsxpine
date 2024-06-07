@@ -208,11 +208,11 @@ export function SelectInput(props) {
 				"w-full p-2 text-base border border-gray-300 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500"
 			)}
 		>
-			<option class={clsx({ hidden: hidePlaceholder })} selected="true">
+			<option class={clsx({ hidden: hidePlaceholder })} selected safe>
 				{placeholder}
 			</option>
 			{items.map((item) => {
-				return <option value={String(item.value)}>{item.label}</option>;
+				return <option value={String(item.value)} safe>{item.label}</option>;
 			})}
 		</select>
 	);

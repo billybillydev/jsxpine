@@ -1,6 +1,8 @@
+import clsx from "clsx";
+
 /**
  * @typedef HTMLButtonTagWithChildren
- * @type {import("hono/jsx").PropsWithChildren<Omit<JSX.HtmlButtonTag, "className"> & import("$common/props").CLSXClassProps>}
+ * @type {import("@kitajs/html").PropsWithChildren<Omit<JSX.HtmlButtonTag, "className"> & import("$common/props").CLSXClassProps>}
  */
 
 /**
@@ -8,23 +10,19 @@
  * @type {{ text?: string } & HTMLButtonTagWithChildren & import("$common/props").BorderRadiusProps & import("$common/props").SizeProps & import("$common/props").VariantColorProps}
  */
 
-import clsx from "clsx";
-
 /**
  * Button component props
- * @type {import("$common/props").JSXComponent<ButtonProps>}
+ * @param {ButtonProps} props
  */
-export function Button(props) {
-	const {
-		children,
-		class: className,
-		size,
-		text = "",
-		variant = "solid",
-		borderRadius = "rounded",
-		...restProps
-	} = props;
-
+export function Button({
+	children,
+	class: className,
+	size,
+	text = "",
+	variant = "solid",
+	borderRadius = "rounded",
+	...restProps
+}) {
 	/**
 	 * @type {Map<import("$common/types").VariantColorType, string>}
 	 */
@@ -56,7 +54,7 @@ export function Button(props) {
 			)}
 			{...restProps}
 		>
-			{text ? <span>{text}</span> : children}
+			{text ? <span safe>{text}</span> : children}
 		</button>
 	);
 }

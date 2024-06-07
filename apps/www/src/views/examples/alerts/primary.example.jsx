@@ -1,4 +1,5 @@
 import { PrimaryAlert } from "$components/alert.component";
+import { capitalize } from "$lib";
 
 export function PrimaryAlertExample() {
 	/**
@@ -8,7 +9,7 @@ export function PrimaryAlertExample() {
 	return (
 		<div class="flex flex-col gap-y-4 justify-center">
 			{variants.map((variant) => {
-				const capitalizeVariant = variant[0].toUpperCase().concat(variant.slice(1));
+				const capitalizeVariant = capitalize(variant);
 				return (
 					<PrimaryAlert
 						title={`Primary Alert ${capitalizeVariant}`}

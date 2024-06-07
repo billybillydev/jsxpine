@@ -1,8 +1,8 @@
+import clsx from "clsx";
+
 /**
  * @typedef {"square" | "pill"} BadgeType
  */
-
-import clsx from "clsx";
 
 /**
  * @typedef BadgeProps
@@ -11,18 +11,16 @@ import clsx from "clsx";
 
 /**
  * Badge component props
- * @type {import("$common/props").JSXComponent<BadgeProps>}
+ * @param {BadgeProps} props
  */
-export function Badge(props) {
-	const {
-		children,
-		text = "",
-		variant = "solid",
-		type = "pill",
-		class: className,
-		...restProps
-	} = props;
-
+export function Badge({
+	children,
+	text = "",
+	variant = "solid",
+	type = "pill",
+	class: className,
+	...restProps
+}) {
 	/**
 	 * @type {Map<import("$common/types").VariantColorType, string>}
 	 */
@@ -55,11 +53,14 @@ export function Badge(props) {
 
 /**
  * Primary Badge component props
- * @type {import("$common/props").JSXComponent<BadgeProps>}
+ * @param {BadgeProps} props
  */
-export function PrimaryBadge(props) {
-	const { class: className, variant = "solid", ...restProps } = props;
-
+export function PrimaryBadge({
+	children,
+	class: className,
+	variant = "solid",
+	...restProps
+}) {
 	/**
 	 * @type {Map<import("$common/types").VariantColorType, string>}
 	 */
@@ -74,18 +75,21 @@ export function PrimaryBadge(props) {
 			class={[variantClassMap.get(variant), className].join(" ")}
 			{...restProps}
 		>
-			<slot />
+			{children}
 		</Badge>
 	);
 }
 
 /**
  * Secondary Badge component props
- * @type {import("$common/props").JSXComponent<BadgeProps>}
+ * @param {BadgeProps} props
  */
-export function SecondaryBadge(props) {
-	const { class: className, variant = "solid", ...restProps } = props;
-
+export function SecondaryBadge({
+	children,
+	class: className,
+	variant = "solid",
+	...restProps
+}) {
 	/**
 	 * @type {Map<import("$common/types").VariantColorType, string>}
 	 */
@@ -100,18 +104,21 @@ export function SecondaryBadge(props) {
 			class={[variantClassMap.get(variant), className].join(" ")}
 			{...restProps}
 		>
-			<slot />
+			{children}
 		</Badge>
 	);
 }
 
 /**
  * Success Badge component props
- * @type {import("$common/props").JSXComponent<BadgeProps>}
+ * @param {BadgeProps} props
  */
-export function SuccessBadge(props) {
-	const { class: className, variant = "solid", ...restProps } = props;
-
+export function SuccessBadge({
+	children,
+	class: className,
+	variant = "solid",
+	...restProps
+}) {
 	/**
 	 * @type {Map<import("$common/types").VariantColorType, string>}
 	 */
@@ -126,18 +133,21 @@ export function SuccessBadge(props) {
 			class={[variantClassMap.get(variant), className].join(" ")}
 			{...restProps}
 		>
-			<slot />
+			{children}
 		</Badge>
 	);
 }
 
 /**
  * Danger Badge component props
- * @type {import("$common/props").JSXComponent<BadgeProps>}
+ * @param {BadgeProps} props
  */
-export function DangerBadge(props) {
-	const { class: className, variant = "solid", ...restProps } = props;
-
+export function DangerBadge({
+	children,
+	class: className,
+	variant = "solid",
+	...restProps
+}) {
 	/**
 	 * @type {Map<import("$common/types").VariantColorType, string>}
 	 */
@@ -152,18 +162,21 @@ export function DangerBadge(props) {
 			class={[variantClassMap.get(variant), className].join(" ")}
 			{...restProps}
 		>
-			<slot />
+			{children}
 		</Badge>
 	);
 }
 
 /**
  * Info Badge component props
- * @type {import("$common/props").JSXComponent<BadgeProps>}
+ * @param {BadgeProps} props
  */
-export function InfoBadge(props) {
-	const { class: className, variant = "solid", ...restProps } = props;
-
+export function InfoBadge({
+	children,
+	class: className,
+	variant = "solid",
+	...restProps
+}) {
 	/**
 	 * @type {Map<import("$common/types").VariantColorType, string>}
 	 */
@@ -178,18 +191,21 @@ export function InfoBadge(props) {
 			class={[variantClassMap.get(variant), className].join(" ")}
 			{...restProps}
 		>
-			<slot />
+			{children}
 		</Badge>
 	);
 }
 
 /**
  * Warning Badge component props
- * @type {import("$common/props").JSXComponent<BadgeProps>}
+ * @param {BadgeProps} props
  */
-export function WarningBadge(props) {
-	const { class: className, variant = "solid", ...restProps } = props;
-
+export function WarningBadge({
+	children,
+	class: className,
+	variant = "solid",
+	...restProps
+}) {
 	/**
 	 * @type {Map<import("$common/types").VariantColorType, string>}
 	 */
@@ -204,7 +220,7 @@ export function WarningBadge(props) {
 			class={[variantClassMap.get(variant), className].join(" ")}
 			{...restProps}
 		>
-			<slot />
+			{children}
 		</Badge>
 	);
 }

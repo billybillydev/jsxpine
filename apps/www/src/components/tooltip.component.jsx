@@ -7,7 +7,7 @@ import { textSizeClassMap } from "$common/classes";
 
 /**
  * @typedef TooltipProps
- * @type {{ text?: string, component?: JSX.Element, triggerOnHover?: boolean, position?: TooltipPositionType } & import("$common/props").HTMLTagWithChildren & import("$common/props").SizeProps & import("$common/props").ThemeColorProps}
+ * @type {{ text?: string, component?: import("@kitajs/html").Children, triggerOnHover?: boolean, position?: TooltipPositionType } & import("$common/props").HTMLTagWithChildren & import("$common/props").SizeProps & import("$common/props").ThemeColorProps}
  */
 
 /**
@@ -79,14 +79,14 @@ export function Tooltip(props) {
 			>
 				<div
 					x-show="visible"
-					// x-transition
+					x-transition=""
 					class={clsx(
 						"relative px-2 py-1 bg-opacity-90",
 						type ? colorTypeClassMap.get(type) : "bg-slate-700 text-white"
 					)}
 				>
 					{text ? (
-						<p class="flex-shrink-0 block whitespace-nowrap">{text}</p>
+						<p class="flex-shrink-0 block whitespace-nowrap" safe>{text}</p>
 					) : (
 						component
 					)}

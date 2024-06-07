@@ -1,14 +1,14 @@
-import { MainLayout } from "$views/layouts.view";
 import { ComponentPresentation } from "$views/component-presentation.view";
 import { ComponentPreview } from "$views/component-preview.view";
+import { MainLayout } from "$views/layouts.view";
 
 /**
  * Accordions page props
- * @type {import("$common/props").JSXComponent<import("$components/page.component").PageContext<{}>>}
+ * @param {import("$components/page.component").PageContext<{}>} props
  */
-export function AccordionsPage(props) {
+export function AccordionsPage({ seo, isHTMX, ...restProps }) {
 	return (
-		<MainLayout {...props}>
+		<MainLayout seo={seo} isHTMX={isHTMX} {...restProps}>
 			<ComponentPresentation>
 				<section class="text-center">
 					<h1>Accordions</h1>

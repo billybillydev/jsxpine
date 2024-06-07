@@ -1,41 +1,24 @@
 import { Page } from "$components/page.component";
+import { SeoModifier } from "$components/seo-modifier.component";
 import { Footer } from "$views/footer.view";
 import { Header } from "$views/header.view";
 import { LeftSidebar, RightSidebar } from "$views/navigations.view";
 
+export const defaultFavicon = "/public/icons/logo_2.svg";
+
 /**
- * @type {import("$common/props").JSXComponent<import("$components/page.component").PageProps<{}>>}
+ * @param {import("$components/page.component").PageProps<{}>} props
  */
-export function RootLayout(props) {
-	const {
-		children,
-		class: className = "bg-slate-100 h-screen flex flex-col",
-		seo,
-		url,
-		...restProps
-	} = props;
-
-	const favicon = "/public/icons/logo_2.svg";
-
-	/** @type {import("$components/page.component").OpenGraphMetaData} */
-	const openGraph = {
-		title: seo.title,
-		description: seo.description,
-		url: url?.href ?? "",
-		site_name: "",
-		type: "",
-		image: url ? url.origin.concat(favicon) : ""
-	};
-
-	seo.openGraph = openGraph;
+export function RootLayout({
+	children,
+	class: className = "bg-slate-100 h-screen flex flex-col",
+	seo,
+	url,
+	...restProps
+}) {
 
 	return (
-		<Page
-			class={className}
-			favicon={favicon}
-			seo={seo}
-			{...restProps}
-		>
+		<Page class={className} favicon={defaultFavicon} seo={seo} {...restProps}>
 			<Header />
 			{children}
 			<Footer />
@@ -44,12 +27,17 @@ export function RootLayout(props) {
 }
 
 /**
- * @type {import("$common/props").JSXComponent<import("$components/page.component").PageProps<{}>>}
+ * @param {import("$components/page.component").PageProps<{}>} props
  */
 export function MainLayout(props) {
-	const { currentPath, children, ...restProps } = props;
-	return (
-		<RootLayout {...restProps}>
+	const { currentPath, children, seo, isHTMX, ...restProps } = props;
+	return isHTMX ? (
+		<>
+			<SeoModifier {...seo} />
+			{children}
+		</>
+	) : (
+		<RootLayout {...restProps} seo={seo}>
 			<div
 				id="main-content"
 				class="flex lg:grid lg:grid-cols-5 xl:grid-cols-6 overflow-y-hidden relative grow"

@@ -5,7 +5,7 @@ export function OverviewButtonExample() {
 			<>
 				<Button>With Slot</Button>
 				<Button text="With text props" />
-				<Button text="Disabled" disabled="true" />
+				<Button text="Disabled" disabled />
 				<PrimaryButton>Rounded</PrimaryButton>
 				<Button borderRadius="square" text="Square" />
 				<SuccessButton borderRadius="arc" text="With Arc borderRadius" />

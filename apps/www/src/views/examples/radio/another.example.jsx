@@ -40,8 +40,8 @@ export function AnotherRadioExample() {
 							class="invisible"
 						/>
 						<div class="relative flex flex-col text-left space-y-1.5 leading-none">
-							<span class="flex font-semibold">{option.title}</span>
-							<span class="text-sm opacity-50">{option.description}</span>
+							<span class="flex font-semibold" safe>{option.title}</span>
+							<span class="text-sm opacity-50" safe>{option.description}</span>
 						</div>
 					</Radio>
 				);

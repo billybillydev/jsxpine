@@ -1,9 +1,9 @@
+import clsx from "clsx";
+
 /**
  * @typedef RangeSliderProps
  * @type {Omit<import("$components/input.component").InputProps, "min" | "max" | "value" | "step"> & { min?: number, max?: number, value?: number, step?: number, backgroundThumbColor: string, backgroundProgressColor: string, thumbWidth?: number, thumbHeight?: number }}
  */
-
-import clsx from "clsx";
 
 /**
  * Range Slider component props

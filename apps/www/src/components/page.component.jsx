@@ -12,7 +12,8 @@ import clsx from "clsx";
  * @property {string} [type]
  * @property {string=} [url]
  * @property {string=} [site_name]
- * @property {object | string} [image]
+ * @property {string} [imageUrl]
+ * @property {object} [image]
  * @property {string} image.url
  * @property {string=} image.secure_url
  * @property {string=} image.type
@@ -43,63 +44,59 @@ import clsx from "clsx";
  * @template {!Object} T
  * @typedef {Omit<PageProps<T>, "title" | "children">} PageContext
  */
+
 /**
- *
- * @type {import("$common/props").JSXComponent<OpenGraphMetaData>}
+ * Component representing Open Graph meta tags
+ * @param {OpenGraphMetaData} props
  */
-
-function SeoOpenGraph(props) {
-  const { title, image, ...restProps } = props;
-
-  return (
-    <>
-      {/* @ts-ignore */}
-      <meta property="og:title" content={title} />
-      {Object.entries(restProps).map(([key, value]) =>
-        /* @ts-ignore */
-        value ? <meta property={`og:${key}`} content={value} /> : null
-      )}
-      {image && typeof image === "object"
-        ? Object.entries(image).map(([key, value]) =>
-            // @ts-ignore
-            value ? <meta property={`og:image:${key}`} content={value} /> : null
-          )
-        : null}
-      {/* @ts-ignore */}
-      {image && typeof image === "string" ? (
-        // @ts-ignore
-        <meta property="og:image" content={image} />
-      ) : null}
-    </>
-  );
+function SeoOpenGraph({ title, image, imageUrl, ...restProps }) {
+	return (
+		<>
+			{/* @ts-ignore */}
+			<meta property="og:title" content={title} />
+			{Object.entries(restProps).map(([key, value]) =>
+				/* @ts-ignore */
+				value ? <meta property={`og:${key}`} content={value} /> : null
+			)}
+			{image
+				? Object.entries(image).map(([key, value]) =>
+						// @ts-ignore
+						value ? <meta property={`og:image:${key}`} content={value} /> : null
+				  )
+				: null}
+			{/* @ts-ignore */}
+			{imageUrl ? (
+				// @ts-ignore
+				<meta property="og:image" content={image} />
+			) : null}
+		</>
+	);
 }
 
 /**
- * @type {import("$common/props").JSXComponent<PageProps<{}>>}
+ * @param {PageProps<{}>} props
  */
 export function Page(props) {
-	const {
-		children,
-		seo,
-		class: className,
-		url,
-		favicon,
-		...restProps
-	} = props;
+	const { children, seo, class: className, url, favicon, ...restProps } = props;
 
 	return (
 		<html lang="en">
 			<head>
 				<meta charset="UTF-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<title>{seo.title}</title>
+				<title safe>{seo.title}</title>
 				{seo.description ? (
 					<meta name="description" content={seo.description} />
 				) : null}
-				{ seo.openGraph ? <SeoOpenGraph {...seo.openGraph} /> : null }
-				{ favicon ? <link rel="shortcut icon" href={favicon} type="image/x-icon" /> : null }
+				{seo.robots ? (
+					<meta name="robots" content={seo.robots.join(", ")} />
+				) : null}
+				{seo.openGraph ? <SeoOpenGraph {...seo.openGraph} /> : null}
+				{favicon ? (
+					<link rel="shortcut icon" href={favicon} type="image/x-icon" />
+				) : null}
 				<link rel="stylesheet" href="/public/styles/index.css" />
-				<script src="/public/script/app.js" defer="true"></script>
+				<script src="/public/script/app.js" defer></script>
 				<script
 					src="https://unpkg.com/htmx.org@1.9.11"
 					integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"

@@ -1,7 +1,7 @@
 import { Carousel } from "$components/carousel.component";
 
 /**
- * @type {import("$common/props").JSXComponent<{ slides: import("$components/image.component").ImageType[] }}
+ * @type {import("$common/props").JSXComponent<{ slides: import("$components/image.component").ImageType[] }>}
  */
 export function IndicatorsCarouselExample(props) {
 	const { slides } = props;

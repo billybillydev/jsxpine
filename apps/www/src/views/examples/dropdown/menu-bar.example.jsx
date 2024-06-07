@@ -18,7 +18,7 @@ export function MenuBarDropdownExample() {
 					<DropdownContent>
 						<div
 							class="text-neutral-800 rounded-md border border-neutral-200/70 bg-white text-sm p-1 shadow-md w-64"
-							x-cloak
+							x-cloak="true"
 						>
 							<button
 								x-on:click="hide()"
@@ -113,7 +113,7 @@ export function MenuBarDropdownExample() {
 					<DropdownContent>
 						<div
 							class="text-neutral-800 rounded-md border border-neutral-200/70 bg-white text-sm p-1 shadow-md w-64"
-							x-cloak
+							x-cloak="true"
 						>
 							<button
 								x-on:click="hide()"
@@ -217,7 +217,7 @@ export function MenuBarDropdownExample() {
 					<DropdownContent>
 						<div
 							class="text-neutral-800 rounded-md border border-neutral-200/70 bg-white text-sm p-1 shadow-md w-64"
-							x-cloak
+							x-cloak="true"
 						>
 							<button
 								x-on:click="alwaysShowBookmarks=!alwaysShowBookmarks;"
@@ -321,7 +321,7 @@ export function MenuBarDropdownExample() {
 					<DropdownContent>
 						<div
 							class="text-neutral-800 rounded-md border border-neutral-200/70 bg-white text-sm p-1 shadow-md w-64"
-							x-cloak
+							x-cloak="true"
 						>
 							<div x-data="{ choice: 1 }" class="relative w-full">
 								<button

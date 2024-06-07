@@ -4,7 +4,7 @@ import clsx from "clsx";
 /**
  * @template {Record<string, unknown>} T
  * @typedef FieldProps - Props for a field component
- * @type {T & {label?: string, component: import("$common/props").JSXComponent<T>}}
+ * @type {T & {label?: string, component: import("@kitajs/html").Children}}
  */
 
 /**
@@ -17,25 +17,23 @@ import clsx from "clsx";
  * Default Field props
  * @template {(import("$components/input.component").InputProps | import("$components/input.component").SelectInputProps | import("$components/input.component").NumberInputProps) & Record<string, unknown>} T
  * @param {FieldProps<T>} props
- * @returns {string}
  */
 export function Field(props) {
 	const {
 		class: className,
 		label,
 		id,
-		component: Component,
-		...restProps
+		component
 	} = props;
     
 	return (
 		<div class={clsx(className)}>
 			{label ? (
-				<label for={id} class="text-sm leading-7 text-slate-600">
+				<label for={String(id)} class="text-sm leading-7 text-slate-600" safe>
 					{label}
 				</label>
 			) : null}
-			<Component id={id} {...restProps} />
+			{component}
 		</div>
 	);
 }
@@ -46,7 +44,7 @@ export function Field(props) {
  */
 export function DateField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={DateInput} {...restProps} />;
+	return <Field label={label} component={<DateInput {...restProps} />} />;
 }
 
 /**
@@ -55,7 +53,7 @@ export function DateField(props) {
  */
 export function EmailField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={EmailInput} {...restProps} />;
+	return <Field label={label} component={<EmailInput {...restProps} />} />;
 }
 
 /**
@@ -64,7 +62,7 @@ export function EmailField(props) {
  */
 export function TextField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={TextInput} {...restProps} />;
+	return <Field label={label} component={<TextInput {...restProps} />} />;
 }
 
 /**
@@ -73,7 +71,7 @@ export function TextField(props) {
  */
 export function TimeField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={TimeInput} {...restProps} />;
+	return <Field label={label} component={<TimeInput {...restProps} />} />;
 }
 
 /**
@@ -82,7 +80,7 @@ export function TimeField(props) {
  */
 export function FileField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={FileInput} {...restProps} />;
+	return <Field label={label} component={<FileInput {...restProps} />} />;
 }
 
 /**
@@ -91,7 +89,7 @@ export function FileField(props) {
  */
 export function SelectField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={SelectInput} {...restProps} />;
+	return <Field label={label} component={<SelectInput {...restProps} />} />;
 }
 
 /**
@@ -100,7 +98,7 @@ export function SelectField(props) {
  */
 export function TextareaField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={TextareaInput} {...restProps} />;
+	return <Field label={label} component={<TextareaInput {...restProps} />} />;
 }
 
 /**
@@ -109,7 +107,7 @@ export function TextareaField(props) {
  */
 export function PasswordField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={PasswordInput} {...restProps} />;
+	return <Field label={label} component={<PasswordInput {...restProps} />} />;
 }
 
 /**
@@ -118,5 +116,5 @@ export function PasswordField(props) {
  */
 export function NumberField(props) {
 	const { label, ...restProps } = props;
-	return <Field label={label} component={NumberInput} {...restProps} />;
+	return <Field label={label} component={<NumberInput {...restProps} />} />;
 }

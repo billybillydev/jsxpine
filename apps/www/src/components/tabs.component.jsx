@@ -1,9 +1,9 @@
+import clsx from "clsx";
+
 /**
- * @typedef TabsHeaderItemProps
+ * @typedef TabsHeaderItemProps 
  * @type {import("$common/props").HTMLTagWithChildren & {title: string}}
  */
-
-import clsx from "clsx";
 
 /**
  * @typedef TabsHeaderProps
@@ -40,7 +40,7 @@ export function TabHeaderItem(props) {
 				props.class
 			)}
 		>
-			{props.title ? <span class="text-sm font-medium">{props.title}</span> : props.children}
+			{props.title ? <span class="text-sm font-medium" safe>{props.title}</span> : props.children}
 		</button>
 	);
 }
@@ -63,7 +63,7 @@ export function TabsHeader({ children, class: className }) {
 			<div
 				x-ref="tabMarker"
 				class="absolute left-0 top-0 z-[1] duration-300 ease-out"
-				x-cloak
+				x-cloak="true"
 			>
 				<div class="w-full h-full bg-white rounded-md shadow-sm"></div>
 			</div>

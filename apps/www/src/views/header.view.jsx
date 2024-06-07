@@ -16,7 +16,7 @@ export function Header() {
 						href="/"
 					>
 						<BrandLogo class="size-12 object-contain object-center" />
-						<h1>{SITE.title}</h1>
+						<h1 safe>{SITE.title}</h1>
 					</a>
 				</div>
 				<div class="flex gap-2">

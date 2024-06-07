@@ -2,12 +2,12 @@ import clsx from "clsx";
 
 /**
  * @typedef AlertProps
- * @type {{ title: string } & import("src/common/props").VariantColorProps & import("src/common/props").HTMLTagWithChildren}
+ * @type {{ title: string } & import("src/common/props").VariantColorProps & import("src/common/props").HTMLTag}
  */
 
 /**
  * Alert props
- * @type {import("$common/props").JSXComponent<AlertProps>}
+ * @param {AlertProps} props
  */
 export function Alert({ class: className, title, children }) {
 	return (
@@ -18,7 +18,7 @@ export function Alert({ class: className, title, children }) {
 			)}
 		>
 			{/* <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" x2="20" y1="19" y2="19"></line></svg> */}
-			<h4 class="mb-1 font-medium leading-none tracking-tight">{title}</h4>
+			<h4 class="mb-1 font-medium leading-none tracking-tight" safe>{title}</h4>
 			<div class="text-sm opacity-90">{children}</div>
 		</div>
 	);
@@ -26,7 +26,7 @@ export function Alert({ class: className, title, children }) {
 
 /**
  * Primary Alert props
- * @type {import("$common/props").JSXComponent<AlertProps>}
+ * @param {AlertProps} props
  */
 export function PrimaryAlert({ children, title, variant = "solid" }) {
 	/**
@@ -47,7 +47,7 @@ export function PrimaryAlert({ children, title, variant = "solid" }) {
 
 /**
  * Secondary Alert props
- * @type {import("$common/props").JSXComponent<AlertProps>}
+ * @param {AlertProps} props
  */
 export function SecondaryAlert({ children, title, variant = "solid" }) {
 	/**
@@ -68,7 +68,7 @@ export function SecondaryAlert({ children, title, variant = "solid" }) {
 
 /**
  * Success Alert props
- * @type {import("$common/props").JSXComponent<AlertProps>}
+ * @param {AlertProps} props
  */
 export function SuccessAlert({ children, title, variant = "solid" }) {
 	/**
@@ -89,7 +89,7 @@ export function SuccessAlert({ children, title, variant = "solid" }) {
 
 /**
  * Danger Alert props
- * @type {import("$common/props").JSXComponent<AlertProps>}
+ * @param {AlertProps} props
  */
 export function DangerAlert({ children, title, variant = "solid" }) {
 	/**
@@ -110,7 +110,7 @@ export function DangerAlert({ children, title, variant = "solid" }) {
 
 /**
  * Info Alert props
- * @type {import("$common/props").JSXComponent<AlertProps>}
+ * @param {AlertProps} props
  */
 export function InfoAlert({ children, title, variant = "solid" }) {
 	/**
@@ -131,7 +131,7 @@ export function InfoAlert({ children, title, variant = "solid" }) {
 
 /**
  * Warning Alert props
- * @type {import("$common/props").JSXComponent<AlertProps>}
+ * @param {AlertProps} props
  */
 export function WarningAlert({ children, title, variant = "solid" }) {
 	/**

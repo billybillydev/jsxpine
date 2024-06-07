@@ -2,15 +2,18 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
+		"target": "esnext",
 		"lib": ["ESNext", "DOM"],
 		"module": "esnext",
-		"target": "esnext",
 		"moduleResolution": "bundler",
 		"moduleDetection": "force",
 		"strict": true,
 		"jsx": "react-jsx",
-		"jsxImportSource": "hono/jsx",
-		"types": ["bun-types", "typed-html", "typed-htmx"],
+		"jsxImportSource": "@kitajs/html",
+		"types": [
+			"@kitajs/html/htmx.d.ts",
+			"@kitajs/html/alpine.d.ts"
+		],
 		"baseUrl": ".",
 		"rootDir": ".",
 		"paths": {
@@ -33,8 +36,9 @@
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
 			"$views": ["src/views"],
-			"$views/*": ["src/views/*"],
+			"$views/*": ["src/views/*"]
 		}
 	},
-	"exclude": ["public", "node_modules", "src/script"]
+	"include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.d.ts"],
+	"exclude": ["public", "node_modules"]
 }

@@ -1,12 +1,12 @@
-/**
- * @typedef ZoomProps
- * @type {import("$common/props").HTMLTag & { selector?: string, showNavigation?: boolean }}
- */
-
 import { Button } from "$components/button.component";
 import { Icon } from "$components/icon.component";
 import { Image } from "$components/image.component";
 import clsx from "clsx";
+
+/**
+ * @typedef ZoomProps
+ * @type {import("$common/props").HTMLTag & { selector?: string, showNavigation?: boolean }}
+ */
 
 /**
  * Zoom component props
@@ -28,10 +28,10 @@ export function Zoom(props) {
 			<template x-teleport={selector}>
 				<div
 					x-bind="shower"
-					  x-transition:enter="transition ease-in-out duration-300"
-					  x-transition:enter-start="opacity-0"
-					  x-transition:leave="transition ease-in-in duration-300"
-					  x-transition:leave-end="opacity-0"
+					x-transition:enter="transition ease-in-out duration-300"
+					x-transition:enter-start="opacity-0"
+					x-transition:leave="transition ease-in-in duration-300"
+					x-transition:leave-end="opacity-0"
 					{...{
 						"@click": "zoomOut",
 						"@keyup.window.escape": "zoomOut",
@@ -40,7 +40,7 @@ export function Zoom(props) {
 						"x-trap.inert.noscroll": "zoom"
 					}}
 					class="fixed inset-0 z-[99] flex items-center justify-center bg-black bg-opacity-50 select-none cursor-zoom-out"
-					x-cloak
+					x-cloak="true"
 				>
 					<div class="relative flex items-center justify-center aspect-square xl:aspect-video">
 						{showNavigation && (

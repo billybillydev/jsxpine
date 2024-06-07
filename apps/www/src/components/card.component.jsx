@@ -1,12 +1,4 @@
-import {
-	Button,
-	DangerButton,
-	InfoButton,
-	PrimaryButton,
-	SecondaryButton,
-	SuccessButton,
-	WarningButton
-} from "$components/button.component";
+import { Button } from "$components/button.component";
 import { capitalize } from "$lib";
 import clsx from "clsx";
 
@@ -58,7 +50,7 @@ export function CardBody(props) {
 			{children ?? (
 				<>
 					{title ? (
-						<h4 class="text-xl font-bold leading-none tracking-tight text-neutral-900">
+						<h4 class="text-xl font-bold leading-none tracking-tight text-neutral-900" safe>
 							{title}
 						</h4>
 					) : (
@@ -67,9 +59,9 @@ export function CardBody(props) {
 					{text || texts ? (
 						<div id="card-body-text">
 							{texts?.length ? (
-								texts.map((line) => <p class="text-neutral-500">{line}</p>)
+								texts.map((line) => <p class="text-neutral-500" safe>{line}</p>)
 							) : text ? (
-								<p class="text-neutral-500">{text}</p>
+								<p class="text-neutral-500" safe>{text}</p>
 							) : (
 								""
 							)}
@@ -85,19 +77,11 @@ export function CardBody(props) {
 					class="flex flex-wrap gap-2 items-center justify-end w-full"
 				>
 					{controls.map(async (control) => {
-						// if (control.component) {
-						// 	const ButtonControl = control.component;
-						// 	return <ButtonControl />;
-						// }
 						if (control.type) {
 							const componentName = `${capitalize(control.type)}Button`;
 							const ButtonControl = await import(
 								`$components/button.component`
 							).then(
-								/**
-								 * @param {Record<string, Function>} m
-								 * @returns {Function}
-								 */
 								function (m) {
 									return m[componentName];
 								}

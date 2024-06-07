@@ -14,10 +14,15 @@ export function RootLayout({
 	class: className = "bg-slate-100 h-screen flex flex-col",
 	seo,
 	url,
+	isHTMX,
 	...restProps
 }) {
-
-	return (
+	return isHTMX ? (
+		<>
+			<SeoModifier {...seo} />
+			{children}
+		</>
+	) : (
 		<Page class={className} favicon={defaultFavicon} seo={seo} {...restProps}>
 			<Header />
 			{children}

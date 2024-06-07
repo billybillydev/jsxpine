@@ -1,3 +1,11 @@
+/**
+ * @typedef {object} ComponentRegistry
+ * @property {string} name
+ * @property {string[]} [alpineDependencies]
+ * @property {string[]} [registryDependencies]
+ */
+
+/** @type {ComponentRegistry[]} */
 export const components = [
 	{
 		name: "accordion",
@@ -118,6 +126,11 @@ export const components = [
 		name: "ratings",
 		alpineDependencies: [],
 		registryDependencies: ["icon"]
+	},
+	{
+		name: "seo-modifier",
+		alpineDependencies: ["seo"],
+		registryDependencies: []
 	},
 	{
 		name: "select",

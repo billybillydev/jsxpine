@@ -1,7 +1,7 @@
 /**
- * Seo component props
- @param {import("$components/page.component").SeoData & { isHTMX?: boolean }} props
+ * Seo Modifier component props
+ @param {import("$components/page.component").SeoData} props
  */
-export function SeoModifier({ isHTMX, ...restProps }) {
-	return <div x-data={`seo(${JSON.stringify(restProps)})`} />;
+export function SeoModifier(props) {
+	return <div x-data={`seo(${JSON.stringify(props)})`} />;
 }

@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Radio page props
@@ -9,21 +8,13 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function RangeSliderPage({ ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<section>
-					<h1>Range Slider</h1>
-				</section>
+			<ComponentPresentation name="Range Slider" source="range-slider">
+				<ComponentSection heading="Overview" />
 
-                <section id="overview">
-                    <h2>Overview</h2>
-                    <p></p>
-                </section>
-
-                <section id="default-range-slider">
-                    <h2>Default Range Slider</h2>
-                    <p></p>
-                    <ComponentPreview filename="range-slider/default" />
-                </section>
+				<ComponentSection
+					heading="Default Range Slider"
+					examples={["range-slider/default"]}
+				/>
 			</ComponentPresentation>
 		</MainLayout>
 	);

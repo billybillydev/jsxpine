@@ -1,7 +1,6 @@
 import { MainLayout } from "$views/layouts.view";
 import { capitalize } from "$lib";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
+import { ComponentPresentation, ComponentPreview } from "$views/components.view";
 
 /**
  * Badges page props
@@ -10,11 +9,7 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function BadgesPage(props) {
 	return (
 		<MainLayout {...props}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Badges</h1>
-				</section>
-
+			<ComponentPresentation name="Badges" source="badge">
 				<section>
 					<h2 id="overview">Overview</h2>
 					<p>

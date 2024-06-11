@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentPreview, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Carousel page props
@@ -64,22 +63,17 @@ export function CarouselPage({ ...restProps }) {
 		},
 		{
 			color: "bg-warning-500",
-			text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolor dicta cumque nemo. Architecto quam odit obcaecati laboriosam sapiente inventore, dolorem iusto? Numquam velit sed minima culpa magni sapiente. Distinctio quas voluptatem sed dignissimos cumque id sequi ratione consequatur at, dicta iste repellat non! Quam quod totam aperiam magni repellat dolorum dolore mollitia illo, fugit qui possimus voluptatibus! Maiores eveniet consectetur voluptates nostrum magni doloribus in, ea autem itaque nam maxime minus necessitatibus illum ad?"
+			text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolor dicta cumque nemo. Architecto quam odit obcaecati laboriosam sapiente inventore, dolorem iusto? Numquam velit sed minima culpa magni sapiente. Distinctio quas voluptatem sed dignissimos cumque heading sequi ratione consequatur at, dicta iste repellat non! Quam quod totam aperiam magni repellat dolorum dolore mollitia illo, fugit qui possimus voluptatibus! Maiores eveniet consectetur voluptates nostrum magni doloribus in, ea autem itaque nam maxime minus necessitatibus illum ad?"
 		},
 		{
 			color: "bg-danger-500",
-			text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis magni, aperiam repellendus nisi itaque facere! Consequatur beatae voluptas reiciendis minus quidem inventore ea id harum dicta obcaecati aut nam sunt ipsum odit dolore doloribus iure nemo quasi, officia asperiores. Vero?"
+			text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis magni, aperiam repellendus nisi itaque facere! Consequatur beatae voluptas reiciendis minus quidem inventore ea heading harum dicta obcaecati aut nam sunt ipsum odit dolore doloribus iure nemo quasi, officia asperiores. Vero?"
 		}
 	];
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Carousel</h1>
-				</section>
-
-				<section id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Carousel">
+				<ComponentSection heading="Overview">
 					<p>
 						Carousel is a good way to show multiple contents in one place by
 						alterning between them via a navigation-like.
@@ -90,10 +84,13 @@ export function CarouselPage({ ...restProps }) {
 						with many customization cases. Here below are some examples of what
 						you can achieved with this component:
 					</p>
-				</section>
+				</ComponentSection>
 
-				<section id="default-carousel">
-					<h2>Default Carousel</h2>
+				<ComponentSection
+					heading="Default Carousel"
+					examples={["carousel/default"]}
+					slides={images}
+				>
 					<p>
 						By default, Carousel is aligned horizontally with navigation button
 						in the middle and each one to the opposite side. Slides are images.
@@ -102,11 +99,13 @@ export function CarouselPage({ ...restProps }) {
 						We will see further that you can customize slides and put whatever
 						contents you can.
 					</p>
-					<ComponentPreview slides={images} filename="/carousel/default" />
-				</section>
+				</ComponentSection>
 
-				<section id="with-indicators">
-					<h2>With Indicators</h2>
+				<ComponentSection
+					heading="With Indicators"
+					slides={images}
+					examples={["carousel/indicators"]}
+				>
 					<p>
 						By setting indicator props to true, dot points will appeared at the
 						bottom of the carousel.
@@ -116,30 +115,32 @@ export function CarouselPage({ ...restProps }) {
 						These are indicator props value: <em>true</em>, <em>top</em>,{" "}
 						<em>bottom (default value when true)</em>, left, <em>right</em>.
 					</p>
-					<ComponentPreview slides={images} filename="/carousel/indicators" />
-				</section>
+				</ComponentSection>
 
-				<section id="carousel-direction">
-					<h2>Carousel Direction</h2>
+				<ComponentSection
+					heading="Carousel Direction"
+					examples={["carousel/direction"]}
+					slides={images}
+				>
 					<p>
 						With direction props, you will be able to slide items from carousel
 						horizontally (by default) or <em>vertically</em> !
 					</p>
 					<p>Below an example of the design.</p>
-					<ComponentPreview slides={images} filename="/carousel/direction" />
-				</section>
+				</ComponentSection>
 
-				<section id="carousel-loop">
-					<h2>Loop</h2>
+				<ComponentSection
+					heading="Carousel Loop"
+					examples={["carousel/loop"]}
+					slides={images}
+				>
 					<p>
 						Loop props allow to return to first element when item is last and
 						vice-versa.
 					</p>
-					<ComponentPreview slides={images} filename="/carousel/loop" />
-				</section>
+				</ComponentSection>
 
-				<section id="custom-slides">
-					<h2>Custom Slides</h2>
+				<ComponentSection heading="Custom Slides">
 					<p>
 						Default slot is for slides. Here is an example with our own image
 						design.
@@ -161,12 +162,16 @@ export function CarouselPage({ ...restProps }) {
 						slides={contents}
 						filename="/carousel/custom-slides"
 					/>
-				</section>
+				</ComponentSection>
 
-				<section id="custom-navigations">
-					<h2>Custom Navigations</h2>
+				<ComponentSection
+					heading="Custom Navigations"
+					slides={images}
+					examples={["carousel/custom-navigations"]}
+				>
 					<p>
-						Carousel allows you to customize navigations with slot which is named <b>navigations</b>.
+						Carousel allows you to customize navigations with slot which is
+						named <b>navigations</b>.
 					</p>
 					<p>
 						You will be able to use all alpine features bound to default
@@ -177,14 +182,13 @@ export function CarouselPage({ ...restProps }) {
 						With this customization, you'll have to deal with icons based on
 						direction yourself. Below are some examples.
 					</p>
-					<ComponentPreview
-						slides={images}
-						filename="/carousel/custom-navigations"
-					/>
-				</section>
+				</ComponentSection>
 
-				<section id="custom-indicators">
-					<h2>Custom Indicators</h2>
+				<ComponentSection
+					heading="Custom Indicators"
+					slides={images}
+					examples={["carousel/custom-indicators"]}
+				>
 					<p>
 						Indicators can also be customize. Just set an html tag with slot
 						name as <b>indicators</b>.
@@ -193,32 +197,25 @@ export function CarouselPage({ ...restProps }) {
 						As reminder, you'll have to deal with indicators position based on
 						direction yourself. Below an example with indicators as numbers.
 					</p>
-					<ComponentPreview
-						slides={images}
-						filename="/carousel/custom-indicators"
-					/>
-				</section>
+				</ComponentSection>
 
-				<section id="multiple-slides">
-					<h2>Multiple Slides</h2>
+				<ComponentSection
+					heading="Multiple Slides"
+					slides={images}
+					examples={[
+						"carousel/multiple-slides-with-2",
+						"carousel/multiple-slides-with-3",
+						"carousel/multiple-custom-slides-with-3"
+					]}
+				>
 					<p>A great feature of carousel is to show multiple slides.</p>
-					<p>Just set a number to slidesToShow props as shown in examples below.</p>
-					<p class="italic">PS: For custom slides, it's up to you to manage slide sizes.</p>
-					<div class="flex flex-col gap-y-4">
-						<ComponentPreview
-							slides={images}
-							filename="/carousel/multiple-slides-with-2"
-						/>
-						<ComponentPreview
-							slides={images}
-							filename="/carousel/multiple-slides-with-3"
-						/>
-						<ComponentPreview
-							slides={images}
-							filename="/carousel/multiple-custom-slides-with-3"
-						/>
-					</div>
-				</section>
+					<p>
+						Just set a number to slidesToShow props as shown in examples below.
+					</p>
+					<p class="italic">
+						PS: For custom slides, it's up to you to manage slide sizes.
+					</p>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

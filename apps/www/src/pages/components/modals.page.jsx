@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentPreview } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Modal page props
@@ -9,11 +8,7 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function ModalsPage({ ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Modals</h1>
-				</section>
-
+			<ComponentPresentation name="Modals" source="modal">
 				<section id="overview">
 					<h2>Overview</h2>
 					<p>

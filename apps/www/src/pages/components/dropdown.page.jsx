@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Dropdown page props
@@ -9,13 +8,8 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function DropdownPage({ ...restProps }) {
     return (
 			<MainLayout {...restProps}>
-				<ComponentPresentation>
-					<section class="text-center">
-						<h1>Dropdown</h1>
-					</section>
-
-					<section id="overview">
-						<h2>Overview</h2>
+				<ComponentPresentation name="Dropdown">
+					<ComponentSection heading="Overview">
 						<p>
 							Dropdown is mostly used for listing items without taking any
 							additional space in the main context.
@@ -30,41 +24,47 @@ export function DropdownPage({ ...restProps }) {
 							Here below are some examples of what you can achieve with
 							dropdown.
 						</p>
-					</section>
+					</ComponentSection>
 
-					<section id="dropdown-on-click">
-						<h2>Dropdown on Click</h2>
+					<ComponentSection
+						heading="Dropdown on Click"
+						examples={["dropdown/default"]}
+					>
 						<p>
 							Default case is dropdown content displayed when clicking on
 							trigger element.
 						</p>
-						<ComponentPreview filename="dropdown/default" />
-					</section>
+					</ComponentSection>
 
-					<section id="dropdown-on-hover">
-						<h2>Dropdown on Hover</h2>
+					<ComponentSection
+						heading="Dropdown on Hover"
+						examples={["dropdown/hover"]}
+					>
 						<p>Triggering dropdown on hover is also possible.</p>
-						<ComponentPreview filename="dropdown/hover" />
-					</section>
+					</ComponentSection>
 
-					<section id="dropdown-menu-bar-example">
-						<h2>Dropdown Menu Bar Example</h2>
+					<ComponentSection
+						heading="Dropdown Menu Bar Example"
+						examples={["dropdown/menu-bar"]}
+					>
 						<p>
 							A practical case. Here, each list item is a dropdown. Notice that
 							you can have nested dropdowns.
 						</p>
-						<ComponentPreview filename="dropdown/menu-bar" />
-					</section>
+					</ComponentSection>
 
-					<section id="dropdown-menu-hover-example">
-						<h2>Dropdown Menu Hover Example</h2>
-						<p>In this example, dropdown is triggered on hover on each list item.</p>
+					<ComponentSection
+						heading="Dropdown Menu Hover Example"
+						examples={["dropdown/menu"]}
+					>
+						<p>
+							In this example, dropdown is triggered on hover on each list item.
+						</p>
 						<p class="italic">
 							P.S: Notice that as component is at page bottom, dropdown will
 							appear on top.
 						</p>
-						<ComponentPreview filename="dropdown/menu" />
-					</section>
+					</ComponentSection>
 				</ComponentPresentation>
 			</MainLayout>
 		);

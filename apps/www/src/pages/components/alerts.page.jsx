@@ -1,6 +1,5 @@
 import { capitalize } from "$lib";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -10,10 +9,7 @@ import { MainLayout } from "$views/layouts.view";
 export async function AlertsPage(props) {
 	return (
 		<MainLayout {...props}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Alerts</h1>
-				</section>
+			<ComponentPresentation name="Alerts" source="alert">
 				{[
 					"default",
 					"primary",
@@ -24,10 +20,10 @@ export async function AlertsPage(props) {
 					"warning"
 				].map((type) => {
 					return (
-						<section id={`${type}-alert`}>
-							<h2 safe>{capitalize(type)} Alerts</h2>
-							<ComponentPreview filename={`alerts/${type}`} />
-						</section>
+						<ComponentSection
+							heading={`${capitalize(type)} Alert`}
+							examples={[`alerts/${type}`]}
+						/>
 					);
 				})}
 			</ComponentPresentation>

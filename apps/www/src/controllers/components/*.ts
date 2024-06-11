@@ -23,8 +23,9 @@ import { tabsController } from "$controllers/components/tabs.controller";
 import { tooltipsController } from "$controllers/components/tooltips.controller";
 import { treesController } from "$controllers/components/trees.controller";
 import { Hono } from "hono";
+import { AppVariables } from "src";
 
-export const componentsController = new Hono()
+export const componentsController = new Hono<{ Variables: AppVariables }>()
 	.get((ctx) => {
 		return ctx.redirect("/components/accordions");
 	})

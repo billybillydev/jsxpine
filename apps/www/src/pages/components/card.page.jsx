@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentPreview } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Cards page props
@@ -9,11 +8,7 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function CardPage(props) {
 	return (
 		<MainLayout {...props}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Card</h1>
-				</section>
-
+			<ComponentPresentation name="Card">
 				<section id="overview">
 					<h2>Overview</h2>
 					<p>

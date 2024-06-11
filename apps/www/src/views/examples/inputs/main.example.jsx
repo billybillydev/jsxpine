@@ -2,7 +2,7 @@ import { EmailField, DateField, FileField, NumberField, PasswordField, TextareaF
 
 export function MainInputExample() {
 	return (
-		<div class="grid grid-cols-2 gap-2 items-center">
+		<div class="grid grid-cols-2 gap-x-2 gap-y-4 items-center">
 			<TextField
 				label="Text Field"
 				id="username"
@@ -55,12 +55,12 @@ export function MainInputExample() {
 				x-on:input="console.log($event.target.value)"
 				multiple
 			/>
-			<div class="col-span-2">
+			<div class="col-span-2 border">
 				<TextareaField
 					placeholder="This is textarea component"
 					label="Textarea Field"
 					x-on:input="console.log($event.target.value)"
-					class="flex flex-col h-48"
+					class="flex flex-col h-48 w-full"
 				/>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
+
+import { ComponentPresentation, ComponentPreview, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -9,32 +9,30 @@ import { MainLayout } from "$views/layouts.view";
 export function AccordionsPage({ seo, isHTMX, ...restProps }) {
 	return (
 		<MainLayout seo={seo} isHTMX={isHTMX} {...restProps}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Accordions</h1>
-				</section>
-				<section id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Accordions" source="accordion">
+				<ComponentSection heading="Overview">
 					<p>
 						Accordions are great way to compact content blocs and display
 						required ones by clicking on it.
 					</p>
-				</section>
+				</ComponentSection>
 
-				<section id="solo-accordion">
-					<h2>Solo Accordion</h2>
+				<ComponentSection
+					heading="Solo Accordion"
+					examples={["accordions/solo"]}
+				>
 					<p>Enables accordion feature individually</p>
-					<ComponentPreview filename="accordions/solo" />
-				</section>
+				</ComponentSection>
 
-				<section id="group-accordion">
-					<h2>Group Accordion</h2>
+				<ComponentSection
+					heading="Group Accordion"
+					examples={["accordions/group"]}
+				>
 					<p>
 						Groups accordions and display only one (closing previous opened
 						one).
 					</p>
-					<ComponentPreview filename="accordions/group" />
-				</section>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

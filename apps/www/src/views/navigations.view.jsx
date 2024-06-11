@@ -1,5 +1,7 @@
 import { SIDEBAR } from "src/config/navigation";
 
+export const tableOfContentsId = "table-of-contents";
+
 /**
  * @param {{ currentPage: string }} props
  */
@@ -17,6 +19,7 @@ export function TableOfContents({ currentPage }) {
 	return menu?.chapters ? (
 		<section
 			class="flex flex-col gap-y-4 mt-24"
+			id={tableOfContentsId}
 			x-data={`{
 				hash: "",
 				chapters: ${menu.chapters ? JSON.stringify(menu.chapters) : []},
@@ -85,14 +88,21 @@ export function LeftSidebar({ currentPage }) {
 							return (
 								<li
 									class={
-										"block py-2 px-6 transition-colors border-l-2 hover:border-slate-400 text-slate-500 hover:text-slate-900"
+										"transition-colors border-l-2 hover:border-slate-400 text-slate-500 hover:text-slate-900"
 									}
 									x-data={`{ link: "${menu.link}" }`}
 									x-bind:class={`{
 										"border-slate-500 text-slate-900": link.includes(currentUrl.pathname.slice(1))
 									}`}
 								>
-									<a href={menu.link} hx-target="main" hx-swap="innerHTML" safe>
+									<a
+										href={menu.link}
+										hx-target="main"
+										hx-swap="innerHTML scroll:top"
+										hx-select-oob={`#${tableOfContentsId}`}
+										class={"py-2 px-6 block"}
+										safe
+									>
 										{menu.text}
 									</a>
 								</li>

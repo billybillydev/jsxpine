@@ -1,6 +1,8 @@
+import {
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Imape Picker page props
@@ -9,13 +11,8 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function ImagePickerPage({ ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<div class="text-center">
-					<h1>Image Picker</h1>
-				</div>
-
-				<div id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Image Picker" source="imagepicker">
+				<ComponentSection heading="Overview">
 					<p>
 						ImagePicker is a very-much wanted component that brings you blob
 						data from input file.
@@ -28,10 +25,12 @@ export function ImagePickerPage({ ...restProps }) {
 						It's up to you to design it thanks to slot, and examples below will
 						show you how to do it.
 					</p>
-				</div>
+				</ComponentSection>
 
-				<div id="single-imagepicker">
-					<h2>Single ImagePicker</h2>
+				<ComponentSection
+					heading="Single ImagePicker"
+					examples={["imagepicker/single"]}
+				>
 					<p>
 						Like an input file, the basic ImagePicker lets you select an image
 						after clicking on the trigger element.
@@ -53,18 +52,18 @@ export function ImagePickerPage({ ...restProps }) {
 						P.S: As a reminder, returned value from input file is an array of
 						file, even if only one has been choosen.
 					</p>
-					<ComponentPreview filename="/imagepicker/single" />
-				</div>
+				</ComponentSection>
 
-				<div id="multiple-imagepicker">
-					<h2>Multiple Files ImagePicker</h2>
+				<ComponentSection
+					heading="Multiple Files ImagePicker"
+					examples={["imagepicker/multiple"]}
+				>
 					<p>
-                        It also possible to select multiple files. Just pass <em>multiple</em> props
-                        and you good :)
-                    </p>
+						It also possible to select multiple files. Just pass{" "}
+						<em>multiple</em> props and you good :)
+					</p>
 					<p>Example below is a combination with RestGallery component.</p>
-					<ComponentPreview filename="/imagepicker/multiple" />
-				</div>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

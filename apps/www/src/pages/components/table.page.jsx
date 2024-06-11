@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Table page props
@@ -9,13 +8,8 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function TablePage({ ...props }) {
 	return (
 		<MainLayout {...props}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Table</h1>
-				</section>
-
-				<section id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Table">
+				<ComponentSection heading="Overview">
 					<p>
 						Table is a component showing information having same properties. For
 						instance, customer orders list in an e-commerce shop.
@@ -28,10 +22,9 @@ export function TablePage({ ...props }) {
 						We will see in this page the many possibilities you can achieve with
 						this component.
 					</p>
-				</section>
+				</ComponentSection>
 
-				<section id="basic-table">
-					<h2>Basic Table</h2>
+				<ComponentSection heading="Basic Table" examples={["table/basic"]}>
 					<p>
 						Here we have a basic table, taking just two props : columns and
 						items.
@@ -39,11 +32,9 @@ export function TablePage({ ...props }) {
 					<p class="italic">
 						P.S: Notice that columns is an array of items keys.
 					</p>
-					<ComponentPreview filename="table/basic" />
-				</section>
+				</ComponentSection>
 
-				<section id="styling-table">
-					<h2>Styling Table</h2>
+				<ComponentSection heading="Styling Table" examples={["table/styling"]}>
 					<p>
 						About styling, Table component provides theadClass and tbodyClass
 						props, which respectfully stylized thead and tbody tags. Two
@@ -53,11 +44,9 @@ export function TablePage({ ...props }) {
 						First is about adding borders between columns. Second applied class
 						only on even rows.
 					</p>
-					<ComponentPreview filename="table/styling" />
-				</section>
+				</ComponentSection>
 
-				<section id="sorting-table">
-					<h2>Sorting Table</h2>
+				<ComponentSection heading="Sorting Table" examples={["table/sorting"]}>
 					<p>
 						Table can be sorted. When enabling sorting, an icon will appear
 						aside column label.
@@ -65,11 +54,12 @@ export function TablePage({ ...props }) {
 					<p class="italic">
 						P.S: Just remember one rule, sorting applies to only one column.
 					</p>
-					<ComponentPreview filename="table/sorting" />
-				</section>
+				</ComponentSection>
 
-				<section id="filtering-table">
-					<h2>Filtering Table</h2>
+				<ComponentSection
+					heading="Filtering Table"
+					examples={["table/filtering"]}
+				>
 					<p>
 						About filtering, a set of predefined filtering are provided to
 						handle most cases. Check code part to see how this example handles
@@ -78,16 +68,16 @@ export function TablePage({ ...props }) {
 					<p class="italic">
 						P.S: Multiple criterias are accepted when it comes to filter.
 					</p>
-					<ComponentPreview filename="table/filtering" />
-				</section>
+				</ComponentSection>
 
-				<section id="sorting-and-filtering-table">
-					<h2>Sorting and Filtering</h2>
+				<ComponentSection
+					heading="Sorting and Filtering"
+					examples={["table/sorting-and-filtering"]}
+				>
 					<p>
 						Table This example is just a combination of sorting and filtering.
 					</p>
-					<ComponentPreview filename="table/sorting-and-filtering" />
-				</section>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

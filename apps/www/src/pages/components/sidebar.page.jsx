@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Sidebar page props
@@ -9,13 +8,8 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function SidebarPage({ ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Sidebar</h1>
-				</section>
-
-				<section id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Sidebar">
+				<ComponentSection heading="Overview">
 					<p>
 						Sidebar is a slide-over component which mainly has same purpose as
 						modal.
@@ -25,26 +19,27 @@ export function SidebarPage({ ...restProps }) {
 						application) or a form without take too much places in the main
 						context.
 					</p>
-				</section>
+				</ComponentSection>
 
-				<section id="default-sidebar">
-					<h2>Default Sidebar</h2>
+				<ComponentSection
+					heading="Default Sidebar"
+					examples={["sidebar/default"]}
+				>
 					<p>
 						This example shows where to put your content when using Sidebar.
 					</p>
-					<ComponentPreview filename="sidebar/default" />
-				</section>
+				</ComponentSection>
 
-				<section id="full-example">
-					<h2>Full Example</h2>
+				<ComponentSection heading="Full Example" examples={["sidebar/form"]}>
 					<p>
 						Here an example with a pratical case, display a form in sidebar.
 					</p>
-					<ComponentPreview filename="sidebar/form" />
-				</section>
+				</ComponentSection>
 
-				<section id="sidebar-inside-content">
-					<h2>Sidebar Inside Content</h2>
+				<ComponentSection
+					heading="Sidebar Inside Content"
+					examples={["sidebar/inside-content"]}
+				>
 					<p>
 						So far so good with our Sidebar, you can display it in a specific
 						content by passing to selector props its id.
@@ -53,8 +48,7 @@ export function SidebarPage({ ...restProps }) {
 						But notice that you have to somehow adjust classes to fit Sidebar in
 						the concerned content. Check code from example below.
 					</p>
-					<ComponentPreview filename="sidebar/inside-content" />
-				</section>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

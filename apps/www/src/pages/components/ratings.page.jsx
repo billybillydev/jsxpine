@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Radio page props
@@ -9,13 +8,8 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function RatingsPage({ ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Ratings</h1>
-				</section>
-
-				<section id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Ratings">
+				<ComponentSection heading="Overview">
 					<p>
 						Ratings, a meaningful way to show how much an item (mostly product
 						from online store) is appreciated...or not.
@@ -25,39 +19,42 @@ export function RatingsPage({ ...restProps }) {
 						ratings. Examples below show you how you can use AstroPine's Rating
 						component.
 					</p>
-				</section>
+				</ComponentSection>
 
-				<section id="default-ratings">
-					<h2>Default Ratings</h2>
+				<ComponentSection
+					heading="Default Ratings"
+					examples={["ratings/default"]}
+				>
 					<p>
 						By default, Ratings displays one star as icon and _value_ props is a
 						integer / float number between 0 and 5. Under the hood, Ratings
 						turns value in percentage.
 					</p>
-					<ComponentPreview filename="ratings/default" />
-				</section>
+				</ComponentSection>
 
-				<section id="number-stars-ratings">
-					<h2>Number Stars Ratings</h2>
+				<ComponentSection
+					heading="Number Stars Ratings"
+					examples={["ratings/five-stars"]}
+				>
 					<p>
 						By using <em>nb</em> props, number of total ratings icon will be
 						different than 1.
 					</p>
-					<ComponentPreview filename="ratings/five-stars" />
-				</section>
+				</ComponentSection>
 
-				<section id="custom-icon-ratings">
-					<h2>Custom Icon Ratings</h2>
+				<ComponentSection
+					heading="Custom Icon Ratings"
+					examples={["ratings/custom-icon"]}
+				>
 					<p>
 						The <em>icon</em> props takes an astro component and replace the
 						current one which is StarIcon. Pay attention to color.
 					</p>
 					<p>
-						By using <em>color</em> props, you can show any color you want. It's an
-						object with two properties: fill and empty.
+						By using <em>color</em> props, you can show any color you want. It's
+						an object with two properties: fill and empty.
 					</p>
-					<ComponentPreview filename="ratings/custom-icon" />
-				</section>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

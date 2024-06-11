@@ -1,6 +1,8 @@
+import {
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Inputs page props
@@ -10,13 +12,8 @@ export function InputsPage(props) {
 	const { ...restProps } = props;
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Inputs</h1>
-				</section>
-
-				<section id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Inputs" source="input">
+				<ComponentSection heading="Overview">
 					<p>
 						Inputs are elements which allow you to let user interacts with your
 						website.
@@ -26,37 +23,37 @@ export function InputsPage(props) {
 						textarea, radio, checkbox. Many others will be presented in this
 						page.
 					</p>
-				</section>
+				</ComponentSection>
 
-				<section id="main-inputs">
-					<h2>Main Inputs</h2>
+				<ComponentSection heading="Main Inputs" examples={["inputs/main"]}>
 					<p>Here below are main inputs that are mostly use on a website.</p>
-					<ComponentPreview filename="inputs/main" />
-				</section>
+				</ComponentSection>
 
-				<section id="select-input">
-					<h2>Selected Input</h2>
+				<ComponentSection heading="Selected Input" examples={["inputs/select"]}>
 					<p>Select is an element listing a number of value to choose.</p>
-					<ComponentPreview filename="inputs/select" />
-				</section>
+				</ComponentSection>
 
-				<section id="multiple-select-input">
+				<ComponentSection
+					heading="multiple-select-input"
+					examples={["inputs/multiple-select"]}
+				>
 					<h2>Multiple Selected Input</h2>
 					<p>A select input component with multiple props set to true.</p>
-					<ComponentPreview filename="inputs/multiple-select" />
-				</section>
+				</ComponentSection>
 
-				<section id="radio-input">
+				<ComponentSection heading="radio-input" examples={["inputs/radio"]}>
 					<h2>Radio Input</h2>
 					<p>Radio input allows a single choice between many propositions.</p>
 					<p>
 						Associated with Alpine interop, you can intercept the radio value
-						with x-on:change / x-on:input listener.
+						<em>with x-on:change / x-on:input</em> listener.
 					</p>
-					<ComponentPreview filename="inputs/radio" />
-				</section>
+				</ComponentSection>
 
-				<section id="checkbox-input">
+				<ComponentSection
+					heading="checkbox-input"
+					examples={["inputs/checkbox"]}
+				>
 					<h2>Checkbox Input</h2>
 					<p>
 						Checkbox input in the other hands, allows you to select as many
@@ -66,8 +63,7 @@ export function InputsPage(props) {
 						Associated with Alpine interop, you can intercept the value with
 						x-on:change / x-on:input listener.
 					</p>
-					<ComponentPreview filename="inputs/checkbox" />
-				</section>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

@@ -1,6 +1,8 @@
+import {
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Buttons page props
@@ -9,39 +11,38 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function ButtonsPage(props) {
 	return (
 		<MainLayout {...props}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Buttons</h1>
-				</section>
-
-				<section id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Buttons" source="button">
+				<ComponentSection heading="Overview" examples={["buttons/overview"]}>
 					<p>
-						This page is an example on how to document your button components.
+						Buttons are clickable components aimed to trigger an action. Used
+						for many reasons, it appears frequently in a form.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection
+					heading="Alpine Interop"
+					examples={["buttons/alpine-interop"]}
+				>
 					<p>
-						Find the code for this page in the <em>src/pages/components/buttons/index.astro</em> file.
+						We can use alpine properties such as <em>@click</em> or{" "}
+						<em>x:on-click</em>.
 					</p>
-					<ComponentPreview filename="buttons/overview" />
-				</section>
+				</ComponentSection>
 
-				<section id="alpine-interop">
-					<h2>Alpine Interop</h2>
-					<p>We can use alpine properties such as <em>@click</em> or <em>x:on-click</em>.</p>
-					<ComponentPreview filename="buttons/alpine-interop" />
-				</section>
-
-				<section id="primary-button">
-					<h2>Primary Button</h2>
+				<ComponentSection
+					heading="Primary Button"
+					examples={["buttons/primary"]}
+				>
 					<p>
 						We use the primary button for main actions like saving a form or
 						creating a new item.
 					</p>
-					<ComponentPreview filename="buttons/primary" />
-				</section>
+				</ComponentSection>
 
-				<section id="secondary-button">
-					<h2>Secondary Button</h2>
+				<ComponentSection
+					heading="Secondary Button"
+					examples={["buttons/secondary"]}
+				>
 					<p>
 						Secondary buttons accompany primary buttons to provide additional
 						actions.
@@ -49,32 +50,29 @@ export function ButtonsPage(props) {
 					<p>
 						For example, cancel buttons can be considered as secondary buttons.
 					</p>
-					<ComponentPreview filename="buttons/secondary" />
-				</section>
+				</ComponentSection>
 
-				<section id="success-button">
-					<h2>Success Button</h2>
+				<ComponentSection
+					heading="Success Button"
+					examples={["buttons/success"]}
+				>
 					<p>Success buttons give positive attempt to actions.</p>
-					<ComponentPreview filename="buttons/success" />
-				</section>
+				</ComponentSection>
 
-				<section id="danger-button">
-					<h2>Danger Button</h2>
+				<ComponentSection heading="Danger Button" examples={["buttons/danger"]}>
 					<p>Danger buttons are useful to prevent/cancel actions.</p>
-					<ComponentPreview filename="buttons/danger" />
-				</section>
+				</ComponentSection>
 
-				<section id="info-button">
-					<h2>Info Button</h2>
+				<ComponentSection heading="Info Button" examples={["buttons/info"]}>
 					<p>Info buttons are mostly used for informative actions.</p>
-					<ComponentPreview filename="buttons/info" />
-				</section>
+				</ComponentSection>
 
-				<section id="warning-button">
-					<h2>Warning Button</h2>
+				<ComponentSection
+					heading="Warning Button"
+					examples={["buttons/warning"]}
+				>
 					<p>Warning buttons are often used for risky actions.</p>
-					<ComponentPreview filename="buttons/warning" />
-				</section>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

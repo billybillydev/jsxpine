@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Galleries page props
@@ -54,22 +53,20 @@ export function GalleriesPage({...restProps}) {
 	];
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Galleries</h1>
-				</section>
-
-				<section id="overview">
-					<h2>Overview</h2>
+			<ComponentPresentation name="Galleries" source="gallery">
+				<ComponentSection heading="Overview">
 					<p>
 						Gallery is a set on photos in a grid-like design. Based on your
 						needs, JSXPine provides you 3 types of gallery.
 					</p>
 					<p>Discover each one and their variants with examples below.</p>
-				</section>
+				</ComponentSection>
 
-				<section id="rest-gallery">
-					<h2>Rest Gallery</h2>
+				<ComponentSection
+					heading="Rest Gallery"
+					examples={["galleries/default-rest"]}
+					images={images}
+				>
 					<p>
 						Take RestGallery as a way to reduce display all photos. Because too
 						many images can slower your page loading, it's pragmatic to display
@@ -84,11 +81,13 @@ export function GalleriesPage({...restProps}) {
 						P.S: Notice that it's up to you to design gallery layout with class
 						props. Thanks to tailwind, you can fully customize it.
 					</p>
-					<ComponentPreview images={images} filename="galleries/default-rest" />
-				</section>
+				</ComponentSection>
 
-				<section id="carousel-gallery">
-					<h2>Carousel Gallery</h2>
+				<ComponentSection
+					heading="Carousel Gallery"
+					images={images}
+					examples={["galleries/default-carousel"]}
+				>
 					<p>
 						A trendy gallery is obviously carousel. It's a combination of
 						Carousel component with a set of thumbnails as indicators.
@@ -98,22 +97,22 @@ export function GalleriesPage({...restProps}) {
 						thumbnail width with <em>thumbnailWidth</em> props.
 					</p>
 					<p>See example below:</p>
-					<ComponentPreview images={images} filename="galleries/default-carousel" />
-				</section>
+				</ComponentSection>
 
-				<section id="zoom-gallery">
-					<h2>Zoom Gallery</h2>
+				<ComponentSection
+					heading="Zoom Gallery"
+					images={images}
+					examples={["galleries/zoom-rest", "galleries/zoom-carousel"]}
+				>
 					<p>
 						Because it's a well-known feature, gallery has zoom props which, you
 						already guess, provides a zoom of the clicked image.
 					</p>
 					<p>
-                        See these two examples below respectively about rest and carousel
-                        galleries.
-                    </p>
-					<ComponentPreview images={images} filename="galleries/zoom-rest" />
-					<ComponentPreview images={images} filename="galleries/zoom-carousel" />
-				</section>
+						See these two examples below respectively about rest and carousel
+						galleries.
+					</p>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

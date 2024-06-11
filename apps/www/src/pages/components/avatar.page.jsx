@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentPreview } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Avatar page props
@@ -9,10 +8,7 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function AvatarPage({ ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
-			<ComponentPresentation>
-				<section class="text-center">
-					<h1>Avatar</h1>
-				</section>
+			<ComponentPresentation name="Avatar">
 				<section id="overview">
 					<h2>Overview</h2>
 					<p>
@@ -57,7 +53,7 @@ export function AvatarPage({ ...restProps }) {
 					</p>
 					<p>
 						Size value comes from SpecificTizeType. You can see all values in
-						<a href="#">Specific Size page]</a>.
+						<a href="#">Specific Size page</a>.
 					</p>
 					<p class="italic">
 						P.S: Notice that only numeric (integer and float) values and size

@@ -1,6 +1,5 @@
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { ComponentPresentation } from "$views/component-presentation.view";
-import { ComponentPreview } from "$views/component-preview.view";
 
 /**
  * Select page props
@@ -9,13 +8,8 @@ import { ComponentPreview } from "$views/component-preview.view";
 export function SelectPage({...restProps}) {
     return (
 			<MainLayout {...restProps}>
-				<ComponentPresentation>
-					<section class="text-center">
-						<h1>Select</h1>
-					</section>
-
-					<section id="overview">
-						<h2>Overview</h2>
+				<ComponentPresentation name="Select">
+					<ComponentSection heading="Overview" examples={["select/default"]}>
 						<p>
 							Select component is actually a dropdown component with select
 							input behaviour. It takes almost all select input props.
@@ -29,8 +23,7 @@ export function SelectPage({...restProps}) {
 							This rule doesn't apply to this <em>Select</em> component. Here
 							below is an example:
 						</p>
-						<ComponentPreview filename="select/default" />
-					</section>
+					</ComponentSection>
 				</ComponentPresentation>
 			</MainLayout>
 		);

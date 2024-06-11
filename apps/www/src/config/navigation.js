@@ -33,9 +33,15 @@ export const SIDEBAR = [
 				"core/introduction",
 				{ text: "Introduction", link: "/core/introduction" }
 			],
+			[
+				"core/getting-started",
+				{ text: "Getting Started", link: "/core/getting-started" }
+			],
 			["core/colors", { text: "Colors", link: "/core/colors" }],
 			["core/typography", { text: "Typography", link: "/core/typography" }],
-			["core/shadows", { text: "Shadows", link: "/core/shadows" }]
+			["core/shadows", { text: "Shadows", link: "/core/shadows" }],
+			["core/icons", { text: "Icons", link: "/core/icons" }],
+			["core/jsx", { text: "JAH Templating", link: "/core/jsx" }],
 		])
 	},
 	{

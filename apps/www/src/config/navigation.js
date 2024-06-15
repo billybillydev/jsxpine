@@ -568,11 +568,11 @@ export const SIDEBAR = [
 		])
 	},
 	{
-		header: "patterns",
+		header: "usecases",
 		menu: new Map([
 			[
-				"patterns/introduction",
-				{ text: "Introduction", link: "/patterns/introduction" }
+				"usecases/introduction",
+				{ text: "Introduction", link: "/usecases/introduction" }
 			]
 		])
 	}

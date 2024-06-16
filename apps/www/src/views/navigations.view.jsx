@@ -1,6 +1,8 @@
 import { SIDEBAR } from "src/config/navigation";
 
 export const tableOfContentsId = "table-of-contents";
+export const leftSidebarId = "left-sidebar";
+export const rightSidebarId = "right-sidebar";
 
 /**
  * @param {{ currentPage: string }} props
@@ -16,7 +18,10 @@ export function TableOfContents({ currentPage }) {
 	);
 	const menu = sidebarSection?.menu.get(currentPageMatch);
 
-	return menu?.chapters ? (
+	if (!menu?.chapters) {
+		return null;
+	}
+	return (
 		<section
 			class="flex flex-col gap-y-4 mt-24"
 			id={tableOfContentsId}
@@ -46,7 +51,7 @@ export function TableOfContents({ currentPage }) {
 				})}
 			</ul>
 		</section>
-	) : null;
+	);
 }
 
 /**
@@ -77,6 +82,7 @@ export function LeftSidebar({ currentPage }) {
 		<nav
 			aria-labelledby="grid-left"
 			class="lg:px-8 xl:px-12 py-4 flex flex-col gap-y-4"
+			id={leftSidebarId}
 		>
 			{SIDEBAR.map((item) => (
 				<section>
@@ -94,12 +100,17 @@ export function LeftSidebar({ currentPage }) {
 									x-bind:class={`{
 										"border-slate-500 text-slate-900": link.includes(currentUrl.pathname.slice(1))
 									}`}
+									x-init={`
+										if (link.includes(currentUrl.pathname.slice(1))) {
+											$el.scrollIntoView();
+										}	
+									`}
 								>
 									<a
 										href={menu.link}
 										hx-target="main"
 										hx-swap="innerHTML scroll:top"
-										hx-select-oob={`#${tableOfContentsId}`}
+										hx-select-oob={`#${rightSidebarId}`}
 										class={"py-2 px-6 block"}
 										safe
 									>
@@ -120,7 +131,7 @@ export function LeftSidebar({ currentPage }) {
  */
 export function RightSidebar(props) {
 	return (
-		<nav aria-labelledby="grid-right">
+		<nav aria-labelledby="grid-right" id={rightSidebarId}>
 			<div class="px-8">
 				<TableOfContents {...props} />
 			</div>

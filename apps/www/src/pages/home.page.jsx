@@ -20,7 +20,7 @@ export function HomePage() {
 		{
 			title: "Use Cases",
 			description: "A set of interesting use cases where jsxpine can help you build better interfaces.",
-			url: "/usecases/introduction",
+			url: "/usecases",
 			icon: "carousel-view"
 		}
 	];

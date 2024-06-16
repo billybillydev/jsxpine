@@ -573,7 +573,31 @@ export const SIDEBAR = [
 			[
 				"usecases/introduction",
 				{ text: "Introduction", link: "/usecases/introduction" }
-			]
+			],
+			[
+				"usecases/ecommerce-cart",
+				{ text: "Ecommerce Cart", link: "/usecases/ecommerce-cart" }
+			],
+			[
+				"usecases/form-submission",
+				{ text: "Form Submission", link: "/usecases/form-submission" }
+			],
+			[
+				"usecases/paginations",
+				{ text: "Paginations", link: "/usecases/paginations" }
+			],
+			[
+				"usecases/pagination-more",
+				{ text: "Pagination: More", link: "/usecases/pagination-more" }
+			],
+			[
+				"usecases/select-items",
+				{ text: "Select Items", link: "/usecases/select-items" }
+			],
+			[
+				"usecases/step-process",
+				{ text: "Step Process", link: "/usecases/step-process" }
+			],
 		])
 	}
 ];

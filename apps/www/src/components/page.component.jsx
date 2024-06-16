@@ -109,7 +109,7 @@ export function Page(props) {
 				class={clsx(className)}
 				hx-ext="response-targets"
 				x-data="{ currentUrl: new URL(window.location) }"
-				x-effect={`
+				x-init={`
 					navigation.addEventListener('navigate', ({ destination }) => {
 						currentUrl = new URL(destination.url);
 					});

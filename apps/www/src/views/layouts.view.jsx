@@ -5,6 +5,8 @@ import { Header } from "$views/header.view";
 import { LeftSidebar, RightSidebar, TableOfContents } from "$views/navigations.view";
 
 export const defaultFavicon = "/public/icons/logo_2.svg";
+export const asideLeftId = "aside-left";
+export const asideRightId = "aside-right";
 
 /**
  * @param {import("$components/page.component").PageProps<{}>} props
@@ -40,7 +42,7 @@ export function MainLayout(props) {
 		<>
 			<SeoModifier {...seo} />
 			{children}
-			<TableOfContents currentPage={currentPath || ""} />
+			{currentPath ? <RightSidebar currentPage={currentPath} /> : null}
 		</>
 	) : (
 		<RootLayout {...restProps} seo={seo}>
@@ -51,9 +53,10 @@ export function MainLayout(props) {
 				<aside
 					title="Site Navigation"
 					class="col-span-1 sticky top-0 py-6 overflow-hidden hidden lg:flex"
+					id={asideLeftId}
 				>
 					<div class="overflow-y-auto w-full">
-						<LeftSidebar currentPage={currentPath || ""} />
+						{ currentPath ? <LeftSidebar currentPage={currentPath} /> : null }
 					</div>
 				</aside>
 				<main
@@ -73,8 +76,9 @@ export function MainLayout(props) {
 				<aside
 					title="Site Table of Contents"
 					class="col-span-1 sticky top-0 pt-6 grow hidden lg:flex"
+					id={asideRightId}
 				>
-					<RightSidebar currentPage={currentPath || ""} />
+					{ currentPath ? <RightSidebar currentPage={currentPath} /> : null }
 				</aside>
 			</div>
 		</RootLayout>

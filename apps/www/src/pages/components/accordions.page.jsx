@@ -1,5 +1,5 @@
 
-import { ComponentPresentation, ComponentPreview, ComponentSection } from "$views/components.view";
+import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**

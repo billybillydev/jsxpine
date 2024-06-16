@@ -6,6 +6,7 @@ import { componentsController } from "$controllers/components/*";
 import { htmxMiddleware } from "$middlewares/htmx.middleware";
 import { notFoundController } from "$controllers/404.controller";
 import { RootLayout } from "$views/layouts.view";
+import { useCasesController } from "$controllers/usecases/*";
 
 export type AppVariables = {
 	isHTMX?: boolean;
@@ -27,6 +28,7 @@ app
 	})
 	.route("/", homeController)
 	.route("/components", componentsController)
+	.route("/usecases", useCasesController)
 	.route("/404-not-found", notFoundController)
 	.notFound(ctx => ctx.redirect("/404-not-found"));
 

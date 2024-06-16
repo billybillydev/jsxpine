@@ -34,8 +34,8 @@ export const SIDEBAR = [
 				{ text: "Introduction", link: "/core/introduction" }
 			],
 			[
-				"core/getting-started",
-				{ text: "Getting Started", link: "/core/getting-started" }
+				"core/installation",
+				{ text: "Installation", link: "/core/installation" }
 			],
 			["core/colors", { text: "Colors", link: "/core/colors" }],
 			["core/typography", { text: "Typography", link: "/core/typography" }],

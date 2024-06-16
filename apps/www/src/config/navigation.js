@@ -41,7 +41,7 @@ export const SIDEBAR = [
 			["core/typography", { text: "Typography", link: "/core/typography" }],
 			["core/shadows", { text: "Shadows", link: "/core/shadows" }],
 			["core/icons", { text: "Icons", link: "/core/icons" }],
-			["core/jsx", { text: "JAH Templating", link: "/core/jsx" }],
+			["core/jah", { text: "JAH Templating", link: "/core/jah" }],
 		])
 	},
 	{

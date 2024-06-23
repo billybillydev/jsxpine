@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.22
+
+### Patch Changes
+
+-   corrected dependencies in init command
+
 ## 0.2.21
 
 ### Patch Changes

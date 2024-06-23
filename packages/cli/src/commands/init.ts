@@ -23,13 +23,13 @@ const PROJECT_DEPENDENCIES = [
 	"@alpinejs/focus",
 	"alpinejs-manage",
 	"laravel-mix",
-	"tailwind",
+	"tailwindcss",
 	"clsx",
 	"tailwindcss-mosiui-mini",
 	"alpinejs"
 ] as const;
 
-const PROJECT_DEV_DEPENDENCIES = [] as const;
+const PROJECT_DEV_DEPENDENCIES = ["@types/alpinejs"] as const;
 
 export const init = new Command()
 	.command("init")
@@ -317,24 +317,32 @@ async function runInit(cwd: string, config: Config) {
 	// Install dependencies.
 	const dependenciesSpinner = ora(`Installing dependencies...`)?.start();
 	const packageManager = await getPackageManager(cwd);
+	
+	if (PROJECT_DEPENDENCIES.length) {
+		await execa(
+			packageManager,
+			[
+				packageManager === "npm" ? "install" : "add",
+				...PROJECT_DEPENDENCIES
+			],
+			{
+				cwd
+			}
+		);
+	}
 
-	await execa(
-		packageManager,
-		[packageManager === "npm" ? "install" : "add", ...PROJECT_DEPENDENCIES],
-		{
-			cwd
-		}
-	);
-	await execa(
-		packageManager,
-		[
-			packageManager === "npm" ? "install" : "add",
-			"--dev",
-			...PROJECT_DEV_DEPENDENCIES
-		],
-		{
-			cwd
-		}
-	);
+	if (PROJECT_DEV_DEPENDENCIES.length) {
+		await execa(
+			packageManager,
+			[
+				packageManager === "npm" ? "install" : "add",
+				"--dev",
+				...PROJECT_DEV_DEPENDENCIES
+			],
+			{
+				cwd
+			}
+		);
+	}
 	dependenciesSpinner?.succeed();
 }

@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.23
+
+### Patch Changes
+
+-   cleaned console.log in init command
+
 ## 0.2.22
 
 ### Patch Changes

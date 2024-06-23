@@ -6,20 +6,13 @@ import { Command } from "commander";
 import { execa } from "execa";
 import ora from "ora";
 import prompts from "prompts";
-import {
-	DEFAULT_APP_SCRIPT_DIRECTORY,
-	DEFAULT_COMPONENTS_DIRECTORY,
-	DEFAULT_TAILWIND_CONFIG_FILE,
-	DEFAULT_TAILWIND_CSS_FILE,
-	getConfig,
-	rawConfigSchema,
-	resolveConfigPaths
-} from "../utils/get-config";
+import { DEFAULT_APP_SCRIPT_DIRECTORY, DEFAULT_COMPONENTS_DIRECTORY, DEFAULT_TAILWIND_CONFIG_FILE, DEFAULT_TAILWIND_CSS_FILE, getConfig, rawConfigSchema, resolveConfigPaths } from "../utils/get-config";
 import { getPackageManager } from "../utils/get-package-manager";
 import { handleError } from "../utils/handle-error";
 import { logger } from "../utils/logger";
 import { baseUrl, transformObjectToDirectory } from "../utils/registry";
 import * as templates from "../utils/templates";
+
 
 const PROJECT_DEPENDENCIES = [
 	"@kitajs/html",
@@ -30,16 +23,13 @@ const PROJECT_DEPENDENCIES = [
 	"@alpinejs/focus",
 	"alpinejs-manage",
 	"laravel-mix",
-	"tailwind"
-] as const;
-
-const PROJECT_DEV_DEPENDENCIES = [
+	"tailwind",
 	"clsx",
 	"tailwindcss-mosiui-mini",
-	"typed-html",
-	"typed-htmx",
 	"alpinejs"
 ] as const;
+
+const PROJECT_DEV_DEPENDENCIES = [] as const;
 
 export const init = new Command()
 	.command("init")

@@ -9,7 +9,7 @@
 export const components = [
 	{
 		name: "accordion",
-		alpineDependencies: [],
+		alpineDependencies: ["group-accordion", "solo-accordion"],
 		registryDependencies: []
 	},
 	{

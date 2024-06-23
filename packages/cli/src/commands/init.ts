@@ -22,6 +22,8 @@ import { baseUrl, transformObjectToDirectory } from "../utils/registry";
 import * as templates from "../utils/templates";
 
 const PROJECT_DEPENDENCIES = [
+	"@kitajs/html",
+	"@kitajs/ts-html-plugin",
 	"@iconify/utils",
 	"@iconify-json/ri",
 	"@alpinejs/collapse",

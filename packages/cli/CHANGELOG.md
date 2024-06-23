@@ -1,42 +1,48 @@
 # jsxpine
 
+## 0.2.20
+
+### Patch Changes
+
+-   added kitajs to dependencies in init command
+
 ## 0.2.19
 
 ### Patch Changes
 
-- fix cli deploy
+-   fix cli deploy
 
 ## 0.2.18
 
 ### Patch Changes
 
-- fix cli deploy
+-   fix cli deploy
 
 ## 0.2.18
 
 ### Patch Changes
 
-- fix cli deploy
+-   fix cli deploy
 
 ## 0.2.18
 
 ### Patch Changes
 
-- 8f6463d: cleanup package.json
-- 249db5a: update cli package.json
-- build package
+-   8f6463d: cleanup package.json
+-   249db5a: update cli package.json
+-   build package
 
 ## 0.2.15
 
 ### Patch Changes
 
-- 9fae24e: fixed cli-deployment config 17
-- 9fae24e: fixed cli deployment
-- 4580345: Update cli package.json
-- a626977: Cleaned add command
+-   9fae24e: fixed cli-deployment config 17
+-   9fae24e: fixed cli deployment
+-   4580345: Update cli package.json
+-   a626977: Cleaned add command
 
 ## 0.2.13
 
 ### Patch Changes
 
-- config
+-   config

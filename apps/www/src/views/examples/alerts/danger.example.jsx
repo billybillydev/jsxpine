@@ -20,6 +20,14 @@ export function DangerAlertExample() {
 					</DangerAlert>
 				);
 			})}
+			<DangerAlert
+				title={`Danger Alert with Icon`}
+				icon="close-circle-fill"
+				variant="outlined"
+			>
+				This is the subtext for your alert message, providing important
+				information or instructions.
+			</DangerAlert>
 		</div>
 	);
 }

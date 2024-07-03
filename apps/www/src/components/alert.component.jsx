@@ -1,15 +1,16 @@
+import { Icon } from "$components/icon.component";
 import clsx from "clsx";
 
 /**
  * @typedef AlertProps
- * @type {{ title: string } & import("src/common/props").VariantColorProps & import("src/common/props").HTMLTag}
+ * @type {{ title?: string, icon?: import("@kitajs/html").Children } & import("src/common/props").VariantColorProps & import("src/common/props").HTMLTag}
  */
 
 /**
  * Alert props
  * @param {AlertProps} props
  */
-export function Alert({ class: className, title, children }) {
+export function Alert({ class: className, title, children, icon }) {
 	return (
 		<div
 			class={clsx(
@@ -17,8 +18,14 @@ export function Alert({ class: className, title, children }) {
 				className || "bg-white text-slate-800"
 			)}
 		>
-			{/* <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" x2="20" y1="19" y2="19"></line></svg> */}
-			<h4 class="mb-1 font-medium leading-none tracking-tight" safe>{title}</h4>
+			{title ? (
+				<h4
+					class="mb-1 font-medium leading-none tracking-tight flex items-center gap-x-3"
+				>
+					{icon ? <Icon name={String(icon)} size={5} /> || icon : null}
+					<span safe>{title}</span>
+				</h4>
+			) : null}
 			<div class="text-sm opacity-90">{children}</div>
 		</div>
 	);
@@ -28,7 +35,7 @@ export function Alert({ class: className, title, children }) {
  * Primary Alert props
  * @param {AlertProps} props
  */
-export function PrimaryAlert({ children, title, variant = "solid" }) {
+export function PrimaryAlert({ variant = "solid", ...restProps }) {
 	/**
 	 * @type {Map<import("src/common/types").VariantColorType, string>}
 	 */
@@ -38,18 +45,14 @@ export function PrimaryAlert({ children, title, variant = "solid" }) {
 		["inversed", "border-primary-500 text-primary-500"]
 	]);
 
-	return (
-		<Alert class={variantColorMap.get(variant)} title={title}>
-			{children}
-		</Alert>
-	);
+	return <Alert class={variantColorMap.get(variant)} {...restProps} />;
 }
 
 /**
  * Secondary Alert props
  * @param {AlertProps} props
  */
-export function SecondaryAlert({ children, title, variant = "solid" }) {
+export function SecondaryAlert({ variant = "solid", ...restProps }) {
 	/**
 	 * @type {Map<import("src/common/types").VariantColorType, string>}
 	 */
@@ -60,9 +63,7 @@ export function SecondaryAlert({ children, title, variant = "solid" }) {
 	]);
 
 	return (
-		<Alert class={variantColorMap.get(variant)} title={title}>
-			{children}
-		</Alert>
+		<Alert class={variantColorMap.get(variant)} {...restProps} />
 	);
 }
 
@@ -70,7 +71,7 @@ export function SecondaryAlert({ children, title, variant = "solid" }) {
  * Success Alert props
  * @param {AlertProps} props
  */
-export function SuccessAlert({ children, title, variant = "solid" }) {
+export function SuccessAlert({ variant = "solid", ...restProps }) {
 	/**
 	 * @type {Map<import("src/common/types").VariantColorType, string>}
 	 */
@@ -81,9 +82,7 @@ export function SuccessAlert({ children, title, variant = "solid" }) {
 	]);
 
 	return (
-		<Alert class={variantColorMap.get(variant)} title={title}>
-			{children}
-		</Alert>
+		<Alert class={variantColorMap.get(variant)} {...restProps} />
 	);
 }
 
@@ -91,7 +90,7 @@ export function SuccessAlert({ children, title, variant = "solid" }) {
  * Danger Alert props
  * @param {AlertProps} props
  */
-export function DangerAlert({ children, title, variant = "solid" }) {
+export function DangerAlert({ variant = "solid", ...restProps }) {
 	/**
 	 * @type {Map<import("src/common/types").VariantColorType, string>}
 	 */
@@ -102,9 +101,7 @@ export function DangerAlert({ children, title, variant = "solid" }) {
 	]);
 
 	return (
-		<Alert class={variantColorMap.get(variant)} title={title}>
-			{children}
-		</Alert>
+		<Alert class={variantColorMap.get(variant)} {...restProps} />
 	);
 }
 
@@ -112,7 +109,7 @@ export function DangerAlert({ children, title, variant = "solid" }) {
  * Info Alert props
  * @param {AlertProps} props
  */
-export function InfoAlert({ children, title, variant = "solid" }) {
+export function InfoAlert({ variant = "solid", ...restProps }) {
 	/**
 	 * @type {Map<import("src/common/types").VariantColorType, string>}
 	 */
@@ -123,9 +120,7 @@ export function InfoAlert({ children, title, variant = "solid" }) {
 	]);
 
 	return (
-		<Alert class={variantColorMap.get(variant)} title={title}>
-			{children}
-		</Alert>
+		<Alert class={variantColorMap.get(variant)} {...restProps} />
 	);
 }
 
@@ -133,7 +128,7 @@ export function InfoAlert({ children, title, variant = "solid" }) {
  * Warning Alert props
  * @param {AlertProps} props
  */
-export function WarningAlert({ children, title, variant = "solid" }) {
+export function WarningAlert({ variant = "solid", ...restProps }) {
 	/**
 	 * @type {Map<import("src/common/types").VariantColorType, string>}
 	 */
@@ -144,8 +139,6 @@ export function WarningAlert({ children, title, variant = "solid" }) {
 	]);
 
 	return (
-		<Alert class={variantColorMap.get(variant)} title={title}>
-			{children}
-		</Alert>
+		<Alert class={variantColorMap.get(variant)} {...restProps} />
 	);
 }

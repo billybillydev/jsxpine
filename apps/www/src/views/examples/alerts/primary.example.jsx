@@ -20,6 +20,26 @@ export function PrimaryAlertExample() {
 					</PrimaryAlert>
 				);
 			})}
+			<PrimaryAlert
+				title={`Primary Alert with Icon`}
+				icon={<PrimaryAlertIcon text="NEW" />}
+				variant="outlined"
+			>
+				This is the subtext for your alert message, providing important
+				information or instructions.
+			</PrimaryAlert>
 		</div>
+	);
+}
+
+/**
+ * @param {object} props
+ * @param {string} props.text
+ */
+function PrimaryAlertIcon({ text }) {
+	return (
+		<span class={"p-1 bg-primary-500 text-primary-100 rounded-full"}>
+			{text}
+		</span>
 	);
 }

@@ -20,6 +20,14 @@ export function SecondaryAlertExample() {
 					</SecondaryAlert>
 				);
 			})}
+			<SecondaryAlert
+				title={`Secondary Alert with Icon`}
+				icon="question-answer-fill"
+				variant="inversed"
+			>
+				This is the subtext for your alert message, providing important
+				information or instructions.
+			</SecondaryAlert>
 		</div>
 	);
 }

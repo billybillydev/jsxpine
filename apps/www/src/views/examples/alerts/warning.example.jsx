@@ -20,6 +20,14 @@ export function WarningAlertExample() {
 					</WarningAlert>
 				);
 			})}
+			<WarningAlert
+				title={`Warning Alert with Icon`}
+				icon="error-warning-line"
+				variant="outlined"
+			>
+				This is the subtext for your alert message, providing important
+				information or instructions.
+			</WarningAlert>
 		</div>
 	);
 }

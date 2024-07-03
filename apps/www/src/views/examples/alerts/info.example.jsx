@@ -20,6 +20,10 @@ export function InfoAlertExample() {
 					</InfoAlert>
 				);
 			})}
+			<InfoAlert title={`Info Alert with Icon`} icon="information-2-line" variant="inversed">
+				This is the subtext for your alert message, providing important
+				information or instructions.
+			</InfoAlert>
 		</div>
 	);
 }

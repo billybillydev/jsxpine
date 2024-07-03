@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.23
+
+### Patch Changes
+
+-   trigger dispatch on event listener instead of $watch
+
 ## 0.2.22
 
 ### Patch Changes

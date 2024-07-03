@@ -8,6 +8,7 @@ export function DefaultAlertExample() {
 				This is the subtext for your alert message, providing important
 				information or instructions.
 			</Alert>
+
 			<Alert
 				title="Alert Message Headline with Icon"
 				icon="notification-4-line"
@@ -22,7 +23,7 @@ export function DefaultAlertExample() {
 			<Alert
 				title="Alert Message Headline with Custom Icon"
 				icon={
-					<section class={"flex gap-x-1"}>
+					<section class={"flex items-center gap-x-1"}>
 						<Icon name="star-smile-fill" />
 						<Icon name="star-smile-fill" />
 						<Icon name="star-smile-fill" />

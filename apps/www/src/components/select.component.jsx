@@ -23,7 +23,7 @@ export function Select(props) {
 		<div
 			x-data={`dropdownSelect(${JSON.stringify(items)})`}
 			x-on:keydown="selectKeydown($event);"
-			class={clsx("relative w-full", className)}
+			class={clsx("relative", className)}
 			{...{
 				...restProps,
 				"@keydown.escape": "if (selectOpen){ selectOpen = false; }",
@@ -42,7 +42,7 @@ export function Select(props) {
                     }
                 `,
 				"x-on:keydown.enter":
-					"selectedItem=selectableItemActive; selectOpen=false;"
+					"selectedItem=selectableItemActive; selectOpen=false; $dispatch('select', selectableItemActive)"
 			}}
 		>
 			<button
@@ -78,12 +78,12 @@ export function Select(props) {
 			>
 				<template x-for="item in selectableItems" x-bind:key="item.value">
 					<li
-						x-on:click="selectedItem = item; selectOpen = false; $refs.selectButton.focus();"
+						x-on:click="selectedItem = item; selectOpen = false; $refs.selectButton.focus(); $dispatch('select', item)"
 						x-bind:id="item.value + '-' + selectId"
 						x-bind:data-disabled="item.disabled ?? false"
 						x-bind:class="selectableItemIsActive && 'bg-neutral-100 text-gray-900'"
 						x-on:mousemove="selectableItemActive = item"
-						class="relative flex items-center h-full py-2 pr-2 pl-8 text-gray-700 cursor-default select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none"
+						class="relative flex items-center h-full py-2 pr-2 pl-8 text-gray-700 cursor-pointer select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none"
 					>
 						<Icon
 							name="check-line"

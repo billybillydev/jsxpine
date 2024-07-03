@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
--   trigger dispatch on event listener instead of $watch
+-   cleaned console.log in init command
 
 ## 0.2.22
 

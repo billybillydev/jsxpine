@@ -23,7 +23,7 @@ export function PrimaryAlertExample() {
 			<PrimaryAlert
 				title={`Primary Alert with Icon`}
 				icon={<PrimaryAlertIcon text="NEW" />}
-				variant={"outlined"}
+				variant="outlined"
 			>
 				This is the subtext for your alert message, providing important
 				information or instructions.
@@ -38,7 +38,7 @@ export function PrimaryAlertExample() {
  */
 function PrimaryAlertIcon({ text }) {
 	return (
-		<span class={"rounded-full bg-primary-500 relative p-1 text-primary-100"}>
+		<span class={"p-1 bg-primary-500 text-primary-100 rounded-full"}>
 			{text}
 		</span>
 	);

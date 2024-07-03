@@ -8,18 +8,22 @@ export function DefaultAlertExample() {
 				This is the subtext for your alert message, providing important
 				information or instructions.
 			</Alert>
-			<Alert title="Alert Message Headline" icon="notification-4-line">
+
+			<Alert
+				title="Alert Message Headline with Icon"
+				icon="notification-4-line"
+			>
 				This is the subtext for your alert message, providing important
 				information or instructions.
 			</Alert>
 			<Alert>
-				This is the subtext for your alert message without title props,
-				providing important information or instructions.
+				This is the subtext for your alert message without title, providing
+				important information or instructions.
 			</Alert>
 			<Alert
-				title="Alert Message Headline"
+				title="Alert Message Headline with Custom Icon"
 				icon={
-					<section class={"flex items-center gap-x-2"}>
+					<section class={"flex items-center gap-x-1"}>
 						<Icon name="star-smile-fill" />
 						<Icon name="star-smile-fill" />
 						<Icon name="star-smile-fill" />

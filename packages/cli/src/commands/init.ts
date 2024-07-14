@@ -336,7 +336,7 @@ async function runInit(cwd: string, config: Config) {
 			packageManager,
 			[
 				packageManager === "npm" ? "install" : "add",
-				"--dev",
+				"-D",
 				...PROJECT_DEV_DEPENDENCIES
 			],
 			{

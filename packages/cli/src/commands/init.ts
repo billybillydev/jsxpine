@@ -296,6 +296,7 @@ async function runInit(cwd: string, config: Config) {
 		".js",
 		".cjs"
 	);
+	
 	await fs.unlink(cjsConfig).catch((e) => e); // throws when it DNE
 
 	// Write to global css file

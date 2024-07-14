@@ -16,7 +16,6 @@ import * as templates from "../utils/templates";
 
 const PROJECT_DEPENDENCIES = [
 	"@kitajs/html",
-	"@kitajs/ts-html-plugin",
 	"@iconify/utils",
 	"@iconify-json/ri",
 	"@alpinejs/collapse",
@@ -29,7 +28,10 @@ const PROJECT_DEPENDENCIES = [
 	"alpinejs"
 ] as const;
 
-const PROJECT_DEV_DEPENDENCIES = ["@types/alpinejs"] as const;
+const PROJECT_DEV_DEPENDENCIES = [
+	"@types/alpinejs",
+	"@kitajs/ts-html-plugin"
+] as const;
 
 export const init = new Command()
 	.command("init")
@@ -337,11 +339,11 @@ async function runInit(cwd: string, config: Config) {
 			packageManager,
 			[
 				packageManager === "npm" ? "install" : "add",
-				"-D",
+				["npm", "pnpm"].includes(packageManager) ? "--save-dev" : "--dev",
 				...PROJECT_DEV_DEPENDENCIES
 			],
 			{
-				cwd
+				cwd,
 			}
 		);
 	}

@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.25
+
+### Patch Changes
+
+-   fixed dev flag in init command
+
 ## 0.2.24
 
 ### Patch Changes

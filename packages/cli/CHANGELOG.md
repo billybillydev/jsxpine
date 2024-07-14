@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.24
+
+### Patch Changes
+
+-   replaced flag --dev by -D in init command => project dev dependencies installation script
+
 ## 0.2.23
 
 ### Patch Changes

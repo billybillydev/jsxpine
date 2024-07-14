@@ -344,5 +344,6 @@ async function runInit(cwd: string, config: Config) {
 			}
 		);
 	}
+	
 	dependenciesSpinner?.succeed();
 }

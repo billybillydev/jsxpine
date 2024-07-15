@@ -339,7 +339,7 @@ async function runInit(cwd: string, config: Config) {
 			packageManager,
 			[
 				packageManager === "npm" ? "install" : "add",
-				["npm", "pnpm"].includes(packageManager) ? "--save-dev" : "--dev",
+				"-D",
 				...PROJECT_DEV_DEPENDENCIES
 			],
 			{

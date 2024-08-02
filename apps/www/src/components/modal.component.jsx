@@ -7,13 +7,17 @@ import clsx from "clsx";
  */
 
 /**
+ * @typedef {"dark" | "light"} ModalBackgroundColorOverlayType
+ */
+
+/**
  * @typedef {Object} ModalTriggerProps
  * @type {import("$components/button.component").ButtonProps}
  */
 
 /**
  * @typedef {Object} ModalContentProps
- * @type {{ selector?: string, type?: ModalContentType } & import("$common/props").HTMLTag}
+ * @type {{ selector?: string, type?: ModalContentType, overlay?: ModalBackgroundColorOverlayType } & import("$common/props").HTMLTag}
  */
 
 /**
@@ -35,7 +39,13 @@ export function ModalTrigger(props) {
  * @type {import("$common/props").JSXComponent<Omit<ModalContentProps, "type">>}
  */
 export function SimpleModalContent(props) {
-	const { children, selector = "body", class: className } = props;
+	const {
+		children,
+		selector = "body",
+		class: className,
+		overlay = "dark",
+		...restProps
+	} = props;
 
 	return (
 		<template x-teleport={selector}>
@@ -47,6 +57,7 @@ export function SimpleModalContent(props) {
 					className
 				)}
 				x-cloak="true"
+				{...restProps}
 			>
 				<div
 					x-bind="shower"
@@ -57,7 +68,10 @@ export function SimpleModalContent(props) {
 					x-transition:leave-start="opacity-100"
 					x-transition:leave-end="opacity-0"
 					x-on:click="close()"
-					class="absolute inset-0 w-full h-full bg-black bg-opacity-40"
+					class={clsx(
+						"absolute inset-0 w-full h-full",
+						overlay === "light" ? "bg-white/70" : "bg-black/40"
+					)}
 				/>
 				<div
 					x-bind="shower"

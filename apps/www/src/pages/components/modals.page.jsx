@@ -1,4 +1,7 @@
-import { ComponentPresentation, ComponentPreview } from "$views/components.view";
+import {
+	ComponentPresentation,
+	ComponentPreview
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -34,6 +37,10 @@ export function ModalsPage({ ...restProps }) {
 						hint.
 					</p>
 					<ComponentPreview filename="/modals/simple-button-trigger" />
+					<p>
+						Also, you can use a lighter overlay with <em>overlay</em> props
+					</p>
+					<ComponentPreview filename="/modals/simple-overlay" />
 				</section>
 
 				<section id="full-screen">

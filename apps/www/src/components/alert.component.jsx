@@ -10,18 +10,23 @@ import clsx from "clsx";
  * Alert props
  * @param {AlertProps} props
  */
-export function Alert({ class: className, title, children, icon }) {
+export function Alert({
+	class: className,
+	title,
+	children,
+	icon,
+	...restProps
+}) {
 	return (
 		<div
 			class={clsx(
 				"relative w-full flex flex-col gap-y-2 rounded-lg border p-4 [&>svg]:absolute [&>svg]:text-foreground [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11",
 				className || "bg-white text-slate-800"
 			)}
+			{...restProps}
 		>
 			{title ? (
-				<h4
-					class="mb-1 font-medium leading-none tracking-tight flex items-center gap-x-3"
-				>
+				<h4 class="mb-1 font-medium leading-none tracking-tight flex items-center gap-x-3">
 					{icon ? <Icon name={String(icon)} size={5} /> || icon : null}
 					<span safe>{title}</span>
 				</h4>
@@ -62,9 +67,7 @@ export function SecondaryAlert({ variant = "solid", ...restProps }) {
 		["inversed", "border-secondary text-secondary"]
 	]);
 
-	return (
-		<Alert class={variantColorMap.get(variant)} {...restProps} />
-	);
+	return <Alert class={variantColorMap.get(variant)} {...restProps} />;
 }
 
 /**
@@ -81,9 +84,7 @@ export function SuccessAlert({ variant = "solid", ...restProps }) {
 		["inversed", "border-success-500 text-success-500"]
 	]);
 
-	return (
-		<Alert class={variantColorMap.get(variant)} {...restProps} />
-	);
+	return <Alert class={variantColorMap.get(variant)} {...restProps} />;
 }
 
 /**
@@ -100,9 +101,7 @@ export function DangerAlert({ variant = "solid", ...restProps }) {
 		["inversed", "border-danger-500 text-danger-500"]
 	]);
 
-	return (
-		<Alert class={variantColorMap.get(variant)} {...restProps} />
-	);
+	return <Alert class={variantColorMap.get(variant)} {...restProps} />;
 }
 
 /**
@@ -119,9 +118,7 @@ export function InfoAlert({ variant = "solid", ...restProps }) {
 		["inversed", "border-info-500 text-info-500"]
 	]);
 
-	return (
-		<Alert class={variantColorMap.get(variant)} {...restProps} />
-	);
+	return <Alert class={variantColorMap.get(variant)} {...restProps} />;
 }
 
 /**
@@ -138,7 +135,5 @@ export function WarningAlert({ variant = "solid", ...restProps }) {
 		["inversed", "border-warning-500 text-warning-500"]
 	]);
 
-	return (
-		<Alert class={variantColorMap.get(variant)} {...restProps} />
-	);
+	return <Alert class={variantColorMap.get(variant)} {...restProps} />;
 }

@@ -22,8 +22,9 @@ export function PrimaryAlertExample() {
 			})}
 			<PrimaryAlert
 				title={`Primary Alert with Icon`}
-				icon={<PrimaryAlertIcon text="NEW" />}
+				icon={<PrimaryAlertCustomIcon text="NEW" />}
 				variant="outlined"
+				x-init="console.log('primary alert')"
 			>
 				This is the subtext for your alert message, providing important
 				information or instructions.
@@ -36,7 +37,7 @@ export function PrimaryAlertExample() {
  * @param {object} props
  * @param {string} props.text
  */
-function PrimaryAlertIcon({ text }) {
+function PrimaryAlertCustomIcon({ text }) {
 	return (
 		<span class={"p-1 bg-primary-500 text-primary-100 rounded-full"}>
 			{text}

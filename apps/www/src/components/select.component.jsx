@@ -26,12 +26,16 @@ export function Select(props) {
 			class={clsx("relative", className)}
 			{...{
 				...restProps,
-				"@keydown.escape": "if (selectOpen){ selectOpen = false; }",
+				"@keydown.escape": `
+					if (selectOpen){
+						selectOpen = false;
+					}
+				`,
 				"@keydown.down.prevent": `
                     if (selectOpen) {
                         selectableItemActiveNext();
                     } else {
-                        selectOpen=true;
+                        selectOpen = true;
                     }
                 `,
 				"@keydown.up.prevent": `
@@ -41,13 +45,17 @@ export function Select(props) {
                         selectOpen=true;
                     }
                 `,
-				"x-on:keydown.enter":
-					"selectedItem=selectableItemActive; selectOpen=false; $dispatch('select', selectableItemActive)"
+				"x-on:keydown.enter": `
+					selectedItem = selectableItemActive;
+					selectOpen=false;
+					$dispatch('select', selectableItemActive);
+				`
 			}}
 		>
 			<button
 				x-ref="selectButton"
-				x-on:click="selectOpen=!selectOpen"
+				type="button"
+				x-on:click="selectOpen =! selectOpen"
 				x-bind:class="{ 'focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400' : !selectOpen }"
 				class="relative w-full flex items-center justify-between p-1 gap-x-2 text-left bg-white hover:cursor-pointer disabled:cursor-not-allowed disabled:text-neutral-600/30 focus:outline-none text-sm"
 				disabled={disabled}
@@ -67,7 +75,7 @@ export function Select(props) {
 				x-show="selectOpen"
 				x-ref="selectableItemsList"
 				{...{
-					"click.away": "selectOpen = false",
+					"@click.away": "selectOpen = false",
 					"x-transition:enter": "transition ease-out duration-50",
 					"x-transition:enter-start": "opacity-0 -translate-y-1",
 					"x-transition:enter-end": "opacity-100"

@@ -36,13 +36,15 @@ export function Pagination(props) {
 		customFirstButton,
 		customLastButton,
 		customNextButton,
-		customPreviousButton
+		customPreviousButton,
+		...restProps
 	} = props;
 
 	return (
 		<div
 			x-data={`pagination(${pages}, ${selectedPage})`}
 			class={clsx("flex items-center gap-x-2", className)}
+			{...restProps}
 		>
 			{customFirstButton ?? (
 				<Button x-on:click="selectFirstPage" x-bind:disabled="isFirstPage">

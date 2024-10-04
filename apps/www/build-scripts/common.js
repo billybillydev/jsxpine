@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync } from "fs";
 import path from "path";
 import { directoryToObject } from "./utils";
 

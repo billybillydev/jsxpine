@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 /**
  * @typedef AlertProps
- * @type {{ title?: string, icon?: import("@kitajs/html").Children } & import("src/common/props").VariantColorProps & import("src/common/props").HTMLTag}
+ * @type {{ title?: string, icon?: import("@kitajs/html").Children } & import("../common/props").VariantColorProps & import("../common/props").HTMLTag}
  */
 
 /**
@@ -42,7 +42,7 @@ export function Alert({
  */
 export function PrimaryAlert({ variant = "solid", ...restProps }) {
 	/**
-	 * @type {Map<import("src/common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-primary-500 text-white"],
@@ -59,7 +59,7 @@ export function PrimaryAlert({ variant = "solid", ...restProps }) {
  */
 export function SecondaryAlert({ variant = "solid", ...restProps }) {
 	/**
-	 * @type {Map<import("src/common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-secondary text-white"],
@@ -76,7 +76,7 @@ export function SecondaryAlert({ variant = "solid", ...restProps }) {
  */
 export function SuccessAlert({ variant = "solid", ...restProps }) {
 	/**
-	 * @type {Map<import("src/common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-success-500 text-white"],
@@ -93,7 +93,7 @@ export function SuccessAlert({ variant = "solid", ...restProps }) {
  */
 export function DangerAlert({ variant = "solid", ...restProps }) {
 	/**
-	 * @type {Map<import("src/common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-danger-500 text-white"],
@@ -110,7 +110,7 @@ export function DangerAlert({ variant = "solid", ...restProps }) {
  */
 export function InfoAlert({ variant = "solid", ...restProps }) {
 	/**
-	 * @type {Map<import("src/common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-info-500 text-white"],
@@ -127,7 +127,7 @@ export function InfoAlert({ variant = "solid", ...restProps }) {
  */
 export function WarningAlert({ variant = "solid", ...restProps }) {
 	/**
-	 * @type {Map<import("src/common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-warning-500 text-white"],

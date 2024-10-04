@@ -29,7 +29,7 @@ async function buildDependencies(types, directoryPath) {
  * @param {string} dirPath 
  */
 export async function buildAlpineRegistry(dirPath) {
-	const alpineFolderPath = path.resolve(process.cwd(), `src/script/alpine`);
+	const alpineFolderPath = path.resolve(process.cwd(), `src/scripts/alpine`);
 	const payload = await buildDependencies(["data", "directive", "magic"], alpineFolderPath);
 	if (!existsSync(dirPath)) {
 		mkdirSync(dirPath);

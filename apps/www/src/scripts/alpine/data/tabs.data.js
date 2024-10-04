@@ -1,6 +1,6 @@
 /**
  * @typedef {Object} TabsDataOutput
- * @property {import("src/common/types").DirectionType} direction
+ * @property {import("../../../common/types").DirectionType} direction
  * @property {number} tabSelected
  * @property {string} tabId
  * @property {(tabButton: HTMLButtonElement) => void} tabButtonClicked
@@ -10,7 +10,7 @@
 
 /**
  * 
- * @param {import("src/common/types").DirectionType} direction 
+ * @param {import("../../../common/types").DirectionType} direction 
  * @returns {import("alpinejs").AlpineComponent<TabsDataOutput>}
  */
 export function tabsData(direction = "vertical") {

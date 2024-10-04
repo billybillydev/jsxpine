@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.29
+
+### Patch Changes
+
+-   update cli build
+
 ## 0.2.28
 
 ### Patch Changes

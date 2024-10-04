@@ -7,7 +7,7 @@ export default {
 		"./src/controllers/**/*.jsx",
 		"./src/layouts/**/*.jsx",
 		"./src/pages/**/*.jsx",
-		"./src/script/alpine/data/*.js",
+		"./src/scripts/alpine/data/*.js",
 		"./src/views/**/*.jsx",
 	],
 	presets: [mosiuiMini]

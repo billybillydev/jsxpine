@@ -1,5 +1,5 @@
-import { existsSync, mkdirSync, writeFileSync } from "fs";
-import { join, resolve } from "path";
+import { existsSync, mkdirSync } from "fs";
+import { join } from "path";
 
 import { components } from "$registry/components";
 import { directoryToObject } from "./utils";

@@ -1,4 +1,3 @@
-import { capitalCase } from 'change-case';
 import clsx from "clsx";
 import { Button } from "./button.component";
 
@@ -78,7 +77,8 @@ export function CardBody(props) {
 				>
 					{controls.map(async (control) => {
 						if (control.type) {
-							const componentName = `${capitalCase(control.type)}Button`;
+							const capitalType = control.type[0].toUpperCase().concat(control.type.slice(1));
+							const componentName = `${capitalType}Button`;
 							const ButtonControl = await import(
 								`./button.component`
 							).then(

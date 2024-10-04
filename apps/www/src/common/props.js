@@ -1,6 +1,6 @@
 /**
  * @typedef BorderRadiusProps
- * @property {import("src/common/types").BorderRadiusType} [borderRadius]
+ * @property {import("./types").BorderRadiusType} [borderRadius]
  */
 
 /**
@@ -10,17 +10,17 @@
 
 /**
  * @typedef DirectionProps
- * @property {import("src/common/types").DirectionType} [direction]
+ * @property {import("./types").DirectionType} [direction]
  */
 
 /**
  * @typedef {Object} SizeProps
- * @property {import("src/common/types").SizeType} [size]
+ * @property {import("./types").SizeType} [size]
  */
 
 /**
  * @typedef {Object} VariantColorProps
- * @property {import("src/common/types").VariantColorType} [variant]
+ * @property {import("./types").VariantColorType} [variant]
  */
 
 /**
@@ -35,7 +35,7 @@
 
 /**
  * @typedef PositionProps
- * @property {import("src/common/types").PositionType} [position]
+ * @property {import("./types").PositionType} [position]
  */
 
 /**
@@ -45,5 +45,5 @@
 
 /**
  * @typedef ThemeColorProps
- * @property {import("src/common/types").ThemeColorType} [type]
+ * @property {import("./types").ThemeColorType} [type]
  */

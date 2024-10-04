@@ -1,19 +1,19 @@
 /**
  * @typedef {Object} RestGalleryDataOutput
- * @property {import("$components/image.component").ImageType[]} images
+ * @property {import("../../../components/image.component").ImageType[]} images
  * @property {number} nbDisplayedImages
  * @property {number} nbRestImages
- * @property {import("$components/image.component").ImageType[]} displayedImages
+ * @property {import("../../../components/image.component").ImageType[]} displayedImages
  * @property {Function} showAllImages
  * @property {Function} updateRestImageHeight
- * @property {(images: import("$components/image.component").ImageType[]) => Promise<void>} initializeImage
+ * @property {(images: import("../../../components/image.component").ImageType[]) => Promise<void>} initializeImage
  */
 
 /**
  * Rest Gallery data props
- * @param {import("$components/image.component").ImageType[]} images
+ * @param {import("../../../components/image.component").ImageType[]} images
  * @param {number} nbDisplayedImages
- * @param {import("$components/galleries.component").RestGalleryRestEffectType} restEffect
+ * @param {import("../../../components/galleries.component").RestGalleryRestEffectType} restEffect
  * @returns {import("alpinejs").AlpineComponent<RestGalleryDataOutput>}
  */
 export function restGalleryData(

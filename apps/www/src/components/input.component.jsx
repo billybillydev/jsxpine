@@ -1,9 +1,9 @@
 /**
  * @typedef {Object} InputProps
- * @type {Omit<JSX.HtmlInputTag, "className"> & import("$common/props").CLSXClassProps}
+ * @type {Omit<JSX.HtmlInputTag, "className"> & import("../common/props").CLSXClassProps}
  */
 
-import { Icon } from "$components/icon.component";
+import { Icon } from "./icon.component";
 import clsx from "clsx";
 
 /**
@@ -23,7 +23,7 @@ import clsx from "clsx";
 
 /**
  * @typedef TextareaInputProps
- * @type {{ value?: string, noResize?: boolean} & Omit<JSX.HtmlTextAreaTag, "className"> & import("$common/props").CLSXClassProps}
+ * @type {{ value?: string, noResize?: boolean} & Omit<JSX.HtmlTextAreaTag, "className"> & import("../common/props").CLSXClassProps}
  */
 
 /**
@@ -40,7 +40,7 @@ import clsx from "clsx";
 
 /**
  * @typedef SelectInputProps
- * @type {{ value?: string | number | string[], placeholder?: string, items?: SelectOptionType[], hidePlaceholder?: boolean } & Omit<JSX.HtmlSelectTag, "className"> & import("$common/props").CLSXClassProps}
+ * @type {{ value?: string | number | string[], placeholder?: string, items?: SelectOptionType[], hidePlaceholder?: boolean } & Omit<JSX.HtmlSelectTag, "className"> & import("../common/props").CLSXClassProps}
  */
 
 /**
@@ -55,7 +55,7 @@ import clsx from "clsx";
 
 /**
  * Checkbox Input props
- * @type {import("$common/props").JSXComponent<CheckboxInputProps>}
+ * @type {import("../common/props").JSXComponent<CheckboxInputProps>}
  */
 export function CheckboxInput(props) {
 	return <input type="checkbox" {...props} />;
@@ -63,7 +63,7 @@ export function CheckboxInput(props) {
 
 /**
  * Date Input props
- * @type {import("$common/props").JSXComponent<TextInputProps>}
+ * @type {import("../common/props").JSXComponent<TextInputProps>}
  */
 export function DateInput(props) {
 	const { value = "", class: className, ...restProps } = props;
@@ -79,7 +79,7 @@ export function DateInput(props) {
 
 /**
  * Email Input props
- * @type {import("$common/props").JSXComponent<TextInputProps>}
+ * @type {import("../common/props").JSXComponent<TextInputProps>}
  */
 export function EmailInput(props) {
 	const { value = "", class: className, ...restProps } = props;
@@ -104,7 +104,7 @@ export function EmailInput(props) {
 
 /**
  * File Input props
- * @type {import("$common/props").JSXComponent<TextInputProps>}
+ * @type {import("../common/props").JSXComponent<TextInputProps>}
  */
 export function FileInput(props) {
 	const { value = "", class: className, ...restProps } = props;
@@ -120,7 +120,7 @@ export function FileInput(props) {
 
 /**
  * Number Input props
- * @type {import("$common/props").JSXComponent<NumberInputProps>}
+ * @type {import("../common/props").JSXComponent<NumberInputProps>}
  */
 export function NumberInput(props) {
 	const { min = 1, max, value = 1, class: className, ...restProps } = props;
@@ -140,7 +140,7 @@ export function NumberInput(props) {
 
 /**
  * Password Input props
- * @type {import("$common/props").JSXComponent<PasswordInputProps>}
+ * @type {import("../common/props").JSXComponent<PasswordInputProps>}
  */
 export function PasswordInput(props) {
 	const {
@@ -181,7 +181,7 @@ export function PasswordInput(props) {
 
 /**
  * Radio Input props
- * @type {import("$common/props").JSXComponent<RadioInputProps>}
+ * @type {import("../common/props").JSXComponent<RadioInputProps>}
  */
 export function RadioInput(props) {
 	return <input type="radio" {...props} />;
@@ -189,7 +189,7 @@ export function RadioInput(props) {
 
 /**
  * Select Input props
- * @type {import("$common/props").JSXComponent<SelectInputProps>}
+ * @type {import("../common/props").JSXComponent<SelectInputProps>}
  */
 export function SelectInput(props) {
 	const {
@@ -220,7 +220,7 @@ export function SelectInput(props) {
 
 /**
  * Text Input props
- * @type {import("$common/props").JSXComponent<TextInputProps>}
+ * @type {import("../common/props").JSXComponent<TextInputProps>}
  */
 export function TextInput(props) {
 	const { value = "", class: className, ...restProps } = props;
@@ -245,7 +245,7 @@ export function TextInput(props) {
 
 /**
  * Textarea Input props
- * @type {import("$common/props").JSXComponent<TextareaInputProps>}
+ * @type {import("../common/props").JSXComponent<TextareaInputProps>}
  */
 export function TextareaInput(props) {
 	const {
@@ -266,7 +266,7 @@ export function TextareaInput(props) {
 
 /**
  * Text Input props
- * @type {import("$common/props").JSXComponent<TextInputProps>}
+ * @type {import("../common/props").JSXComponent<TextInputProps>}
  */
 export function TimeInput(props) {
 const { value = "", class: className, ...restProps } = props;

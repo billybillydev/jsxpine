@@ -1,5 +1,5 @@
 /**
- * @type {Map<import("$common/types").SizeType, string>}
+ * @type {Map<import("./types").SizeType, string>}
  */
 export const textSizeClassMap = new Map([
   ["xs", "text-xs"],

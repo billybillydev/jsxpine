@@ -1,27 +1,27 @@
 /**
  * @typedef {Object} PaginationProps
- * @type {{ selectedPage?: number, pages: number, firstButtonLabel?: string, previousButtonLabel?: string, nextButtonLabel?: string, lastButtonLabel?: string, customFirstButton?: JSX.Element, customPreviousButton?: JSX.Element, customNextButton?: JSX.Element, customLastButton?: JSX.Element } & import("$common/props").HTMLTag}
+ * @type {{ selectedPage?: number, pages: number, firstButtonLabel?: string, previousButtonLabel?: string, nextButtonLabel?: string, lastButtonLabel?: string, customFirstButton?: JSX.Element, customPreviousButton?: JSX.Element, customNextButton?: JSX.Element, customLastButton?: JSX.Element } & import("../common/props").HTMLTag}
  */
 
-import { Button } from "$components/button.component";
-import { Icon } from "$components/icon.component";
-import { NumberInput } from "$components/input.component";
-import { Select } from "$components/select.component";
+import { Button } from "./button.component";
+import { Icon } from "./icon.component";
+import { NumberInput } from "./input.component";
+import { Select } from "./select.component";
 import clsx from "clsx";
 
 /**
  * @typedef {Object} InputPaginationProps
- * @type {PaginationProps & Omit<import("$components/input.component").InputProps, "class">}
+ * @type {PaginationProps & Omit<import("./input.component").InputProps, "class">}
  */
 
 /**
  * @typedef {Object} SelectPaginationProps
- * @type {PaginationProps & Omit<import("$components/input.component").SelectInputProps, "class">}
+ * @type {PaginationProps & Omit<import("./input.component").SelectInputProps, "class">}
  */
 
 /**
  * Pagination component props
- * @type {import("$common/props").JSXComponent<PaginationProps>}
+ * @type {import("../common/props").JSXComponent<PaginationProps>}
  */
 export function Pagination(props) {
 	const {
@@ -89,7 +89,7 @@ export function Pagination(props) {
 
 /**
  * Input Pagination component props
- * @type {import("$common/props").JSXComponent<InputPaginationProps>}
+ * @type {import("../common/props").JSXComponent<InputPaginationProps>}
  */
 export function InputPagination(props) {
 	const { class: className, pages, ...restProps } = props;
@@ -111,7 +111,7 @@ export function InputPagination(props) {
 
 /**
  * Select Pagination component props
- * @type {import("$common/props").JSXComponent<SelectPaginationProps>}
+ * @type {import("../common/props").JSXComponent<SelectPaginationProps>}
  */
 export function SelectPagination(props) {
 	const { class: className, pages, ...restProps } = props;

@@ -1,19 +1,19 @@
-import { Icon } from "$components/icon.component";
+import { Icon } from "./icon.component";
 import clsx from "clsx";
 
 /**
  * @typedef {Object} LinearGradientDefsProps
- * @type {{ applyDefsId: string, color: { empty: string, fill: string }, percentageValue: number} & import("$common/props").HTMLTag}
+ * @type {{ applyDefsId: string, color: { empty: string, fill: string }, percentageValue: number} & import("../common/props").HTMLTag}
  */
 
 /**
  * @typedef {Object} RatingsProps
- * @type {{ applyDefsId: string, nb?: number, value: number, max?: number, size?: number, icon?: string, color?: { empty: string, fill: string } } & import("$common/props").HTMLTagWithChildren}
+ * @type {{ applyDefsId: string, nb?: number, value: number, max?: number, size?: number, icon?: string, color?: { empty: string, fill: string } } & import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * Linear Gradient Defs component props
- * @type {import("$common/props").JSXComponent<LinearGradientDefsProps>}
+ * @type {import("../common/props").JSXComponent<LinearGradientDefsProps>}
  */
 export function LinearGradientDefs(props) {
 	const { applyDefsId, color, percentageValue } = props;
@@ -39,7 +39,7 @@ export function LinearGradientDefs(props) {
 
 /**
  * Ratings component props
- * @type {import("$common/props").JSXComponent<RatingsProps>}
+ * @type {import("../common/props").JSXComponent<RatingsProps>}
  */
 export function Ratings(props) {
 	const {

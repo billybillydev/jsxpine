@@ -1,16 +1,16 @@
-import { SVG } from "$components/svg.component";
+import { SVG } from "./svg.component";
 import { icons } from "@iconify-json/ri";
 import { iconToSVG, getIconData } from "@iconify/utils";
 import clsx from "clsx";
 
 /**
  * @typedef IconProps
- * @type {{size?: number, name: string, color?: string, applyDefsId?: string} & import("$components/svg.component").SVGProps}
+ * @type {{size?: number, name: string, color?: string, applyDefsId?: string} & import("./svg.component").SVGProps}
  */
 
 /**
  * Icon component props
- * @type {import("$common/props").JSXComponent<Omit<IconProps, "viewBox">>}
+ * @type {import("../common/props").JSXComponent<Omit<IconProps, "viewBox">>}
  */
 export function Icon(props) {
 	const {

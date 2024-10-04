@@ -1,26 +1,26 @@
 /**
  * @typedef {Object} DropdownSelectDataOutput
  * @property {boolean} selectOpen
- * @property {import("$components/input.component").SelectOptionType | null} selectedItem
- * @property {import("$components/input.component").SelectOptionType[]} selectableItems
- * @property {import("$components/input.component").SelectOptionType | null} selectableItemActive
+ * @property {import("../../../components/input.component").SelectOptionType | null} selectedItem
+ * @property {import("../../../components/input.component").SelectOptionType[]} selectableItems
+ * @property {import("../../../components/input.component").SelectOptionType | null} selectableItemActive
  * @property {string} selectId
  * @property {string} selectKeydownValue
  * @property {number} selectKeydownTimeout
  * @property {Timer | null} selectKeydownClearTimeout
  * @property {"top" | "bottom"} selectDropdownPosition
- * @property {(item: import("$components/input.component").SelectOptionType) => boolean} selectableItemIsActive
+ * @property {(item: import("../../../components/input.component").SelectOptionType) => boolean} selectableItemIsActive
  * @property {Function} selectableItemActiveNext
  * @property {Function} selectableItemActivePrevious
  * @property {(event: KeyboardEvent) => void} selectKeydown
- * @property {() => import("$components/input.component").SelectOptionType | null} selectItemsFindBestMatch
+ * @property {() => import("../../../components/input.component").SelectOptionType | null} selectItemsFindBestMatch
  * @property {Function} selectPositionUpdate
  * @property {Function} selectScrollToActiveItem
  */
 
 /**
  * Dropdown-select alpine data
- * @param {import("$components/input.component").SelectOptionType[]} selectableItems 
+ * @param {import("../../../components/input.component").SelectOptionType[]} selectableItems 
  * @returns {import("alpinejs").AlpineComponent<DropdownSelectDataOutput>}
  */
 export function dropdownSelectData(selectableItems = []) {

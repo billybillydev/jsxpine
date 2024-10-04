@@ -37,7 +37,7 @@ import clsx from "clsx";
  * Type for Page component props
  * @template {Object} T
  * @typedef PageProps
- * @type {import('$common/props').HTMLTagWithChildren & { isHTMX?: boolean, currentPath?: string, seo: SeoData, url?: URL, favicon?: string } & T}
+ * @type {import('../common/props').HTMLTagWithChildren & { isHTMX?: boolean, currentPath?: string, seo: SeoData, url?: URL, favicon?: string } & T}
  */
 
 /**

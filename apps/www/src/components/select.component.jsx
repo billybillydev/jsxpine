@@ -1,14 +1,14 @@
-import { Icon } from "$components/icon.component";
+import { Icon } from "./icon.component";
 import clsx from "clsx";
 
 /**
  * @typedef SelectProps
- * @type {import("$components/input.component").SelectInputProps & { noInputIcon?: boolean }}
+ * @type {import("./input.component").SelectInputProps & { noInputIcon?: boolean }}
  */
 
 /**
  * Select component props
- * @type {import("$common/props").JSXComponent<SelectProps>}
+ * @type {import("../common/props").JSXComponent<SelectProps>}
  */
 export function Select(props) {
 	const {

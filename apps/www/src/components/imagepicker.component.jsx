@@ -1,10 +1,10 @@
 /**
  * @typedef ImagePickerProps
- * @type {Omit<import("$components/input.component").InputProps, "accept">}
+ * @type {Omit<import("./input.component").InputProps, "accept">}
  */
 
 /**
- * @type {import("$common/props").JSXComponent<ImagePickerProps>}
+ * @type {import("../common/props").JSXComponent<ImagePickerProps>}
  */
 export function ImagePicker(props) {
 	const { children, class: className, ...restProps } = props;

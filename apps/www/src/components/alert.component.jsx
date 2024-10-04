@@ -1,4 +1,4 @@
-import { Icon } from "$components/icon.component";
+import { Icon } from "./icon.component";
 import clsx from "clsx";
 
 /**

@@ -2,32 +2,32 @@ import clsx from "clsx";
 
 /**
  * @typedef TabsHeaderItemProps 
- * @type {import("$common/props").HTMLTagWithChildren & {title: string}}
+ * @type {import("../common/props").HTMLTagWithChildren & {title: string}}
  */
 
 /**
  * @typedef TabsHeaderProps
- * @type {import("$common/props").HTMLTagWithChildren}
+ * @type {import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * @typedef TabsBodyProps
- * @type {import("$common/props").HTMLTagWithChildren}
+ * @type {import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * @typedef TabBodyItemProps
- * @type {import("$common/props").HTMLTagWithChildren}
+ * @type {import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * @typedef TabsProps
- * @type {import("$common/props").HTMLTagWithChildren & import("$common/props").DirectionProps}
+ * @type {import("../common/props").HTMLTagWithChildren & import("../common/props").DirectionProps}
  */
 
 /**
  * TabHeaderItem component props
- * @type {import("$common/props").JSXComponent<TabsHeaderItemProps>}
+ * @type {import("../common/props").JSXComponent<TabsHeaderItemProps>}
  */
 export function TabHeaderItem(props) {
 	return (
@@ -47,7 +47,7 @@ export function TabHeaderItem(props) {
 
 /**
  * TabsHeader component props
- * @type {import("$common/props").JSXComponent<TabsHeaderProps>}
+ * @type {import("../common/props").JSXComponent<TabsHeaderProps>}
  */
 export function TabsHeader({ children, class: className }) {
 	return (
@@ -73,7 +73,7 @@ export function TabsHeader({ children, class: className }) {
 
 /**
  * TabsBodyItem component props
- * @type {import("$common/props").JSXComponent<TabBodyItemProps>}
+ * @type {import("../common/props").JSXComponent<TabBodyItemProps>}
  */
 export function TabBodyItem(props) {
 	const { class: className, children } = props;
@@ -90,7 +90,7 @@ export function TabBodyItem(props) {
 
 /**
  * TabsBody component props
- * @type {import("$common/props").JSXComponent<TabsBodyProps>}
+ * @type {import("../common/props").JSXComponent<TabsBodyProps>}
  */
 export function TabsBody({ class: className, children }) {
 	return (
@@ -100,11 +100,11 @@ export function TabsBody({ class: className, children }) {
 
 /**
  * Tabs component props
- * @type {import("$common/props").JSXComponent<TabsProps>}
+ * @type {import("../common/props").JSXComponent<TabsProps>}
  */
 export function Tabs({ children, class: className, direction = "vertical" }) {
 	/**
-	 * @type {Map<import("$common/types").DirectionType, string>}
+	 * @type {Map<import("../common/types").DirectionType, string>}
 	 */
 	const directionClassMap = new Map([
 		["vertical", "flex-col"],

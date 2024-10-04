@@ -1,13 +1,13 @@
 /**
  * @typedef {Object} ProgressProps
- * @type {{ value?: number, duration?: number, interval?: number, noAnimation?: boolean } & import("$common/props").ThemeColorProps & import("$common/props").HTMLTag}
+ * @type {{ value?: number, duration?: number, interval?: number, noAnimation?: boolean } & import("../common/props").ThemeColorProps & import("../common/props").HTMLTag}
  */
 
 import clsx from "clsx";
 
 /**
  * Bar Progress component page
- * @type {import("$common/props").JSXComponent<ProgressProps>}
+ * @type {import("../common/props").JSXComponent<ProgressProps>}
  */
 export function BarProgress(props) {
 	const {
@@ -21,7 +21,7 @@ export function BarProgress(props) {
 	} = props;
 
 	/**
-	 * @type {Map<import("$common/types").ThemeColorType, string>}
+	 * @type {Map<import("../common/types").ThemeColorType, string>}
 	 */
 	const themeColorClassMap = new Map([
 		["primary", "bg-primary-500"],
@@ -56,7 +56,7 @@ export function BarProgress(props) {
 
 /**
  * Counter Progress component props
- * @type {import("$common/props").JSXComponent<Omit<ProgressProps, "type">>}
+ * @type {import("../common/props").JSXComponent<Omit<ProgressProps, "type">>}
  */
 export function CounterProgress(props) {
 	const {

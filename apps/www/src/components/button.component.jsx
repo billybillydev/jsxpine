@@ -2,12 +2,12 @@ import clsx from "clsx";
 
 /**
  * @typedef HTMLButtonTagWithChildren
- * @type {import("@kitajs/html").PropsWithChildren<Omit<JSX.HtmlButtonTag, "className"> & import("$common/props").CLSXClassProps>}
+ * @type {import("@kitajs/html").PropsWithChildren<Omit<JSX.HtmlButtonTag, "className"> & import("../common/props").CLSXClassProps>}
  */
 
 /**
  * @typedef {Object} ButtonProps
- * @type {{ text?: string } & HTMLButtonTagWithChildren & import("$common/props").BorderRadiusProps & import("$common/props").SizeProps & import("$common/props").VariantColorProps}
+ * @type {{ text?: string } & HTMLButtonTagWithChildren & import("../common/props").BorderRadiusProps & import("../common/props").SizeProps & import("../common/props").VariantColorProps}
  */
 
 /**
@@ -24,7 +24,7 @@ export function Button({
 	...restProps
 }) {
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantColorMap = new Map([
 		["solid", "btn"],
@@ -33,7 +33,7 @@ export function Button({
 	]);
 
 	/**
-	 * @type {Map<import("$common/types").BorderRadiusType, string>}
+	 * @type {Map<import("../common/types").BorderRadiusType, string>}
 	 */
 	const borderRadiusMap = new Map([
 		["square", "rounded-none"],
@@ -61,12 +61,12 @@ export function Button({
 
 /**
  * Primary Button component props
- * @type {import("$common/props").JSXComponent<ButtonProps>}
+ * @type {import("../common/props").JSXComponent<ButtonProps>}
  */
 export function PrimaryButton(props) {
 	const { children, class: className, variant = "solid", ...restProps } = props;
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "btn-primary"],
@@ -86,12 +86,12 @@ export function PrimaryButton(props) {
 
 /**
  * Secondary Button component props
- * @type {import("$common/props").JSXComponent<ButtonProps>}
+ * @type {import("../common/props").JSXComponent<ButtonProps>}
  */
 export function SecondaryButton(props) {
 	const { children, class: className, variant = "solid", ...restProps } = props;
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "btn-secondary"],
@@ -111,12 +111,12 @@ export function SecondaryButton(props) {
 
 /**
  * Success Button component props
- * @type {import("$common/props").JSXComponent<ButtonProps>}
+ * @type {import("../common/props").JSXComponent<ButtonProps>}
  */
 export function SuccessButton(props) {
 	const { children, class: className, variant = "solid", ...restProps } = props;
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "btn-success"],
@@ -136,12 +136,12 @@ export function SuccessButton(props) {
 
 /**
  * Danger Button component props
- * @type {import("$common/props").JSXComponent<ButtonProps>}
+ * @type {import("../common/props").JSXComponent<ButtonProps>}
  */
 export function DangerButton(props) {
 	const { children, class: className, variant = "solid", ...restProps } = props;
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "btn-danger"],
@@ -161,12 +161,12 @@ export function DangerButton(props) {
 
 /**
  * Info Button component props
- * @type {import("$common/props").JSXComponent<ButtonProps>}
+ * @type {import("../common/props").JSXComponent<ButtonProps>}
  */
 export function InfoButton(props) {
 	const { children, class: className, variant = "solid", ...restProps } = props;
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "btn-info"],
@@ -186,12 +186,12 @@ export function InfoButton(props) {
 
 /**
  * Warning Button component props
- * @type {import("$common/props").JSXComponent<ButtonProps>}
+ * @type {import("../common/props").JSXComponent<ButtonProps>}
  */
 export function WarningButton(props) {
 	const { children, class: className, variant = "solid", ...restProps } = props;
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "btn-warning"],

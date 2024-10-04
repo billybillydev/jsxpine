@@ -1,4 +1,4 @@
-import { capitalize } from "$lib";
+import { capitalCase } from 'change-case';
 import { ComponentPresentation, ComponentSection } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
@@ -21,7 +21,7 @@ export async function AlertsPage(props) {
 				].map((type) => {
 					return (
 						<ComponentSection
-							heading={`${capitalize(type)} Alert`}
+							heading={`${capitalCase(type)} Alert`}
 							examples={[`alerts/${type}`]}
 						/>
 					);

@@ -1,30 +1,30 @@
-import { Button } from "$components/button.component";
-import { capitalize } from "$lib";
+import { capitalCase } from 'change-case';
 import clsx from "clsx";
+import { Button } from "./button.component";
 
 /**
  * @typedef CardImageProps
- * @type {import("$components/image.component").ImageProps}
+ * @type {import("./image.component").ImageProps}
  */
 
 /**
  * @typedef CardBodyControlProps
- * @type {{label: string, action?: string} & import("$common/props").ThemeColorProps}
+ * @type {{label: string, action?: string} & import("../common/props").ThemeColorProps}
  */
 
 /**
  * @typedef CardBodyProps
- * @type {{title?: string, text?: string, texts?: string[], controls?: CardBodyControlProps[] } & import("$common/props").HTMLTagWithChildren}
+ * @type {{title?: string, text?: string, texts?: string[], controls?: CardBodyControlProps[] } & import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * @typedef CardProps
- * @type {{ image?: import("$components/image.component").ImageType } & CardBodyProps & import("$common/props").HTMLTagWithChildren & import("$common/props").DirectionProps}
+ * @type {{ image?: import("./image.component").ImageType } & CardBodyProps & import("../common/props").HTMLTagWithChildren & import("../common/props").DirectionProps}
  */
 
 /**
  * Card Image props
- * @type {import("$common/props").JSXComponent<CardImageProps>}
+ * @type {import("../common/props").JSXComponent<CardImageProps>}
  */
 export function CardImage(props) {
 	const { class: className, ...restProps } = props;
@@ -38,7 +38,7 @@ export function CardImage(props) {
 
 /**
  * Card Body props
- * @type {import("$common/props").JSXComponent<CardBodyProps>}
+ * @type {import("../common/props").JSXComponent<CardBodyProps>}
  */
 export function CardBody(props) {
 	const { children, class: className, title, text, texts, controls } = props;
@@ -78,9 +78,9 @@ export function CardBody(props) {
 				>
 					{controls.map(async (control) => {
 						if (control.type) {
-							const componentName = `${capitalize(control.type)}Button`;
+							const componentName = `${capitalCase(control.type)}Button`;
 							const ButtonControl = await import(
-								`$components/button.component`
+								`./button.component`
 							).then(
 								function (m) {
 									return m[componentName];
@@ -109,7 +109,7 @@ export function CardBody(props) {
 
 /**
  *
- * @type {import("$common/props").JSXComponent<CardProps>}
+ * @type {import("../common/props").JSXComponent<CardProps>}
  */
 export function Card(props) {
 	const {
@@ -124,7 +124,7 @@ export function Card(props) {
 	} = props;
 
 	/**
-	 * @type {Map<import("$common/types").DirectionType, string>}
+	 * @type {Map<import("../common/types").DirectionType, string>}
 	 */
 	const directionClassMap = new Map([
 		["vertical", "flex-col"],

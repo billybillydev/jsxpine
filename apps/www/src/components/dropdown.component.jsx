@@ -2,21 +2,21 @@ import clsx from "clsx";
 
 /**
  * @typedef DropdownTriggerProps
- * @type {import("$common/props").HTMLTagWithChildren}
+ * @type {import("../common/props").HTMLTagWithChildren}
  */
 /**
  * @typedef DropdownContentProps
- * @type {import("$common/props").HTMLTagWithChildren & import("$common/props").PositionProps}
+ * @type {import("../common/props").HTMLTagWithChildren & import("../common/props").PositionProps}
  */
 
 /**
  * @typedef DropdownProps
- * @type {{ duration?: number } & import("$common/props").HTMLTagWithChildren & import("$common/props").PositionProps}
+ * @type {{ duration?: number } & import("../common/props").HTMLTagWithChildren & import("../common/props").PositionProps}
  */
 
 /**
  * Dropdown Trigger component props
- * @type {import("$common/props").JSXComponent<DropdownTriggerProps>}
+ * @type {import("../common/props").JSXComponent<DropdownTriggerProps>}
  */
 export function DropdownTrigger(props) {
 	const { children, class: className, ...restProps } = props;
@@ -29,7 +29,7 @@ export function DropdownTrigger(props) {
 
 /**
  * Dropdown Content component props
- * @type {import("$common/props").JSXComponent<DropdownContentProps>}
+ * @type {import("../common/props").JSXComponent<DropdownContentProps>}
  */
 export function DropdownContent(props) {
 	const {
@@ -55,7 +55,7 @@ export function DropdownContent(props) {
 
 /**
  * Dropdown component props
- * @type {import("$common/props").JSXComponent<DropdownProps>}
+ * @type {import("../common/props").JSXComponent<DropdownProps>}
  */
 export function Dropdown(props) {
 	const {

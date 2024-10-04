@@ -1,6 +1,6 @@
 /**
  *
- * @param {import("$components/page.component").SeoData} params
+ * @param {import("../../../components/page.component").SeoData} params
  * @returns {import("alpinejs").AlpineComponent<{}>}
  */
 export function seoData({ title, description, openGraph, robots }) {

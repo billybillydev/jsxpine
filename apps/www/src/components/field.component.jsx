@@ -1,4 +1,4 @@
-import { DateInput, EmailInput, FileInput, NumberInput, PasswordInput, SelectInput, TextareaInput, TextInput, TimeInput } from "$components/input.component";
+import { DateInput, EmailInput, FileInput, NumberInput, PasswordInput, SelectInput, TextareaInput, TextInput, TimeInput } from "./input.component";
 import clsx from "clsx";
 
 /**
@@ -15,7 +15,7 @@ import clsx from "clsx";
 
 /**
  * Default Field props
- * @template {(import("$components/input.component").InputProps | import("$components/input.component").SelectInputProps | import("$components/input.component").NumberInputProps) & Record<string, unknown>} T
+ * @template {(import("./input.component").InputProps | import("./input.component").SelectInputProps | import("./input.component").NumberInputProps) & Record<string, unknown>} T
  * @param {FieldProps<T>} props
  */
 export function Field(props) {
@@ -40,7 +40,7 @@ export function Field(props) {
 
 /**
  * Date Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").TextInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").TextInputProps>>}
  */
 export function DateField(props) {
 	const { label, ...restProps } = props;
@@ -49,7 +49,7 @@ export function DateField(props) {
 
 /**
  * Email Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").TextInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").TextInputProps>>}
  */
 export function EmailField(props) {
 	const { label, ...restProps } = props;
@@ -58,7 +58,7 @@ export function EmailField(props) {
 
 /**
  * Text Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").TextInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").TextInputProps>>}
  */
 export function TextField(props) {
 	const { label, ...restProps } = props;
@@ -67,7 +67,7 @@ export function TextField(props) {
 
 /**
  * Time Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").TextInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").TextInputProps>>}
  */
 export function TimeField(props) {
 	const { label, ...restProps } = props;
@@ -76,7 +76,7 @@ export function TimeField(props) {
 
 /**
  * File Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").TextInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").TextInputProps>>}
  */
 export function FileField(props) {
 	const { label, ...restProps } = props;
@@ -85,7 +85,7 @@ export function FileField(props) {
 
 /**
  * Select Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").SelectInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").SelectInputProps>>}
  */
 export function SelectField(props) {
 	const { label, ...restProps } = props;
@@ -94,7 +94,7 @@ export function SelectField(props) {
 
 /**
  * Textarea Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").TextareaInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").TextareaInputProps>>}
  */
 export function TextareaField(props) {
 	const { label, ...restProps } = props;
@@ -103,7 +103,7 @@ export function TextareaField(props) {
 
 /**
  * Password Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").PasswordInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").PasswordInputProps>>}
  */
 export function PasswordField(props) {
 	const { label, ...restProps } = props;
@@ -112,7 +112,7 @@ export function PasswordField(props) {
 
 /**
  * Number Field props
- * @type {import("$common/props").JSXComponent<FieldWithoutComponentProps<import("$components/input.component").NumberInputProps>>}
+ * @type {import("../common/props").JSXComponent<FieldWithoutComponentProps<import("./input.component").NumberInputProps>>}
  */
 export function NumberField(props) {
 	const { label, ...restProps } = props;

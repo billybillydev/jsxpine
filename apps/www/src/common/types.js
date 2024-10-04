@@ -1,4 +1,4 @@
-import { tailwindThemeConfig } from "$common/tailwind-config";
+import { tailwindThemeConfig } from "./tailwind-config";
 import { icons } from "@iconify-json/ri/index.js";
 
 /**

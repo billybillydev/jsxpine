@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 /**
  * Checkbox component props
- * @param {import("$components/input.component").CheckboxInputProps} props
+ * @param {import("./input.component").CheckboxInputProps} props
  */
 export function Checkbox({ children, class: className, id, ...restProps }) {
 	return (

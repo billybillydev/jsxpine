@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 /**
  * @typedef BadgeProps
- * @type {{ text?: string, type?: BadgeType } & import("$common/props").HTMLTagWithChildren & import("$common/props").VariantColorProps}
+ * @type {{ text?: string, type?: BadgeType } & import("../common/props").HTMLTagWithChildren & import("../common/props").VariantColorProps}
  */
 
 /**
@@ -22,7 +22,7 @@ export function Badge({
 	...restProps
 }) {
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantMap = new Map([
 		["solid", "bg-slate-500 text-white"],
@@ -62,7 +62,7 @@ export function PrimaryBadge({
 	...restProps
 }) {
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "bg-primary-600 text-white"],
@@ -91,7 +91,7 @@ export function SecondaryBadge({
 	...restProps
 }) {
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "bg-secondary text-white"],
@@ -120,7 +120,7 @@ export function SuccessBadge({
 	...restProps
 }) {
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "bg-success-600 text-white"],
@@ -149,7 +149,7 @@ export function DangerBadge({
 	...restProps
 }) {
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "bg-danger-600 text-white"],
@@ -178,7 +178,7 @@ export function InfoBadge({
 	...restProps
 }) {
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "bg-info-600 text-white"],
@@ -207,7 +207,7 @@ export function WarningBadge({
 	...restProps
 }) {
 	/**
-	 * @type {Map<import("$common/types").VariantColorType, string>}
+	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
 		["solid", "bg-warning-600 text-white"],

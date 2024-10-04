@@ -1,11 +1,11 @@
 /**
  * @typedef CarouselGalleryProps
- * @type {Omit<import("$components/carousel.component").CarouselProps, "slidesToShow" | "indicators" | "slides"> & { images: import("$components/image.component").ImageType[], thumbnailWidth?: string, zoom?: boolean }}
+ * @type {Omit<import("./carousel.component").CarouselProps, "slidesToShow" | "indicators" | "slides"> & { images: import("./image.component").ImageType[], thumbnailWidth?: string, zoom?: boolean }}
  */
 
-import { Carousel } from "$components/carousel.component";
-import { Image } from "$components/image.component";
-import { Zoom } from "$components/zoom.component";
+import { Carousel } from "./carousel.component";
+import { Image } from "./image.component";
+import { Zoom } from "./zoom.component";
 import clsx from "clsx";
 
 /**
@@ -14,12 +14,12 @@ import clsx from "clsx";
 
 /**
  * @typedef RestGalleryProps
- * @type {{ images?: import("$components/image.component").ImageType[], nbDisplayedImages?: number, restEffect?: RestGalleryRestEffectType, zoom?: boolean } & import("$common/props").HTMLTag}
+ * @type {{ images?: import("./image.component").ImageType[], nbDisplayedImages?: number, restEffect?: RestGalleryRestEffectType, zoom?: boolean } & import("../common/props").HTMLTag}
  */
 
 /**
  *  Carousel Gallery component props
- * @type {import("$common/props").JSXComponent<CarouselGalleryProps>}
+ * @type {import("../common/props").JSXComponent<CarouselGalleryProps>}
  */
 export function CarouselGallery(props) {
 	const {
@@ -95,7 +95,7 @@ export function CarouselGallery(props) {
 
 /**
  *
- * @type {import("$common/props").JSXComponent<RestGalleryProps>}
+ * @type {import("../common/props").JSXComponent<RestGalleryProps>}
  */
 export function RestGallery(props) {
 	const {

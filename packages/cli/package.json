@@ -1,6 +1,6 @@
 {
 	"name": "jsxpine",
-	"version": "0.2.26",
+	"version": "0.2.27",
 	"description": "Add jsx components to your app.",
 	"publishConfig": {
 		"access": "public"
@@ -50,8 +50,10 @@
 	},
 	"dependencies": {
 		"chalk": "5.2.0",
+		"change-case": "^5.4.4",
 		"commander": "^10.0.0",
 		"execa": "^7.0.0",
+		"fast-glob": "^3.3.2",
 		"fs-extra": "^11.1.0",
 		"node-fetch": "^3.3.0",
 		"ora": "^6.1.2",

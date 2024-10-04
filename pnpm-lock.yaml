@@ -93,12 +93,18 @@ importers:
       chalk:
         specifier: 5.2.0
         version: 5.2.0
+      change-case:
+        specifier: ^5.4.4
+        version: 5.4.4
       commander:
         specifier: ^10.0.0
         version: 10.0.1
       execa:
         specifier: ^7.0.0
         version: 7.2.0
+      fast-glob:
+        specifier: ^3.3.2
+        version: 3.3.2
       fs-extra:
         specifier: ^11.1.0
         version: 11.2.0

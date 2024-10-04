@@ -18,6 +18,6 @@
 		"strict": true,
 		"downlevelIteration": true
 	},
-	"include": ["src/**/*.js"],
+	"include": ["src/**/*.ts"],
 	"exclude": ["node_modules"]
 }

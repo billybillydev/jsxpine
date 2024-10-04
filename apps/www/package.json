@@ -1,6 +1,7 @@
 {
 	"name": "www",
 	"version": "0.0.1",
+	"module": "src/index.js",
 	"scripts": {
 		"dev": "bun run --hot src/index.tsx",
 		"tailwind:dev": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css --watch",
@@ -37,6 +38,5 @@
 		"@types/bun": "latest",
 		"concurrently": "^8.2.0",
 		"zod": "^3.22.4"
-	},
-	"module": "src/index.js"
+	}
 }

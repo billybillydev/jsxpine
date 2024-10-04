@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.27
+
+### Patch Changes
+
+-   include additional alpine data from current project
+
 ## 0.2.26
 
 ### Patch Changes

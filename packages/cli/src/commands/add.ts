@@ -1,7 +1,9 @@
 import { existsSync, promises as fs } from "fs";
 import path from "path";
 import chalk from "chalk";
+import { camelCase } from "change-case";
 import { Command } from "commander";
+import fg from "fast-glob";
 import ora from "ora";
 import prompts from "prompts";
 import { z } from "zod";
@@ -177,7 +179,10 @@ export const add = new Command()
 			if (alpineDependencies.length) {
 				await fs.writeFile(
 					path.join(config.resolvedPaths.alpine, "index.js"),
-					updateAlpineScriptWithData([...new Set(alpineDependencies)]),
+					await updateAlpineScriptWithData(
+						[...new Set(alpineDependencies)],
+						config.resolvedPaths.alpine
+					),
 					"utf8"
 				);
 			}
@@ -189,11 +194,20 @@ export const add = new Command()
 		}
 	});
 
-function camelize(s: string) {
-	return s.replace(/-./g, (x) => x[1].toUpperCase());
-}
+type AdditionalAlpineDataComponent = { component: string; path: string };
 
-const updateAlpineScriptWithData = (dataComponents: string[]) => `
+const updateAlpineScriptWithData = async (
+	dataComponents: string[],
+	alpineDefaultPath: string
+) => {
+	try {
+		// Searching custom alpine data
+		const additionalDataComponents: AdditionalAlpineDataComponent[] =
+			await findComponentsFromAdditionalAlpineScriptWithData(
+				path.relative(process.cwd(), alpineDefaultPath)
+			);
+
+		return `
 import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";
 import collapse from "@alpinejs/collapse";
@@ -209,17 +223,29 @@ import { dateFormatDirective } from "./directive/format-date.directive";
 ${dataComponents
 	.map(
 		(dataName) =>
-			`import { ${camelize(
+			`import { ${camelCase(
 				dataName
 			)}Data } from "./data/${dataName}.data";`
 	)
 	.join("\n")}
 
+${additionalDataComponents.map(
+	(data) => `import { ${camelCase(data.component)}Data } from "${data.path}"`
+).join("\n")}
+
 /* Data */
 ${dataComponents
 	.map(
 		(dataName) =>
-			`Alpine.data("${camelize(dataName)}", ${camelize(dataName)}Data);`
+			`Alpine.data("${camelCase(dataName)}", ${camelCase(dataName)}Data);`
+	)
+	.join("\n")}
+
+/* Additional Data from project */
+${additionalDataComponents
+	.map(
+		(data) =>
+			`Alpine.data("${camelCase(data.component)}", ${camelCase(data.component)}Data);`
 	)
 	.join("\n")}
 
@@ -240,3 +266,28 @@ Alpine.plugin(manage);
 
 export default Alpine;
 `;
+	} catch (err) {
+		console.error("Error:", err);
+		return "";
+	}
+};
+
+async function findComponentsFromAdditionalAlpineScriptWithData(
+	alpineDefaultPath: string
+): Promise<AdditionalAlpineDataComponent[]> {
+	try {
+		const files = await fg([
+			"**/scripts/alpine/data/*.data.{js,ts}",
+			`!${alpineDefaultPath}/data`
+		]);
+
+		return files.map((filePath) => ({
+			component: path.basename(filePath, path.extname(filePath)).split(".")[0],
+			path: filePath.slice(0, -3)
+		}));
+	} catch (err) {
+		console.error("Error:", err);
+
+		return [];
+	}
+}

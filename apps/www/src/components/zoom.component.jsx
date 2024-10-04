@@ -1,16 +1,16 @@
-import { Button } from "$components/button.component";
-import { Icon } from "$components/icon.component";
-import { Image } from "$components/image.component";
+import { Button } from "./button.component";
+import { Icon } from "./icon.component";
+import { Image } from "./image.component";
 import clsx from "clsx";
 
 /**
  * @typedef ZoomProps
- * @type {import("$common/props").HTMLTag & { selector?: string, showNavigation?: boolean }}
+ * @type {import("../common/props").HTMLTag & { selector?: string, showNavigation?: boolean }}
  */
 
 /**
  * Zoom component props
- * @type {import("$common/props").JSXComponent<ZoomProps>}
+ * @type {import("../common/props").JSXComponent<ZoomProps>}
  */
 export function Zoom(props) {
 	const {

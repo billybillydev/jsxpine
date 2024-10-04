@@ -1,20 +1,20 @@
-import { Button } from "$components/button.component";
-import { Icon } from "$components/icon.component";
+import { Button } from "./button.component";
+import { Icon } from "./icon.component";
 import clsx from "clsx";
 
 /**
  * @typedef {Object} SidebarTriggerProps 
- * @type {import("$components/button.component").ButtonProps}
+ * @type {import("./button.component").ButtonProps}
  */
 
 /**
  * @typedef {Object} SidebarContentProps
- * @type {{ selector?: string, title?: string } & import("$common/props").PositionProps & import("$common/props").HTMLTagWithChildren}
+ * @type {{ selector?: string, title?: string } & import("../common/props").PositionProps & import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * Sidebar Trigger component props
- * @type {import("$common/props").JSXComponent<SidebarTriggerProps>}
+ * @type {import("../common/props").JSXComponent<SidebarTriggerProps>}
  */
 export function SidebarTrigger(props) {
 	const { ...restProps } = props;
@@ -28,7 +28,7 @@ export function SidebarTrigger(props) {
 
 /**
  * Sidebar Content component props
- * @type {import("$common/props").JSXComponent<SidebarContentProps>}
+ * @type {import("../common/props").JSXComponent<SidebarContentProps>}
  */
 export function SidebarContent(props) {
 	const {
@@ -40,7 +40,7 @@ export function SidebarContent(props) {
 	} = props;
 
 	/**
-	 * @type {Map<import("$common/types").PositionType, string>}
+	 * @type {Map<import("../common/types").PositionType, string>}
 	 */
 	const positionClassMap = new Map([
 		["right", "right-0"],
@@ -50,7 +50,7 @@ export function SidebarContent(props) {
 	]);
 
 	/**
-	 * @type {Map<import("$common/types").PositionType, import("$common/types").TransitionStateType>}
+	 * @type {Map<import("../common/types").PositionType, import("../common/types").TransitionStateType>}
 	 */
 	const transitionClassMap = new Map([
 		[
@@ -176,7 +176,7 @@ export function SidebarContent(props) {
 
 /**
  * Sidebar Content component props
- * @type {import("$common/props").JSXComponent<import("$common/props").HTMLTagWithChildren>}
+ * @type {import("../common/props").JSXComponent<import("../common/props").HTMLTagWithChildren>}
  */
 export function Sidebar(props) {
 	const { children, ...restProps } = props;

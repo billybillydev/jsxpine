@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { textSizeClassMap } from "$common/classes";
+import { textSizeClassMap } from "../common/classes";
 
 /**
  * @typedef {"top" | "bottom" | "left" | "right"} TooltipPositionType
@@ -7,12 +7,12 @@ import { textSizeClassMap } from "$common/classes";
 
 /**
  * @typedef TooltipProps
- * @type {{ text?: string, component?: import("@kitajs/html").Children, triggerOnHover?: boolean, position?: TooltipPositionType } & import("$common/props").HTMLTagWithChildren & import("$common/props").SizeProps & import("$common/props").ThemeColorProps}
+ * @type {{ text?: string, component?: import("@kitajs/html").Children, triggerOnHover?: boolean, position?: TooltipPositionType } & import("../common/props").HTMLTagWithChildren & import("../common/props").SizeProps & import("../common/props").ThemeColorProps}
  */
 
 /**
  * Tooltip component props
- * @type {import("$common/props").JSXComponent<TooltipProps>}
+ * @type {import("../common/props").JSXComponent<TooltipProps>}
  */
 export function Tooltip(props) {
 	const {
@@ -26,7 +26,7 @@ export function Tooltip(props) {
 	} = props;
 
 	/**
-	 * @type {Map<import("$common/types").ThemeColorType, string>}
+	 * @type {Map<import("../common/types").ThemeColorType, string>}
 	 */
 	const colorTypeClassMap = new Map([
 		["primary", "bg-primary-400"],

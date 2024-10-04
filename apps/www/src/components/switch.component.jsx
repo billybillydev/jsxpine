@@ -2,12 +2,12 @@ import clsx from "clsx";
 
 /**
  * @typedef SwitchProps 
- * @type {{ label: string } & import("$components/input.component").InputProps & import("$common/props").ThemeColorProps}
+ * @type {{ label: string } & import("./input.component").InputProps & import("../common/props").ThemeColorProps}
  */
 
 /**
  * Switch component props
- * @type {import("$common/props").JSXComponent<SwitchProps>}
+ * @type {import("../common/props").JSXComponent<SwitchProps>}
  */
 export function Switch(props) {
 	const {
@@ -20,7 +20,7 @@ export function Switch(props) {
 	} = props;
 
 	/**
-	 * @type {Map<import("$common/types").ThemeColorType, { button: string; label: string }>}
+	 * @type {Map<import("../common/types").ThemeColorType, { button: string; label: string }>}
 	 */
 	const colorType = new Map([
 		["primary", { button: "bg-primary-500", label: "text-primary-600" }],

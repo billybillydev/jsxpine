@@ -1,6 +1,6 @@
-import { MainLayout } from "$views/layouts.view";
-import { capitalize } from "$lib";
 import { ComponentPresentation, ComponentPreview } from "$views/components.view";
+import { MainLayout } from "$views/layouts.view";
+import { capitalCase } from 'change-case';
 
 /**
  * Badges page props
@@ -30,7 +30,7 @@ export function BadgesPage(props) {
 				].map((type) => {
 					return (
 						<section id={`${type}-page`}>
-							<h2 safe>{capitalize(type)} Badge</h2>
+							<h2 safe>{capitalCase(type)} Badge</h2>
 							<ComponentPreview filename={`badges/${type}`} />
 						</section>
 					);

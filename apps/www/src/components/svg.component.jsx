@@ -1,11 +1,11 @@
 /**
  * @typedef SVGProps
- * @type {{fill?: string, stroke?: string, strokeWidth?: number, viewBox: string } & Omit<JSX.HtmlTag, "className"> & import("$common/props").CLSXClassProps}
+ * @type {{fill?: string, stroke?: string, strokeWidth?: number, viewBox: string } & Omit<JSX.HtmlTag, "className"> & import("../common/props").CLSXClassProps}
  */
 
 /**
  * SVG component props
- * @type {import("$common/props").JSXComponent<SVGProps>}
+ * @type {import("../common/props").JSXComponent<SVGProps>}
  */
 export function SVG(props) {
     const {

@@ -1,22 +1,22 @@
-import { tailwindThemeConfig } from "$common/tailwind-config";
-import { specificSizes } from "$common/types";
-import { Image } from "$components/image.component";
+import { tailwindThemeConfig } from "../common/tailwind-config";
+import { specificSizes } from "../common/types";
+import { Image } from "./image.component";
 import clsx from "clsx";
 
 /**
  * @typedef AvatarProps
- * @type {{ image?: import("$components/image.component").ImageType, fallbackText?: string, color?: import("$common/types").ThemeColorType | { background: string, text: string }, size?: string} & import("$common/props").HTMLTag}
+ * @type {{ image?: import("./image.component").ImageType, fallbackText?: string, color?: import("../common/types").ThemeColorType | { background: string, text: string }, size?: string} & import("../common/props").HTMLTag}
  */
 
 /**
  * Avatar component props
- * @type {import("$common/props").JSXComponent<AvatarProps>}
+ * @type {import("../common/props").JSXComponent<AvatarProps>}
  */
 export function Avatar(props) {
 	const minSize = "8";
 	const { color, image, fallbackText, size = minSize } = props;
 	/**
-	 * @type {Map<import("$common/types").ThemeColorType, { background: string; text: string }>}
+	 * @type {Map<import("../common/types").ThemeColorType, { background: string; text: string }>}
 	 */
 	const colorMap = new Map([
 		[

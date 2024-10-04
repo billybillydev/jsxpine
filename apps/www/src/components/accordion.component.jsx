@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 /**
  * @typedef AccordionProps
- * @type {import("$common/props").HTMLTagWithChildren}
+ * @type {import("../common/props").HTMLTagWithChildren}
  */
 
 /**
@@ -147,7 +147,7 @@ export function SoloAccordionItem({
 
 /**
  * Solo Accordion props
- * @type {import("$common/props").JSXComponent<AccordionProps>}
+ * @type {import("../common/props").JSXComponent<AccordionProps>}
  */
 export function SoloAccordion({
 	children,

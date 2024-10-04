@@ -1,5 +1,5 @@
-import { Button } from "$components/button.component";
-import { Icon } from "$components/icon.component";
+import { Button } from "./button.component";
+import { Icon } from "./icon.component";
 import clsx from "clsx";
 
 /**
@@ -12,17 +12,17 @@ import clsx from "clsx";
 
 /**
  * @typedef {Object} ModalTriggerProps
- * @type {import("$components/button.component").ButtonProps}
+ * @type {import("./button.component").ButtonProps}
  */
 
 /**
  * @typedef {Object} ModalContentProps
- * @type {{ selector?: string, type?: ModalContentType, overlay?: ModalBackgroundColorOverlayType } & import("$common/props").HTMLTag}
+ * @type {{ selector?: string, type?: ModalContentType, overlay?: ModalBackgroundColorOverlayType } & import("../common/props").HTMLTag}
  */
 
 /**
  * Modal Trigger component props
- * @type {import("$common/props").JSXComponent<ModalTriggerProps>}
+ * @type {import("../common/props").JSXComponent<ModalTriggerProps>}
  */
 export function ModalTrigger(props) {
 	const { class: className, ...restProps } = props;
@@ -36,7 +36,7 @@ export function ModalTrigger(props) {
 
 /**
  * Simple Modal Content component props
- * @type {import("$common/props").JSXComponent<Omit<ModalContentProps, "type">>}
+ * @type {import("../common/props").JSXComponent<Omit<ModalContentProps, "type">>}
  */
 export function SimpleModalContent(props) {
 	const {
@@ -99,7 +99,7 @@ export function SimpleModalContent(props) {
 
 /**
  * Full Screen Modal Content component props
- * @type {import("$common/props").JSXComponent<Omit<ModalContentProps, "type">>}
+ * @type {import("../common/props").JSXComponent<Omit<ModalContentProps, "type">>}
  */
 export function FullScreenModalContent(props) {
 	const { children, selector = "body" } = props;
@@ -131,7 +131,7 @@ export function FullScreenModalContent(props) {
 
 /**
  * Modal Content component props
- * @type {import("$common/props").JSXComponent<ModalContentProps>}
+ * @type {import("../common/props").JSXComponent<ModalContentProps>}
  */
 export function ModalContent(props) {
 	const { children, selector = "body", type = "simple", ...restProps } = props;
@@ -146,7 +146,7 @@ export function ModalContent(props) {
 
 /**
  *
- * @type {import("$common/props").JSXComponent<import("$common/props").HTMLTagWithChildren>}
+ * @type {import("../common/props").JSXComponent<import("../common/props").HTMLTagWithChildren>}
  */
 export function Modal(props) {
 	const { children, ...restProps } = props;

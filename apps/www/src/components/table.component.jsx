@@ -1,6 +1,6 @@
-import { Icon } from "$components/icon.component";
-import { TextInput } from "$components/input.component";
-import { Select } from "$components/select.component";
+import { Icon } from "./icon.component";
+import { TextInput } from "./input.component";
+import { Select } from "./select.component";
 import clsx from "clsx";
 
 /**
@@ -70,32 +70,32 @@ import clsx from "clsx";
 
 /**
  * @typedef {Object} TableSearchFilterProps
- * @type {{ index: string, operator: TableFilterOperatorType } & import("$components/input.component").InputProps}
+ * @type {{ index: string, operator: TableFilterOperatorType } & import("./input.component").InputProps}
  */
 
 /**
  * @typedef {Object} TableSelectFilterProps
- * @type {{ index: string, items: TableSelectFilterOperatorOptionType[] } & Omit<import("$components/select.component").SelectProps, "items">}
+ * @type {{ index: string, items: TableSelectFilterOperatorOptionType[] } & Omit<import("./select.component").SelectProps, "items">}
  */
 
 /**
  * @typedef {Object} TableHeadProps
- * @type {{ columns: TableHeadColumnType[] } & import("$common/props").HTMLTagWithChildren}
+ * @type {{ columns: TableHeadColumnType[] } & import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * @typedef {Object} TableBodyProps
- * @type {{ items?: unknown[] } & import("$common/props").HTMLTagWithChildren}
+ * @type {{ items?: unknown[] } & import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * @typedef {Object} TableProps
- * @type {{ columns?: TableHeadColumnType[], items?: unknown[], theadClass?: string, tbodyClass?: string } & import("$common/props").HTMLTagWithChildren}
+ * @type {{ columns?: TableHeadColumnType[], items?: unknown[], theadClass?: string, tbodyClass?: string } & import("../common/props").HTMLTagWithChildren}
  */
 
 /**
  * Search Input Filter Table component props
- * @type {import("$common/props").JSXComponent<TableSearchFilterProps>}
+ * @type {import("../common/props").JSXComponent<TableSearchFilterProps>}
  */
 export function SearchInputFilterTable(props) {
 	const {
@@ -124,7 +124,7 @@ export function SearchInputFilterTable(props) {
 
 /**
  * Select Filter Table component props
- * @type {import("$common/props").JSXComponent<TableSelectFilterProps>}
+ * @type {import("../common/props").JSXComponent<TableSelectFilterProps>}
  */
 export function SelectFilterTable(props) {
 	const {
@@ -154,7 +154,7 @@ export function SelectFilterTable(props) {
 
 /**
  * Table Head component props
- * @type {import("$common/props").JSXComponent<TableHeadProps>}
+ * @type {import("../common/props").JSXComponent<TableHeadProps>}
  */
 export function TableHead(props) {
 	const { class: className, columns, ...restProps } = props;
@@ -230,7 +230,7 @@ export function TableHead(props) {
 
 /**
  * Table Body component props
- * @type {import("$common/props").JSXComponent<TableBodyProps>}
+ * @type {import("../common/props").JSXComponent<TableBodyProps>}
  */
 export function TableBody(props) {
 	const { class: className, ...restProps } = props;
@@ -265,7 +265,7 @@ export function TableBody(props) {
 
 /**
  * Table component props
- * @type {import("$common/props").JSXComponent<TableProps>}
+ * @type {import("../common/props").JSXComponent<TableProps>}
  */
 export function Table(props) {
 	const {

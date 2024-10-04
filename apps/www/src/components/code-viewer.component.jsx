@@ -7,7 +7,7 @@ import { getHighlighter } from "shikiji";
 
 /**
  * CodeEditor component props
- * @type {import("$common/props").JSXComponent<CodeViewerProps>}
+ * @type {import("../common/props").JSXComponent<CodeViewerProps>}
  */
 export async function CodeViewer({ text }) {
     const langs = ["javascript"];

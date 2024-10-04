@@ -1,4 +1,4 @@
-// import { CalendarType, DateFormatType } from "$common/types";
+// import { CalendarType, DateFormatType } from "../../../common/types";
 
 // export function datepickerData(
 //   date: string,

@@ -1,5 +1,5 @@
 import { DangerAlert } from "$components/alert.component";
-import { capitalize } from "$lib";
+import { capitalCase } from 'change-case';
 
 export function DangerAlertExample() {
 	/**
@@ -9,7 +9,7 @@ export function DangerAlertExample() {
 	return (
 		<div class="flex flex-col gap-y-4 justify-center">
 			{variants.map((variant) => {
-				const capitalizeVariant = capitalize(variant);
+				const capitalizeVariant = capitalCase(variant);
 				return (
 					<DangerAlert
 						title={`Danger Alert ${capitalizeVariant}`}

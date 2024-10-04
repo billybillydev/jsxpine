@@ -1,4 +1,4 @@
-// import { CalendarType, DateFormatType } from "$common/types";
+// import { CalendarType, DateFormatType } from "../../../common/types";
 // import { calendarTypeMap } from "$scripts/alpine/utils/calendar";
 
 // export function calendarData(inputs: {

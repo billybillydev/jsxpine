@@ -1,31 +1,31 @@
-import { Button } from "$components/button.component";
-import { Icon } from "$components/icon.component";
-import { Image } from "$components/image.component";
+import { Button } from "./button.component";
+import { Icon } from "./icon.component";
+import { Image } from "./image.component";
 import clsx from "clsx";
 
 /**
  * @typedef CarouselNavigationProps
- * @property {import("$common/types").DirectionType} direction
+ * @property {import("../common/types").DirectionType} direction
  */
 
 /**
  * @typedef CarouselIndicatorsProps
- * @type {import("$common/props").HTMLTagWithChildren & { indicator?: boolean | import("$common/types").PositionType }}
+ * @type {import("../common/props").HTMLTagWithChildren & { indicator?: boolean | import("../common/types").PositionType }}
  */
 
 /**
  * @typedef CarouselProps
- * @type {{ slides?: import("$components/image.component").ImageType[], loop?: boolean, indicator?: boolean | import("$common/types").PositionType, direction?: import("$common/types").DirectionType, hideNavigations?: boolean, slidesToShow?: number, navigations?: JSX.Element, indicators?: JSX.Element } & import("$common/props").HTMLTag}
+ * @type {{ slides?: import("./image.component").ImageType[], loop?: boolean, indicator?: boolean | import("../common/types").PositionType, direction?: import("../common/types").DirectionType, hideNavigations?: boolean, slidesToShow?: number, navigations?: JSX.Element, indicators?: JSX.Element } & import("../common/props").HTMLTag}
  */
 
 /**
  * Carousel Navigation component props
- * @type {import("$common/props").JSXComponent<CarouselNavigationProps>}
+ * @type {import("../common/props").JSXComponent<CarouselNavigationProps>}
  */
 export function CarouselNavigations(props) {
 	const { direction } = props;
 	/**
-	 * @type {Map<import("$common/types").DirectionType, { previous: string; next: string }>}
+	 * @type {Map<import("../common/types").DirectionType, { previous: string; next: string }>}
 	 */
 	const navigationButtonDirectionClassMap = new Map([
 		[
@@ -45,7 +45,7 @@ export function CarouselNavigations(props) {
 	]);
 
 	/**
-	 * @type {Map<import("$common/types").DirectionType, { previous: string; next: string }>}
+	 * @type {Map<import("../common/types").DirectionType, { previous: string; next: string }>}
 	 */
 	const navigationIconDirectionClassMap = new Map([
 		[
@@ -102,13 +102,13 @@ export function CarouselNavigations(props) {
 
 /**
  * Carousel Indicators component props
- * @type {import("$common/props").JSXComponent<CarouselIndicatorsProps>}
+ * @type {import("../common/props").JSXComponent<CarouselIndicatorsProps>}
  */
 export function CarouselIndicators(props) {
 	const { children, indicator } = props;
 
 	/**
-	 * @type {Map<import("$common/types").PositionType, string>}
+	 * @type {Map<import("../common/types").PositionType, string>}
 	 */
 	const indicatorPositionClassMap = new Map([
 		["top", "top-0 left-1/2 -translate-x-1/2 gap-x-2"],
@@ -142,7 +142,7 @@ export function CarouselIndicators(props) {
 
 /**
  * Carousel component props
- * @type {import("$common/props").JSXComponent<CarouselProps>}
+ * @type {import("../common/props").JSXComponent<CarouselProps>}
  */
 export function Carousel(props) {
 	const {
@@ -160,7 +160,7 @@ export function Carousel(props) {
 	} = props;
 
 	/**
-	 * @type {Map<import("$common/types").DirectionType, string>}
+	 * @type {Map<import("../common/types").DirectionType, string>}
 	 */
 	const directionClassMap = new Map([
 		["horizontal", "flex items-center"],
@@ -170,7 +170,7 @@ export function Carousel(props) {
 		]
 	]);
 	/**
-	 * @type {Map<import("$common/types").DirectionType, string>}
+	 * @type {Map<import("../common/types").DirectionType, string>}
 	 */
 	const slideDirectionClassMap = new Map([
 		["horizontal", slidesToShow > 1 ? "" : "min-w-full h-full"],

@@ -1,15 +1,15 @@
 /**
  * @typedef {Object} TreeOutputData
- * @property {import("$components/trees.component").TreeType}
+ * @property {import("../../../components/trees.component").TreeType}
  * @property {Map<string, TreeType>} treeMap
- * @property {(item: import("$components/trees.component").TreeType) => void} selectedItem
+ * @property {(item: import("../../../components/trees.component").TreeType) => void} selectedItem
  * @property {(parentId: string) => void} goToParent
- * @property {(treeItem: import("$components/trees.component").TreeType) => void} recursiveTreeMap
+ * @property {(treeItem: import("../../../components/trees.component").TreeType) => void} recursiveTreeMap
  */
 
 /**
  * Tree alpine data
- * @param {import("$components/trees.component").TreeType} root 
+ * @param {import("../../../components/trees.component").TreeType} root 
  * @returns {import("alpinejs").AlpineComponent<TreeOutputData>}
  */
 export function treeData(root) {

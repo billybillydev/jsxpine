@@ -2,12 +2,12 @@ import clsx from "clsx";
 
 /**
  * @typedef RangeSliderProps
- * @type {Omit<import("$components/input.component").InputProps, "min" | "max" | "value" | "step"> & { min?: number, max?: number, value?: number, step?: number, backgroundThumbColor: string, backgroundProgressColor: string, thumbWidth?: number, thumbHeight?: number }}
+ * @type {Omit<import("./input.component").InputProps, "min" | "max" | "value" | "step"> & { min?: number, max?: number, value?: number, step?: number, backgroundThumbColor: string, backgroundProgressColor: string, thumbWidth?: number, thumbHeight?: number }}
  */
 
 /**
  * Range Slider component props
- * @type {import("$common/props").JSXComponent<RangeSliderProps>}
+ * @type {import("../common/props").JSXComponent<RangeSliderProps>}
  */
 export function RangeSlider(props) {
 	const {

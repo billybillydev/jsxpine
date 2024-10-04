@@ -1,4 +1,4 @@
-// import { CalendarType } from "$common/types";
+// import { CalendarType } from "../../../common/types";
 
 // type CalendarOptionType = {
 // 	months: string[];

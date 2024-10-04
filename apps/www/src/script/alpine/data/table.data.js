@@ -1,20 +1,20 @@
 /**
  * @typedef {Object} TableDataOutput
- * @property {import("$components/table.component").TableHeadColumnType[]} columns
- * @property {import("$components/table.component").TableBodyItemRowType[]} items
- * @property {import("$components/table.component").TableBodyItemRowType[]} filters
- * @property {import("$components/table.component").TableSortingOrderType} [order]
- * @property {import("$components/table.component").TableHeadColumnType["index"]} [currentSortIndex]
- * @property {(index: import("$components/table.component").TableHeadColumnType["index"]): void} setSortIndex
- * @property {() => import("$components/table.component").TableBodyItemRowType[]} sortItemsByIndex
- * @property {(type:import("$components/table.component"). TableFilterType, operator: import("$components/table.component").TableFilterOperatorType, index: string, value: string | number | (string | number)[]): void} filterByOperatorType
+ * @property {import("../../../components/table.component").TableHeadColumnType[]} columns
+ * @property {import("../../../components/table.component").TableBodyItemRowType[]} items
+ * @property {import("../../../components/table.component").TableBodyItemRowType[]} filters
+ * @property {import("../../../components/table.component").TableSortingOrderType} [order]
+ * @property {import("../../../components/table.component").TableHeadColumnType["index"]} [currentSortIndex]
+ * @property {(index: import("../../../components/table.component").TableHeadColumnType["index"]): void} setSortIndex
+ * @property {() => import("../../../components/table.component").TableBodyItemRowType[]} sortItemsByIndex
+ * @property {(type:import("../../../components/table.component"). TableFilterType, operator: import("../../../components/table.component").TableFilterOperatorType, index: string, value: string | number | (string | number)[]): void} filterByOperatorType
  */
 
 /**
  * @typedef {Function} SortFunction
  * @param {string} a
  * @param {string} b
- * @param {import("$components/table.component").TableSortingOrderType} [order]
+ * @param {import("../../../components/table.component").TableSortingOrderType} [order]
  * @returns {number}
  */
 
@@ -128,8 +128,8 @@ const filterByNotIn = (index, value, items) => {
 
 /**
  * Table alpine data
- * @param {import("$components/table.component").TableHeadColumnType[]} columns
- * @param {import("$components/table.component").TableBodyItemRowType[]} items
+ * @param {import("../../../components/table.component").TableHeadColumnType[]} columns
+ * @param {import("../../../components/table.component").TableBodyItemRowType[]} items
  * @returns {import("alpinejs").AlpineComponent<TableDataOutput>}
  */
 export function tableData(columns = [], items = []) {

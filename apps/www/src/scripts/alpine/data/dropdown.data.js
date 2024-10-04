@@ -13,7 +13,7 @@
 /**
  * Dropdown alpine data output
  * @typedef {Object} DropdownDataOutput
- * @property {import("src/common/types").PositionType} position
+ * @property {import("../../../common/types").PositionType} position
  * @property {OriginalBoundingClientRect | null} originalBoundingClientRect
  * @property {number} duration
  * @property {boolean} visible
@@ -26,21 +26,21 @@
  * @property {Record<string, Function>} closer
  * @property {Record<string, Function>} toggler
  * @property {Record<string, Function>} shower
- * @property {(position: import("src/common/types").PositionType) => void} setPositionClasses
- * @property {(position: import("src/common/types").PositionType) => void} resetPositionClasses
- * @property {(position: import("src/common/types").PositionType) => void} setAlpineAttributes
- * @property {(position: import("src/common/types").PositionType) => import("src/common/types").PositionType} updatePosition
+ * @property {(position: import("../../../common/types").PositionType) => void} setPositionClasses
+ * @property {(position: import("../../../common/types").PositionType) => void} resetPositionClasses
+ * @property {(position: import("../../../common/types").PositionType) => void} setAlpineAttributes
+ * @property {(position: import("../../../common/types").PositionType) => import("../../../common/types").PositionType} updatePosition
  */
 
 /**
  * Dropdown alpine data
- * @param {import("src/common/types").PositionType} position
+ * @param {import("../../../common/types").PositionType} position
  * @param {number} duration
  * @returns {import("alpinejs").AlpineComponent<DropdownDataOutput>}
  */
 export function dropdownData(position = "bottom", duration) {
 	/**
-	 * @type {Map<import("src/common/types").PositionType, {x: string[], y: string[]}>}
+	 * @type {Map<import("../../../common/types").PositionType, {x: string[], y: string[]}>}
 	 */
 	const positionClassMap = new Map([
 		["top", { x: ["-translate-x-1/2", "left-1/2"], y: ["bottom-full"] }],
@@ -50,7 +50,7 @@ export function dropdownData(position = "bottom", duration) {
 	]);
 
 	/**
-	 * @type {Map<import("src/common/types").PositionType, import("src/common/types").TransitionStateType>}
+	 * @type {Map<import("../../../common/types").PositionType, import("../../../common/types").TransitionStateType>}
 	 */
 	const transitionClassMap = new Map([
 		[

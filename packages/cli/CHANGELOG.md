@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.28
+
+### Patch Changes
+
+-   improved alpine template string in add command
+
 ## 0.2.27
 
 ### Patch Changes

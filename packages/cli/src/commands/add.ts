@@ -213,12 +213,13 @@ import focus from "@alpinejs/focus";
 import collapse from "@alpinejs/collapse";
 import manage from "alpinejs-manage";
 
-import { logDirective } from "./directive/log.directive";
-import { nowMagic } from "./magic/now.magic";
-import { clipboardMagic } from "./magic/clipboard.magic";
 import { capitalizeDirective } from "./directive/capitalize.directive";
-import { formatDateMagic } from "./magic/format-date.magic";
 import { dateFormatDirective } from "./directive/format-date.directive";
+import { logDirective } from "./directive/log.directive";
+
+import { clipboardMagic } from "./magic/clipboard.magic";
+import { formatDateMagic } from "./magic/format-date.magic";
+import { nowMagic } from "./magic/now.magic";
 
 ${dataComponents
 	.map(

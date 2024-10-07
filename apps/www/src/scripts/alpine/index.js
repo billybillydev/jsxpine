@@ -17,20 +17,13 @@ import { tooltipData } from "./data/tooltip.data";
 import { treeData } from "./data/tree.data";
 import { zoomData } from "./data/zoom.data";
 import { capitalizeDirective } from "./directive/capitalize.directive";
-import { dateFormatDirective } from "./directive/format-date.directive";
 import { logDirective } from "./directive/log.directive";
 import { clipboardMagic } from "./magic/clipboard.magic";
-import { formatDateMagic } from "./magic/format-date.magic";
 import { nowMagic } from "./magic/now.magic";
-import collapse from "@alpinejs/collapse";
-import focus from "@alpinejs/focus";
 import Alpine from "alpinejs";
-import manage from "alpinejs-manage";
 
 /* Data */
-// Alpine.data("calendar", calendarData);
 Alpine.data("carousel", carouselData);
-// Alpine.data("datepicker", datepickerData);
 Alpine.data("dropdown", dropdownData);
 Alpine.data("dropdownSelect", dropdownSelectData);
 Alpine.data("groupAccordion", groupAccordionData);
@@ -51,17 +44,13 @@ Alpine.data("zoom", zoomData);
 
 /* Directive */
 Alpine.directive("capitalize", capitalizeDirective);
-Alpine.directive("date-format", dateFormatDirective);
 Alpine.directive("log", logDirective);
 
 /* Magic */
 Alpine.magic("clipboard", clipboardMagic);
-Alpine.magic("formatDate", formatDateMagic);
 Alpine.magic("now", nowMagic);
 
 /* Plugins */
-Alpine.plugin(collapse);
 Alpine.plugin(focus);
-Alpine.plugin(manage);
 
 export default Alpine;

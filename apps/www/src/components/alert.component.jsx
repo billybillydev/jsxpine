@@ -27,7 +27,13 @@ export function Alert({
 		>
 			{title ? (
 				<h4 class="mb-1 font-medium leading-none tracking-tight flex items-center gap-x-3">
-					{icon ? <Icon name={String(icon)} size={5} /> || icon : null}
+					{icon ? (
+						typeof icon === "string" ? (
+							<Icon name={String(icon)} size={5} />
+						) : (
+							icon
+						)
+					) : null}
 					<span safe>{title}</span>
 				</h4>
 			) : null}

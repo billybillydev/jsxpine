@@ -13,8 +13,8 @@ import clsx from "clsx";
 export function UseCasePresentation({ children, description, heading }) {
 	return (
 		<div class={clsx("flex flex-col h-full relative py-4 gap-y-6")}>
-			<h1 class="text-center">{heading}</h1>
-			<p>{description}</p>
+			<h1 class="text-center" safe>{heading}</h1>
+			<p safe>{description}</p>
 			{children}
 		</div>
 	);

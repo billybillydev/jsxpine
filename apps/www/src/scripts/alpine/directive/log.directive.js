@@ -1,10 +1,10 @@
 /**
  * 
- * @param {HTMLElement} el The HTML element
- * @param {{ expression: string }} param1 
- * @param {{ effect: Function, evaluateLater: (expression: string) => (value: unknown) => void }} param2 
+ * @param {import("alpinejs").ElementWithXAttributes} _ The HTML element
+ * @param {import("alpinejs").DirectiveData} param1 
+ * @param {import("alpinejs").DirectiveUtilities} param2 
  */
-export function logDirective(el, { expression }, { evaluateLater, effect }) {
+export function logDirective(_, { expression }, { evaluateLater, effect }) {
   let getThingToLog = evaluateLater(expression);
 
   effect(() => {

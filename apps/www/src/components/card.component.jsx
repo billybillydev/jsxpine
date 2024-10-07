@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { Button } from "./button.component";
 
 /**
  * @typedef CardImageProps
@@ -49,7 +48,10 @@ export function CardBody(props) {
 			{children ?? (
 				<>
 					{title ? (
-						<h4 class="text-xl font-bold leading-none tracking-tight text-neutral-900" safe>
+						<h4
+							class="text-xl font-bold leading-none tracking-tight text-neutral-900"
+							safe
+						>
 							{title}
 						</h4>
 					) : (
@@ -58,9 +60,15 @@ export function CardBody(props) {
 					{text || texts ? (
 						<div id="card-body-text">
 							{texts?.length ? (
-								texts.map((line) => <p class="text-neutral-500" safe>{line}</p>)
+								texts.map((line) => (
+									<p class="text-neutral-500" safe>
+										{line}
+									</p>
+								))
 							) : text ? (
-								<p class="text-neutral-500" safe>{text}</p>
+								<p class="text-neutral-500" safe>
+									{text}
+								</p>
 							) : (
 								""
 							)}
@@ -76,26 +84,32 @@ export function CardBody(props) {
 					class="flex flex-wrap gap-2 items-center justify-end w-full"
 				>
 					{controls.map(async (control) => {
-						if (control.type) {
-							const capitalType = control.type[0].toUpperCase().concat(control.type.slice(1));
-							const componentName = `${capitalType}Button`;
-							const ButtonControl = await import(
-								`./button.component`
-							).then(
-								function (m) {
-									return m[componentName];
+						const ButtonControl = await import(`./button.component`).then(
+							/**
+							 * @returns {typeof import("/Users/billybillydev/mosi-projects/jsxpine/apps/www/src/components/button.component")[keyof typeof import("/Users/billybillydev/mosi-projects/jsxpine/apps/www/src/components/button.component")]}
+							 * */
+							function (m) {
+								switch (control.type) {
+									case "primary":
+										return m["PrimaryButton"];
+									case "secondary":
+										return m["SecondaryButton"];
+									case "success":
+										return m["SuccessButton"];
+									case "danger":
+										return m["DangerButton"];
+									case "info":
+										return m["InfoButton"];
+									case "warning":
+										return m["WarningButton"];
+									default:
+										return m["Button"];
 								}
-							);
-							return (
-								<ButtonControl
-									text={control.label}
-									x-on:click={control.action}
-								/>
-							);
-						}
+							}
+						);
 						return (
-							<Button
-								variant="inversed"
+							<ButtonControl
+								variant={control.type ? "solid" : "inversed"}
 								text={control.label}
 								x-on:click={control.action}
 							/>

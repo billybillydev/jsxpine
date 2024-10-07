@@ -1,3 +1,5 @@
+import Alpine from "alpinejs";
+
 import { carouselData } from "./data/carousel.data";
 import { dropdownSelectData } from "./data/dropdown-select.data";
 import { dropdownData } from "./data/dropdown.data";
@@ -16,11 +18,12 @@ import { tabsData } from "./data/tabs.data";
 import { tooltipData } from "./data/tooltip.data";
 import { treeData } from "./data/tree.data";
 import { zoomData } from "./data/zoom.data";
+
 import { capitalizeDirective } from "./directive/capitalize.directive";
 import { logDirective } from "./directive/log.directive";
+
 import { clipboardMagic } from "./magic/clipboard.magic";
 import { nowMagic } from "./magic/now.magic";
-import Alpine from "alpinejs";
 
 /* Data */
 Alpine.data("carousel", carouselData);

@@ -1,4 +1,7 @@
 import Alpine from "alpinejs";
+import focus from "@alpinejs/focus";
+import collapse from "@alpinejs/collapse";
+import manage from 'alpinejs-manage';
 
 import { carouselData } from "./data/carousel.data";
 import { dropdownSelectData } from "./data/dropdown-select.data";
@@ -55,5 +58,7 @@ Alpine.magic("now", nowMagic);
 
 /* Plugins */
 Alpine.plugin(focus);
+Alpine.plugin(collapse);
+Alpine.plugin(manage);
 
 export default Alpine;

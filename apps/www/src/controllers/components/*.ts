@@ -3,9 +3,11 @@ import { alertsController } from "$controllers/components/alerts.controller";
 import { avatarController } from "$controllers/components/avatar.controller";
 import { badgesController } from "$controllers/components/badges.controller";
 import { buttonsController } from "$controllers/components/buttons.controller";
+import { calendarController } from "$controllers/components/calendar.controller";
 import { cardController } from "$controllers/components/card.controller";
 import { carouselController } from "$controllers/components/carousel.controller";
 import { checkboxController } from "$controllers/components/checkbox.controller";
+import { datePickerController } from "$controllers/components/date-picker.controller";
 import { dropdownController } from "$controllers/components/dropdown.controller";
 import { galleriesController } from "$controllers/components/galleries.controller";
 import { imagePickerController } from "$controllers/components/imagepicker.controller";
@@ -22,6 +24,7 @@ import { tableController } from "$controllers/components/table.controller";
 import { tabsController } from "$controllers/components/tabs.controller";
 import { tooltipsController } from "$controllers/components/tooltips.controller";
 import { treesController } from "$controllers/components/trees.controller";
+import { zoomController } from "$controllers/components/zoom.controller";
 import { Hono } from "hono";
 import { AppVariables } from "src";
 
@@ -34,9 +37,11 @@ export const componentsController = new Hono<{ Variables: AppVariables }>()
 	.route("/avatar", avatarController)
 	.route("/badges", badgesController)
 	.route("/buttons", buttonsController)
+	.route("/calendar", calendarController)
 	.route("/card", cardController)
 	.route("/carousel", carouselController)
 	.route("/checkbox", checkboxController)
+	.route("/datepicker", datePickerController)
 	.route("/dropdown", dropdownController)
 	.route("/galleries", galleriesController)
 	.route("/imagepicker", imagePickerController)
@@ -53,4 +58,5 @@ export const componentsController = new Hono<{ Variables: AppVariables }>()
 	.route("/table", tableController)
 	.route("/tabs", tabsController)
 	.route("/tooltips", tooltipsController)
-	.route("/trees", treesController);
+	.route("/trees", treesController)
+	.route("/zoom", zoomController);

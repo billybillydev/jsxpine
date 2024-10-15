@@ -31,7 +31,7 @@ export function HorizontalTabsExample() {
 									<input
 										type="text"
 										placeholder="Name"
-										id="name"
+										id="horizontal-name"
 										value="Adam Wathan"
 										class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
 									/>
@@ -46,7 +46,7 @@ export function HorizontalTabsExample() {
 									<input
 										type="text"
 										placeholder="Username"
-										id="username"
+										id="horizontal-account-username"
 										value="@adamwathan"
 										class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
 									/>
@@ -83,7 +83,7 @@ export function HorizontalTabsExample() {
 									<input
 										type="password"
 										placeholder="Current Password"
-										id="password"
+										id="horizontal-password"
 										class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
 									/>
 								</div>
@@ -97,7 +97,7 @@ export function HorizontalTabsExample() {
 									<input
 										type="password"
 										placeholder="New Password"
-										id="password_new"
+										id="horizontal-password_new"
 										class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
 									/>
 								</div>
@@ -130,7 +130,7 @@ export function HorizontalTabsExample() {
 									</label>
 									<input
 										placeholder="Your username"
-										id="username"
+										id="horizontal-profile-username"
 										class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
 									/>
 								</div>
@@ -143,7 +143,7 @@ export function HorizontalTabsExample() {
 									</label>
 									<input
 										placeholder="Firstname & Lastname"
-										id="fullname"
+										id="horizontal-fullname"
 										class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
 									/>
 								</div>

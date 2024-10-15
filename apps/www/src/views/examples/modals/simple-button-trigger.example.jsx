@@ -2,10 +2,11 @@ import { SuccessButton } from "$components/button.component";
 import { Modal, ModalContent } from "$components/modal.component";
 
 export function SimpleButtonTriggerModalExample() {
+	const simpleModalPreviewID = "simple-modal-preview";
 	return (
 		<div
-			id="simple-modal-preview"
-			class="relative w-full h-96 overflow-y-auto flex items-center justify-center"
+			id={simpleModalPreviewID}
+			class="relative w-full h-[28rem] overflow-auto flex items-center justify-center"
 		>
 			<Modal>
 				<SuccessButton
@@ -14,12 +15,8 @@ export function SimpleButtonTriggerModalExample() {
 					x-bind="trigger"
 					text="Success Button as Trigger"
 				/>
-				<ModalContent
-					type="simple"
-					selector="#simple-modal-preview"
-					class="w-full h-full"
-				>
-					<div class="relative flex flex-wrap items-center w-full h-full px-8 py-4">
+				<ModalContent type="simple" selector={`#${simpleModalPreviewID}`}>
+					<div class="relative flex flex-wrap items-center px-8 py-4">
 						<div class="relative w-full max-w-sm mx-auto lg:mb-0">
 							<div class="relative text-center">
 								<div class="flex flex-col mb-6 space-y-2">

@@ -52,8 +52,8 @@ export function SimpleModalContent(props) {
 			<div
 				x-bind="shower"
 				class={clsx(
-					"top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen p-4",
-					selector !== "body" ? "absolute" : "fixed",
+					"inset-0 z-[99] flex items-center justify-center p-4",
+					selector !== "body" ? "absolute w-full h-full" : "fixed w-screen h-screen",
 					className
 				)}
 				x-cloak="true"
@@ -86,7 +86,7 @@ export function SimpleModalContent(props) {
 				>
 					<button
 						x-bind="closerClick"
-						class="absolute -top-3 -right-3 flex items-center justify-center w-8 h-8 border bg-white text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50"
+						class="absolute z-10 -top-3 -right-3 flex items-center justify-center w-8 h-8 border bg-white text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50"
 					>
 						<Icon name="close-fill" stroke-width="1.5" size={5} />
 					</button>
@@ -102,7 +102,7 @@ export function SimpleModalContent(props) {
  * @type {import("../common/props").JSXComponent<Omit<ModalContentProps, "type">>}
  */
 export function FullScreenModalContent(props) {
-	const { children, selector = "body" } = props;
+	const { children, selector = "body", class: className } = props;
 	return (
 		<template x-teleport={selector}>
 			<div
@@ -113,7 +113,13 @@ export function FullScreenModalContent(props) {
 				x-transition:leave="transition ease-in duration-250"
 				x-transition:leave-start="opacity-100"
 				x-transition:leave-end="opacity-0"
-				class="flex fixed inset-0 z-[99] w-screen h-screen bg-white"
+				class={clsx(
+					"flex inset-0 z-[99]",
+					selector !== "body"
+						? "absolute w-full h-full"
+						: "fixed w-screen h-screen",
+					className
+				)}
 			>
 				<button
 					x-bind="closerClick"

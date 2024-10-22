@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.2.30
+
+### Patch Changes
+
+-   fixed alpine js removed dependencies
+
 ## 0.2.29
 
 ### Patch Changes

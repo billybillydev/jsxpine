@@ -228,20 +228,16 @@ import { logDirective } from "./directive/log.directive";
 import { nowMagic } from "./magic/now.magic";
 import { clipboardMagic } from "./magic/clipboard.magic";
 import { capitalizeDirective } from "./directive/capitalize.directive";
-import { formatDateMagic } from "./magic/format-date.magic";
-import { dateFormatDirective } from "./directive/format-date.directive";
 
 /* Data */
 // By adding components, corresponding data will be added progressively
 
 /* Directive */
 Alpine.directive("capitalize", capitalizeDirective);
-Alpine.directive("date-format", dateFormatDirective);
 Alpine.directive("log", logDirective);
 
 /* Magic */
 Alpine.magic("clipboard", clipboardMagic);
-Alpine.magic("formatDate", formatDateMagic);
 Alpine.magic("now", nowMagic);
 
 /* Plugins */

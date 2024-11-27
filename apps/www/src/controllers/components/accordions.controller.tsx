@@ -22,9 +22,26 @@ export const accordionsController = new Hono<{ Variables: AppVariables }>().get(
 							title,
 							description,
 							type: "website",
-							imageUrl: ctx.var.url.origin.concat(defaultFavicon),
+							image: {
+								url: ctx.var.url.origin.concat(defaultFavicon),
+								width: 150,
+								height: 262
+							},
 							url: ctx.var.url.href,
-							site_name: SITE.title
+							site_name: ctx.var.url.href
+						},
+						twitter: {
+							name: {
+								creator: SITE.twitter.author,
+								site: SITE.twitter.author,
+								title,
+								description,
+								image: ctx.var.url.origin.concat(defaultFavicon),
+							},
+							property: {
+								url: ctx.var.url.href,
+								domain: ctx.var.url.hostname
+							}
 						}
 					},
 					...ctx.var

@@ -3,7 +3,7 @@ export const SITE = {
 	description:
 		"Pine UI in JSX reusable components to build your design system fast.",
 	defaultLanguage: "en_US",
-	twitter: "billybillydev",
+	twitter: { name: "billybillydev", author: "@billybillydev" },
 	github: "billybillydev/jsxpine",
 	linkedin: "",
 	keywords: `shadcn,JSX,TailwindCSS,Alpine JS,Pine UI,Dev Dojo`

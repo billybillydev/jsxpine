@@ -5,21 +5,36 @@ import clsx from "clsx";
  */
 
 /**
- * Type for OpenGraph
+ * Type for OpenGraph metadata
  * @typedef {Object} OpenGraphMetaData
  * @property {string} title
- * @property {string=} [description]
+ * @property {string} [description]
  * @property {string} [type]
- * @property {string=} [url]
- * @property {string=} [site_name]
- * @property {string=} [imageUrl]
- * @property {object=} [image]
+ * @property {string} [url]
+ * @property {string} [site_name]
+ * @property {string} [imageUrl]
+ * @property {object} [image]
  * @property {string} image.url
  * @property {string=} image.secure_url
  * @property {string=} image.type
  * @property {string=} image.alt
  * @property {number=} image.width
  * @property {number=} image.height
+ */
+
+/**
+ * Type for Twitter metadata
+ * @typedef {Object} TwitterMetaData
+ * @property {object} name
+ * @property {"summary" | "summary_large_image" | "photo" | "app" | "gallery" | "player" | "product" | "lead_generation"} [name.card="summary"]
+ * @property {string} name.title
+ * @property {string} name.creator
+ * @property {string} name.site
+ * @property {string} [name.description]
+ * @property {string} [name.image]
+ * @property {object} [property]
+ * @property {string} [propert.domain]
+ * @property {string} [propert.url]
  */
 
 /**
@@ -31,6 +46,7 @@ import clsx from "clsx";
  * @property {string} [dir] The page direction
  * @property {RobotsMetaData} [robots] Information about robots indexing. Contains two boolean properties: index and follow.
  * @property {OpenGraphMetaData} [openGraph] The openGraph meta data
+ * @property {TwitterMetaData} [twitter] The twitter meta data
  */
 
 /**
@@ -58,12 +74,33 @@ function SeoOpenGraph({ title, image, imageUrl, ...restProps }) {
 			)}
 			{image && !imageUrl
 				? Object.entries(image).map(([key, value]) =>
-						!!value ? <meta property={`og:image:${key}`} content={String(value)} /> : null
+						!!value ? (
+							<meta property={`og:image:${key}`} content={String(value)} />
+						) : null
 				  )
 				: null}
-			{imageUrl ? (
-				<meta property="og:image" content={imageUrl} />
-			) : null}
+			{imageUrl ? <meta property="og:image" content={imageUrl} /> : null}
+		</>
+	);
+}
+
+/**
+ * Component representing Twitter meta tags
+ * @param {TwitterMetaData} props
+ */
+function SeoTwitter({ name, property }) {
+	return (
+		<>
+			{Object.entries(name).map(([key, value]) =>
+				value ? <meta name={`twitter:${key}`} content={String(value)} /> : null
+			)}
+			{property
+				? Object.entries(property).map(([key, value]) =>
+						value ? (
+							<meta property={`twitter:${key}`} content={String(value)} />
+						) : null
+				  )
+				: null}
 		</>
 	);
 }
@@ -87,6 +124,7 @@ export function Page(props) {
 					<meta name="robots" content={seo.robots.join(", ")} />
 				) : null}
 				{seo.openGraph ? <SeoOpenGraph {...seo.openGraph} /> : null}
+				{seo.twitter ? <SeoTwitter {...seo.twitter} /> : null}
 				{favicon ? (
 					<link rel="shortcut icon" href={favicon} type="image/x-icon" />
 				) : null}

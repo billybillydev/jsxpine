@@ -12,8 +12,8 @@ import clsx from "clsx";
  * @property {string} [type]
  * @property {string=} [url]
  * @property {string=} [site_name]
- * @property {string} [imageUrl]
- * @property {object} [image]
+ * @property {string=} [imageUrl]
+ * @property {object=} [image]
  * @property {string} image.url
  * @property {string=} image.secure_url
  * @property {string=} image.type
@@ -52,22 +52,17 @@ import clsx from "clsx";
 function SeoOpenGraph({ title, image, imageUrl, ...restProps }) {
 	return (
 		<>
-			{/* @ts-ignore */}
 			<meta property="og:title" content={title} />
 			{Object.entries(restProps).map(([key, value]) =>
-				/* @ts-ignore */
-				value ? <meta property={`og:${key}`} content={value} /> : null
+				value ? <meta property={`og:${key}`} content={String(value)} /> : null
 			)}
-			{image
+			{image && !imageUrl
 				? Object.entries(image).map(([key, value]) =>
-						// @ts-ignore
-						value ? <meta property={`og:image:${key}`} content={value} /> : null
+						!!value ? <meta property={`og:image:${key}`} content={String(value)} /> : null
 				  )
 				: null}
-			{/* @ts-ignore */}
 			{imageUrl ? (
-				// @ts-ignore
-				<meta property="og:image" content={image} />
+				<meta property="og:image" content={imageUrl} />
 			) : null}
 		</>
 	);

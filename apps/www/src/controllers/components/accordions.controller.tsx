@@ -7,18 +7,24 @@ import { AppVariables } from "src";
 export const accordionsController = new Hono<{ Variables: AppVariables }>().get(
 	(ctx) => {
 		const title = "Accordions Components Documentation";
+		const description =
+			"Accordions are great way to compact content blocs and display required ones by clicking on it.";
+
 		return ctx.html(
 			<AccordionsPage
 				{...{
+					description,
 					seo: {
 						title,
+						description,
 						robots: ["index", "follow"],
 						openGraph: {
 							title,
+							description,
 							type: "website",
-							imageUrl: defaultFavicon,
+							imageUrl: ctx.var.url.origin.concat(defaultFavicon),
 							url: ctx.var.url.href,
-							site_name: SITE.title,
+							site_name: SITE.title
 						}
 					},
 					...ctx.var

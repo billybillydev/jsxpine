@@ -21,11 +21,11 @@ export function Header() {
 				</div>
 				<div class="flex gap-2">
 					{/* <button onclick="toggleDarkMode()">theme</button> */}
-					{SITE.twitter && (
+					{SITE.twitter.name && (
 						<a
 							title="Twitter"
 							class="opacity-90 hover:opacity-100 hover:bg-blue-100 p-2 rounded-full transition-colors"
-							href={"https://twitter.com/" + SITE.twitter}
+							href={"https://twitter.com/" + SITE.twitter.name}
 						>
 							<img class="h-7" src="/public/icons/twitter.svg" alt="twitter logo" />
 						</a>

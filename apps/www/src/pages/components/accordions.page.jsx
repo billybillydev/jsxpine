@@ -4,16 +4,15 @@ import { MainLayout } from "$views/layouts.view";
 
 /**
  * Accordions page props
- * @param {import("$components/page.component").PageContext<{}>} props
+ * @param {import("$components/page.component").PageContext<{ description: string }>} props
  */
-export function AccordionsPage({ seo, isHTMX, ...restProps }) {
+export function AccordionsPage({ seo, isHTMX, description, ...restProps }) {
 	return (
 		<MainLayout seo={seo} isHTMX={isHTMX} {...restProps}>
 			<ComponentPresentation name="Accordions" source="accordion">
 				<ComponentSection heading="Overview">
 					<p>
-						Accordions are great way to compact content blocs and display
-						required ones by clicking on it.
+						{description}
 					</p>
 				</ComponentSection>
 

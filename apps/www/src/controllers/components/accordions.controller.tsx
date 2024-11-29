@@ -24,6 +24,7 @@ export const accordionsController = new Hono<{ Variables: AppVariables }>().get(
 							type: "website",
 							image: {
 								url: ctx.var.url.origin.concat(defaultFavicon),
+								secure_url: ctx.var.url.origin.concat(defaultFavicon),
 								width: 150,
 								height: 262
 							},

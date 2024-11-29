@@ -72,6 +72,7 @@ function SeoOpenGraph({ title, image, imageUrl, ...restProps }) {
 			{Object.entries(restProps).map(([key, value]) =>
 				value ? <meta property={`og:${key}`} content={String(value)} /> : null
 			)}
+			{imageUrl ? <meta property="og:image" content={imageUrl} /> : null}
 			{image && !imageUrl
 				? Object.entries(image).map(([key, value]) =>
 						!!value ? (
@@ -79,7 +80,6 @@ function SeoOpenGraph({ title, image, imageUrl, ...restProps }) {
 						) : null
 				  )
 				: null}
-			{imageUrl ? <meta property="og:image" content={imageUrl} /> : null}
 		</>
 	);
 }

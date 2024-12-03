@@ -1,10 +1,10 @@
 import { SITE } from "$config/seo";
+import { AppContext } from "$config/server";
 import { ZoomPage } from "$pages/components/zoom.page";
 import { defaultFavicon } from "$views/layouts.view";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const zoomController = new Hono<{ Variables: AppVariables }>().get(
+export const zoomController = new Hono<AppContext>().get(
 	(ctx) => {
 		const title = "Zoom Component Documentation";
 		

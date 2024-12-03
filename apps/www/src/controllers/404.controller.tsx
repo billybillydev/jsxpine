@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { NotFoundPage } from "$pages/404.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const notFoundController = new Hono<{ Variables: AppVariables }>().get(ctx => {
+export const notFoundController = new Hono<AppContext>().get(ctx => {
     if (ctx.var.isHTMX) {
         ctx.header("HX-Reswap", "outerHTML");
         ctx.header("HX-Retarget", "#main-content");

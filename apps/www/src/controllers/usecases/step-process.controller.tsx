@@ -1,11 +1,9 @@
+import { AppContext } from "$config/server";
 import { StepProcessUseCasePage } from "$pages/usecases/step-process.page";
 import { UseCasePresentationProps } from "$views/usecases.views";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const stepProcessUseCaseController = new Hono<{
-	Variables: AppVariables;
-}>().get((ctx) => {
+export const stepProcessUseCaseController = new Hono<AppContext>().get((ctx) => {
 	const title = "Select Items";
 	const content: Omit<UseCasePresentationProps, "children"> = {
 		heading: title,

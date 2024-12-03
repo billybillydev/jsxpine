@@ -8,7 +8,7 @@ import { stepProcessUseCaseController } from "$controllers/usecases/step-process
 import { Hono } from "hono";
 import { AppVariables } from "src";
 
-export const useCasesController = new Hono<{ Variables: AppVariables }>()
+export const useCasesController = new Hono<AppContext>()
 	.get((ctx) => ctx.redirect("/usecases/introduction"))
 	.route("/introduction", introductionUseCaseController)
 	.route("/ecommerce-cart", ecommerceCartUseCaseController)

@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { SidebarPage } from "$pages/components/sidebar.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const sidebarController = new Hono<{ Variables: AppVariables }>().get(
+export const sidebarController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<SidebarPage

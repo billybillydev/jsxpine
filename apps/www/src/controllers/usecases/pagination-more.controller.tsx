@@ -1,11 +1,9 @@
+import { AppContext } from "$config/server";
 import { PaginationMoreUseCasePage } from "$pages/usecases/pagination-more.page";
 import { UseCasePresentationProps } from "$views/usecases.views";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const paginationMoreUseCaseController = new Hono<{
-	Variables: AppVariables;
-}>().get((ctx) => {
+export const paginationMoreUseCaseController = new Hono<AppContext>().get((ctx) => {
 	const title = "Pagination: More";
 	const content: Omit<UseCasePresentationProps, "children"> = {
 		heading: title,

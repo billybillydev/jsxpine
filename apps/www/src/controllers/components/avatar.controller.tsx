@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { AvatarPage } from "$pages/components/avatar.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const avatarController = new Hono<{ Variables: AppVariables }>().get(
+export const avatarController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<AvatarPage

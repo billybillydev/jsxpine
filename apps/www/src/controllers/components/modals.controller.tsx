@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { ModalsPage } from "$pages/components/modals.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const modalsController = new Hono<{ Variables: AppVariables }>().get(
+export const modalsController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<ModalsPage

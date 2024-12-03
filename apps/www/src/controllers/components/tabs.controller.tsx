@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { TabsPage } from "$pages/components/tabs.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const tabsController = new Hono<{ Variables: AppVariables }>().get(
+export const tabsController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<TabsPage

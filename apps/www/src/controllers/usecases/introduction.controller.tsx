@@ -1,11 +1,9 @@
+import { AppContext } from "$config/server";
 import { IntroductionUseCasePage } from "$pages/usecases/introduction.page";
 import { UseCasePresentationProps } from "$views/usecases.views";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const introductionUseCaseController = new Hono<{
-	Variables: AppVariables;
-}>().get((ctx) => {
+export const introductionUseCaseController = new Hono<AppContext>().get((ctx) => {
 	const title = "Use cases with JSX Pine components";
 	const content: Omit<UseCasePresentationProps, "children"> = {
 		heading: title,

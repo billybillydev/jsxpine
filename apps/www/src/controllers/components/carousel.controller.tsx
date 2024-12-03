@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { CarouselPage } from "$pages/components/carousel.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const carouselController = new Hono<{ Variables: AppVariables }>().get(
+export const carouselController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<CarouselPage

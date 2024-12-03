@@ -28,7 +28,7 @@ import { zoomController } from "$controllers/components/zoom.controller";
 import { Hono } from "hono";
 import { AppVariables } from "src";
 
-export const componentsController = new Hono<{ Variables: AppVariables }>()
+export const componentsController = new Hono<AppContext>()
 	.get((ctx) => {
 		return ctx.redirect("/components/accordions");
 	})

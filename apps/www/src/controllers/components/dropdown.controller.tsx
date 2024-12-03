@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { DropdownPage } from "$pages/components/dropdown.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const dropdownController = new Hono<{ Variables: AppVariables }>().get(
+export const dropdownController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<DropdownPage

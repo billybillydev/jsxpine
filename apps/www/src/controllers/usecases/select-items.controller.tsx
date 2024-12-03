@@ -1,11 +1,9 @@
+import { AppContext } from "$config/server";
 import { SelectItemsUseCasePage } from "$pages/usecases/select-items.page";
 import { UseCasePresentationProps } from "$views/usecases.views";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const selectItemsUseCaseController = new Hono<{
-	Variables: AppVariables;
-}>().get((ctx) => {
+export const selectItemsUseCaseController = new Hono<AppContext>().get((ctx) => {
 	const title = "Select Items";
 	const content: Omit<UseCasePresentationProps, "children"> = {
 		heading: title,

@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { InputsPage } from "$pages/components/inputs.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const inputsController = new Hono<{ Variables: AppVariables }>().get(
+export const inputsController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<InputsPage

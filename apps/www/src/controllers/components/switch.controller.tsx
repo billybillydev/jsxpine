@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { SwitchPage } from "$pages/components/switch.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const switchController = new Hono<{ Variables: AppVariables }>().get(
+export const switchController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<SwitchPage

@@ -1,10 +1,8 @@
+import { AppContext } from "$config/server";
 import { PaginationsPage } from "$pages/components/paginations.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const paginationsController = new Hono<{
-	Variables: AppVariables;
-}>().get((ctx) => {
+export const paginationsController = new Hono<AppContext>().get((ctx) => {
 	return ctx.html(
 		<PaginationsPage
 			{...{

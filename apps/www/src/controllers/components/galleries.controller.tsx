@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { GalleriesPage } from "$pages/components/galleries.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const galleriesController = new Hono<{ Variables: AppVariables }>().get(
+export const galleriesController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<GalleriesPage

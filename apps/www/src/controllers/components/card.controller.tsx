@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { CardPage } from "$pages/components/card.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const cardController = new Hono<{ Variables: AppVariables }>().get(
+export const cardController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<CardPage

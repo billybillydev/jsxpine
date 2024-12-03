@@ -1,10 +1,10 @@
 import { SITE } from "$config/seo";
+import { AppContext } from "$config/server";
 import { AlertsPage } from "$pages/components/alerts.page";
 import { defaultFavicon } from "$views/layouts.view";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const alertsController = new Hono<{ Variables: AppVariables }>().get(
+export const alertsController = new Hono<AppContext>().get(
 	(ctx) => {
 		const title = "Alerts Components Documentation";
 		return ctx.html(

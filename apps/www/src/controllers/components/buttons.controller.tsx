@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { ButtonsPage } from "$pages/components/buttons.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const buttonsController = new Hono<{ Variables: AppVariables }>().get(
+export const buttonsController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<ButtonsPage

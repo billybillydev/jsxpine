@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { BadgesPage } from "$pages/components/badges.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const badgesController = new Hono<{ Variables: AppVariables }>().get(
+export const badgesController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<BadgesPage

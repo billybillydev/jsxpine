@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { TooltipsPage } from "$pages/components/tooltips.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const tooltipsController = new Hono<{ Variables: AppVariables }>().get(
+export const tooltipsController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<TooltipsPage

@@ -1,10 +1,10 @@
 import { SITE } from "$config/seo";
+import { AppContext } from "$config/server";
 import { AccordionsPage } from "$pages/components/accordions.page";
 import { defaultFavicon } from "$views/layouts.view";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const accordionsController = new Hono<{ Variables: AppVariables }>().get(
+export const accordionsController = new Hono<AppContext>().get(
 	(ctx) => {
 		const title = "Accordions Components Documentation";
 		const description =

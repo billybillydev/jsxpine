@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { SelectPage } from "$pages/components/select.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const selectController = new Hono<{ Variables: AppVariables }>().get(
+export const selectController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<SelectPage

@@ -15,3 +15,11 @@ export const serverConfig = {
 	baseURL: new URL(env.HOST_URL + ":" + env.PORT),
 	port: Number(env.PORT) || 3000,
 };
+
+export type AppVariables = {
+	isHTMX?: boolean;
+	currentPath: string;
+	url: URL;
+};
+
+export type AppContext = AppContext;

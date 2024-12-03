@@ -1,8 +1,8 @@
+import { AppContext } from "$config/server";
 import { TablePage } from "$pages/components/table.page";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
-export const tableController = new Hono<{ Variables: AppVariables }>().get(
+export const tableController = new Hono<AppContext>().get(
 	(ctx) => {
 		return ctx.html(
 			<TablePage

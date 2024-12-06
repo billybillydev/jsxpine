@@ -22,4 +22,4 @@ export type AppVariables = {
 	url: URL;
 };
 
-export type AppContext = AppContext;
+export type AppContext = { Variables: AppVariables };

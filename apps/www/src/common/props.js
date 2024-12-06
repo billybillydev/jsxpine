@@ -29,8 +29,9 @@
  */
 
 /**
- * @typedef HTMLTagWithChildren
- * @type {Html.PropsWithChildren<HTMLTag>}
+ * @template [T=object]
+ * @typedef HTMLTagWithChildren<T>
+ * @type {import("@kitajs/html").PropsWithChildren<T extends void ? HTMLTag : HTMLTag & T>}
  */
 
 /**

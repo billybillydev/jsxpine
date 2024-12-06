@@ -29,12 +29,10 @@
 			"$controllers/*": ["src/controllers/*"],
 			"$registry": ["src/registry"],
 			"$registry/*": ["src/registry/*"],
-			"$services": ["src/services"],
-			"$services/*": ["src/services/*"],
 			"$pages": ["src/pages"],
 			"$pages/*": ["src/pages/*"],
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
+			"$lib": ["src/scripts/lib"],
+			"$lib/*": ["src/scripts/lib/*"],
 			"$views": ["src/views"],
 			"$views/*": ["src/views/*"]
 		}

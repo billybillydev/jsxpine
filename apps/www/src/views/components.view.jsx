@@ -20,13 +20,6 @@ import clsx from "clsx";
  */
 
 /**
- * @typedef {object} ComponentSectionProps
- * @property {string} heading The heading name of the section
- * @property {string[]} [examples] Name of the component example file for preview
- * @property {import("@kitajs/html").Children} [children]
- */
-
-/**
  * @param {ComponentPresentationProps} props
  */
 export function ComponentPresentation({
@@ -42,7 +35,7 @@ export function ComponentPresentation({
 	return (
 		<div
 			class={clsx(
-				"relative leading-loose flex flex-col h-full gap-y-6 w-full py-4",
+				"relative leading-loose flex flex-col gap-y-6 w-full py-4",
 				className,
 				emClass,
 				h2Class
@@ -67,6 +60,13 @@ export function ComponentPresentation({
 		</div>
 	);
 }
+
+/**
+ * @typedef {object} ComponentSectionProps
+ * @property {string} heading The heading name of the section
+ * @property {string[]} [examples] Name of the component example file for preview
+ * @property {import("@kitajs/html").Children} [children]
+ */
 
 /**
  * @param {ComponentSectionProps & Record<string, unknown>} props

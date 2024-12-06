@@ -31,7 +31,18 @@ export const SIDEBAR = [
 		menu: new Map([
 			[
 				"core/introduction",
-				{ text: "Introduction", link: "/core/introduction" }
+				{
+					text: "Introduction",
+					link: "/core/introduction",
+					chapters: [
+						{ text: "JSX", slug: "jsx" },
+						{ text: "Alpine JS", slug: "alpine-js" },
+						{ text: "HTMX", slug: "htmx" },
+						{ text: "Pines UI", slug: "pines-ui" },
+						{ text: "Shadcn UI", slug: "shadcn-ui" },
+						{ text: "Tailwind CSS", slug: "tailwind-css" },
+					]
+				}
 			],
 			[
 				"core/installation",
@@ -41,7 +52,7 @@ export const SIDEBAR = [
 			["core/typography", { text: "Typography", link: "/core/typography" }],
 			["core/shadows", { text: "Shadows", link: "/core/shadows" }],
 			["core/icons", { text: "Icons", link: "/core/icons" }],
-			["core/jah", { text: "JAH Templating", link: "/core/jah" }],
+			["core/jah", { text: "JAH Templating", link: "/core/jah" }]
 		])
 	},
 	{
@@ -55,7 +66,7 @@ export const SIDEBAR = [
 					chapters: [
 						{ text: "Overview", slug: "overview" },
 						{ text: "Solo Accordion", slug: "solo-accordion" },
-						{ text: "Group Accordion", slug: "group-accordion" }
+						{ text: "Group Accordion", slug: "group-accordion" },
 					]
 				}
 			],
@@ -597,7 +608,7 @@ export const SIDEBAR = [
 			[
 				"usecases/step-process",
 				{ text: "Step Process", link: "/usecases/step-process" }
-			],
+			]
 		])
 	}
 ];

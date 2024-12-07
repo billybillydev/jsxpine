@@ -4,6 +4,7 @@ import collapse from "@alpinejs/collapse";
 import manage from 'alpinejs-manage';
 
 import { carouselData } from "./data/carousel.data";
+import { codeToCopyData } from "./data/code-to-copy.data";
 import { dropdownSelectData } from "./data/dropdown-select.data";
 import { dropdownData } from "./data/dropdown.data";
 import { groupAccordionData } from "./data/group-accordion.data";
@@ -30,6 +31,7 @@ import { nowMagic } from "./magic/now.magic";
 
 /* Data */
 Alpine.data("carousel", carouselData);
+Alpine.data("codeToCopy", codeToCopyData);
 Alpine.data("dropdown", dropdownData);
 Alpine.data("dropdownSelect", dropdownSelectData);
 Alpine.data("groupAccordion", groupAccordionData);

@@ -2,12 +2,12 @@ import { kebabCase } from "change-case";
 import clsx from "clsx";
 
 /**
- * @param {import("$common/props").HTMLTagWithChildren<{ name: string; description: string }>} props
+ * @param {import("$common/props").HTMLTagWithChildren<{ heading: string; description: string }>} props
  */
 export function CorePresentation({
 	description,
 	class: className,
-	name,
+	heading,
 	children
 }) {
 	const emClass =
@@ -24,9 +24,9 @@ export function CorePresentation({
 			)}
 		>
 			<h1 class={"text-center border rounded shadow-sm"} safe>
-				{name}
+				{heading}
 			</h1>
-			<p>{description}</p>
+			<p safe>{description}</p>
 			{children}
 		</div>
 	);

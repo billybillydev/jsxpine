@@ -40,13 +40,25 @@ export const SIDEBAR = [
 						{ text: "HTMX", slug: "htmx" },
 						{ text: "Pines UI", slug: "pines-ui" },
 						{ text: "Shadcn UI", slug: "shadcn-ui" },
-						{ text: "Tailwind CSS", slug: "tailwind-css" },
+						{ text: "Tailwind CSS", slug: "tailwind-css" }
 					]
 				}
 			],
 			[
-				"core/installation",
-				{ text: "Installation", link: "/core/installation" }
+				"core/installation-and-usage",
+				{
+					text: "Installation & Usage",
+					link: "/core/installation-and-usage",
+					chapters: [
+						{ text: "Manual installation", slug: "manual-installation" },
+						{ text: "Configuration", slug: "configuration" },
+						{ text: "Dependencies", slug: "dependencies" },
+						{ text: "CLI", slug: "cli" },
+						{ text: "Init command", slug: "init-command" },
+						{ text: "Add command", slug: "add-command" },
+						{ text: "Where to use it ?", slug: "where-to-use-it" }
+					]
+				}
 			],
 			["core/colors", { text: "Colors", link: "/core/colors" }],
 			["core/typography", { text: "Typography", link: "/core/typography" }],
@@ -66,7 +78,7 @@ export const SIDEBAR = [
 					chapters: [
 						{ text: "Overview", slug: "overview" },
 						{ text: "Solo Accordion", slug: "solo-accordion" },
-						{ text: "Group Accordion", slug: "group-accordion" },
+						{ text: "Group Accordion", slug: "group-accordion" }
 					]
 				}
 			],

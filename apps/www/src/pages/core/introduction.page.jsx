@@ -1,7 +1,8 @@
-import { Alert } from "$components/alert.component";
 import { CodeViewer } from "$components/code-viewer.component";
 import { CorePresentation, CoreSection } from "$views/core.view";
+import { ImportantNote } from "$views/important-note.view";
 import { MainLayout } from "$views/layouts.view";
+import { ListWithDot, ListWithDecimal } from "$views/lists.view";
 
 /**
  * Core Introduction page props
@@ -10,7 +11,7 @@ import { MainLayout } from "$views/layouts.view";
 export function CoreIntroductionPage({ description, heading, ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
-			<CorePresentation name={heading} description={description}>
+			<CorePresentation heading={heading} description={description}>
 				<p>Let take some times to explain what drive us to develop JSXPine.</p>
 
 				<JSXSection />
@@ -416,30 +417,5 @@ function KeyFeatures({ list = "disc", children }) {
 			<h3>Key Features:</h3>
 			<List>{children}</List>
 		</>
-	);
-}
-
-/**
- * @param {import("@kitajs/html").PropsWithChildren} props
- */
-function ListWithDot({ children }) {
-	return <ul class={"list-disc ml-6"}>{children}</ul>;
-}
-
-/**
- * @param {import("@kitajs/html").PropsWithChildren} props
- */
-function ListWithDecimal({ children }) {
-	return <ol class={"list-decimal ml-6"}>{children}</ol>;
-}
-
-/**
- * @param {import("@kitajs/html").PropsWithChildren} props
- */
-function ImportantNote({ children }) {
-	return (
-		<Alert title="Notes" icon="information-line">
-			{children}
-		</Alert>
 	);
 }

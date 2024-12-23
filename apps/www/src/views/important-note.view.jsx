@@ -1,11 +1,11 @@
 import { Alert } from "$components/alert.component";
 
 /**
- * @param {import("@kitajs/html").PropsWithChildren} props
+ * @param {import("$common/props").HTMLTagWithChildren} props
  */
-export function ImportantNote({ children }) {
+export function ImportantNote({ children, class: className }) {
 	return (
-		<Alert title="Notes" icon="information-line">
+		<Alert title="Notes" icon="information-line" class={className}>
 			{children}
 		</Alert>
 	);

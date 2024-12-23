@@ -23,6 +23,8 @@ export function CoreInstallationAndUsagePage({
 				<DependenciesSection />
 
 				<CLISection />
+
+				<InitCommandSection />
 			</CorePresentation>
 		</MainLayout>
 	);
@@ -244,25 +246,208 @@ function CLISection() {
 				modules and adding component(s).
 			</p>
 			<p>With your chosen npm package manager, do:</p>
-			<CodeToCopy>npm install jsxpine</CodeToCopy>
+			<CodeToCopy lang="bash">npm install jsxpine</CodeToCopy>
 			<p>or</p>
-			<CodeToCopy>yarn add jsxpine</CodeToCopy>
+			<CodeToCopy lang="bash">yarn add jsxpine</CodeToCopy>
 			<p>or</p>
-			<CodeToCopy>pnpm add jsxpine</CodeToCopy>
+			<CodeToCopy lang="bash">pnpm add jsxpine</CodeToCopy>
 			<p>or</p>
-			<CodeToCopy>bun add jsxpine</CodeToCopy>
+			<CodeToCopy lang="bash">bun add jsxpine</CodeToCopy>
 			<p>In case you don't want to install it locally, you can do:</p>
-			<CodeToCopy>npx jsxpine init</CodeToCopy>
+			<CodeToCopy lang="bash">npx jsxpine init</CodeToCopy>
 			<p>or</p>
-			<CodeToCopy>bunx jsxpine init</CodeToCopy>
-			<ImportantNote>
+			<CodeToCopy lang="bash">bunx jsxpine init</CodeToCopy>
+			<ImportantNote class={"mt-4"}>
 				<p>
 					With these two commands above, you directly initiate jsxpine usage in
 					your project.
 				</p>
 				<p>
-					JSXPine provides two commands that we'll elaborate in the next section: <strong>init</strong> and <strong>add</strong>.
+					JSXPine provides two commands that we'll elaborate in the next
+					section: <strong>init</strong> and <strong>add</strong>.
 				</p>
+			</ImportantNote>
+		</CoreSection>
+	);
+}
+
+function InitCommandSection() {
+	return (
+		<CoreSection heading="Init Command">
+			<p>
+				The <em>init</em> command aims to prepare all required modules (mostly
+				files) for you to use jsxpine components.
+			</p>
+			<p>There are three optional arguments you can pass to this command:</p>
+			<ListWithDot>
+				<li>
+					<p>
+						<strong>-c</strong> or <strong>--cwd &lt; cwd &gt;</strong>: This
+						argument is the project's <strong>absolute</strong> path where
+						everything will be installed. When empty, the current directory
+						where the command is running is considered ;
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>-y</strong> or <strong>--yes</strong>: Will skip
+						confirmation prompt ;
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>-h</strong> or <strong>--help</strong>: This command will
+						print you in your terminal all commands.
+					</p>
+				</li>
+			</ListWithDot>
+			<p>
+				When running this command (without --yes argument), several steps will
+				be prompt to you:
+			</p>
+			<ListWithDecimal>
+				<li>
+					<p>
+						<strong>Global CSS file</strong>: It's basically the main css file
+						where all tailwind main function and also your global classes are
+						defined.{" "}
+						<span class="italic">
+							Please note that it will replace everything in this file by the
+							boilerplate coming from jsxpine
+						</span>
+						.
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Tailwind config file</strong>: The init command will look up
+						to the tailwind config file. If this file is not found, it exits
+						from the the initialization process. Otherwise, it overwrites
+						everything contain in this file.
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Components' path</strong>: Because JSXPine is about
+						"components", you'll have to define where to store them. This step
+						lets you write the relative path of the directory which will contain
+						all components added.
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Scripts' path</strong>: As said before, JSXPine uses
+						alpinejs. A scripts directory is created to hold all alpinejs
+						features, but also everything related to js/ts which can be used by
+						either your alpinejs functions, either by your jsx components.
+					</p>
+					<p>
+						By doing this, the goal is to have a single file app.js/ts which
+						will be used as source for your script tag.
+					</p>
+					<p>
+						JSXPine promote the old web way,{" "}
+						<span class="italic">
+							We hope you understand what we mean by that ;)
+						</span>
+					</p>
+				</li>
+			</ListWithDecimal>
+			<ImportantNote>
+				When your project is successfully initialized, this will what you get:
+				<ListWithDot class={"space-y-3"}>
+					<li>
+						<p>
+							The <em>component.json</em> file: As mentioned in the{" "}
+							<a href="#configuration" class={"link link-primary"}>
+								configuration section
+							</a>
+							, this file is the root of jsxpine ;
+						</p>
+					</li>
+					<li>
+						<p>
+							The global css file and tailwind config file updated. In fact,
+							these two files should be overwritten by jsxpine boilerplate. Feel
+							free to customise it at your needs ;
+						</p>
+					</li>
+					<li>
+						<p>
+							The directory for components. A new directory created at the{" "}
+							<span class={"italic font-bold"}>Component's path</span> with 3
+							subdirectories:
+						</p>
+						<ListWithDot class={"space-y-2"}>
+							<li>
+								<p>
+									The <em>common</em> directory: This one contains :
+								</p>
+								<ListWithDecimal>
+									<li>
+										<p>
+											<span class={"underline underline-offset-2"}>
+												classes.js
+											</span>
+											: A set of differents tailwind classes most often bound to
+											a key.
+										</p>
+									</li>
+									<li>
+										<p>
+											<span class={"underline underline-offset-2"}>
+												props.js
+											</span>
+											: Very important file containing all common props as jsdoc
+											type definitions used by components and alpinejs.
+										</p>
+									</li>
+									<li>
+										<p>
+											<span class={"underline underline-offset-2"}>
+												tailwind-config.js
+											</span>
+											: This one just exports the theme from your tailwind
+											config.
+										</p>
+									</li>
+									<li>
+										<p>
+											<span class={"underline underline-offset-2"}>
+												types.js
+											</span>
+											: This file includes type literal as jsdoc type
+											definitions.
+										</p>
+									</li>
+								</ListWithDecimal>
+							</li>
+							<li>
+								<p>
+									The <em>components</em> directory: All components are saved
+									here (when using the <strong>add</strong> command).
+								</p>
+							</li>
+							<li>
+								<p>
+									The <em>scripts</em> directory: Here lies an alpinejs
+									directory which contains 3 subdirectories related to 3 usual
+									alpinejs's concepts : <span class="italic">data</span>,{" "}
+									<span class="italic">directives</span> and{" "}
+									<span class="italic">magic</span>. Data functions are closely
+									related to components. With init command, this directory is
+									empty and will be filled when components will be added. For
+									directives and magic, it generally common functions.
+								</p>
+							</li>
+							<li>
+								At the end, a message invites you to set your path variables in
+								tsconfig file according to directory containing these 3 three
+								directories.
+							</li>
+						</ListWithDot>
+					</li>
+				</ListWithDot>
 			</ImportantNote>
 		</CoreSection>
 	);

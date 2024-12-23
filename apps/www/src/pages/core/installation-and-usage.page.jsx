@@ -21,6 +21,8 @@ export function CoreInstallationAndUsagePage({
 				<ConfigurationSection />
 
 				<DependenciesSection />
+
+				<CLISection />
 			</CorePresentation>
 		</MainLayout>
 	);
@@ -230,6 +232,38 @@ function DependenciesSection() {
 					</p>
 				</li>
 			</ListWithDot>
+		</CoreSection>
+	);
+}
+
+function CLISection() {
+	return (
+		<CoreSection heading="CLI">
+			<p>
+				Like Shadcn, JSXPine has a CLI which will help you installing required
+				modules and adding component(s).
+			</p>
+			<p>With your chosen npm package manager, do:</p>
+			<CodeToCopy>npm install jsxpine</CodeToCopy>
+			<p>or</p>
+			<CodeToCopy>yarn add jsxpine</CodeToCopy>
+			<p>or</p>
+			<CodeToCopy>pnpm add jsxpine</CodeToCopy>
+			<p>or</p>
+			<CodeToCopy>bun add jsxpine</CodeToCopy>
+			<p>In case you don't want to install it locally, you can do:</p>
+			<CodeToCopy>npx jsxpine init</CodeToCopy>
+			<p>or</p>
+			<CodeToCopy>bunx jsxpine init</CodeToCopy>
+			<ImportantNote>
+				<p>
+					With these two commands above, you directly initiate jsxpine usage in
+					your project.
+				</p>
+				<p>
+					JSXPine provides two commands that we'll elaborate in the next section: <strong>init</strong> and <strong>add</strong>.
+				</p>
+			</ImportantNote>
 		</CoreSection>
 	);
 }

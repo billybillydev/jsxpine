@@ -6,10 +6,10 @@
  */
 
 /**
- * @param {number} [duration=2000]
+ * @param {number} [duration]
  * @returns {import("alpinejs").AlpineComponent<CodeToCopyDataProps>}
  */
-export function codeToCopyData(duration) {
+export function codeToCopyData(duration = 2000) {
 	return {
 		copied: false,
 		clickToCopy() {

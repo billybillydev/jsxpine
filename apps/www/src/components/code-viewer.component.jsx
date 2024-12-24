@@ -1,16 +1,21 @@
 import { getHighlighter } from "shikiji";
 
 /**
+ * @typedef {"javascript" | "typescript" | "bash"} CodeLanguage
+ */
+
+/**
  * @typedef {Object} CodeViewerProps
  * @property {string} text
+ * @property {CodeLanguage} lang
  */
 
 /**
  * CodeEditor component props
- * @type {import("../common/props").JSXComponent<CodeViewerProps>}
+ * @param {CodeViewerProps} props
  */
-export async function CodeViewer({ text }) {
-    const langs = ["javascript"];
+export async function CodeViewer({ lang = "javascript", text }) {
+    const langs = [lang];
 	const themes = ["vitesse-dark", "nord"];
 
 	const highlighter = await getHighlighter({
@@ -18,7 +23,7 @@ export async function CodeViewer({ text }) {
 		langs,
 	});
 
-	const htmlContent = await highlighter.codeToHtml(
+	const htmlContent = highlighter.codeToHtml(
 		text,
 		{
 			lang: langs[0],

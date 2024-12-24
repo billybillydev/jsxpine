@@ -3,9 +3,9 @@ import { CodeViewer } from "$components/code-viewer.component";
 import clsx from "clsx";
 
 /**
- * @param {import("$common/props").HTMLTagWithChildren} props
+ * @param {import("$common/props").HTMLTagWithChildren<{ lang: import("$components/code-viewer.component").CodeLanguage }>} props
  */
-export function CodeToCopy({ children, class: className }) {
+export function CodeToCopy({ children, class: className, lang }) {
 	return (
 		<section
 			x-data="codeToCopy"
@@ -15,7 +15,7 @@ export function CodeToCopy({ children, class: className }) {
 			)}
 		>
 			<div x-ref="codeToCopyContent">
-				<CodeViewer text={children?.toString() ?? ""} />
+				<CodeViewer lang={lang} text={children?.toString() ?? ""} />
 			</div>
 			<div class={"shrink-0"}>
 				<SecondaryButton

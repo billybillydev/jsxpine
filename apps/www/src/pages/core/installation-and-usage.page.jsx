@@ -1,4 +1,5 @@
 import { CodeToCopy } from "$components/code-to-copy.component";
+import { CodeViewer } from "$components/code-viewer.component";
 import { CorePresentation, CoreSection } from "$views/core.view";
 import { ImportantNote } from "$views/important-note.view";
 import { MainLayout } from "$views/layouts.view";
@@ -25,6 +26,8 @@ export function CoreInstallationAndUsagePage({
 				<CLISection />
 
 				<InitCommandSection />
+
+				<AddCommandSection /> 
 			</CorePresentation>
 		</MainLayout>
 	);
@@ -448,6 +451,38 @@ function InitCommandSection() {
 						</ListWithDot>
 					</li>
 				</ListWithDot>
+			</ImportantNote>
+		</CoreSection>
+	);
+}
+
+function AddCommandSection() {
+	return (
+		<CoreSection heading="Add Command">
+			<p>
+				JSXPine provides a command called <em>add</em> that allows you to add a
+				component to your project.
+			</p>
+			<p>
+				Here is how to use it: <em>jsxpine add component-name</em>.
+			</p>
+			<p>
+				The argument <span class={"italic"}>component-name</span> is optional.
+				By doing this, you have to choose your component(s) among the chekbox
+				list displaying in the terminal.
+			</p>
+			<p>
+				When <span class={"italic"}>component-name</span> is passed, it must
+				match with the existing component name provide by JSXPine. Check the{" "}
+				<a href="/components" class="link link-primary">
+					components' page
+				</a>{" "}
+				or run <em>jsxpine add</em> to see the exhaustive list.
+			</p>
+			<ImportantNote>
+				<p>Some components required its alpine dependency. Don't worry, everything will be done automatically when adding one of these components.</p>
+				<p>This why <strong class={"italic"}>we recommend to add components with the <a href="#cli" class={"link link-primary"}>cli</a></strong>.</p>
+				<p>Finally, some components require other components. This is also automatically handled when adding one of these components !</p>
 			</ImportantNote>
 		</CoreSection>
 	);

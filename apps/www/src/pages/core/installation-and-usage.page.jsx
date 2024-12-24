@@ -27,7 +27,9 @@ export function CoreInstallationAndUsagePage({
 
 				<InitCommandSection />
 
-				<AddCommandSection /> 
+				<AddCommandSection />
+
+				<WhereToUseItSection />
 			</CorePresentation>
 		</MainLayout>
 	);
@@ -480,10 +482,93 @@ function AddCommandSection() {
 				or run <em>jsxpine add</em> to see the exhaustive list.
 			</p>
 			<ImportantNote>
-				<p>Some components required its alpine dependency. Don't worry, everything will be done automatically when adding one of these components.</p>
-				<p>This why <strong class={"italic"}>we recommend to add components with the <a href="#cli" class={"link link-primary"}>cli</a></strong>.</p>
-				<p>Finally, some components require other components. This is also automatically handled when adding one of these components !</p>
+				<p>
+					Some components required its alpine dependency. Don't worry,
+					everything will be done automatically when adding one of these
+					components.
+				</p>
+				<p>
+					This why{" "}
+					<strong class={"italic"}>
+						we recommend to add components with the{" "}
+						<a href="#cli" class={"link link-primary"}>
+							cli
+						</a>
+					</strong>
+					.
+				</p>
+				<p>
+					Finally, some components require other components. This is also
+					automatically handled when adding one of these components !
+				</p>
 			</ImportantNote>
+		</CoreSection>
+	);
+}
+
+function WhereToUseItSection() {
+	const exampleOfUsage = `
+const ExampleView = () => {
+	return (
+		<div>
+			<h1>Example</h1>
+			<p>This is an example</p>
+		</div>
+	)
+}
+
+const router = new Hono().get("/example", (ctx) => {
+	// This will render the ExampleView component when accessing "/example" endpoint
+	return ctx.html(<ExampleView />);
+})
+`;
+	return (
+		<CoreSection heading="Where to Use It">
+			<p>
+				JSXPine can be used in any js project that requires a UI library. This
+				includes Node.js, Deno and Bun.
+			</p>
+			<p>
+				Because it's a reusable components library, it can be used in any
+				framework that supports JSX. We will not too much detail things here,
+				but these are some of them:
+			</p>
+			<ListWithDot>
+				<li>
+					<p>
+						<strong>Hono</strong>
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Elysia</strong>
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Express</strong>
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Fastify</strong>
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Nest</strong>
+					</p>
+				</li>
+			</ListWithDot>
+			<p>
+				Actually, none of these is required to use JSXPine. You simply need{" "}
+				<em>@kitajs/html</em> and a function that renders html.
+			</p>
+			<p>
+				For instance, in Hono, you can use <em>ctx.html()</em> function like
+				this:
+			</p>
+			<CodeViewer lang="javascript" text={exampleOfUsage.trim()} />
 		</CoreSection>
 	);
 }

@@ -2,7 +2,7 @@ import { kebabCase } from "change-case";
 import clsx from "clsx";
 
 /**
- * @param {import("$common/props").HTMLTagWithChildren<{ heading: string; description: string }>} props
+ * @param {import("$common/props").HTMLTagWithChildren<{ heading: string; description?: string }>} props
  */
 export function CorePresentation({
 	description,
@@ -26,7 +26,7 @@ export function CorePresentation({
 			<h1 class={"text-center border rounded shadow-sm"} safe>
 				{heading}
 			</h1>
-			<p safe>{description}</p>
+			{description ? <p safe>{description}</p> : null}
 			{children}
 		</div>
 	);

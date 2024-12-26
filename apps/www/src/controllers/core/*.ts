@@ -2,6 +2,7 @@ import { AppContext } from "$config/server";
 import { coreColorsController } from "$controllers/core/colors.controller";
 import { coreInstallationAndUsageController } from "$controllers/core/installation-and-usage.controller";
 import { coreIntroductionController } from "$controllers/core/introduction.controller";
+import { coreTypographyController } from "$controllers/core/typography.controller";
 import { Hono } from "hono";
 
 export const coreController = new Hono<AppContext>()
@@ -10,4 +11,5 @@ export const coreController = new Hono<AppContext>()
 	})
 	.route("/introduction", coreIntroductionController)
 	.route("/installation-and-usage", coreInstallationAndUsageController)
-	.route("/colors", coreColorsController);
+	.route("/colors", coreColorsController)
+	.route("/typography", coreTypographyController);

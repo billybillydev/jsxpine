@@ -1,3 +1,4 @@
+import { SoloAccordion, SoloAccordionContent, SoloAccordionTrigger } from "$components/accordion.component";
 import { SIDEBAR } from "src/config/navigation";
 
 export const tableOfContentsId = "table-of-contents";
@@ -54,30 +55,8 @@ export function TableOfContents({ currentPage }) {
 	);
 }
 
-/**
- * @param {{ currentPage: string }} props
- */
-export function LeftSidebar({ currentPage }) {
-	// Active link feature without alpinejs
-	// const currentPageMatch = currentPage.slice(1);
-
-	// const isCurrentPage = (/** @type {string | string[]} */ link) => {
-	// 	if (link) {
-	// 		return link.includes(currentPageMatch);
-	// 	}
-	// 	return false;
-	// };
-
-	// const getLinkClasses = (/** @type {string | string[]} */ link) => {
-	// 	const baseClasses =
-	// 		"block py-2 px-6 transition-colors border-l-2 hover:border-slate-400 text-slate-500 hover:text-slate-900";
-
-	// 	if (isCurrentPage(link)) {
-	// 		return baseClasses + " border-slate-500 text-slate-900";
-	// 	} else {
-	// 		return baseClasses;
-	// 	}
-	// };
+export function LeftSidebar() {
+	
 	return (
 		<nav
 			aria-labelledby="grid-left"
@@ -85,11 +64,21 @@ export function LeftSidebar({ currentPage }) {
 			id={leftSidebarId}
 		>
 			{SIDEBAR.map((item) => (
-				<section>
-					<h2 class="font-semibold text-slate-700" x-capitalize safe>
+				<SoloAccordion as="section">
+					<SoloAccordionTrigger
+						as="h2"
+						class="font-semibold text-slate-700"
+						x-capitalize
+						safe
+					>
 						{item.header}
-					</h2>
-					<ul class="gap-y-1" hx-boost="true">
+					</SoloAccordionTrigger>
+					<SoloAccordionContent
+						as="ul"
+						class="gap-y-1"
+						x-init="open()"
+						hx-boost="true"
+					>
 						{[...item.menu].map(([_, menu]) => {
 							return (
 								<li
@@ -119,8 +108,8 @@ export function LeftSidebar({ currentPage }) {
 								</li>
 							);
 						})}
-					</ul>
-				</section>
+					</SoloAccordionContent>
+				</SoloAccordion>
 			))}
 		</nav>
 	);

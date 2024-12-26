@@ -1,6 +1,9 @@
 import { tailwindThemeConfig } from "$common/tailwind-config";
 
-export const COLORS = tailwindThemeConfig.colors;
+export const COLORS =
+	/** @type {import("tailwindcss/types/generated/colors").DefaultColors & Record<import("$common/types").ThemeColorType, import("tailwindcss/types/config").RecursiveKeyValuePair<string, string>>} */ (
+		tailwindThemeConfig.colors
+	);
 
 export const TYPOGRAPHY = {
   fontFamily: "Inter, system",

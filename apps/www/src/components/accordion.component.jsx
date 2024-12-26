@@ -1,8 +1,13 @@
+import { Tag } from "$components/tag.component";
 import clsx from "clsx";
 
 /**
+ * @typedef {Extract<import("$common/types").HTMLTagNameType, "body" | "div" | "section" | "article" | "nav" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "button" | "p" | "span" | "header" | "footer" | "ul" | "ol" | "li" | "strong" | "em">} AccordionTagType
+ */
+
+/**
  * @typedef AccordionProps
- * @type {import("../common/props").HTMLTagWithChildren}
+ * @type {import("../common/props").HTMLTagWithChildren & { as?: AccordionTagType }}
  */
 
 /**
@@ -12,17 +17,20 @@ import clsx from "clsx";
 export function GroupAccordionContent({
 	children,
 	class: className = "",
+	as = "div",
 	...restProps
 }) {
+
 	return (
-		<div
+		<Tag
+			as={as}
 			x-show="isActive(id)"
 			x-collapse
 			class={clsx(className)}
 			{...restProps}
 		>
 			{children}
-		</div>
+		</Tag>
 	);
 }
 
@@ -33,16 +41,22 @@ export function GroupAccordionContent({
 export function GroupAccordionTrigger({
 	children,
 	class: className,
+	as = "div",
 	...restProps
 }) {
+
 	return (
-		<div
+		<Tag
+			as={as}
 			x-on:click="setActiveAccordion(id)"
-			class={clsx("flex w-full items-center justify-center cursor-pointer", className)}
+			class={clsx(
+				"cursor-pointer",
+				className
+			)}
 			{...restProps}
 		>
 			{children}
-		</div>
+		</Tag>
 	);
 }
 
@@ -53,16 +67,19 @@ export function GroupAccordionTrigger({
 export function GroupAccordionItem({
 	children,
 	class: className,
+	as = "div",
 	...restProps
 }) {
+
 	return (
-		<div
+		<Tag
+			as={as}
 			x-data="{ id: $id('accordion-item') }"
 			class={clsx("flex flex-col", className)}
 			{...restProps}
 		>
 			{children}
-		</div>
+		</Tag>
 	);
 }
 
@@ -73,16 +90,18 @@ export function GroupAccordionItem({
 export function GroupAccordionList({
 	children,
 	class: className,
+	as = "div",
 	...restProps
 }) {
 	return (
-		<div
+		<Tag
+			as={as}
 			x-data="groupAccordion"
 			class={clsx("flex flex-col w-full", className)}
 			{...restProps}
 		>
 			{children}
-		</div>
+		</Tag>
 	);
 }
 
@@ -91,18 +110,16 @@ export function GroupAccordionList({
  * @param {AccordionProps} props
  */
 export function SoloAccordionTrigger(props) {
-	const { class: className, children, ...restProps } = props;
+	const { class: className, children, as = "div", ...restProps } = props;
 	return (
-		<div
+		<Tag
+			as={as}
 			x-bind="trigger"
-			class={clsx(
-				"flex items-center justify-center cursor-pointer",
-				className
-			)}
+			class={clsx(className, "cursor-pointer")}
 			{...restProps}
 		>
 			{children}
-		</div>
+		</Tag>
 	);
 }
 
@@ -113,35 +130,19 @@ export function SoloAccordionTrigger(props) {
 export function SoloAccordionContent({
 	children,
 	class: className,
+	as = "div",
 	...restProps
 }) {
 	return (
-		<div x-bind="display" x-collapse class={className} {...restProps}>
-			{children}
-		</div>
-	);
-}
-
-/**
- * Solo Accordion Trigger props
- * @param {AccordionProps} props
- */
-export function SoloAccordionItem({
-	children,
-	class: className,
-	...restProps
-}) {
-	return (
-		<div
-			x-bind="trigger"
-			class={clsx(
-				"flex items-center justify-center cursor-pointer",
-				className
-			)}
+		<Tag
+			as={as}
+			x-bind="display"
+			x-collapse
+			class={className}
 			{...restProps}
 		>
 			{children}
-		</div>
+		</Tag>
 	);
 }
 
@@ -152,15 +153,17 @@ export function SoloAccordionItem({
 export function SoloAccordion({
 	children,
 	class: className,
+	as = "div",
 	...restProps
 }) {
 	return (
-		<div
+		<Tag
+			as={as}
 			x-data="soloAccordion"
-			class={clsx("flex flex-col w-full", className)}
+			class={clsx("w-full", className)}
 			{...restProps}
 		>
 			{children}
-		</div>
+		</Tag>
 	);
 }

@@ -56,7 +56,7 @@ export function MainLayout(props) {
 					id={asideLeftId}
 				>
 					<div class="overflow-y-auto w-full">
-						{ currentPath ? <LeftSidebar currentPage={currentPath} /> : null }
+						{ currentPath ? <LeftSidebar /> : null }
 					</div>
 				</aside>
 				<main

@@ -41,6 +41,11 @@ const iconsKeys = [...Object.keys(icons.icons)];
  * @typedef {"solid" | "outlined" | "inversed"} VariantColorType
  */
 
+/**
+ *  HTML Tag Name Type enum
+ * @typedef {keyof HTMLElementTagNameMap} HTMLTagNameType
+ */
+
 export const specificSizes = [...Object.keys(tailwindThemeConfig.width)];
 /**
  * @typedef {typeof specificSizes[number]} SpecificSizeType

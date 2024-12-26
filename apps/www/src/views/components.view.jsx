@@ -130,7 +130,7 @@ export async function ComponentPreview(props) {
 							text="Copy"
 						/>
 					</Tooltip>
-					<CodeViewer text={text} />
+					<CodeViewer text={text} lang="javascript" />
 				</TabBodyItem>
 			</TabsBody>
 		</Tabs>

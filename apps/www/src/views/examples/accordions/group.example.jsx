@@ -9,13 +9,13 @@ export function GroupAccordionExample() {
 	return (
 		<GroupAccordionList class="gap-y-4">
 			<GroupAccordionItem class="bg-white border rounded">
-				<GroupAccordionTrigger
-					class="p-4"
+				<GroupAccordionTrigger as="h2"
+					class="p-4 w-full text-center "
 					x-bind:class="{ 'border-b': isActive(id) }"
 				>
-					<h2>Click here and close all others.</h2>
+					Click here and close all others.
 				</GroupAccordionTrigger>
-				<GroupAccordionContent class="p-4">
+				<GroupAccordionContent as="p" class="p-4">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus
 					finibus magna et dictum. Aenean volutpat et nisi id interdum. Integer
 					nec lectus gravida, aliquet odio a, elementum turpis. Sed efficitur
@@ -24,10 +24,10 @@ export function GroupAccordionExample() {
 				</GroupAccordionContent>
 			</GroupAccordionItem>
 			<GroupAccordionItem class="bg-black text-white border rounded">
-				<GroupAccordionTrigger class="p-4">
-					<h2>Click here and close all others.</h2>
+				<GroupAccordionTrigger as="h2" class="p-4 w-full text-center">
+					Click here and close all others.
 				</GroupAccordionTrigger>
-				<GroupAccordionContent class="p-4">
+				<GroupAccordionContent as="p" class="p-4">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus
 					finibus magna et dictum. Aenean volutpat et nisi id interdum. Integer
 					nec lectus gravida, aliquet odio a, elementum turpis. Sed efficitur
@@ -36,10 +36,10 @@ export function GroupAccordionExample() {
 				</GroupAccordionContent>
 			</GroupAccordionItem>
 			<GroupAccordionItem class="bg-slate-300 border rounded">
-				<GroupAccordionTrigger class="p-4">
-					<h2>Click here and close all others.</h2>
+				<GroupAccordionTrigger as="h2" class="p-4 w-full text-center">
+					Click here and close all others.
 				</GroupAccordionTrigger>
-				<GroupAccordionContent class="p-4">
+				<GroupAccordionContent as="p" class="p-4">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus
 					finibus magna et dictum. Aenean volutpat et nisi id interdum. Integer
 					nec lectus gravida, aliquet odio a, elementum turpis. Sed efficitur

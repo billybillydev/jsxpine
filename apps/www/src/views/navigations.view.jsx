@@ -1,4 +1,9 @@
-import { SoloAccordion, SoloAccordionContent, SoloAccordionTrigger } from "$components/accordion.component";
+import {
+	SoloAccordion,
+	SoloAccordionContent,
+	SoloAccordionTrigger
+} from "$components/accordion.component";
+import { capitalCase } from "change-case";
 import { SIDEBAR } from "src/config/navigation";
 
 export const tableOfContentsId = "table-of-contents";
@@ -9,6 +14,7 @@ export const rightSidebarId = "right-sidebar";
  * @param {{ currentPage: string }} props
  */
 export function TableOfContents({ currentPage }) {
+	const tableOfContents = "Table of Contents";
 	const currentPathSections = currentPage.split("/");
 	const currentPageMatch = [
 		currentPathSections[1],
@@ -35,14 +41,16 @@ export function TableOfContents({ currentPage }) {
 				threshold: 1,
 				},
 			}`}
+			title={tableOfContents}
 		>
-			<h3>Table Of Contents</h3>
+			<h3>{tableOfContents}</h3>
 			<ul class="flex flex-col gap-4">
 				{menu.chapters?.map(({ slug, text }) => {
 					return (
 						<li
 							class="text-slate-400 hover:text-slate-800"
 							x-bind:class={`currentUrl.hash === "#${slug}" && "text-slate-600 underline underline-offset-4"`}
+							title={`${tableOfContents}: ${text}`}
 						>
 							<a href={`#${slug}`} safe>
 								{text}
@@ -56,15 +64,20 @@ export function TableOfContents({ currentPage }) {
 }
 
 export function LeftSidebar() {
-	
+	const leftSidebarTitle = "Left Sidebar";
+
 	return (
 		<nav
 			aria-labelledby="grid-left"
 			class="lg:px-8 xl:px-12 py-4 flex flex-col gap-y-4"
 			id={leftSidebarId}
+			title={leftSidebarTitle}
 		>
 			{SIDEBAR.map((item) => (
-				<SoloAccordion as="section">
+				<SoloAccordion
+					as="section"
+					title={`${leftSidebarTitle} ${capitalCase(item.header)}`}
+				>
 					<SoloAccordionTrigger
 						as="h2"
 						class="font-semibold text-slate-700"
@@ -94,6 +107,7 @@ export function LeftSidebar() {
 											$el.scrollIntoView();
 										}	
 									`}
+									title={`${leftSidebarTitle} ${capitalCase(item.header)}: ${capitalCase(menu.text)}`}
 								>
 									<a
 										href={menu.link}
@@ -120,7 +134,7 @@ export function LeftSidebar() {
  */
 export function RightSidebar(props) {
 	return (
-		<nav aria-labelledby="grid-right" id={rightSidebarId}>
+		<nav aria-labelledby="grid-right" id={rightSidebarId} title="Right Sidebar">
 			<div class="px-8">
 				<TableOfContents {...props} />
 			</div>

@@ -1,6 +1,6 @@
 import { AppContext } from "$config/server";
 import { CoreShadowPage } from "$pages/core/shadow.page";
-import { seoUtils } from "$scripts/lib/seo";
+import { SeoUtils } from "$scripts/lib/seo";
 import { Hono } from "hono";
 
 export const coreShadowController = new Hono<AppContext>().get((ctx) => {
@@ -15,7 +15,7 @@ export const coreShadowController = new Hono<AppContext>().get((ctx) => {
 						title,
 						description,
 						robots: ["index", "follow"],
-						...seoUtils.setOpenGraphAndTwitter(title, description, ctx)
+						...SeoUtils.setOpenGraphAndTwitter(title, description, ctx)
 					},
 					heading: title,
 					description,

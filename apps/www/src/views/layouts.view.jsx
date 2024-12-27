@@ -2,7 +2,11 @@ import { Page } from "$components/page.component";
 import { SeoModifier } from "$components/seo-modifier.component";
 import { Footer } from "$views/footer.view";
 import { Header } from "$views/header.view";
-import { LeftSidebar, RightSidebar, TableOfContents } from "$views/navigations.view";
+import {
+	LeftSidebar,
+	PreviousNextNavigation,
+	RightSidebar
+} from "$views/navigations.view";
 
 export const defaultFavicon = "/public/icons/logo_2.svg";
 export const asideLeftId = "aside-left";
@@ -42,6 +46,9 @@ export function MainLayout(props) {
 		<>
 			<SeoModifier {...seo} />
 			{children}
+			{currentPath ? (
+				<PreviousNextNavigation currentPath={currentPath} />
+			) : null}
 			{currentPath ? <RightSidebar currentPage={currentPath} /> : null}
 		</>
 	) : (
@@ -56,29 +63,34 @@ export function MainLayout(props) {
 					id={asideLeftId}
 				>
 					<div class="overflow-y-auto w-full">
-						{ currentPath ? <LeftSidebar /> : null }
+						{currentPath ? <LeftSidebar /> : null}
 					</div>
 				</aside>
-				<main
-					x-ref="main"
-					x-effect={`
-								window.addEventListener('load', event => {
-									if (currentUrl.hash) {
-										const hashElement = document.querySelector(currentUrl.hash)
-										hashElement.scrollIntoView();
-									}
-								})
-							`}
-					class="relative lg:py-4 xl:px-[10%] p-2 mx-auto w-full lg:col-span-3 xl:col-span-4 overflow-y-auto"
-				>
-					{children}
-				</main>
+				<div class="relative lg:py-4 xl:px-[10%] p-2 mx-auto w-full lg:col-span-3 xl:col-span-4 overflow-y-auto flex flex-col gap-y-6">
+					<main
+						x-ref="main"
+						x-effect={`
+							window.addEventListener('load', event => {
+								if (currentUrl.hash) {
+									const hashElement = document.querySelector(currentUrl.hash)
+									hashElement.scrollIntoView();
+								}
+							})
+						`}
+						class={"grow"}
+					>
+						{children}
+					</main>
+					{currentPath ? (
+						<PreviousNextNavigation currentPath={currentPath} />
+					) : null}
+				</div>
 				<aside
 					title="Site Table of Contents"
 					class="col-span-1 sticky top-0 pt-6 grow hidden lg:flex"
 					id={asideRightId}
 				>
-					{ currentPath ? <RightSidebar currentPage={currentPath} /> : null }
+					{currentPath ? <RightSidebar currentPage={currentPath} /> : null}
 				</aside>
 			</div>
 		</RootLayout>

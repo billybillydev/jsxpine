@@ -1,6 +1,6 @@
 import { AppContext } from "$config/server";
-import { seoUtils } from "$lib/seo";
 import { CoreTypographyPage } from "$pages/core/typography.page";
+import { seoUtils } from "$scripts/lib/seo";
 import { Hono } from "hono";
 
 export const coreTypographyController = new Hono<AppContext>().get((ctx) => {

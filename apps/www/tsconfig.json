@@ -31,8 +31,8 @@
 			"$registry/*": ["src/registry/*"],
 			"$pages": ["src/pages"],
 			"$pages/*": ["src/pages/*"],
-			"$lib": ["src/scripts/lib"],
-			"$lib/*": ["src/scripts/lib/*"],
+			"$scripts": ["src/scripts"],
+			"$scripts/*": ["src/scripts/*"],
 			"$views": ["src/views"],
 			"$views/*": ["src/views/*"]
 		}

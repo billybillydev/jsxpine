@@ -1,7 +1,7 @@
 import { AppContext } from "$config/server";
 import { CoreInstallationAndUsagePage } from "$pages/core/installation-and-usage.page";
+import { seoUtils } from "$scripts/lib/seo";
 import { Hono } from "hono";
-import { seoUtils } from "src/scripts/lib/seo";
 
 export const coreInstallationAndUsageController = new Hono<AppContext>().get((ctx) => {
 	const title = "Installation and Usage";

@@ -1,6 +1,6 @@
 import { AppContext } from "$config/server";
-import { seoUtils } from "$lib/seo";
 import { CoreColorsPage } from "$pages/core/colors.page";
+import { seoUtils } from "$scripts/lib/seo";
 import { Hono } from "hono";
 
 export const coreColorsController = new Hono<AppContext>().get((ctx) => {

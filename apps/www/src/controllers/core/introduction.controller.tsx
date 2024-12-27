@@ -1,7 +1,7 @@
 import { AppContext } from "$config/server";
 import { CoreIntroductionPage } from "$pages/core/introduction.page";
+import { seoUtils } from "$scripts/lib/seo";
 import { Hono } from "hono";
-import { seoUtils } from "src/scripts/lib/seo";
 
 export const coreIntroductionController = new Hono<AppContext>().get((ctx) => {
 	const title = "Introduction to JSXPine";

@@ -1,6 +1,6 @@
 import { AppContext } from "$config/server";
-import { seoUtils } from "$lib/seo";
 import { CoreShadowPage } from "$pages/core/shadow.page";
+import { seoUtils } from "$scripts/lib/seo";
 import { Hono } from "hono";
 
 export const coreShadowController = new Hono<AppContext>().get((ctx) => {

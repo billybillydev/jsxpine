@@ -3,12 +3,15 @@ import {
 	SoloAccordionContent,
 	SoloAccordionTrigger
 } from "$components/accordion.component";
+import { Icon } from "$components/icon.component";
 import { capitalCase } from "change-case";
+import clsx from "clsx";
 import { SIDEBAR } from "src/config/navigation";
 
 export const tableOfContentsId = "table-of-contents";
 export const leftSidebarId = "left-sidebar";
 export const rightSidebarId = "right-sidebar";
+export const previousNextNavigationId = "previous-next-navigation";
 
 /**
  * @param {{ currentPage: string }} props
@@ -28,19 +31,11 @@ export function TableOfContents({ currentPage }) {
 	if (!menu?.chapters) {
 		return null;
 	}
+
 	return (
 		<section
 			class="flex flex-col gap-y-4 mt-24"
 			id={tableOfContentsId}
-			x-data={`{
-				hash: "",
-				chapters: ${menu.chapters ? JSON.stringify(menu.chapters) : []},
-				options: {
-				root: document.querySelector('main'),
-				rootMargin: "0px",
-				threshold: 1,
-				},
-			}`}
 			title={tableOfContents}
 		>
 			<h3>{tableOfContents}</h3>
@@ -107,13 +102,15 @@ export function LeftSidebar() {
 											$el.scrollIntoView();
 										}	
 									`}
-									title={`${leftSidebarTitle} ${capitalCase(item.header)}: ${capitalCase(menu.text)}`}
+									title={`${leftSidebarTitle} ${capitalCase(
+										item.header
+									)}: ${capitalCase(menu.text)}`}
 								>
 									<a
 										href={menu.link}
 										hx-target="main"
 										hx-swap="innerHTML scroll:top"
-										hx-select-oob={`#${rightSidebarId}`}
+										hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
 										class={"py-2 px-6 block"}
 										safe
 									>
@@ -139,5 +136,67 @@ export function RightSidebar(props) {
 				<TableOfContents {...props} />
 			</div>
 		</nav>
+	);
+}
+
+/**
+ * @param {Object} props
+ * @param {string} props.currentPath
+ */
+export function PreviousNextNavigation({ currentPath }) {
+	const menuArray = SIDEBAR.reduce((acc, cur) => {
+		const menuLinkAndText = Array.from(cur.menu).map(([key, value]) => ({
+			link: value.link,
+			text: value.text,
+			section: capitalCase(value.link.split("/")[1])
+		}));
+		return [...acc, ...menuLinkAndText];
+	}, /** @type {{ link: string; text: string, section: string }[]} */ ([]));
+
+	const currentIndex = menuArray.findIndex((item) => item.link === currentPath);
+	const previous = menuArray[currentIndex - 1];
+	const next = menuArray[currentIndex + 1];
+
+	return (
+		<section
+			id={previousNextNavigationId}
+			class={clsx("flex flex-wrap items-center gap-x-2", {
+				"justify-between": previous && next,
+				"justify-start": previous && !next,
+				"justify-end": !previous && next
+			})}
+			hx-boost="true"
+		>
+			{previous ? (
+				<a
+					class={"btn btn-secondary-inversed space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
+					href={previous.link}
+					hx-target="main"
+					hx-swap="innerHTML scroll:top"
+					hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
+				>
+					<Icon name="arrow-left-s-line" size={6} />
+					<div class={"flex flex-col"}>
+						<span class={"text-sm text-slate-500"}>{previous.section}</span>
+						<span>{previous.text}</span>
+					</div>
+				</a>
+			) : null}
+			{next ? (
+				<a
+					class={"btn btn-secondary-inversed space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
+					href={next.link}
+					hx-target="main"
+					hx-swap="innerHTML scroll:top"
+					hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
+				>
+					<div class={"flex flex-col"}>
+						<span class={"text-sm text-slate-500"}>{next.section}</span>
+						<span>{next.text}</span>
+					</div>
+					<Icon name="arrow-right-s-line" size={6} />
+				</a>
+			) : null}
+		</section>
 	);
 }

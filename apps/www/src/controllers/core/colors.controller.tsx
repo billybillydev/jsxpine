@@ -1,6 +1,6 @@
 import { AppContext } from "$config/server";
 import { CoreColorsPage } from "$pages/core/colors.page";
-import { seoUtils } from "$scripts/lib/seo";
+import { SeoUtils } from "$scripts/lib/seo";
 import { Hono } from "hono";
 
 export const coreColorsController = new Hono<AppContext>().get((ctx) => {
@@ -15,7 +15,7 @@ export const coreColorsController = new Hono<AppContext>().get((ctx) => {
 						title,
 						description,
 						robots: ["index", "follow"],
-						...seoUtils.setOpenGraphAndTwitter(title, description, ctx)
+						...SeoUtils.setOpenGraphAndTwitter(title, description, ctx)
 					},
 					heading: title,
 					description,

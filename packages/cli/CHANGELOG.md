@@ -1,5 +1,11 @@
 # jsxpine
 
+## 0.3.0
+
+### Minor Changes
+
+-   [feat]: replace laravel-mix by esbuild for javascript bundling
+
 ## 0.2.30
 
 ### Patch Changes

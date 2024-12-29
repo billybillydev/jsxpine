@@ -6,13 +6,20 @@ import { Command } from "commander";
 import { execa } from "execa";
 import ora from "ora";
 import prompts from "prompts";
-import { DEFAULT_APP_SCRIPT_DIRECTORY, DEFAULT_COMPONENTS_DIRECTORY, DEFAULT_TAILWIND_CONFIG_FILE, DEFAULT_TAILWIND_CSS_FILE, getConfig, rawConfigSchema, resolveConfigPaths } from "../utils/get-config";
+import {
+	DEFAULT_APP_SCRIPT_DIRECTORY,
+	DEFAULT_COMPONENTS_DIRECTORY,
+	DEFAULT_TAILWIND_CONFIG_FILE,
+	DEFAULT_TAILWIND_CSS_FILE,
+	getConfig,
+	rawConfigSchema,
+	resolveConfigPaths
+} from "../utils/get-config";
 import { getPackageManager } from "../utils/get-package-manager";
 import { handleError } from "../utils/handle-error";
 import { logger } from "../utils/logger";
 import { baseUrl, transformObjectToDirectory } from "../utils/registry";
 import * as templates from "../utils/templates";
-
 
 const PROJECT_DEPENDENCIES = [
 	"@kitajs/html",
@@ -21,7 +28,6 @@ const PROJECT_DEPENDENCIES = [
 	"@alpinejs/collapse",
 	"@alpinejs/focus",
 	"alpinejs-manage",
-	"laravel-mix",
 	"tailwindcss",
 	"clsx",
 	"tailwindcss-mosiui-mini",
@@ -30,7 +36,8 @@ const PROJECT_DEPENDENCIES = [
 
 const PROJECT_DEV_DEPENDENCIES = [
 	"@types/alpinejs",
-	"@kitajs/ts-html-plugin"
+	"@kitajs/ts-html-plugin",
+	"esbuild"
 ] as const;
 
 export const init = new Command()
@@ -298,7 +305,7 @@ async function runInit(cwd: string, config: Config) {
 		".js",
 		".cjs"
 	);
-	
+
 	await fs.unlink(cjsConfig).catch((e) => e); // throws when it DNE
 
 	// Write to global css file
@@ -320,7 +327,7 @@ async function runInit(cwd: string, config: Config) {
 	// Install dependencies.
 	const dependenciesSpinner = ora(`Installing dependencies...`)?.start();
 	const packageManager = await getPackageManager(cwd);
-	
+
 	if (PROJECT_DEPENDENCIES.length) {
 		await execa(
 			packageManager,
@@ -343,10 +350,10 @@ async function runInit(cwd: string, config: Config) {
 				...PROJECT_DEV_DEPENDENCIES
 			],
 			{
-				cwd,
+				cwd
 			}
 		);
 	}
-	
+
 	dependenciesSpinner?.succeed();
 }

@@ -1,9 +1,5 @@
-import {
-	SoloAccordion,
-	SoloAccordionContent,
-	SoloAccordionTrigger
-} from "$components/accordion.component";
 import { Icon } from "$components/icon.component";
+import { SoloAccordion } from "$components/solo-accordion.component";
 import { capitalCase } from "change-case";
 import clsx from "clsx";
 import { SIDEBAR } from "src/config/navigation";
@@ -72,19 +68,19 @@ export function LeftSidebar() {
 				<SoloAccordion
 					as="section"
 					title={`${leftSidebarTitle} ${capitalCase(item.header)}`}
+					isOpened
 				>
-					<SoloAccordionTrigger
+					<SoloAccordion.Trigger
 						as="h2"
 						class="font-semibold text-slate-700"
 						x-capitalize
 						safe
 					>
 						{item.header}
-					</SoloAccordionTrigger>
-					<SoloAccordionContent
+					</SoloAccordion.Trigger>
+					<SoloAccordion.Content
 						as="ul"
 						class="gap-y-1"
-						x-init="open()"
 						hx-boost="true"
 					>
 						{[...item.menu].map(([_, menu]) => {
@@ -119,7 +115,7 @@ export function LeftSidebar() {
 								</li>
 							);
 						})}
-					</SoloAccordionContent>
+					</SoloAccordion.Content>
 				</SoloAccordion>
 			))}
 		</nav>

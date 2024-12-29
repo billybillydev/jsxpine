@@ -71,18 +71,6 @@ export const SIDEBAR = [
 		header: "components",
 		menu: new Map([
 			[
-				"components/accordions",
-				{
-					text: "Accordions",
-					link: "/components/accordions",
-					chapters: [
-						{ text: "Overview", slug: "overview" },
-						{ text: "Solo Accordion", slug: "solo-accordion" },
-						{ text: "Group Accordion", slug: "group-accordion" }
-					]
-				}
-			],
-			[
 				"components/alerts",
 				{
 					text: "Alerts",
@@ -263,6 +251,14 @@ export const SIDEBAR = [
 						{ text: "Carousel Gallery", slug: "carousel-gallery" },
 						{ text: "Zoom Gallery", slug: "zoom-gallery" }
 					]
+				}
+			],
+			[
+				"components/group-accordion",
+				{
+					text: "Group Accordion",
+					link: "/components/group-accordion",
+					chapters: [{ text: "Overview", slug: "overview" }]
 				}
 			],
 			[
@@ -452,6 +448,14 @@ export const SIDEBAR = [
 							slug: "sidebar-inside-content"
 						}
 					]
+				}
+			],
+			[
+				"components/solo-accordion",
+				{
+					text: "Solo Accordion",
+					link: "/components/solo-accordion",
+					chapters: [{ text: "Overview", slug: "overview" }]
 				}
 			],
 			[

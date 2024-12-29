@@ -1,4 +1,4 @@
-import { accordionsController } from "$controllers/components/accordions.controller";
+import { AppContext } from "$config/server";
 import { alertsController } from "$controllers/components/alerts.controller";
 import { avatarController } from "$controllers/components/avatar.controller";
 import { badgesController } from "$controllers/components/badges.controller";
@@ -10,6 +10,7 @@ import { checkboxController } from "$controllers/components/checkbox.controller"
 import { datePickerController } from "$controllers/components/date-picker.controller";
 import { dropdownController } from "$controllers/components/dropdown.controller";
 import { galleriesController } from "$controllers/components/galleries.controller";
+import { groupAccordionController } from "$controllers/components/group-accordion.controller";
 import { imagePickerController } from "$controllers/components/imagepicker.controller";
 import { inputsController } from "$controllers/components/inputs.controller";
 import { modalsController } from "$controllers/components/modals.controller";
@@ -19,6 +20,7 @@ import { radioController } from "$controllers/components/radio.controller";
 import { ratingsController } from "$controllers/components/ratings.controller";
 import { selectController } from "$controllers/components/select.controller";
 import { sidebarController } from "$controllers/components/sidebar.controller";
+import { soloAccordionController } from "$controllers/components/solo-accordion.controller";
 import { switchController } from "$controllers/components/switch.controller";
 import { tableController } from "$controllers/components/table.controller";
 import { tabsController } from "$controllers/components/tabs.controller";
@@ -26,13 +28,11 @@ import { tooltipsController } from "$controllers/components/tooltips.controller"
 import { treesController } from "$controllers/components/trees.controller";
 import { zoomController } from "$controllers/components/zoom.controller";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
 export const componentsController = new Hono<AppContext>()
 	.get((ctx) => {
 		return ctx.redirect("/components/accordions");
 	})
-	.route("/accordions", accordionsController)
 	.route("/alerts", alertsController)
 	.route("/avatar", avatarController)
 	.route("/badges", badgesController)
@@ -44,6 +44,7 @@ export const componentsController = new Hono<AppContext>()
 	.route("/datepicker", datePickerController)
 	.route("/dropdown", dropdownController)
 	.route("/galleries", galleriesController)
+	.route("/group-accordion", groupAccordionController)
 	.route("/imagepicker", imagePickerController)
 	.route("/inputs", inputsController)
 	.route("/modals", modalsController)
@@ -54,6 +55,7 @@ export const componentsController = new Hono<AppContext>()
 	// .route("/range-slider", rangeSliderController)
 	.route("/select", selectController)
 	.route("/sidebar", sidebarController)
+	.route("/solo-accordion", soloAccordionController)
 	.route("/switch", switchController)
 	.route("/table", tableController)
 	.route("/tabs", tabsController)

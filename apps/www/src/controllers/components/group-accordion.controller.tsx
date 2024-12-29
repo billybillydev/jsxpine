@@ -1,17 +1,17 @@
 import { SITE } from "$config/seo";
 import { AppContext } from "$config/server";
-import { AccordionsPage } from "$pages/components/accordions.page";
+import { GroupAccordionPage } from "$pages/components/group-accordion.page";
 import { defaultFavicon } from "$views/layouts.view";
 import { Hono } from "hono";
 
-export const accordionsController = new Hono<AppContext>().get(
+export const groupAccordionController = new Hono<AppContext>().get(
 	(ctx) => {
-		const title = "Accordions Components Documentation";
+		const title = "Group Accordion Component Documentation";
 		const description =
-			"Accordions are great way to compact content blocs and display required ones by clicking on it.";
+			"Accordions are great way to compact content blocs and display required ones by clicking on it. Group accordion component gathers all the accordions and displays only one (closing previous opened one).";
 
 		return ctx.html(
-			<AccordionsPage
+			<GroupAccordionPage
 				{...{
 					description,
 					seo: {

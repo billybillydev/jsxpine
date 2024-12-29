@@ -224,13 +224,11 @@ import focus from "@alpinejs/focus";
 import collapse from "@alpinejs/collapse";
 import manage from "alpinejs-manage";
 
-import { logDirective } from "./directive/log.directive";
-import { nowMagic } from "./magic/now.magic";
-import { clipboardMagic } from "./magic/clipboard.magic";
-import { capitalizeDirective } from "./directive/capitalize.directive";
+import { capitalizeDirective } from "$scripts/alpine/directive/capitalize.directive";
+import { logDirective } from "$scripts/alpine/directive/log.directive";
+import { clipboardMagic } from "$scripts/alpine/magic/clipboard.magic";
+import { nowMagic } from "$scripts/alpine/magic/now.magic";
 
-/* Data */
-// By adding components, corresponding data will be added progressively
 
 /* Directive */
 Alpine.directive("capitalize", capitalizeDirective);
@@ -241,8 +239,8 @@ Alpine.magic("clipboard", clipboardMagic);
 Alpine.magic("now", nowMagic);
 
 /* Plugins */
-Alpine.plugin(collapse);
 Alpine.plugin(focus);
+Alpine.plugin(collapse);
 Alpine.plugin(manage);
 
 export default Alpine;

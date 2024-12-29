@@ -21,7 +21,7 @@ const PROJECT_DEPENDENCIES = [
 	"@alpinejs/collapse",
 	"@alpinejs/focus",
 	"alpinejs-manage",
-	"laravel-mix",
+	"esbuild",
 	"tailwindcss",
 	"clsx",
 	"tailwindcss-mosiui-mini",

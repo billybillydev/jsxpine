@@ -16,7 +16,7 @@ export function BadgesPage(props) {
 						Badges are pretty component made to emphasis some information,
 						generally a word (e.g: hashtag).
 					</p>
-					<p>See below different types of badges AstroPine provides.</p>
+					<p>See below different types of badges JSXPine provides.</p>
 				</section>
 
 				{[

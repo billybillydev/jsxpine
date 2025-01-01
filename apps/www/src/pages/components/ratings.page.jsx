@@ -16,7 +16,7 @@ export function RatingsPage({ ...restProps }) {
 					</p>
 					<p>
 						It is showed very often with stars and average value of reviewers'
-						ratings. Examples below show you how you can use AstroPine's Rating
+						ratings. Examples below show you how you can use JSXPine's Rating
 						component.
 					</p>
 				</ComponentSection>

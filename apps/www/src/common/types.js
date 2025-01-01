@@ -1,4 +1,3 @@
-import { tailwindThemeConfig } from "./tailwind-config";
 import { icons } from "@iconify-json/ri/index.js";
 
 /**
@@ -44,9 +43,4 @@ const iconsKeys = [...Object.keys(icons.icons)];
 /**
  *  HTML Tag Name Type enum
  * @typedef {keyof HTMLElementTagNameMap} HTMLTagNameType
- */
-
-export const specificSizes = [...Object.keys(tailwindThemeConfig.width)];
-/**
- * @typedef {typeof specificSizes[number]} SpecificSizeType
  */

@@ -1,4 +1,5 @@
-import { ComponentPresentation, ComponentPreview } from "$views/components.view";
+import { ComponentPresentation, ComponentPreview, ComponentSection } from "$views/components.view";
+import { ImportantNote } from "$views/important-note.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -9,58 +10,56 @@ export function AvatarPage({ ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
 			<ComponentPresentation name="Avatar">
-				<section id="overview">
-					<h2>Overview</h2>
+				<ComponentSection heading="Overview">
 					<p>
 						Avatar is a pretty useful component showing generally an image. In
 						most case, dimensions are not too high, around 300px max.
 					</p>
 					<p>
-						With AstroPine, you can use Avatar with a fallback text in case you
+						With JSXPine, you can use Avatar with a fallback text in case you
 						only want to display text (initial name for instance).
 					</p>
 					<p>Below are differents examples of this component.</p>
-				</section>
+				</ComponentSection>
 
-				<section id="avatar-with-image">
-					<h2>Avatar with Image</h2>
+				<ComponentSection heading="Avatar with Image">
 					<p>
 						Just pass an ImageType object to <em>image</em> props and you good
 						to go. Just simply as that.
 					</p>
 					<ComponentPreview filename="avatar/image" />
-				</section>
+				</ComponentSection>
 
-				<section id="avatar-with-text">
-					<h2>Avatar with Text</h2>
+				<ComponentSection heading="Avatar with Text">
 					<p>
-						The <em>fallbackText</em> props is here in case image don't show
+						The <em>fallbackText</em> props is here in case image doesn't show
 						nothing.
 					</p>
 					<p>
 						It's also useful to just showing text. Be aware that your text
 						length can break the main purpose display, i.e a full-rounded
-						component.
+						component. So, fallbackText is usually two or three characters.
 					</p>
 					<ComponentPreview filename="avatar/fallback-text" />
-				</section>
+				</ComponentSection>
 
-				<section>
-					<h2>Size Props Avatar</h2>
+				<ComponentSection heading="Size Props Avatar">
 					<p>
-						Size can be define. As said above, it's not intended to display
-						Avatar in a too big dimension. But it's up to you.
-					</p>
-					<p>
-						Size value comes from SpecificTizeType. You can see all values in
-						<a href="#">Specific Size page</a>.
-					</p>
-					<p class="italic">
-						P.S: Notice that only numeric (integer and float) values and size
-						above or equal to 8 from size are considered.
+						Size can be defined. As said above, it's not intended to display
+						Avatar component in a too big dimension. But it's up to you.
 					</p>
 					<ComponentPreview filename="avatar/size" />
-				</section>
+					<ImportantNote>
+						<p>
+							Notice that only numeric values betwween 6 and 96 are considered.
+							See the{" "}
+							<a href="#" class={"link link-primary"}>
+								properties section
+							</a>{" "}
+							to learn more.
+						</p>
+					</ImportantNote>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

@@ -133,7 +133,8 @@ input[type='number'] {
 }
 `;
 
-export const TAILWIND_CONFIG_WITH_VARIABLES = `import { fontFamily } from "tailwindcss/defaultTheme";
+export const TAILWIND_CONFIG_WITH_VARIABLES = `
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -201,6 +202,8 @@ export default config;
 export const TAILWIND_CONFIG = `
 import mosiuiMini from 'tailwindcss-mosiui-mini';
 
+// Feel free to customize this file to your liking.
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue,css,md,mdx}"],
@@ -209,102 +212,3 @@ export default {
 };
 
 `;
-
-export const APP_SCRIPT = `
-import Alpine from "./alpine";
-
-window.Alpine = Alpine;
-
-window.Alpine.start();
-`;
-
-export const ALPINE_JS = `
-import Alpine from "alpinejs";
-import focus from "@alpinejs/focus";
-import collapse from "@alpinejs/collapse";
-import manage from "alpinejs-manage";
-
-import { capitalizeDirective } from "$scripts/alpine/directive/capitalize.directive";
-import { logDirective } from "$scripts/alpine/directive/log.directive";
-import { clipboardMagic } from "$scripts/alpine/magic/clipboard.magic";
-import { nowMagic } from "$scripts/alpine/magic/now.magic";
-
-
-/* Directive */
-Alpine.directive("capitalize", capitalizeDirective);
-Alpine.directive("log", logDirective);
-
-/* Magic */
-Alpine.magic("clipboard", clipboardMagic);
-Alpine.magic("now", nowMagic);
-
-/* Plugins */
-Alpine.plugin(focus);
-Alpine.plugin(collapse);
-Alpine.plugin(manage);
-
-export default Alpine;
-`;
-
-// export const UTILS = `import { type ClassValue, clsx } from "clsx";
-// import { twMerge } from "tailwind-merge";
-// import { cubicOut } from "svelte/easing";
-// import type { TransitionConfig } from "svelte/transition";
-
-// export function cn(...inputs: ClassValue[]) {
-//     return twMerge(clsx(inputs));
-// }
-
-// type FlyAndScaleParams = {
-//     y?: number;
-//     x?: number;
-//     start?: number;
-//     duration?: number;
-// };
-
-// export const flyAndScale = (
-//     node: Element,
-//     params: FlyAndScaleParams = { y: -8, x: 0, start: 0.95, duration: 150 }
-// ): TransitionConfig => {
-//     const style = getComputedStyle(node);
-//     const transform = style.transform === "none" ? "" : style.transform;
-
-//     const scaleConversion = (
-//         valueA: number,
-//         scaleA: [number, number],
-//         scaleB: [number, number]
-//     ) => {
-//         const [minA, maxA] = scaleA;
-//         const [minB, maxB] = scaleB;
-
-//         const percentage = (valueA - minA) / (maxA - minA);
-//         const valueB = percentage * (maxB - minB) + minB;
-
-//         return valueB;
-//     };
-
-//     const styleToString = (
-//         style: Record<string, number | string | undefined>
-//     ): string => {
-//         return Object.keys(style).reduce((str, key) => {
-//             if (style[key] === undefined) return str;
-//             return str + \`\${key}:\${style[key]};\`;
-//         }, "");
-//     };
-
-//     return {
-//         duration: params.duration ?? 200,
-//         delay: 0,
-//         css: (t) => {
-//             const y = scaleConversion(t, [0, 1], [params.y ?? 5, 0]);
-//             const x = scaleConversion(t, [0, 1], [params.x ?? 0, 0]);
-//             const scale = scaleConversion(t, [0, 1], [params.start ?? 0.95, 1]);
-
-//             return styleToString({
-//                 transform: \`\${transform} translate3d(\${x}px, \${y}px, 0) scale(\${scale})\`,
-//                 opacity: t
-//             });
-//         },
-//         easing: cubicOut
-//     };
-// };`;

@@ -25,7 +25,7 @@ COPY --link . .
 
 RUN bun run build:registry
 RUN bun run tailwind:prod
-RUN bunx mix
+RUN bun run build:prod
 
 # Copy application code
 COPY --link . .

@@ -9,7 +9,7 @@ export function ImageAvatarExample() {
 		alt: "avatar-image"
 	};
 	return (
-		<div class="flex justify-center align-center p-6 rounded border bg-white">
+		<div class="flex justify-center p-6 rounded border bg-white">
 			<Avatar image={image} fallbackText="CN" size="20" />
 		</div>
 	);

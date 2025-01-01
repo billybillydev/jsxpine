@@ -1,6 +1,6 @@
 /**
  * Tag component which is a wrapper for any html tag
- * @param {import("$common/props").HTMLTagWithChildren<{ as: import("$common/types").HTMLTagNameType }>} props
+ * @param {import("../common/props").HTMLTagWithChildren<{ as: import("../common/types").HTMLTagNameType }>} props
  */
 export function Tag({ as, children, ...restProps }) {
 	return (

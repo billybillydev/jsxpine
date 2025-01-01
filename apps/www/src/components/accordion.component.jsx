@@ -1,8 +1,8 @@
-import { Tag } from "$components/tag.component";
+import { Tag } from "./tag.component";
 import clsx from "clsx";
 
 /**
- * @typedef {Extract<import("$common/types").HTMLTagNameType, "body" | "div" | "section" | "article" | "nav" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "button" | "p" | "span" | "header" | "footer" | "ul" | "ol" | "li" | "strong" | "em">} AccordionTagType
+ * @typedef {Extract<import("../common/types").HTMLTagNameType, "body" | "div" | "section" | "article" | "nav" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "button" | "p" | "span" | "header" | "footer" | "ul" | "ol" | "li" | "strong" | "em">} AccordionTagType
  */
 
 /**

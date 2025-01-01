@@ -1,16 +1,15 @@
 import { existsSync, promises as fs } from "fs";
-import path from "path";
 import fetch from "node-fetch";
+import path from "path";
 import * as z from "zod";
-import { Config } from "../get-config";
+import { Config } from "../config/schema";
+import { BASE_URL } from "./constants";
 import { registryIndexSchema, registryItemSchema, registryItemWithComponentSchema, registryWithComponentSchema } from "./schema";
 
-
-export const baseUrl =
-	process.env.COMPONENTS_REGISTRY_URL ?? "https://jsxpine.com/public";
-
 export type RegistryItem = z.infer<typeof registryItemSchema>;
-export type RegistryComponentItem = z.infer<typeof registryItemWithComponentSchema>;
+export type RegistryComponentItem = z.infer<
+	typeof registryItemWithComponentSchema
+>;
 
 export async function getRegistryIndex() {
 	try {
@@ -138,7 +137,7 @@ async function fetchRegistry(paths: string[]): Promise<RegistryItem[]> {
 	try {
 		const results = await Promise.all(
 			paths.map(async (path) => {
-				const url = `${baseUrl}/registry/${path}`;
+				const url = `${BASE_URL}/registry/${path}`;
 				const res = await fetch(url);
 				const json = await res.json();
 				return json as RegistryItem;
@@ -148,7 +147,7 @@ async function fetchRegistry(paths: string[]): Promise<RegistryItem[]> {
 		return results;
 	} catch (error) {
 		console.log("In fetchRegistry : ", error);
-		throw new Error(`Failed to fetch registry from ${baseUrl}.`);
+		throw new Error(`Failed to fetch registry from ${BASE_URL}.`);
 	}
 }
 

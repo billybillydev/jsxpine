@@ -7,6 +7,7 @@ import * as z from "zod";
 import { getPackageManager } from "./get-package-manager";
 import { resolveImport } from "./resolve-imports";
 
+
 export const DEFAULT_STYLE = "default";
 export const DEFAULT_COMPONENTS_DIRECTORY = "src/ui/components";
 export const DEFAULT_ALPINEJS_FILE = "src/ui/scripts/alpine/index";
@@ -21,7 +22,7 @@ export const rawConfigSchema = z
 		// style: z.string(),
 		tailwind: z.object({
 			config: z.string(),
-			css: z.string(),
+			css: z.string()
 			// baseColor: z.string()
 			// cssVariables: z.boolean().default(true)
 		}),
@@ -35,7 +36,17 @@ export const rawConfigSchema = z
 			alpine: z
 				.string()
 				.transform((v) => v.replace(/[\u{0080}-\u{FFFF}]/gu, ""))
-		})
+		}),
+		tsConfigAliases: z.optional(
+			z.union([
+				z.object({ global: z.string() }),
+				z.object({
+					components: z.string(),
+					scripts: z.string(),
+					alpine: z.string()
+				})
+			])
+		)
 	})
 	.strict();
 
@@ -131,7 +142,7 @@ async function getRawConfig(cwd: string): Promise<RawConfig | null> {
 		if (!configResult) {
 			return null;
 		}
-		const config = JSON.parse(configResult);
+		const { resolvedPaths, ...config } = JSON.parse(configResult);
 
 		return rawConfigSchema.parse(config);
 	} catch (error) {

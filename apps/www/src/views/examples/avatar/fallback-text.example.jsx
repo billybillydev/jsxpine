@@ -2,7 +2,7 @@ import { Avatar } from "$components/avatar.component";
 
 export function FallbackTextAvatarExample() {
 	return (
-		<div class="flex justify-center align-center flex-wrap gap-3 p-6 rounded border bg-white">
+		<div class="flex justify-center flex-wrap gap-3 p-6 rounded border bg-white">
 			<Avatar fallbackText="CN" />
 			<Avatar fallbackText="CN" color="primary" />
 			<Avatar fallbackText="CN" color="secondary" />

@@ -12,7 +12,7 @@ export function SizeAvatarExample() {
 	];
 
 	return (
-		<div class="flex flex-wrap justify-center items-center gap-3 align-center p-6 rounded border bg-white">
+		<div class="flex flex-wrap justify-center items-center gap-3 p-6 rounded border bg-white">
 			{sizes.map((size) => {
 				const props =
 					Math.random() > 0.5

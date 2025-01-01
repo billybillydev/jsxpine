@@ -10,7 +10,7 @@ export const components = [
 	{
 		name: "accordion",
 		alpineDependencies: ["group-accordion", "solo-accordion"],
-		registryDependencies: []
+		registryDependencies: ["tag"]
 	},
 	{
 		name: "alert",
@@ -160,6 +160,11 @@ export const components = [
 	{
 		name: "tabs",
 		alpineDependencies: ["tabs"],
+		registryDependencies: []
+	},
+	{
+		name: "tag",
+		alpineDependencies: ["tag"],
 		registryDependencies: []
 	},
 	{

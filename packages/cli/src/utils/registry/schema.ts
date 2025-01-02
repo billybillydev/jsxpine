@@ -1,7 +1,11 @@
 import * as z from "zod";
 
+export const registryAlpineSchema = z.object({
+	data: z.record(z.string(), z.string()),
+	directive: z.record(z.string(), z.string()),
+	magic: z.record(z.string(), z.string()),
+})
 
-// TODO: Extract this to a shared package.
 export const registryItemSchema = z.object({
 	name: z.string(),
 	alpineDependencies: z.array(z.string()),

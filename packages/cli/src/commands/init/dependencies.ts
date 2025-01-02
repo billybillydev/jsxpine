@@ -8,8 +8,8 @@ import { Config } from "../../utils/config/schema";
 import { FileUtils } from "../../utils/file";
 import { handleError } from "../../utils/handle-error";
 import { LoggerUtils } from "../../utils/logger/index";
-import { transformObjectToDirectory } from "../../utils/registry";
 import { BASE_URL } from "../../utils/registry/constants";
+import { RegistryUtils } from "../../utils/registry";
 
 export class InitDependencies {
 	private readonly DEPENDENCIES = [
@@ -132,7 +132,7 @@ export class InitDependencies {
 				);
 				const common = await commonRes.json();
 				await Promise.all(
-					await transformObjectToDirectory(common, dirname)
+					await RegistryUtils.transformObjectToDirectory(common, dirname)
 				);
 			}
 
@@ -147,7 +147,7 @@ export class InitDependencies {
 						await fs.mkdir(alpineDependencyPath);
 					}
 					await Promise.all(
-						await transformObjectToDirectory(
+						await RegistryUtils.transformObjectToDirectory(
 							alpineDependencies[directory],
 							alpineDependencyPath
 						)

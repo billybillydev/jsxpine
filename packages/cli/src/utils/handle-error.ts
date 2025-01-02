@@ -1,4 +1,6 @@
-import { logger } from "./logger";
+import { LoggerUtils } from "./logger";
+
+const logger = new LoggerUtils();
 
 export function handleError(error: unknown) {
 	if (typeof error === "string") {

@@ -164,7 +164,7 @@ export const components = [
 	},
 	{
 		name: "tag",
-		alpineDependencies: ["tag"],
+		alpineDependencies: [],
 		registryDependencies: []
 	},
 	{

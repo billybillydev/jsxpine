@@ -1,7 +1,7 @@
 import MagicString from "magic-string";
 import { z } from "zod";
-import { Config } from "./get-config";
 import { registryBaseColorSchema } from "./registry/schema";
+import { Config } from "./config/schema";
 
 export type TransformOpts = {
 	filename: string;

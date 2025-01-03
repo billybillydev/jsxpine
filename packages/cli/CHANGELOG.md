@@ -1,5 +1,25 @@
 # jsxpine
 
+## 1.0.0
+
+### Major Changes
+
+-   The wait is over! JSXPine 1.0.0 is here! Our team has worked tirelessly to bring you a robust, reliable, and easy-to-use CLI. Give it a spin and experience the difference !
+
+    The CLI will help you install JSXPine components with two main commands:
+
+    -   init: This one will install all required tools and files needed to use components properly ;
+    -   add: With this command, you can add one or many components as you wish ;
+
+    The version 1.0.0 stabilizes these two commands above with a better code refactor.
+    Also, a global project refactoring has been done.
+
+    In the usage, nothing really change for the **add** command.
+    
+    However, some additional steps have been included in the init command. Learn more in [the website's init command section](https://jsxpine.com/core/installation-and-usage#init-command)
+
+    PS: You can still add manually any components. Go to [https://jsxpine.com/components](https://jsxpine.com/components) and follow the steps for the wanted component.
+
 ## 0.3.0
 
 ### Minor Changes

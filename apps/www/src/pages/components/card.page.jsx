@@ -1,4 +1,9 @@
-import { ComponentPresentation, ComponentPreview } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentPreview,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -20,6 +25,10 @@ export function CardPage(props) {
 						it based on your needs. Check cases below and find your way.
 					</p>
 				</section>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="card" />
+				</ComponentSection>
 
 				<section id="default-card">
 					<h2>Default Card</h2>

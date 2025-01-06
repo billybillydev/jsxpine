@@ -1,4 +1,8 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -22,6 +26,10 @@ export function TablePage({ ...props }) {
 						We will see in this page the many possibilities you can achieve with
 						this component.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="table" />
 				</ComponentSection>
 
 				<ComponentSection heading="Basic Table" examples={["table/basic"]}>

@@ -1,4 +1,5 @@
 import {
+	ComponentInstallation,
 	ComponentPresentation,
 	ComponentSection
 } from "$views/components.view";
@@ -22,6 +23,10 @@ export function TreesPage({ ...RestProps }) {
 						P.S: Note aside, it's important to understand that tree is a
 						functional feature. It's up to you to design it your own way.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="tree" />
 				</ComponentSection>
 
 				<ComponentSection heading="Menu Tree" examples={["trees/menu"]}>

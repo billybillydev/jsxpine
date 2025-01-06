@@ -1,4 +1,8 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -23,6 +27,10 @@ export function ProgressPage({ ...restProps }) {
 						Here below are everything you have to know about Astropine's
 						Progress components.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="progress" />
 				</ComponentSection>
 
 				<ComponentSection

@@ -1,4 +1,5 @@
 import {
+	ComponentInstallation,
 	ComponentPresentation,
 	ComponentSection
 } from "$views/components.view";
@@ -25,6 +26,10 @@ export function ImagePickerPage({ ...restProps }) {
 						It's up to you to design it thanks to slot, and examples below will
 						show you how to do it.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="imagepicker" />
 				</ComponentSection>
 
 				<ComponentSection

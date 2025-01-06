@@ -1,5 +1,9 @@
-import { capitalCase } from 'change-case';
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import { capitalCase } from "change-case";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -10,6 +14,10 @@ export async function AlertsPage(props) {
 	return (
 		<MainLayout {...props}>
 			<ComponentPresentation name="Alerts" source="alert">
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="alert" />
+				</ComponentSection>
+
 				{[
 					"default",
 					"primary",

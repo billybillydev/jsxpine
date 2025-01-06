@@ -1,4 +1,9 @@
-import { ComponentPresentation, ComponentPreview, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentPreview,
+	ComponentSection
+} from "$views/components.view";
 import { ImportantNote } from "$views/important-note.view";
 import { MainLayout } from "$views/layouts.view";
 
@@ -20,6 +25,10 @@ export function AvatarPage({ ...restProps }) {
 						only want to display text (initial name for instance).
 					</p>
 					<p>Below are differents examples of this component.</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="avatar" />
 				</ComponentSection>
 
 				<ComponentSection heading="Avatar with Image">

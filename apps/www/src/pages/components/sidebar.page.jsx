@@ -1,4 +1,8 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -19,6 +23,10 @@ export function SidebarPage({ ...restProps }) {
 						application) or a form without take too much places in the main
 						context.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="sidebar" />
 				</ComponentSection>
 
 				<ComponentSection

@@ -1,4 +1,8 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -10,6 +14,10 @@ export function RangeSliderPage({ ...restProps }) {
 		<MainLayout {...restProps}>
 			<ComponentPresentation name="Range Slider" source="range-slider">
 				<ComponentSection heading="Overview" />
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="range-slider" />
+				</ComponentSection>
 
 				<ComponentSection
 					heading="Default Range Slider"

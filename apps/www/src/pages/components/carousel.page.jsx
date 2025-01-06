@@ -1,4 +1,9 @@
-import { ComponentPresentation, ComponentPreview, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentPreview,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -84,6 +89,10 @@ export function CarouselPage({ ...restProps }) {
 						with many customization cases. Here below are some examples of what
 						you can achieved with this component:
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="carousel" />
 				</ComponentSection>
 
 				<ComponentSection

@@ -1,5 +1,8 @@
-
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -11,9 +14,11 @@ export function AccordionsPage({ seo, isHTMX, description, ...restProps }) {
 		<MainLayout seo={seo} isHTMX={isHTMX} {...restProps}>
 			<ComponentPresentation name="Accordions" source="accordion">
 				<ComponentSection heading="Overview">
-					<p>
-						{description}
-					</p>
+					<p>{description}</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="accordion" />
 				</ComponentSection>
 
 				<ComponentSection

@@ -1,4 +1,3 @@
-import { Tag } from "./tag.component";
 import clsx from "clsx";
 
 /**
@@ -22,15 +21,15 @@ export function GroupAccordionContent({
 }) {
 
 	return (
-		<Tag
-			as={as}
+		<tag
+			of={as}
 			x-show="isActive(id)"
 			x-collapse
 			class={clsx(className)}
 			{...restProps}
 		>
 			{children}
-		</Tag>
+		</tag>
 	);
 }
 
@@ -46,8 +45,8 @@ export function GroupAccordionTrigger({
 }) {
 
 	return (
-		<Tag
-			as={as}
+		<tag
+			of={as}
 			x-on:click="setActiveAccordion(id)"
 			class={clsx(
 				"cursor-pointer",
@@ -56,7 +55,7 @@ export function GroupAccordionTrigger({
 			{...restProps}
 		>
 			{children}
-		</Tag>
+		</tag>
 	);
 }
 
@@ -72,14 +71,14 @@ export function GroupAccordionItem({
 }) {
 
 	return (
-		<Tag
-			as={as}
+		<tag
+			of={as}
 			x-data="{ id: $id('accordion-item') }"
 			class={clsx("flex flex-col", className)}
 			{...restProps}
 		>
 			{children}
-		</Tag>
+		</tag>
 	);
 }
 
@@ -94,14 +93,14 @@ export function GroupAccordionList({
 	...restProps
 }) {
 	return (
-		<Tag
-			as={as}
+		<tag
+			of={as}
 			x-data="groupAccordion"
 			class={clsx("flex flex-col w-full", className)}
 			{...restProps}
 		>
 			{children}
-		</Tag>
+		</tag>
 	);
 }
 
@@ -112,14 +111,14 @@ export function GroupAccordionList({
 export function SoloAccordionTrigger(props) {
 	const { class: className, children, as = "div", ...restProps } = props;
 	return (
-		<Tag
-			as={as}
+		<tag
+			of={as}
 			x-bind="trigger"
 			class={clsx(className, "cursor-pointer")}
 			{...restProps}
 		>
 			{children}
-		</Tag>
+		</tag>
 	);
 }
 
@@ -134,15 +133,15 @@ export function SoloAccordionContent({
 	...restProps
 }) {
 	return (
-		<Tag
-			as={as}
+		<tag
+			of={as}
 			x-bind="display"
 			x-collapse
 			class={className}
 			{...restProps}
 		>
 			{children}
-		</Tag>
+		</tag>
 	);
 }
 
@@ -157,13 +156,13 @@ export function SoloAccordion({
 	...restProps
 }) {
 	return (
-		<Tag
-			as={as}
+		<tag
+			of={as}
 			x-data="soloAccordion"
 			class={clsx("w-full", className)}
 			{...restProps}
 		>
 			{children}
-		</Tag>
+		</tag>
 	);
 }

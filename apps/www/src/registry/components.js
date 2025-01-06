@@ -2,7 +2,7 @@ export const components = /** @type {const} */ ([
 	{
 		name: "accordion",
 		alpineDependencies: ["group-accordion", "solo-accordion"],
-		registryDependencies: ["tag"]
+		registryDependencies: []
 	},
 	{
 		name: "alert",
@@ -152,11 +152,6 @@ export const components = /** @type {const} */ ([
 	{
 		name: "tabs",
 		alpineDependencies: ["tabs"],
-		registryDependencies: []
-	},
-	{
-		name: "tag",
-		alpineDependencies: [],
 		registryDependencies: []
 	},
 	{

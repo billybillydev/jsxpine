@@ -1,3 +1,4 @@
+import { AppContext } from "$config/server";
 import { accordionsController } from "$controllers/components/accordions.controller";
 import { alertsController } from "$controllers/components/alerts.controller";
 import { avatarController } from "$controllers/components/avatar.controller";
@@ -26,7 +27,6 @@ import { tooltipsController } from "$controllers/components/tooltips.controller"
 import { treesController } from "$controllers/components/trees.controller";
 import { zoomController } from "$controllers/components/zoom.controller";
 import { Hono } from "hono";
-import { AppVariables } from "src";
 
 export const componentsController = new Hono<AppContext>()
 	.get((ctx) => {

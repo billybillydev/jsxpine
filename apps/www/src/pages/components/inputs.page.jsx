@@ -1,4 +1,5 @@
 import {
+	ComponentInstallation,
 	ComponentPresentation,
 	ComponentSection
 } from "$views/components.view";
@@ -23,6 +24,10 @@ export function InputsPage(props) {
 						textarea, radio, checkbox. Many others will be presented in this
 						page.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="input" />
 				</ComponentSection>
 
 				<ComponentSection heading="Main Inputs" examples={["inputs/main"]}>

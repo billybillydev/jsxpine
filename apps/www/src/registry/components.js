@@ -1,12 +1,4 @@
-/**
- * @typedef {object} ComponentRegistry
- * @property {string} name
- * @property {string[]} [alpineDependencies]
- * @property {string[]} [registryDependencies]
- */
-
-/** @type {ComponentRegistry[]} */
-export const components = [
+export const components = /** @type {const} */ ([
 	{
 		name: "accordion",
 		alpineDependencies: ["group-accordion", "solo-accordion"],
@@ -182,4 +174,30 @@ export const components = [
 		alpineDependencies: ["zoom"],
 		registryDependencies: []
 	}
-];
+]);
+
+/**
+ * @typedef ComponentRegistry
+ * @type {typeof components[number]}
+ */
+
+/**
+ * @param {ComponentRegistry["name"]} name
+ * @param {Array<ComponentRegistry["name"]>} [componentDependencies]
+ */
+export function getComponentDependencies(name, componentDependencies = []) {
+	const component = components.find((component) => component.name === name);
+
+	if (!component) {
+		return [];
+	}
+
+	for (const dependency of component.registryDependencies) {
+		if (!componentDependencies.includes(dependency)) {
+			componentDependencies.push(dependency);
+			getComponentDependencies(dependency, componentDependencies);
+		}
+	}
+
+	return componentDependencies;
+}

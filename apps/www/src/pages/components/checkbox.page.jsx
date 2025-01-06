@@ -1,4 +1,8 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -18,6 +22,10 @@ export function CheckboxPage({ ...restProps }) {
 						It gives you benefit of checked props from a checkbox input and let
 						you customize your component style based on this checked props.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="checkbox" />
 				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>

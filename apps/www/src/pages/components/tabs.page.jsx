@@ -1,4 +1,8 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -19,6 +23,10 @@ export function TabsPage({ ...restProps }) {
 						switch to some content related to it. Tabs can be display vertically
 						by default or horizontally. See examples below.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="tabs" />
 				</ComponentSection>
 
 				<ComponentSection heading="Default Tabs" examples={["tabs/default"]} />

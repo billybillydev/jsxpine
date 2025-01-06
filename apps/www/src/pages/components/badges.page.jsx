@@ -1,6 +1,11 @@
-import { ComponentPresentation, ComponentPreview } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentPreview,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
-import { capitalCase } from 'change-case';
+import { capitalCase } from "change-case";
 
 /**
  * Badges page props
@@ -18,6 +23,10 @@ export function BadgesPage(props) {
 					</p>
 					<p>See below different types of badges JSXPine provides.</p>
 				</section>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="badge" />
+				</ComponentSection>
 
 				{[
 					"default",

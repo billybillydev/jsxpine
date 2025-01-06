@@ -1,4 +1,5 @@
 import {
+	ComponentInstallation,
 	ComponentPresentation,
 	ComponentSection
 } from "$views/components.view";
@@ -17,6 +18,10 @@ export function ButtonsPage(props) {
 						Buttons are clickable components aimed to trigger an action. Used
 						for many reasons, it appears frequently in a form.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="button" />
 				</ComponentSection>
 
 				<ComponentSection

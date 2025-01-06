@@ -1,11 +1,15 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
  * Galleries page props
  * @type {import("$common/props").JSXComponent<import("$components/page.component").PageContext<{}>>}
  */
-export function GalleriesPage({...restProps}) {
+export function GalleriesPage({ ...restProps }) {
 	/**
 	 * @type {import("$components/image.component").ImageType[]}
 	 */
@@ -60,6 +64,10 @@ export function GalleriesPage({...restProps}) {
 						needs, JSXPine provides you 3 types of gallery.
 					</p>
 					<p>Discover each one and their variants with examples below.</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="gallery" />
 				</ComponentSection>
 
 				<ComponentSection

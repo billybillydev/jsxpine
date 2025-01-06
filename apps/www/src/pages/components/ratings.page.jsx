@@ -1,4 +1,8 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -19,6 +23,10 @@ export function RatingsPage({ ...restProps }) {
 						ratings. Examples below show you how you can use JSXPine's Rating
 						component.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="ratings" />
 				</ComponentSection>
 
 				<ComponentSection

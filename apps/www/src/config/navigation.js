@@ -77,6 +77,10 @@ export const SIDEBAR = [
 					link: "/components/accordions",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Solo Accordion", slug: "solo-accordion" },
 						{ text: "Group Accordion", slug: "group-accordion" }
 					]
@@ -89,6 +93,10 @@ export const SIDEBAR = [
 					link: "/components/alerts",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Primary Alert", slug: "primary-alert" },
 						{ text: "Secondary Alert", slug: "secondary-alert" },
 						{ text: "Success Alert", slug: "success-alert" },
@@ -105,6 +113,10 @@ export const SIDEBAR = [
 					link: "/components/avatar",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Avatar with Image", slug: "avatar-with-image" },
 						{ text: "Avatar with Text", slug: "avatar-with-text" },
 						{ text: "Size Props Avatar", slug: "size-props-avatar" }
@@ -118,6 +130,10 @@ export const SIDEBAR = [
 					link: "/components/badges",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Default badge", slug: "default-badge" },
 						{ text: "Primary badge", slug: "primary-badge" },
 						{ text: "Secondary badge", slug: "secondary-badge" },
@@ -135,6 +151,10 @@ export const SIDEBAR = [
 					link: "/components/buttons",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Alpine interop", slug: "alpine-interop" },
 						{ text: "Primary Button", slug: "primary-button" },
 						{ text: "Secondary Button", slug: "secondary-button" },
@@ -152,6 +172,10 @@ export const SIDEBAR = [
 					link: "/components/calendar",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Default Calendar", slug: "default-calendar" },
 						{
 							text: "Multiple Select Calendar",
@@ -173,6 +197,10 @@ export const SIDEBAR = [
 					link: "/components/card",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Default Card", slug: "default-card" },
 						{ text: "Horizontal Card", slug: "horizontal-card" },
 						{ text: "Custom Slot Card", slug: "custom-card" }
@@ -186,6 +214,10 @@ export const SIDEBAR = [
 					link: "/components/carousel",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Default Carousel", slug: "default-carousel" },
 						{ text: "With Indicators", slug: "with-indicators" },
 						{ text: "Carousel Direction", slug: "carousel-direction" },
@@ -202,7 +234,12 @@ export const SIDEBAR = [
 				{
 					text: "Checkbox",
 					link: "/components/checkbox",
-					chapters: [{ text: "Overview", slug: "overview" }]
+					chapters: [{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						}
+					]
 				}
 			],
 			[
@@ -212,6 +249,10 @@ export const SIDEBAR = [
 					link: "/components/datepicker",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{
 							text: "Default DatePicker",
 							slug: "set-datepicker-fulldate-on-init"
@@ -239,6 +280,10 @@ export const SIDEBAR = [
 					link: "/components/dropdown",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Dropdown on Click", slug: "dropdown-on-click" },
 						{ text: "Dropdown on Hover", slug: "dropdown-on-hover" },
 						{
@@ -259,6 +304,10 @@ export const SIDEBAR = [
 					link: "/components/galleries",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Rest Gallery", slug: "rest-gallery" },
 						{ text: "Carousel Gallery", slug: "carousel-gallery" },
 						{ text: "Zoom Gallery", slug: "zoom-gallery" }
@@ -274,6 +323,10 @@ export const SIDEBAR = [
 						{
 							text: "Overview",
 							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
 						},
 						{
 							text: "Single ImagePicker",
@@ -295,6 +348,10 @@ export const SIDEBAR = [
 						{
 							text: "Overview",
 							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
 						},
 						{
 							text: "Main Inputs",
@@ -326,6 +383,10 @@ export const SIDEBAR = [
 					link: "/components/modals",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Simple Modal", slug: "simple-modal" },
 						{ text: "Full Screen Modal", slug: "full-screen-modal" }
 					]
@@ -338,6 +399,10 @@ export const SIDEBAR = [
 					link: "/components/paginations",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Input Pagination", slug: "input-pagination" },
 						{ text: "Select Pagination", slug: "select-pagination" },
 						{
@@ -358,6 +423,10 @@ export const SIDEBAR = [
 					link: "/components/progress",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Default Bar Progress", slug: "default-bar-progress" },
 						{
 							text: "Default Counter Progress",
@@ -392,7 +461,12 @@ export const SIDEBAR = [
 				{
 					text: "Radio",
 					link: "/components/radio",
-					chapters: [{ text: "Overview", slug: "overview" }]
+					chapters: [{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						}
+					]
 				}
 			],
 			[
@@ -400,7 +474,12 @@ export const SIDEBAR = [
 				{
 					text: "Range Slider",
 					link: "/components/range-slider",
-					chapters: [{ text: "Overview", slug: "overview" }]
+					chapters: [{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						}
+					]
 				}
 			],
 			[
@@ -410,6 +489,10 @@ export const SIDEBAR = [
 					link: "/components/ratings",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
 						{ text: "Default Ratings", slug: "default-ratings" },
 						{ text: "Number Stars Ratings", slug: "number-stars-ratings" },
 						{ text: "Custom Icon Ratings", slug: "custom-icon-ratings" }
@@ -425,6 +508,10 @@ export const SIDEBAR = [
 						{
 							text: "Overview",
 							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
 						}
 					]
 				}
@@ -438,6 +525,10 @@ export const SIDEBAR = [
 						{
 							text: "Overview",
 							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
 						},
 						{
 							text: "Default Sidebar",
@@ -463,6 +554,10 @@ export const SIDEBAR = [
 						{
 							text: "Overview",
 							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
 						}
 					]
 				}
@@ -476,6 +571,10 @@ export const SIDEBAR = [
 						{
 							text: "Overview",
 							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
 						},
 						{
 							text: "Basic Table",
@@ -511,6 +610,10 @@ export const SIDEBAR = [
 							slug: "overview"
 						},
 						{
+							text: "Installation",
+							slug: "installation"
+						},
+						{
 							text: "Default Tabs",
 							slug: "default-tabs"
 						},
@@ -530,6 +633,10 @@ export const SIDEBAR = [
 						{
 							text: "Overview",
 							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
 						},
 						{
 							text: "Tooltip as Text",
@@ -557,6 +664,10 @@ export const SIDEBAR = [
 							slug: "overview"
 						},
 						{
+							text: "Installation",
+							slug: "installation"
+						},
+						{
 							text: "Menu Tree",
 							slug: "menu-tree"
 						}
@@ -572,6 +683,10 @@ export const SIDEBAR = [
 						{
 							text: "Overview",
 							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
 						},
 						{
 							text: "Default Zoom",

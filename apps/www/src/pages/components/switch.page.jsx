@@ -1,4 +1,5 @@
 import {
+	ComponentInstallation,
 	ComponentPresentation,
 	ComponentSection
 } from "$views/components.view";
@@ -26,6 +27,10 @@ export function SwitchPage({ ...restProps }) {
 						good behaviour is the ability to update label.
 					</p>
 					<p>See examples below to know how to customize it.</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="switch" />
 				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>

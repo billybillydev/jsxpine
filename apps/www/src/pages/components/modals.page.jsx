@@ -1,6 +1,8 @@
 import {
+	ComponentInstallation,
 	ComponentPresentation,
-	ComponentPreview
+	ComponentPreview,
+	ComponentSection
 } from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
@@ -23,6 +25,10 @@ export function ModalsPage({ ...restProps }) {
 						modal.
 					</p>
 				</section>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="modal" />
+				</ComponentSection>
 
 				<section id="simple-modal">
 					<h2>Simple Modal</h2>

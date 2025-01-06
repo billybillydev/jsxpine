@@ -1,4 +1,8 @@
-import { ComponentPresentation, ComponentSection } from "$views/components.view";
+import {
+	ComponentInstallation,
+	ComponentPresentation,
+	ComponentSection
+} from "$views/components.view";
 import { MainLayout } from "$views/layouts.view";
 
 /**
@@ -18,6 +22,10 @@ export function PaginationsPage({ ...restProps }) {
 						JSXPine has two types of pagination: input and select. Discover what
 						you can achieve below.
 					</p>
+				</ComponentSection>
+
+				<ComponentSection heading="Installation">
+					<ComponentInstallation name="pagination" />
 				</ComponentSection>
 
 				<ComponentSection

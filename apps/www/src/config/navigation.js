@@ -63,7 +63,6 @@ export const SIDEBAR = [
 			["core/colors", { text: "Colors", link: "/core/colors" }],
 			["core/typography", { text: "Typography", link: "/core/typography" }],
 			["core/shadows", { text: "Shadows", link: "/core/shadows" }],
-			["core/icons", { text: "Icons", link: "/core/icons" }],
 			[
 				"core/jah-templating",
 				{
@@ -325,6 +324,27 @@ export const SIDEBAR = [
 						{ text: "Rest Gallery", slug: "rest-gallery" },
 						{ text: "Carousel Gallery", slug: "carousel-gallery" },
 						{ text: "Zoom Gallery", slug: "zoom-gallery" }
+					]
+				}
+			],
+			[
+				"components/icon",
+				{
+					text: "Icon",
+					link: "/components/icon",
+					chapters: [
+						{ text: "Overview", slug: "overview" },
+						{
+							text: "Installation",
+							slug: "installation"
+						},
+						{
+							text: "Usage",
+							slug: "usage"
+						},
+						{ text: "Size Props", slug: "size-props" },
+						{ text: "Color Props", slug: "color-props" },
+						{ text: "Customized Icon", slug: "customized-icon" }
 					]
 				}
 			],

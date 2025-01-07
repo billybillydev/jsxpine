@@ -1,6 +1,6 @@
 import { SITE } from "$config/seo";
 import { AppContext } from "$config/server";
-import { CalendarPage } from "$pages/components/calendar.page";
+import { IconPage } from "$pages/components/icon.page";
 import { defaultFavicon } from "$views/layouts.view";
 import { Hono } from "hono";
 
@@ -9,7 +9,7 @@ export const iconController = new Hono<AppContext>().get(
 		const title = "Icon Component Documentation";
 		
 		return ctx.html(
-			<CalendarPage
+			<IconPage
 				{...{
 					seo: {
 						title,
@@ -22,6 +22,7 @@ export const iconController = new Hono<AppContext>().get(
 							site_name: SITE.title
 						}
 					},
+					heading: "Icon",
 					...ctx.var
 				}}
 			/>

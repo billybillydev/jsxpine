@@ -11,6 +11,7 @@ import { checkboxController } from "$controllers/components/checkbox.controller"
 import { datePickerController } from "$controllers/components/date-picker.controller";
 import { dropdownController } from "$controllers/components/dropdown.controller";
 import { galleriesController } from "$controllers/components/galleries.controller";
+import { iconController } from "$controllers/components/icon.controller";
 import { imagePickerController } from "$controllers/components/imagepicker.controller";
 import { inputsController } from "$controllers/components/inputs.controller";
 import { modalsController } from "$controllers/components/modals.controller";
@@ -44,6 +45,7 @@ export const componentsController = new Hono<AppContext>()
 	.route("/datepicker", datePickerController)
 	.route("/dropdown", dropdownController)
 	.route("/galleries", galleriesController)
+	.route("/icon", iconController)
 	.route("/imagepicker", imagePickerController)
 	.route("/inputs", inputsController)
 	.route("/modals", modalsController)

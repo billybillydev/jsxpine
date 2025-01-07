@@ -64,7 +64,20 @@ export const SIDEBAR = [
 			["core/typography", { text: "Typography", link: "/core/typography" }],
 			["core/shadows", { text: "Shadows", link: "/core/shadows" }],
 			["core/icons", { text: "Icons", link: "/core/icons" }],
-			["core/jah", { text: "JAH Templating", link: "/core/jah" }]
+			[
+				"core/jah-templating",
+				{
+					text: "JAH Templating",
+					link: "/core/jah-templating",
+					chapters: [
+						{ text: "Why ?", slug: "why" },
+						{ text: "JSX", slug: "jsx" },
+						{ text: "Alpine JS", slug: "alpine-js" },
+						{ text: "HTMX", slug: "htmx" },
+						{ text: "Some Stacks", slug: "some-stacks" }
+					]
+				}
+			]
 		])
 	},
 	{
@@ -234,7 +247,8 @@ export const SIDEBAR = [
 				{
 					text: "Checkbox",
 					link: "/components/checkbox",
-					chapters: [{ text: "Overview", slug: "overview" },
+					chapters: [
+						{ text: "Overview", slug: "overview" },
 						{
 							text: "Installation",
 							slug: "installation"
@@ -461,7 +475,8 @@ export const SIDEBAR = [
 				{
 					text: "Radio",
 					link: "/components/radio",
-					chapters: [{ text: "Overview", slug: "overview" },
+					chapters: [
+						{ text: "Overview", slug: "overview" },
 						{
 							text: "Installation",
 							slug: "installation"
@@ -474,7 +489,8 @@ export const SIDEBAR = [
 				{
 					text: "Range Slider",
 					link: "/components/range-slider",
-					chapters: [{ text: "Overview", slug: "overview" },
+					chapters: [
+						{ text: "Overview", slug: "overview" },
 						{
 							text: "Installation",
 							slug: "installation"

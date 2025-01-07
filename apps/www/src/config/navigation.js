@@ -582,6 +582,27 @@ export const SIDEBAR = [
 				}
 			],
 			[
+				"components/svg",
+				{
+					text: "SVG",
+					link: "/components/svg",
+					chapters: [
+						{
+							text: "Overview",
+							slug: "overview"
+						},
+						{
+							text: "Installation",
+							slug: "installation"
+						},
+						{
+							text: "Usage",
+							slug: "usage"
+						}
+					]
+				}
+			],
+			[
 				"components/switch",
 				{
 					text: "Switch",

@@ -21,6 +21,7 @@ import { radioController } from "$controllers/components/radio.controller";
 import { ratingsController } from "$controllers/components/ratings.controller";
 import { selectController } from "$controllers/components/select.controller";
 import { sidebarController } from "$controllers/components/sidebar.controller";
+import { svgController } from "$controllers/components/svg.controller";
 import { switchController } from "$controllers/components/switch.controller";
 import { tableController } from "$controllers/components/table.controller";
 import { tabsController } from "$controllers/components/tabs.controller";
@@ -56,6 +57,7 @@ export const componentsController = new Hono<AppContext>()
 	// .route("/range-slider", rangeSliderController)
 	.route("/select", selectController)
 	.route("/sidebar", sidebarController)
+	.route("/svg", svgController)
 	.route("/switch", switchController)
 	.route("/table", tableController)
 	.route("/tabs", tabsController)

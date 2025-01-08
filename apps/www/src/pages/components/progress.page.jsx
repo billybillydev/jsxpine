@@ -24,8 +24,7 @@ export function ProgressPage({ ...restProps }) {
 						value display.
 					</p>
 					<p>
-						Here below are everything you have to know about Astropine's
-						Progress components.
+						Here below are everything you have to know about Progress components.
 					</p>
 				</ComponentSection>
 

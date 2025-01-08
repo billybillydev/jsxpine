@@ -19,7 +19,7 @@ export function TablePage({ ...props }) {
 						instance, customer orders list in an e-commerce shop.
 					</p>
 					<p>
-						Astropine Table component provides you two greats features working
+						Table component provides you two greats features working
 						out of the box: sorting and filtering.
 					</p>
 					<p>

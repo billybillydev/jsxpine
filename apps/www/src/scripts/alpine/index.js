@@ -58,6 +58,9 @@ Alpine.directive("log", logDirective);
 Alpine.magic("clipboard", clipboardMagic);
 Alpine.magic("now", nowMagic);
 
+/* Stores */
+Alpine.store("darkMode", true);
+
 /* Plugins */
 Alpine.plugin(focus);
 Alpine.plugin(collapse);

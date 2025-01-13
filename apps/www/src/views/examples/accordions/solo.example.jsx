@@ -7,7 +7,7 @@ import {
 export function SoloAccordionExample() {
 	return (
 		<>
-			<SoloAccordion class="bg-white border rounded">
+			<SoloAccordion class="bg-white border rounded text-slate-900">
 				<SoloAccordionTrigger as="h2" class="text-center p-4">
 					Click here to toggle content below
 				</SoloAccordionTrigger>
@@ -31,7 +31,7 @@ export function SoloAccordionExample() {
 					elementum, auctor nisi vitae, elementum tortor.
 				</SoloAccordionContent>
 			</SoloAccordion>
-			<SoloAccordion class="bg-slate-300 border rounded">
+			<SoloAccordion class="bg-slate-300 text-slate-900 border rounded">
 				<SoloAccordionTrigger as="h2" class="text-center p-4">
 					Click here to toggle content below
 				</SoloAccordionTrigger>

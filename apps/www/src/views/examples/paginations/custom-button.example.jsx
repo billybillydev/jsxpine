@@ -10,7 +10,7 @@ export function CustomButtonPaginationExample() {
                 })
             `}
 			pages={3}
-			class="[&_input]:w-24"
+			class="[&_input]:w-24 text-slate-900"
 			selectedPage={3}
 			customFirstButton={
 				<PrimaryButton

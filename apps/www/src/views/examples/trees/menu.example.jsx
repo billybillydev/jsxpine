@@ -90,7 +90,7 @@ export function MenuTreeExample() {
 	return (
 		<MenuTree
 			root={root}
-			class="bg-white rounded-lg border w-full [&>button]:p-4"
+			class="bg-white rounded-lg border w-full [&>button]:p-4 text-slate-900"
 		>
 			<template x-if="selectedItem.parent">
 				<div class="relative flex items-center justify-center p-4">

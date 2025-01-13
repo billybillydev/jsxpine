@@ -8,8 +8,9 @@ import {
 export function GroupAccordionExample() {
 	return (
 		<GroupAccordionList class="gap-y-4">
-			<GroupAccordionItem class="bg-white border rounded">
-				<GroupAccordionTrigger as="h2"
+			<GroupAccordionItem class="bg-white border rounded text-slate-900">
+				<GroupAccordionTrigger
+					as="h2"
 					class="p-4 w-full text-center "
 					x-bind:class="{ 'border-b': isActive(id) }"
 				>
@@ -35,7 +36,7 @@ export function GroupAccordionExample() {
 					elementum, auctor nisi vitae, elementum tortor.
 				</GroupAccordionContent>
 			</GroupAccordionItem>
-			<GroupAccordionItem class="bg-slate-300 border rounded">
+			<GroupAccordionItem class="bg-slate-300 text-slate-900 border rounded">
 				<GroupAccordionTrigger as="h2" class="p-4 w-full text-center">
 					Click here and close all others.
 				</GroupAccordionTrigger>

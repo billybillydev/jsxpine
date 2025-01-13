@@ -33,7 +33,7 @@ export function CoreTypographyPage({ heading, description, ...restProps }) {
 									<strong>{item.name}:</strong>
 									<span style={getStyle(item)}>Hello world</span>
 								</p>
-								<div class="flex flex-wrap gap-x-6 text-slate-500 font-mono">
+								<div class="flex flex-wrap gap-x-6 text-slate-500 dark:text-slate-200 font-mono">
 									<span>weight: {item.weight}</span>
 									<span>
 										size: {item.size} / {sizeValueInPx} / {sizeValueInPt}

@@ -7,6 +7,7 @@ import {
 	PreviousNextNavigation,
 	RightSidebar
 } from "$views/navigations.view";
+import clsx from "clsx";
 
 export const defaultFavicon = "/public/icons/logo_2.svg";
 export const asideLeftId = "aside-left";
@@ -17,7 +18,7 @@ export const asideRightId = "aside-right";
  */
 export function RootLayout({
 	children,
-	class: className = "bg-slate-100 h-screen flex flex-col",
+	class: className = "bg-slate-100 dark:bg-slate-900 dark:text-white h-screen flex flex-col",
 	seo,
 	url,
 	isHTMX,
@@ -29,7 +30,7 @@ export function RootLayout({
 			{children}
 		</>
 	) : (
-		<Page class={className} favicon={defaultFavicon} seo={seo} {...restProps}>
+		<Page class={clsx(className)} favicon={defaultFavicon} seo={seo} {...restProps} x-bind:class={"$store.darkMode && 'dark'"}>
 			<Header />
 			{children}
 			<Footer />

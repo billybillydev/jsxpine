@@ -147,6 +147,7 @@ export function Page(props) {
 						currentUrl = new URL(destination.url);
 					});
 				`}
+				{...restProps}
 			>
 				{children}
 			</body>

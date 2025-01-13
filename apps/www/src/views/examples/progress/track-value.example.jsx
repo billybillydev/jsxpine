@@ -4,7 +4,7 @@ export function TrackValueBarProgressExample() {
 	return (
 		<div
 			x-data="{ progressValue: 0 }"
-			class="w-full flex items-center gap-x-2 p-8 border rounded-sm bg-white"
+			class="w-full flex items-center gap-x-2 p-8 border rounded-sm bg-white text-slate-900"
 		>
 			<BarProgress
 				value={84}

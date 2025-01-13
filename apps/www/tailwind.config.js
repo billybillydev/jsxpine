@@ -10,5 +10,6 @@ export default {
 		"./src/scripts/alpine/data/*.js",
 		"./src/views/**/*.jsx",
 	],
+	darkMode: "selector",
 	presets: [mosiuiMini]
 };

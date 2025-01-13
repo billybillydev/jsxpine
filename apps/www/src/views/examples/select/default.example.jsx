@@ -67,7 +67,7 @@ export function DefaultSelectExample() {
 			name="dropdown-select"
 			items={items}
 			placeholder="Select an item"
-			class="w-64 border rounded-md shadow-sm border-neutral-200/70"
+			class="w-64 border rounded-md shadow-sm border-neutral-200/70 text-slate-900"
 			x-on:select="console.log($event.detail)"
 		/>
 	);

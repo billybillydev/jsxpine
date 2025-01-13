@@ -9,7 +9,7 @@ export function InputPaginationExample() {
                 })
             `}
 			pages={20}
-			class="[&_input]:w-24"
+			class="[&_input]:w-24 text-slate-900"
 			selectedPage={3}
 		/>
 	);

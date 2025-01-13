@@ -25,16 +25,22 @@ export function HomePage() {
 		}
 	];
 	return (
-		<Page seo={{ title: SITE.title }}>
-			<div class="bg-slate-100 min-h-screen text-center">
-				<header class="pt-12 pb-24 px-4 bg-gradient-to-br from-slate-700 to-black">
+		<Page
+			seo={{ title: SITE.title }}
+			x-bind:class={"$store.darkMode && 'dark'"}
+		>
+			<div class="min-h-screen text-center bg-gradient-to-br from-slate-200 to-white dark:from-slate-800 dark:to-black">
+				<header class="pt-12 pb-24 px-4">
 					<div class="relative flex items-center justify-center gap-x-2 p-4">
 						<BrandLogo class="size-16 rounded-lg m-2 object-contain object-center" />
-						<h1 class="text-white font-medium drop-shadow-sm" safe>
+						<h1
+							class="text-slate-900 dark:text-white font-medium drop-shadow-sm"
+							safe
+						>
 							{SITE.title}
 						</h1>
 					</div>
-					<p class="text-lg mt-4 text-slate-300" safe>
+					<p class="text-lg mt-4 text-slate-800 dark:text-slate-300" safe>
 						{SITE.description}
 					</p>
 				</header>
@@ -44,15 +50,18 @@ export function HomePage() {
 							<li class="grow flex items-center justify-center">
 								<a
 									href={url}
-									class="flex flex-col bg-white rounded-md hover:-translate-y-1 hover:shadow-lg transition-all w-full h-full lg:grow-0 items-center p-4"
+									class="flex flex-col bg-white dark:bg-black border-2 border-black dark:border-white dark:text-white rounded-md hover:-translate-y-1 hover:shadow-lg transition-all w-full h-full lg:grow-0 items-center p-4"
 								>
 									<h2 class="flex gap-x-4 items-center">
-										<Icon name={icon} size={8}  />
+										<Icon name={icon} size={8} />
 										<span class={"text-lg font-medium"} safe>
 											{title}
 										</span>
 									</h2>
-									<p class="text-slate-500 text-center" safe>
+									<p
+										class="text-slate-700 dark:text-slate-200 text-center"
+										safe
+									>
 										{description}
 									</p>
 								</a>

@@ -43,8 +43,8 @@ export function TableOfContents({ currentPage }) {
 				{menu.chapters?.map(({ slug, text }) => {
 					return (
 						<li
-							class="text-slate-400 hover:text-slate-800"
-							x-bind:class={`currentUrl.hash === "#${slug}" && "text-slate-600 underline underline-offset-4"`}
+							class="text-slate-400 hover:text-slate-800 dark:text-slate-300 dark:hover:text-slate-100"
+							x-bind:class={`currentUrl.hash === "#${slug}" && "text-slate-800 dark:text-slate-100 underline underline-offset-4"`}
 							title={`${tableOfContents}: ${text}`}
 						>
 							<a href={`#${slug}`} safe>
@@ -75,7 +75,7 @@ export function LeftSidebar() {
 				>
 					<SoloAccordionTrigger
 						as="h2"
-						class="font-semibold text-slate-700"
+						class="font-semibold"
 						x-capitalize
 						safe
 					>
@@ -91,11 +91,11 @@ export function LeftSidebar() {
 							return (
 								<li
 									class={
-										"transition-colors border-l-2 hover:border-slate-400 text-slate-500 hover:text-slate-900"
+										"transition-colors border-l-2 hover:border-slate-400 hover:text-slate-500 dark:text-slate-100 dark:hover:text-slate-400"
 									}
 									x-data={`{ link: "${menu.link}" }`}
 									x-bind:class={`{
-										"border-slate-500 text-slate-900": link.includes(currentUrl.pathname.slice(1))
+										"border-slate-500 text-slate-500 dark:text-slate-400": link.includes(currentUrl.pathname.slice(1))
 									}`}
 									x-init={`
 										if (link.includes(currentUrl.pathname.slice(1))) {
@@ -169,7 +169,7 @@ export function PreviousNextNavigation({ currentPath }) {
 		>
 			{previous ? (
 				<a
-					class={"btn btn-secondary-inversed space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
+					class={"btn btn-secondary-inversed dark:btn-secondary dark:text-white space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
 					href={previous.link}
 					hx-target="main"
 					hx-swap="innerHTML scroll:top"
@@ -177,21 +177,21 @@ export function PreviousNextNavigation({ currentPath }) {
 				>
 					<Icon name="arrow-left-s-line" size={6} />
 					<div class={"flex flex-col"}>
-						<span class={"text-sm text-slate-500"}>{previous.section}</span>
+						<span class={"text-sm text-slate-600 dark:text-slate-300"}>{previous.section}</span>
 						<span>{previous.text}</span>
 					</div>
 				</a>
 			) : null}
 			{next ? (
 				<a
-					class={"btn btn-secondary-inversed space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
+					class={"btn btn-secondary-inversed dark:btn-secondary dark:text-white space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
 					href={next.link}
 					hx-target="main"
 					hx-swap="innerHTML scroll:top"
 					hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
 				>
 					<div class={"flex flex-col"}>
-						<span class={"text-sm text-slate-500"}>{next.section}</span>
+						<span class={"text-sm text-slate-600 dark:text-slate-300"}>{next.section}</span>
 						<span>{next.text}</span>
 					</div>
 					<Icon name="arrow-right-s-line" size={6} />

@@ -31,7 +31,7 @@ export function AnotherRadioExample() {
 						value={option.value}
 						disabled={option.disabled}
 						x-on:change="console.log($event.target.value)"
-						class="group/item flex items-start p-5 space-x-3 bg-white border rounded-md shadow-sm hover:bg-gray-50 border-neutral-200/70 peer-checked:border-info-600 peer-checked:[&>svg]:visible peer-checked:[&>*]:text-info-600 peer-disabled:cursor-not-allowed peer-disabled:bg-white peer-disabled:text-slate-300"
+						class="group/item flex items-start p-5 space-x-3 text-slate-900 bg-white border rounded-md shadow-sm hover:bg-gray-50 border-neutral-200/70 peer-checked:border-info-600 peer-checked:[&>svg]:visible peer-checked:[&>*]:text-info-600 peer-disabled:cursor-not-allowed peer-disabled:bg-white peer-disabled:text-slate-300"
 					>
 						<Icon
 							name="check-line"
@@ -40,8 +40,12 @@ export function AnotherRadioExample() {
 							class="invisible"
 						/>
 						<div class="relative flex flex-col text-left space-y-1.5 leading-none">
-							<span class="flex font-semibold" safe>{option.title}</span>
-							<span class="text-sm opacity-50" safe>{option.description}</span>
+							<span class="flex font-semibold" safe>
+								{option.title}
+							</span>
+							<span class="text-sm opacity-50" safe>
+								{option.description}
+							</span>
 						</div>
 					</Radio>
 				);

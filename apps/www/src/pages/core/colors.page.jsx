@@ -98,7 +98,7 @@ function ColorList({ colorsMap }) {
 										class="w-full h-12 transition-all"
 										style={`background: ${color}`}
 									/>
-									<div class="text-sm flex items-center text-center font-mono text-slate-500">
+									<div class="text-sm flex items-center text-center font-mono text-slate-500 dark:text-slate-200">
 										<span class="uppercase text-xs">{color}</span>
 									</div>
 								</li>
@@ -110,7 +110,7 @@ function ColorList({ colorsMap }) {
 												class="w-full h-12 transition-all"
 												style={`background: ${value}`}
 											/>
-											<div class="text-sm flex flex-col text-center font-mono text-slate-500">
+											<div class="text-sm flex flex-col text-center font-mono text-slate-500 dark:text-slate-200">
 												<span>{variant}</span>
 												{typeof value === "string" ? (
 													<span class="uppercase text-xs">{value}</span>

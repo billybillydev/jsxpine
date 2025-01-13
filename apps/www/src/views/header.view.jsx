@@ -4,7 +4,7 @@ import { SkipToContent } from "$views/skip-to-content.view";
 
 export function Header() {
 	return (
-		<header class="p-3 bg-slate-100 bg-opacity-80 backdrop-blur-md border-b text-slate-900">
+		<header class="p-3 backdrop-blur-md border-b">
 			<SkipToContent />
 			<nav
 				title="Top Navigation"
@@ -33,7 +33,7 @@ export function Header() {
 					{SITE.github && (
 						<a
 							title="Github"
-							class="opacity-80 hover:opacity-100 hover:bg-slate-200 p-2 rounded-full transition-colors"
+							class="hover:bg-slate-200 dark:bg-slate-100 dark:hover:bg-slate-400 p-2 rounded-full transition-colors"
 							href={"https://github.com/" + SITE.github}
 						>
 							<img class="h-7" src="/public/icons/github.svg" alt="github logo" />

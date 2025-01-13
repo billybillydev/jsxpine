@@ -8,6 +8,7 @@ export function CustomLabelPaginationExample() {
                     console.log({ selectedPage: value });
                 })
             `}
+			class={"text-slate-900"}
 			pages={10}
 			firstButtonLabel="First"
 			previousButtonLabel="Previous"

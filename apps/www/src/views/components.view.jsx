@@ -34,7 +34,7 @@ export function ComponentPresentation({
 	const emClass =
 		"[&_em]:bg-slate-700 [&_em]:px-2 [&_em]:py-1 [&_em]:rounded [&_em]:text-white";
 	const h2Class =
-		"[&_h2]:underline [&_h2]:underline-offset-2 [&_h2]:font-medium [&_h2]:text-slate-700";
+		"[&_h2]:underline [&_h2]:underline-offset-2 [&_h2]:font-medium";
 	return (
 		<div
 			class={clsx(
@@ -54,7 +54,7 @@ export function ComponentPresentation({
 						source ?? name.toLowerCase()
 					}.component.jsx`}
 					target="_blank"
-					class={"link link-secondary"}
+					class={"link link-secondary dark:text-white"}
 				>
 					Find the source code here.
 				</a>

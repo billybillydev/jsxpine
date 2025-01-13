@@ -1,3 +1,4 @@
+import { ThemeToggle } from "$components/theme-toggle.component";
 import { SITE } from "$config/seo";
 import { BrandLogo } from "$views/brand-logo.view";
 import { SkipToContent } from "$views/skip-to-content.view";
@@ -20,7 +21,6 @@ export function Header() {
 					</a>
 				</div>
 				<div class="flex gap-2">
-					{/* <button onclick="toggleDarkMode()">theme</button> */}
 					{SITE.twitter.name && (
 						<a
 							title="Twitter"
@@ -48,6 +48,7 @@ export function Header() {
 							<img class="h-7" src="/public/icons/linkedin.svg" alt="linkedin logo" />
 						</a>
 					)}
+					<ThemeToggle />
 				</div>
 			</nav>
 		</header>

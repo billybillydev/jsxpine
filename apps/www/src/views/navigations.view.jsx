@@ -169,7 +169,7 @@ export function PreviousNextNavigation({ currentPath }) {
 		>
 			{previous ? (
 				<a
-					class={"btn btn-secondary-inversed dark:btn-secondary dark:text-white space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
+					class={"btn btn-secondary-inversed dark:btn-warning dark:text-slate-900 space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
 					href={previous.link}
 					hx-target="main"
 					hx-swap="innerHTML scroll:top"
@@ -177,21 +177,21 @@ export function PreviousNextNavigation({ currentPath }) {
 				>
 					<Icon name="arrow-left-s-line" size={6} />
 					<div class={"flex flex-col"}>
-						<span class={"text-sm text-slate-600 dark:text-slate-300"}>{previous.section}</span>
+						<span class={"text-sm"}>{previous.section}</span>
 						<span>{previous.text}</span>
 					</div>
 				</a>
 			) : null}
 			{next ? (
 				<a
-					class={"btn btn-secondary-inversed dark:btn-secondary dark:text-white space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
+					class={"btn btn-secondary-inversed dark:btn-warning dark:text-slate-900 space-x-2 p-2 rounded max-w-[calc(50%_-_theme(spacing.2))]"}
 					href={next.link}
 					hx-target="main"
 					hx-swap="innerHTML scroll:top"
 					hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
 				>
 					<div class={"flex flex-col"}>
-						<span class={"text-sm text-slate-600 dark:text-slate-300"}>{next.section}</span>
+						<span class={"text-sm"}>{next.section}</span>
 						<span>{next.text}</span>
 					</div>
 					<Icon name="arrow-right-s-line" size={6} />

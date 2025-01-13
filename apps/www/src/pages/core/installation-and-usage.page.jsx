@@ -153,7 +153,7 @@ function ConfigurationSection() {
 										<a
 											href="https://alpinejs.dev/globals/alpine-data"
 											target="_blank"
-											class={"link link-secondary"}
+											class={"link link-secondary dark:link-warning"}
 										>
 											See this link to learn more
 										</a>
@@ -163,13 +163,13 @@ function ConfigurationSection() {
 								<li class="flex gap-x-2">
 									<span>-</span>
 									<p>
-										Directive: Will contain custom directives in alpinejs.
+										Directive: Will contain custom directives in alpinejs.{" "}
 										<a
 											href="https://alpinejs.dev/advanced/extending#custom-directives"
 											target="_blank"
-											class={"link link-secondary"}
+											class={"link link-secondary dark:link-warning"}
 										>
-											Cgeck this link about directives
+											Check this link about directives
 										</a>
 										.
 									</p>
@@ -177,11 +177,11 @@ function ConfigurationSection() {
 								<li class="flex gap-x-2">
 									<span>-</span>
 									<p>
-										Magic: Will contain custom magic functions.
+										Magic: Will contain custom magic functions.{" "}
 										<a
 											href="https://alpinejs.dev/advanced/extending#custom-magics"
 											target="_blank"
-											class={"link link-secondary"}
+											class={"link link-secondary dark:link-warning"}
 										>
 											Check this link about magic
 										</a>
@@ -211,7 +211,7 @@ function DependenciesSection() {
 			<ListWithDot>
 				<li>
 					<p>
-						<span class="font-medium">@kitajs/jtml</span>: This{" "}
+						<span class="font-medium">@kitajs/html</span>: This{" "}
 						<a
 							href="https://www.npmjs.com/package/@kitajs/html"
 							target="_blank"
@@ -523,7 +523,7 @@ const router = new Hono().get("/example", (ctx) => {
 })
 `;
 	return (
-		<CoreSection heading="Where to Use It">
+		<CoreSection heading="Where to Use It ?">
 			<p>
 				JSXPine can be used in any js project that requires a UI library. This
 				includes Node.js, Deno and Bun.

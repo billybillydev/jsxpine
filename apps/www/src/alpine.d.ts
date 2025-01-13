@@ -8,4 +8,8 @@ declare module "alpinejs" {
 			options?: Intl.DateTimeFormatOptions
 		) => string;
 	}
+
+	interface Stores {
+		darkMode: boolean;
+	}
 }

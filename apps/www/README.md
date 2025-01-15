@@ -9,3 +9,6 @@ bun run dev
 ```
 
 open http://localhost:3000
+
+to do:
+- fix alpinejs crash in some components when clicking on back button

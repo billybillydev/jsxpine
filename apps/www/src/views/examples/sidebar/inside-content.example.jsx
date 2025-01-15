@@ -7,7 +7,7 @@ import {
 export function InsideContentSidebarExample() {
 	return (
 		<div
-			class="w-full h-96 flex items-center justify-center"
+			class="w-full h-96 flex relative items-center justify-center overflow-y-hidden"
 			id="simple-sidebar-preview"
 		>
 			<Sidebar>

@@ -14,7 +14,7 @@ export function ModalsPage({ ...restProps }) {
 	return (
 		<MainLayout {...restProps}>
 			<ComponentPresentation name="Modals" source="modal">
-				<section id="overview">
+				<ComponentSection heading="Overview">
 					<h2>Overview</h2>
 					<p>
 						Modal allows you to show content of certain size without the need to
@@ -24,33 +24,34 @@ export function ModalsPage({ ...restProps }) {
 						See the two types of modal below: simple modal and full screen
 						modal.
 					</p>
-				</section>
+				</ComponentSection>
 
 				<ComponentSection heading="Installation">
 					<ComponentInstallation name="modal" />
 				</ComponentSection>
 
-				<section id="simple-modal">
-					<h2>Simple Modal</h2>
-					<p>
-						Simple modal shows you a dynamic content to perform an action or to
-						give you an information staying at same time in your current page.
-					</p>
-					<ComponentPreview filename="/modals/simple" />
-					<p>
-						An interesting thing is to trigger modal within a particular html
-						content via <em>selector</em> props. Check example below to get the
-						hint.
-					</p>
-					<ComponentPreview filename="/modals/simple-button-trigger" />
-					<p>
-						Also, you can use a lighter overlay with <em>overlay</em> props
-					</p>
-					<ComponentPreview filename="/modals/simple-overlay" />
-				</section>
+				<ComponentSection heading="Simple Modal">
+					<div class="space-y-6">
+						<p>
+							Simple modal shows you a dynamic content to perform an action or
+							to give you an information staying at same time in your current
+							page.
+						</p>
+						<ComponentPreview filename="/modals/simple" />
+						<p>
+							An interesting thing is to trigger modal within a particular html
+							content via <em>selector</em> props. Check example below to get
+							the hint.
+						</p>
+						<ComponentPreview filename="/modals/simple-button-trigger" />
+						<p>
+							Also, you can use a lighter overlay with <em>overlay</em> props
+						</p>
+						<ComponentPreview filename="/modals/simple-overlay" />
+					</div>
+				</ComponentSection>
 
-				<section id="full-screen">
-					<h2>Full Screen Modal</h2>
+				<ComponentSection heading="Full Screen Modal">
 					<p>
 						With full screen, content take the entire window screen. Great way
 						to keep user's focus and display a larger content.
@@ -65,10 +66,13 @@ export function ModalsPage({ ...restProps }) {
 					</p>
 					<div class="flex flex-col gap-y-6 py-4">
 						<ComponentPreview filename="/modals/full-screen" />
-						<hr />
+						<p>
+							Also, you can use as well <em>selector</em> props and customise
+							your modal trigger as you want.
+						</p>
 						<ComponentPreview filename="/modals/full-screen-button-trigger" />
 					</div>
-				</section>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

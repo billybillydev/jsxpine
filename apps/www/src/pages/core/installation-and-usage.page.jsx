@@ -4,6 +4,7 @@ import { CorePresentation, CoreSection } from "$views/core.view";
 import { ImportantNote } from "$views/important-note.view";
 import { MainLayout } from "$views/layouts.view";
 import { ListWithDecimal, ListWithDot } from "$views/lists.view";
+import { rightSidebarId, previousNextNavigationId } from "$views/navigations.view";
 
 /**
  * Core Installation And Usage page props
@@ -38,9 +39,15 @@ export function CoreInstallationAndUsagePage({
 function ManualInstallationSection() {
 	return (
 		<CoreSection heading="Manual Installation">
-			<p>
+			<p hx-boost="true">
 				JSXPine is not a UI library. As mentionned in{" "}
-				<a href="/core/introduction" class={"link link-primary italic"}>
+				<a
+					href="/core/introduction"
+					hx-target="main"
+					hx-swap="innerHTML scroll:top"
+					hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
+					class={"link link-primary italic"}
+				>
 					introduction
 				</a>
 				, we provide a set of JSX components boosted with Alpine.js.
@@ -473,10 +480,16 @@ function AddCommandSection() {
 				By doing this, you have to choose your component(s) among the chekbox
 				list displaying in the terminal.
 			</p>
-			<p>
+			<p hx-boost="true">
 				When <span class={"italic"}>component-name</span> is passed, it must
 				match with the existing component name provide by JSXPine. Check the{" "}
-				<a href="/components" class="link link-primary">
+				<a
+					href="/components"
+					hx-target="main"
+					hx-swap="innerHTML scroll:top"
+					hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
+					class="link link-primary"
+				>
 					components' page
 				</a>{" "}
 				or run <em>jsxpine add</em> to see the exhaustive list.

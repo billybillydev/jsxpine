@@ -14,8 +14,7 @@ export function CardPage(props) {
 	return (
 		<MainLayout {...props}>
 			<ComponentPresentation name="Card">
-				<section id="overview">
-					<h2>Overview</h2>
+				<ComponentSection heading="Overview">
 					<p>
 						Card is a nice way to display generic content such as summary blog
 						post or e-commerce product items.
@@ -24,14 +23,13 @@ export function CardPage(props) {
 						Card from JSXPine provides you many features to help you customize
 						it based on your needs. Check cases below and find your way.
 					</p>
-				</section>
+				</ComponentSection>
 
 				<ComponentSection heading="Installation">
 					<ComponentInstallation name="card" />
 				</ComponentSection>
 
-				<section id="default-card">
-					<h2>Default Card</h2>
+				<ComponentSection heading="Default Card">
 					<p>
 						With these props: image, title, text or texts and controls, you can
 						achieve a pretty card component design.
@@ -41,26 +39,24 @@ export function CardPage(props) {
 						how it is done.
 					</p>
 					<ComponentPreview filename="card/default" />
-				</section>
+				</ComponentSection>
 
-				<section id="horizontal-card">
-					<h2>Horizontal Card</h2>
+				<ComponentSection heading="Horizontal Card">
 					<p>
 						By setting position props to "horizontal", you can display
 						horizontally image and card content. No more needed.
 					</p>
 					<p>Check this example.</p>
 					<ComponentPreview filename="card/horizontal" />
-				</section>
+				</ComponentSection>
 
-				<section id="custom-card">
-					<h2>Custom Card</h2>
+				<ComponentSection heading="Custom Card">
 					<p>
 						Do you want to use your own design ? Just ignore all props and set
 						your content as slot. As simple as that.
 					</p>
 					<ComponentPreview filename="card/custom" />
-				</section>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

@@ -1,5 +1,5 @@
 export const SITE = {
-	title: "jsxpine",
+	title: "JSXPine",
 	description:
 		"Pine UI in JSX reusable components to build your design system fast.",
 	defaultLanguage: "en_US",

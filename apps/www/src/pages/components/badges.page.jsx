@@ -38,10 +38,9 @@ export function BadgesPage(props) {
 					"warning"
 				].map((type) => {
 					return (
-						<section id={`${type}-page`}>
-							<h2 safe>{capitalCase(type)} Badge</h2>
+						<ComponentSection heading={`${capitalCase(type)} Badge`}>
 							<ComponentPreview filename={`badges/${type}`} />
-						</section>
+						</ComponentSection>
 					);
 				})}
 			</ComponentPresentation>

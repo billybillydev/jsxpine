@@ -3,7 +3,7 @@ import { Icon } from "./icon.component";
 import clsx from "clsx";
 
 /**
- * @typedef {Object} SidebarTriggerProps 
+ * @typedef {Object} SidebarTriggerProps
  * @type {import("./button.component").ButtonProps}
  */
 
@@ -108,69 +108,63 @@ export function SidebarContent(props) {
 	]);
 
 	return (
-		<template x-teleport={selector}>
+		<div
+			x-bind="shower"
+			class={clsx(
+				"top-0 left-0 flex items-center justify-center",
+				selector !== "body"
+					? "absolute w-full h-full"
+					: "fixed w-screen h-screen z-[99]"
+			)}
+		>
 			<div
 				x-bind="shower"
+				x-transition:enter="ease-out duration-300"
+				x-transition:enter-start="opacity-0"
+				x-transition:enter-end="opacity-100"
+				x-transition:leave="ease-in duration-300"
+				x-transition:leave-start="opacity-100"
+				x-transition:leave-end="opacity-0"
+				x-on:click="close()"
+				class="absolute inset-0 w-full h-full bg-black bg-opacity-40"
+			/>
+			<div
+				x-bind="shower"
+				x-transition:enter="transition ease-in-out duration-500 sm:duration-700"
+				x-transition:enter-start={transitionClassMap.get(position)?.enter.start}
+				x-transition:enter-end={transitionClassMap.get(position)?.enter.end}
+				x-transition:leave="transition ease-in-out duration-500 sm:duration-700"
+				x-transition:leave-start={transitionClassMap.get(position)?.leave.start}
+				x-transition:leave-end={transitionClassMap.get(position)?.leave.end}
 				class={clsx(
-					"top-0 left-0 flex items-center justify-center",
-					selector !== "body"
-						? "absolute w-full h-full"
-						: "fixed w-screen h-screen z-[99]"
+					"absolute inset-O flex flex-col gap-y-2 h-full overflow-y-scroll bg-white border-neutral-100/70",
+					positionClassMap.get(position),
+					className
 				)}
 			>
-				<div
-					x-bind="shower"
-					x-transition:enter="ease-out duration-300"
-					x-transition:enter-start="opacity-0"
-					x-transition:enter-end="opacity-100"
-					x-transition:leave="ease-in duration-300"
-					x-transition:leave-start="opacity-100"
-					x-transition:leave-end="opacity-0"
-					x-on:click="close()"
-					class="absolute inset-0 w-full h-full bg-black bg-opacity-40"
-				/>
-				<div
-					x-bind="shower"
-					x-transition:enter="transition ease-in-out duration-500 sm:duration-700"
-					x-transition:enter-start={
-						transitionClassMap.get(position)?.enter.start
-					}
-					x-transition:enter-end={transitionClassMap.get(position)?.enter.end}
-					x-transition:leave="transition ease-in-out duration-500 sm:duration-700"
-					x-transition:leave-start={
-						transitionClassMap.get(position)?.leave.start
-					}
-					x-transition:leave-end={transitionClassMap.get(position)?.leave.end}
-					class={clsx(
-						"absolute inset-O flex flex-col gap-y-2 h-full overflow-y-scroll bg-white border-neutral-100/70",
-						positionClassMap.get(position),
-						className
-					)}
-				>
-					<div class="flex items-center justify-between w-full p-2 sm:p-4">
-						{title ? (
-							<h2
-								class="text-base font-semibold leading-6 text-gray-900 w-full"
-								id="slide-over-title"
-								safe
-							>
-								{title}
-							</h2>
-						) : null}
-						<div class="flex items-center justify-end w-full">
-							<button
-								x-bind="closerClick"
-								class="flex items-center justify-between px-3 py-2 gap-x-2 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
-							>
-								<Icon name="close-line" />
-								<span>Close</span>
-							</button>
-						</div>
+				<div class="flex items-center justify-between w-full p-2 sm:p-4">
+					{title ? (
+						<h2
+							class="text-base font-semibold leading-6 text-gray-900 w-full"
+							id="slide-over-title"
+							safe
+						>
+							{title}
+						</h2>
+					) : null}
+					<div class="flex items-center justify-end w-full">
+						<button
+							x-bind="closerClick"
+							class="flex items-center justify-between px-3 py-2 gap-x-2 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
+						>
+							<Icon name="close-line" />
+							<span>Close</span>
+						</button>
 					</div>
-					{children}
 				</div>
+				{children}
 			</div>
-		</template>
+		</div>
 	);
 }
 

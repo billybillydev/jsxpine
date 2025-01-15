@@ -48,7 +48,6 @@ export function SimpleModalContent(props) {
 	} = props;
 
 	return (
-		<template x-teleport={selector}>
 			<div
 				x-bind="shower"
 				class={clsx(
@@ -70,7 +69,7 @@ export function SimpleModalContent(props) {
 					x-on:click="close()"
 					class={clsx(
 						"absolute inset-0 w-full h-full",
-						overlay === "light" ? "bg-white/70" : "bg-black/40"
+						overlay === "light" ? "bg-white/75" : "bg-black/75"
 					)}
 				/>
 				<div
@@ -92,7 +91,6 @@ export function SimpleModalContent(props) {
 					<div class="relative w-auto">{children}</div>
 				</div>
 			</div>
-		</template>
 	);
 }
 
@@ -103,7 +101,6 @@ export function SimpleModalContent(props) {
 export function FullScreenModalContent(props) {
 	const { children, selector = "body", class: className } = props;
 	return (
-		<template x-teleport={selector}>
 			<div
 				x-bind="shower"
 				x-transition:enter="transition ease-out duration-250"
@@ -130,7 +127,6 @@ export function FullScreenModalContent(props) {
 				</button>
 				{children}
 			</div>
-		</template>
 	);
 }
 

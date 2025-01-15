@@ -1,3 +1,4 @@
+import { Icon } from "$components/icon.component";
 import { ThemeToggle } from "$components/theme-toggle.component";
 import { SITE } from "$config/seo";
 import { BrandLogo } from "$views/brand-logo.view";
@@ -21,31 +22,14 @@ export function Header() {
 					</a>
 				</div>
 				<div class="flex gap-2">
-					{SITE.twitter.name && (
-						<a
-							title="Twitter"
-							class="opacity-90 hover:opacity-100 hover:bg-blue-100 p-2 rounded-full transition-colors"
-							href={"https://twitter.com/" + SITE.twitter.name}
-						>
-							<img class="h-7" src="/public/icons/twitter.svg" alt="twitter logo" />
-						</a>
-					)}
 					{SITE.github && (
 						<a
 							title="Github"
-							class="hover:bg-slate-200 dark:bg-slate-100 dark:hover:bg-slate-400 p-2 rounded-full transition-colors"
+							class="border-2 border-transparent hover:border-[#0d1117] dark:hover:border-slate-100 flex items-center justify-center p-2 rounded-lg transition-colors"
+							target="_blank"
 							href={"https://github.com/" + SITE.github}
 						>
-							<img class="h-7" src="/public/icons/github.svg" alt="github logo" />
-						</a>
-					)}
-					{SITE.linkedin && (
-						<a
-							title="linkedin"
-							class="opacity-80 hover:opacity-100 hover:bg-blue-50 p-2 rounded-full transition-colors"
-							href={"https://linkedin.com/in/" + SITE.linkedin}
-						>
-							<img class="h-7" src="/public/icons/linkedin.svg" alt="linkedin logo" />
+							<Icon name="github-line" size={6} />
 						</a>
 					)}
 					<ThemeToggle />

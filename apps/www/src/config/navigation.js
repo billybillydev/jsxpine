@@ -215,7 +215,7 @@ export const SIDEBAR = [
 						},
 						{ text: "Default Card", slug: "default-card" },
 						{ text: "Horizontal Card", slug: "horizontal-card" },
-						{ text: "Custom Slot Card", slug: "custom-card" }
+						{ text: "Custom Card", slug: "custom-card" }
 					]
 				}
 			],

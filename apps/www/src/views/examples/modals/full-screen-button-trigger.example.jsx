@@ -5,7 +5,7 @@ export function FullScreenButtonTriggerModalExample() {
 	const fullScreenModalPreviewID = "full-screen-modal-preview";
 
 	return (
-		<div id={fullScreenModalPreviewID} class={"w-full h-[32rem]"}>
+		<div id={fullScreenModalPreviewID} class={"w-full h-[32rem] relative"}>
 			<Modal>
 				<SecondaryButton
 					variant="inversed"

@@ -15,7 +15,6 @@ export function ModalsPage({ ...restProps }) {
 		<MainLayout {...restProps}>
 			<ComponentPresentation name="Modals" source="modal">
 				<ComponentSection heading="Overview">
-					<h2>Overview</h2>
 					<p>
 						Modal allows you to show content of certain size without the need to
 						leave current url.

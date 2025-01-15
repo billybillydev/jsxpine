@@ -21,7 +21,7 @@ export function Header() {
 						<h1 safe>{SITE.title}</h1>
 					</a>
 				</div>
-				<div class="flex gap-2">
+				<div class="flex gap-x-4 items-center">
 					{SITE.github && (
 						<a
 							title="Github"

@@ -73,18 +73,15 @@ export function LeftSidebar() {
 					as="section"
 					title={`${leftSidebarTitle} ${capitalCase(item.header)}`}
 				>
-					<SoloAccordionTrigger
-						as="h2"
-						class="font-semibold"
-						x-capitalize
-						safe
-					>
+					<SoloAccordionTrigger as="h2" class="font-semibold" x-capitalize safe>
 						{item.header}
 					</SoloAccordionTrigger>
 					<SoloAccordionContent
 						as="ul"
 						class="gap-y-1"
-						x-init="open()"
+						x-init={`
+							currentUrl.pathname.includes("${item.header}") && open();
+						`}
 						hx-boost="true"
 					>
 						{[...item.menu].map(([_, menu]) => {

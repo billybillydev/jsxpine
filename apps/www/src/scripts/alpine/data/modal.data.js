@@ -24,6 +24,9 @@ export function modalData() {
         }
       });
     },
+    destroy() {
+      this.show = false;
+    },
     show: false,
     close() {
       this.show = false;

@@ -18,7 +18,8 @@ export const asideRightId = "aside-right";
  */
 export function RootLayout({
 	children,
-	class: className = "bg-slate-100 dark:bg-slate-900 dark:text-white h-screen flex flex-col",
+	class:
+		className = "bg-slate-100 dark:bg-[#0d1117] dark:text-white h-screen flex flex-col",
 	seo,
 	url,
 	isHTMX,
@@ -30,7 +31,13 @@ export function RootLayout({
 			{children}
 		</>
 	) : (
-		<Page class={clsx(className)} favicon={defaultFavicon} seo={seo} {...restProps} x-bind:class={"$store.darkMode && 'dark'"}>
+		<Page
+			class={clsx(className)}
+			favicon={defaultFavicon}
+			seo={seo}
+			{...restProps}
+			x-bind:class={"$store.darkMode && 'dark'"}
+		>
 			<Header />
 			{children}
 			<Footer />

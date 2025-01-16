@@ -14,8 +14,6 @@ import clsx from "clsx";
  * @property {string} [site_name]
  * @property {string} [imageUrl]
  * @property {object} [image]
- * @property {string=} image.url
- * @property {string=} image.secure_url
  * @property {string=} image.type
  * @property {string=} image.alt
  * @property {number=} image.width
@@ -42,6 +40,7 @@ import clsx from "clsx";
  * @typedef {Object} SeoData
  * @property {string} title The page title
  * @property {string} [description] The page description
+ * @property {string} [author] The website's author
  * @property {string} [lang] The page language
  * @property {string} [dir] The page direction
  * @property {RobotsMetaData} [robots] Information about robots indexing. Contains two boolean properties: index and follow.
@@ -119,6 +118,9 @@ export function Page(props) {
 				<title safe>{seo.title}</title>
 				{seo.description ? (
 					<meta name="description" content={seo.description} />
+				) : null}
+				{seo.author ? (
+					<meta name="author" content={seo.author} />
 				) : null}
 				{seo.robots ? (
 					<meta name="robots" content={seo.robots.join(", ")} />

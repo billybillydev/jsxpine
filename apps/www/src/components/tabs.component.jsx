@@ -1,53 +1,49 @@
 import clsx from "clsx";
 
 /**
- * @typedef TabsHeaderItemProps 
- * @type {import("../common/props").HTMLTagWithChildren & {title: string}}
- */
-
-/**
- * @typedef TabsHeaderProps
- * @type {import("../common/props").HTMLTagWithChildren}
- */
-
-/**
- * @typedef TabsBodyProps
- * @type {import("../common/props").HTMLTagWithChildren}
- */
-
-/**
- * @typedef TabBodyItemProps
- * @type {import("../common/props").HTMLTagWithChildren}
- */
-
-/**
  * @typedef TabsProps
  * @type {import("../common/props").HTMLTagWithChildren & import("../common/props").DirectionProps}
  */
 
 /**
  * TabHeaderItem component props
- * @type {import("../common/props").JSXComponent<TabsHeaderItemProps>}
+ * @param {import("../common/props").HTMLTagWithChildren & {title: string}} props
  */
-export function TabHeaderItem(props) {
+export function TabHeaderItem({
+	title,
+	class: className,
+	children,
+	...restProps
+}) {
 	return (
 		<button
 			x-bind:id="$id(tabId)"
 			x-on:click="tabButtonClicked($el);"
 			type="button"
 			class={clsx(
-				"relative z-[2] inline-flex items-center justify-center w-full h-8 px-3 transition-all rounded-md cursor-pointer whitespace-nowrap",
-				props.class
+				"relative inline-flex items-center justify-center w-full h-8 px-3 transition-all cursor-pointer whitespace-nowrap",
+				className
 			)}
+			{...{
+				"x-bind:class":
+					"tabButtonActive($el) ? 'w-full h-full bg-white rounded-md' : ''",
+				...restProps
+			}}
 		>
-			{props.title ? <span class="text-sm font-medium" safe>{props.title}</span> : props.children}
+			{title ? (
+				<span class="text-sm font-medium" safe>
+					{title}
+				</span>
+			) : (
+				children
+			)}
 		</button>
 	);
 }
 
 /**
  * TabsHeader component props
- * @type {import("../common/props").JSXComponent<TabsHeaderProps>}
+ * @param {import("../common/props").HTMLTagWithChildren} props
  */
 export function TabsHeader({ children, class: className }) {
 	return (
@@ -60,23 +56,15 @@ export function TabsHeader({ children, class: className }) {
 			)}
 		>
 			{children}
-			<div
-				x-ref="tabMarker"
-				class="absolute left-0 top-0 z-[1] duration-300 ease-out"
-				x-cloak="true"
-			>
-				<div class="w-full h-full bg-white rounded-md shadow-sm"></div>
-			</div>
 		</div>
 	);
 }
 
 /**
  * TabsBodyItem component props
- * @type {import("../common/props").JSXComponent<TabBodyItemProps>}
+ * @param {import("../common/props").HTMLTagWithChildren} props
  */
-export function TabBodyItem(props) {
-	const { class: className, children } = props;
+export function TabBodyItem({ class: className, children }) {
 	return (
 		<div
 			x-bind:id="$id(tabId + '-content')"
@@ -90,17 +78,19 @@ export function TabBodyItem(props) {
 
 /**
  * TabsBody component props
- * @type {import("../common/props").JSXComponent<TabsBodyProps>}
+ * @param {import("$common/props").HTMLTagWithChildren} props
  */
 export function TabsBody({ class: className, children }) {
 	return (
-		<div class={clsx("relative w-full content", className)}>{children}</div>
+		<div class={clsx("relative w-full content", className)} x-ref="tabContents">
+			{children}
+		</div>
 	);
 }
 
 /**
  * Tabs component props
- * @type {import("../common/props").JSXComponent<TabsProps>}
+ * @param {TabsProps} props
  */
 export function Tabs({ children, class: className, direction = "vertical" }) {
 	/**

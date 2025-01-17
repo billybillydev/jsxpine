@@ -4,46 +4,51 @@
  * @property {number} tabSelected
  * @property {string} tabId
  * @property {(tabButton: HTMLButtonElement) => void} tabButtonClicked
- * @property {(tabButton: HTMLButtonElement) => void} tabRepositionMarker
+ * @property {(tabButton: HTMLButtonElement) => boolean} tabButtonActive
  * @property {(tabButton: HTMLElement) => boolean} tabContentActive
  */
 
 /**
  * 
  * @param {import("../../../common/types").DirectionType} direction 
- * @returns {import("alpinejs").AlpineComponent<TabsDataOutput>}
+ * @returns {import("alpinejs").AlpineComponent<TabsDataOutput & { $refs?: { tabButtons: HTMLDivElement, tabContents: HTMLDivElement } }>}
  */
 export function tabsData(direction = "vertical") {
 	return {
 		init() {
-			const tabs = this.$refs.tabButtons.children;
-			const tabsNb = tabs.length - 1;
-			const tabWidth = `${Math.floor(100 / tabsNb)}%`;
+			const tabs = Array.from(this.$refs.tabButtons.children);
+			const tabsNb = tabs.length;
 			if (this.direction === "vertical") {
 				this.$refs.tabButtons.style.gridTemplateColumns = `repeat(${tabsNb}, 1fr)`;
 			} else {
 				this.$refs.tabButtons.style.gridTemplateRows = `repeat(${tabsNb}, 1fr)`;
 			}
-			this.$refs.tabMarker.style.width = tabWidth;
-			this.tabRepositionMarker(this.$refs.tabButtons.firstElementChild);
+			this.tabId = this.$id("tabs");
+			this.tabSelected = 0;
 		},
 		direction,
-		tabSelected: 1,
-		tabId: this.$id("tabs"),
+		tabSelected: -1,
+		tabId: "",
 		tabButtonClicked(tabButton) {
-			this.tabSelected = Number(tabButton.id.replace(this.tabId + "-", ""));
-			this.tabRepositionMarker(tabButton);
+			this.tabSelected = Array.from(this.$refs.tabButtons.children).findIndex(
+				(tab) => tab.id === tabButton.id
+			);
 		},
-		tabRepositionMarker(tabButton) {
-			this.$refs.tabMarker.style.width = tabButton.offsetWidth + "px";
-			this.$refs.tabMarker.style.height = tabButton.offsetHeight + "px";
-			this.$refs.tabMarker.style.top = tabButton.offsetTop + "px";
-			this.$refs.tabMarker.style.left = tabButton.offsetLeft + "px";
+		tabButtonActive(tabButton) {
+			return (
+				this.tabSelected ===
+				Array.from(this.$refs.tabButtons.children).findIndex(
+					(tab) => tab.id === tabButton.id
+				)
+			);
 		},
 		tabContentActive(tabContent) {
 			return (
-				String(this.tabSelected) == tabContent.id.replace(this.tabId + "-content-", "")
-			);
+				this.tabSelected ===
+				Array.from(this.$refs.tabContents.children).findIndex(
+					(tab) => tab.id === tabContent.id
+				)
+			);;
 		}
 	};
 }

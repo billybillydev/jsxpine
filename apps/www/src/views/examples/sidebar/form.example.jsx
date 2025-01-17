@@ -10,7 +10,7 @@ export function FormSidebarExample() {
 				text="Primary Button as Trigger"
 				x-bind="trigger"
 			/>
-			<SidebarContent position="left" class="">
+			<SidebarContent position="left" class="w-full md:w-auto bg-slate-100 dark:bg-[#0d1117]">
 				<div class="relative flex flex-wrap items-center w-full h-full p-2 md:p-8">
 					<div class="relative w-full max-w-sm mx-auto lg:mb-0">
 						<div class="relative text-center">

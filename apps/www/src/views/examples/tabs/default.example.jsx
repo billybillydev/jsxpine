@@ -4,9 +4,9 @@ export function DefaultTabsExample() {
     return (
 			<Tabs class="bg-slate-100">
 				<TabsHeader>
-					<TabHeaderItem title="Account" />
-					<TabHeaderItem title="Password" />
-					<TabHeaderItem title="Profile" />
+					<TabHeaderItem title="Account" {...{ "x-bind:class": "tabButtonActive($el) ? 'w-full h-full border-b-2 border-info-600' : ''"}} />
+					<TabHeaderItem title="Password" {...{ "x-bind:class": "tabButtonActive($el) ? 'w-full h-full border-b-2 border-info-600' : ''"}} />
+					<TabHeaderItem title="Profile" {...{ "x-bind:class": "tabButtonActive($el) ? 'w-full h-full border-b-2 border-info-600' : ''"}} />
 				</TabsHeader>
 				<TabsBody>
 					<TabBodyItem>

@@ -17,7 +17,7 @@ export function InsideContentSidebarExample() {
 					x-bind="trigger"
 				/>
 				<SidebarContent
-					class="w-full"
+					class="w-full bg-slate-100 dark:bg-[#0d1117]"
 					position="bottom"
 					selector="#simple-sidebar-preview"
 				>

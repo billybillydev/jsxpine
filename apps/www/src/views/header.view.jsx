@@ -32,7 +32,7 @@ export function Header() {
 				class="max-w-7xl mx-auto flex justify-between items-center px-4"
 			>
 				<div class={"flex gap-x-4 items-center relative"}>
-					<Sidebar id={mobileSidebarId}>
+					<Sidebar id={mobileSidebarId} attrs={{ "@close": "close()"}}>
 						<SidebarTrigger
 							class={
 								"p-2 rounded-lg bg-inherit text-inherit border border-inherit"
@@ -128,7 +128,8 @@ export function MobileNavigation() {
 										hx-swap="innerHTML scroll:top"
 										hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
 										class={"py-2 px-6 block"}
-										x-on:click={`$manage("#${mobileSidebarId}").show = false`}
+										// x-on:click={`$manage("#${mobileSidebarId}").show = false`}
+										x-on:click={`$dispatch('close')`}
 										safe
 									>
 										{menu.text}

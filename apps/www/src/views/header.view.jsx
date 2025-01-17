@@ -35,7 +35,7 @@ export function Header() {
 					<Sidebar id={mobileSidebarId} attrs={{ "@close": "close()"}}>
 						<SidebarTrigger
 							class={
-								"p-2 rounded-lg bg-inherit text-inherit border border-inherit"
+								"p-2 rounded-lg bg-inherit text-inherit border border-inherit block lg:hidden"
 							}
 						>
 							<Icon name="menu-fill" size={6} />

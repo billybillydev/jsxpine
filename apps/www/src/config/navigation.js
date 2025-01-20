@@ -73,7 +73,8 @@ export const SIDEBAR = [
 						{ text: "JSX", slug: "jsx" },
 						{ text: "Alpine JS", slug: "alpine-js" },
 						{ text: "HTMX", slug: "htmx" },
-						{ text: "Some Stacks", slug: "some-stacks" }
+						{ text: "About @kitajs/html", slug: "about-kitajs-html" },
+						{ text: "Conclusion", slug: "conclusion" }
 					]
 				}
 			]

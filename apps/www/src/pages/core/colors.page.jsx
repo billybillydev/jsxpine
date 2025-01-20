@@ -125,7 +125,7 @@ function ColorList({ colorsMap }) {
 					);
 				})}
 			</ul>
-			<ul class="flex flex-col list-none gap-y-4">
+			<ul class="flex flex-col list-none gap-y-6">
 				{[...colorsWithVariantsMap].map(([name, color]) => (
 					<li class="flex flex-col gap-y-2">
 						<h3 class="w-full capitalize">{name}</h3>
@@ -136,7 +136,7 @@ function ColorList({ colorsMap }) {
 								});
 
 								return (
-									<li class="flex flex-col justify-center items-start gap-y-2">
+									<li class="space-y-2">
 										<p class={"text-center"}>
 											<span class={"text-sm"}>{variant}</span>
 										</p>

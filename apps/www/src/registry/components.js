@@ -155,6 +155,11 @@ export const components = /** @type {const} */ ([
 		registryDependencies: []
 	},
 	{
+		name: "theme-toggle",
+		alpineDependencies: ["theme-toggle"],
+		registryDependencies: []
+	},
+	{
 		name: "tooltip",
 		alpineDependencies: ["tooltip"],
 		registryDependencies: []

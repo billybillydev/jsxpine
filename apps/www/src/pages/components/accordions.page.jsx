@@ -14,7 +14,7 @@ export function AccordionsPage({ seo, isHTMX, description, ...restProps }) {
 		<MainLayout seo={seo} isHTMX={isHTMX} {...restProps}>
 			<ComponentPresentation name="Accordions" source="accordion">
 				<ComponentSection heading="Overview">
-					<p>{description}</p>
+					<p safe>{description}</p>
 				</ComponentSection>
 
 				<ComponentSection heading="Installation">

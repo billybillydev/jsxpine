@@ -1,5 +1,11 @@
 # jsxpine
 
+## 1.0.1
+
+### Patch Changes
+
+-   updated cli readme
+
 ## 1.0.0
 
 ### Major Changes
@@ -15,7 +21,7 @@
     Also, a global project refactoring has been done.
 
     In the usage, nothing really change for the **add** command.
-    
+
     However, some additional steps have been included in the init command. Learn more in [the website's init command section](https://jsxpine.com/core/installation-and-usage#init-command)
 
     PS: You can still add manually any components. Go to [https://jsxpine.com/components](https://jsxpine.com/components) and follow the steps for the wanted component.

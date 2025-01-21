@@ -4,7 +4,10 @@ import { CorePresentation, CoreSection } from "$views/core.view";
 import { ImportantNote } from "$views/important-note.view";
 import { MainLayout } from "$views/layouts.view";
 import { ListWithDecimal, ListWithDot } from "$views/lists.view";
-import { rightSidebarId, previousNextNavigationId } from "$views/navigations.view";
+import {
+	rightSidebarId,
+	previousNextNavigationId
+} from "$views/navigations.view";
 
 /**
  * Core Installation And Usage page props
@@ -125,6 +128,12 @@ function ConfigurationSection() {
 					<ListWithDot>
 						<li>
 							<p>
+								<span class="font-medium">common</span>: This one is the path of
+								all common type definitions.
+							</p>
+						</li>
+						<li>
+							<p>
 								<span class={"font-medium"}>components</span>: This is the path
 								of the folder where all components will be moved when added via
 								cli{" "}
@@ -198,6 +207,15 @@ function ConfigurationSection() {
 							</ul>
 						</li>
 					</ListWithDot>
+				</li>
+				<li>
+					<p>
+						<em>tsConfigAliases</em>: This property holds either a property
+						named "global" which is the alias in tsconfig of the directory
+						containing common, components and scripts or three properties:
+						common, components and scripts. Each key is an alias for the
+						corresponding directory.
+					</p>
 				</li>
 			</ListWithDecimal>
 		</CoreSection>
@@ -317,7 +335,7 @@ function InitCommandSection() {
 				When running this command (without --yes argument), several steps will
 				be prompt to you:
 			</p>
-			<ListWithDecimal>
+			<ListWithDecimal class={"flex flex-col gap-y-3"}>
 				<li>
 					<p>
 						<strong>Global CSS file</strong>: It's basically the main css file
@@ -336,6 +354,14 @@ function InitCommandSection() {
 						to the tailwind config file. If this file is not found, it exits
 						from the the initialization process. Otherwise, it overwrites
 						everything contain in this file.
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Common' path</strong>: Everything like type definitions
+						shared accross your components and js scripts are gathered in the
+						common directory. Notes that to properly work, it has to be in the
+						same directory than components and scripts.
 					</p>
 				</li>
 				<li>
@@ -364,10 +390,40 @@ function InitCommandSection() {
 						</span>
 					</p>
 				</li>
+				<li>
+					<p>
+						<strong>Set path alias in tsconfig.json</strong>: In this step,
+						jsxpine first asks you if you want to automatically set some alias
+						in your tsconfig.json. If you accept, it will then prompted to set a
+						global alias or different alias name for common, components and
+						scripts.
+					</p>
+					<p>
+						If you choose a global alias, it will be something like $ui/common,
+						$ui/components and $ui/scripts ($ui being the name chosen).
+					</p>
+					<p>
+						In the case you choose individual name, you'll have $common,
+						$components and $scripts (these values being what you typed in the
+						prompt).
+					</p>
+				</li>
+				<li>
+					<p>
+						After installing dependencies, some properties related to{" "}
+						<em>@kitajs/html</em> are added to your tsconfig.json (check this
+						file and notice what has been added).
+					</p>
+					<p>
+						Two more files are added: global.d.ts and alpine.d.ts. Each file
+						corresponding to global type related to interface Window and
+						alpinejs types.
+					</p>
+				</li>
 			</ListWithDecimal>
 			<ImportantNote>
 				When your project is successfully initialized, this will what you get:
-				<ListWithDot class={"space-y-3"}>
+				<ListWithDot class={"space-y-4"}>
 					<li>
 						<p>
 							The <em>component.json</em> file: As mentioned in the{" "}
@@ -395,7 +451,7 @@ function InitCommandSection() {
 								<p>
 									The <em>common</em> directory: This one contains :
 								</p>
-								<ListWithDecimal>
+								<ListWithDecimal class={"space-y-2"}>
 									<li>
 										<p>
 											<span class={"underline underline-offset-2"}>

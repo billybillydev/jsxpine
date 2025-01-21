@@ -36,7 +36,7 @@ npx jsxpine add
 
 ## Documentation
 
-Visit https://jsxpine.com to view the documentation.
+Visit https://jsxpine.com/core/installation-and-usage to view the documentation.
 
 ## License
 

@@ -21,3 +21,4 @@ To use it, run ```jsxpine init``` and follow instructions. Dont't hesitate to ru
 
 Once you run the _init_ command, you can ```jsxpine add``` to add component(s).
 
+Check [installation details in the website](https://jsxpine.com/core/installation-and-usage).

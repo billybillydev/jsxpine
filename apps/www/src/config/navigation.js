@@ -174,7 +174,8 @@ export const SIDEBAR = [
 						{ text: "Success Button", slug: "success-button" },
 						{ text: "Danger Button", slug: "danger-button" },
 						{ text: "Info Button", slug: "info-button" },
-						{ text: "Warning Button", slug: "warning-button" }
+						{ text: "Warning Button", slug: "warning-button" },
+						{ text: "Size Props", slug: "size-props" },
 					]
 				}
 			],

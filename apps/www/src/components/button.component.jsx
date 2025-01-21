@@ -17,8 +17,8 @@ import clsx from "clsx";
 export function Button({
 	children,
 	class: className,
-	size,
-	text = "",
+	size = "md",
+	text,
 	variant = "solid",
 	borderRadius = "rounded",
 	...restProps
@@ -33,6 +33,18 @@ export function Button({
 	]);
 
 	/**
+	 * @type {Map<import("../common/types").SizeType, string>}
+	 */
+	const sizeMap = new Map([
+		["xs", "text-xs px-2 py-1"],
+		["sm", "px-4 py-2 text-sm"],
+		["md", "px-4 py-2"],
+		["lg", "px-8 py-4 text-lg"],
+		["xl", "px-12 py-6 text-xl"],
+		["2xl", "px-16 py-8 text-4xl"]
+	]);
+
+	/**
 	 * @type {Map<import("../common/types").BorderRadiusType, string>}
 	 */
 	const borderRadiusMap = new Map([
@@ -41,14 +53,14 @@ export function Button({
 		["arc", "rounded-xl"],
 		["pill", "rounded-full"],
 		["curve", "rounded-lg"],
-		["circle", "btn-circle"]
+		["circle", "aspect-square rounded-full"]
 	]);
 
 	return (
 		<button
 			class={clsx(
 				variantColorMap.get(variant),
-				size ?? "px-2 py-1",
+				sizeMap.get(size),
 				borderRadiusMap.get(borderRadius),
 				className
 			)}

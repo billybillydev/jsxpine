@@ -78,6 +78,13 @@ export function ButtonsPage(props) {
 				>
 					<p>Warning buttons are often used for risky actions.</p>
 				</ComponentSection>
+
+				<ComponentSection
+					heading="Size Props"
+					examples={["buttons/size"]}
+				>
+					<p>Size props apply different sizes to the button, precisely a mix of margin-x, margin-y and font-size.</p>
+				</ComponentSection>
 			</ComponentPresentation>
 		</MainLayout>
 	);

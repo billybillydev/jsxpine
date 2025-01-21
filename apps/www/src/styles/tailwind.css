@@ -30,10 +30,6 @@ code {
   justify-items: baseline;
 }
 
-.btn-circle {
-  @apply min-w-[4rem] max-w-lg rounded-full flex items-center justify-center p-0 before:pt-[100%];
-}
-
 [data-loading] {
   display: none;
 }

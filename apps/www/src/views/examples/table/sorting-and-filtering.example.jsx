@@ -7,7 +7,7 @@ import {
 export function SortingAndFilteringTableExample() {
 	return (
 		<Table
-			class="bg-white rounded-lg border [&_table]:text-slate-900"
+			class="rounded-lg border"
 			columns={sortAndFilterColumns}
 			items={items}
 		/>

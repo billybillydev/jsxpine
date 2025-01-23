@@ -32,7 +32,7 @@ export function ComponentPresentation({
 	source
 }) {
 	const emClass =
-		"[&_em]:bg-slate-700 [&_em]:px-2 [&_em]:py-1 [&_em]:rounded [&_em]:text-white";
+		"[&_em]:bg-accent-foreground [&_em]:px-2 [&_em]:py-1 [&_em]:rounded [&_em]:text-background";
 	const h2Class =
 		"[&_h2]:font-medium";
 	return (
@@ -116,7 +116,7 @@ export async function ComponentPreview(props) {
 				<TabHeaderItem title="Preview" />
 				<TabHeaderItem title="Code" />
 			</TabsHeader>
-			<TabsBody class={"bg-gray-100"}>
+			<TabsBody>
 				<TabBodyItem class="component-preview">
 					<Component {...restProps} />
 				</TabBodyItem>

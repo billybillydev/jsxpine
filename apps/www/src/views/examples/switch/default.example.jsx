@@ -3,7 +3,7 @@ import { Switch } from "$components/switch.component";
 export function DefaultSwitchExample() {
 	return (
 		<div class="grid grid-cols-2 gap-4">
-			<div class="p-4 border rounded-lg bg-white w-52">
+			<div class="p-4 border rounded-lg w-52">
 				<Switch
 					label="Enable Feature"
 					name="switch-example"
@@ -12,7 +12,7 @@ export function DefaultSwitchExample() {
 					class="[&>button]:h-6"
 				/>
 			</div>
-			<div class="p-4 border rounded-lg bg-white w-52">
+			<div class="p-4 border rounded-lg w-52">
 				<Switch
 					label="Primary Label"
 					name="switch-example-primary"
@@ -22,7 +22,7 @@ export function DefaultSwitchExample() {
 					class="[&>button]:h-4 [&>button>span]:h-8 [&>button>span]:w-8"
 				/>
 			</div>
-			<div class="p-4 border rounded-lg bg-white w-52">
+			<div class="p-4 border rounded-lg w-52">
 				<Switch
 					label="Secondary Label"
 					name="switch-example-secondary"
@@ -32,7 +32,7 @@ export function DefaultSwitchExample() {
 					class="[&>button]:h-6"
 				/>
 			</div>
-			<div class="p-4 border rounded-lg bg-white w-52">
+			<div class="p-4 border rounded-lg w-52">
 				<Switch
 					label="Label on Left"
 					name="switch-example-success"
@@ -42,7 +42,7 @@ export function DefaultSwitchExample() {
 					class="[&>button]:h-6 flex-row-reverse"
 				/>
 			</div>
-			<div class="p-4 border rounded-lg bg-white w-52">
+			<div class="p-4 border rounded-lg w-52">
 				<Switch
 					label="Danger Label"
 					name="switch-example-danger"
@@ -52,7 +52,7 @@ export function DefaultSwitchExample() {
 					class="[&>button]:h-6"
 				/>
 			</div>
-			<div class="p-4 border rounded-lg bg-white w-52">
+			<div class="p-4 border rounded-lg w-52">
 				<Switch
 					label="Info Label"
 					name="switch-example-info"
@@ -62,7 +62,7 @@ export function DefaultSwitchExample() {
 					class="[&>button]:h-6"
 				/>
 			</div>
-			<div class="p-4 border rounded-lg bg-white w-52">
+			<div class="p-4 border rounded-lg w-52">
 				<Switch
 					label="Warning Label"
 					name="switch-example-warning"
@@ -72,7 +72,7 @@ export function DefaultSwitchExample() {
 					class="[&>button]:h-6"
 				/>
 			</div>
-			<div class="p-4 border rounded-lg bg-white w-32">
+			<div class="p-4 border rounded-lg w-32">
 				<Switch
 					label="Off"
 					name="switch-example-warning"

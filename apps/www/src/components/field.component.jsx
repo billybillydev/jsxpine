@@ -29,7 +29,7 @@ export function Field(props) {
 	return (
 		<div class={clsx(className)}>
 			{label ? (
-				<label for={String(id)} class="text-sm leading-7 text-slate-600" safe>
+				<label for={String(id)} class="text-sm leading-7" safe>
 					{label}
 				</label>
 			) : null}

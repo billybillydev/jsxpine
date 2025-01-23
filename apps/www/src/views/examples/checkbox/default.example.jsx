@@ -22,7 +22,7 @@ export function DefaultCheckboxExample() {
 	];
 
 	return (
-		<div class="flex flex-col gap-4">
+		<div class="flex flex-col gap-4 bg-white rounded p-2">
 			{checkboxOptions.map((option) => {
 				return (
 					<Checkbox
@@ -31,7 +31,7 @@ export function DefaultCheckboxExample() {
 						value={option.value}
 						disabled={option.disabled}
 						x-on:change="console.log($event.target.value)"
-						class="group/item flex items-start p-5 space-x-3 text-slate-900 bg-white border rounded-md shadow-sm hover:bg-gray-50 border-neutral-200/70 peer-checked:border-info-600 peer-checked:[&>svg]:visible peer-checked:[&>*]:text-info-600 peer-disabled:cursor-not-allowed peer-disabled:bg-white peer-disabled:text-slate-300"
+						class="group/item flex items-start p-5 space-x-3 text-base-dark bg-white border rounded-md shadow-sm hover:bg-info/15 border-base-light peer-checked:border-info peer-checked:[&>svg]:visible peer-checked:[&>*]:text-info peer-disabled:cursor-not-allowed peer-disabled:bg-white peer-disabled:text-base-light"
 					>
 						<Icon
 							name="check-line"
@@ -43,7 +43,7 @@ export function DefaultCheckboxExample() {
 							<span class="flex font-semibold" safe>
 								{option.title}
 							</span>
-							<span class="text-sm opacity-70" safe>
+							<span class="text-sm opacity-75" safe>
 								{option.description}
 							</span>
 						</div>

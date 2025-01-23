@@ -167,7 +167,7 @@ export const items = [
  */
 export function AddressComponent(props) {
 	const { text } = props;
-	return <p class="text-slate-600 italic" safe>{text}</p>;
+	return <p class="italic" safe>{text}</p>;
 }
 
 /**

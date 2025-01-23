@@ -22,34 +22,34 @@ export function Avatar(props) {
 		[
 			"primary",
 			{
-				background: "bg-primary-300 border-primary-500",
-				text: "text-primary-700"
+				background: "bg-primary-light border-primary",
+				text: "text-primary-dark"
 			}
 		],
 		[
 			"secondary",
-			{ background: "bg-slate-300 border-secondary", text: "text-secondary" }
+			{ background: "bg-secondary-light border-secondary", text: "text-secondary" }
 		],
 		[
 			"success",
 			{
-				background: "bg-success-300 border-success-500",
-				text: "text-success-700"
+				background: "bg-success-light border-success",
+				text: "text-success-dark"
 			}
 		],
 		[
 			"danger",
-			{ background: "bg-danger-300 border-danger-500", text: "text-danger-700" }
+			{ background: "bg-danger-light border-danger", text: "text-danger-dark" }
 		],
 		[
 			"info",
-			{ background: "bg-info-300 border-info-500", text: "text-info-700" }
+			{ background: "bg-info-light border-info", text: "text-info-dark" }
 		],
 		[
 			"warning",
 			{
-				background: "bg-warning-300 border-warning-500",
-				text: "text-warning-700"
+				background: "bg-warning-light border-warning",
+				text: "text-warning-dark"
 			}
 		]
 	]);
@@ -57,11 +57,11 @@ export function Avatar(props) {
 	const backgroundColor =
 		typeof color === "string"
 			? colorMap.get(color)?.background
-			: color?.background ?? "bg-slate-200 border-slate-700";
+			: color?.background ?? "bg-base-light border-base-dark";
 	const textColor =
 		typeof color === "string"
 			? colorMap.get(color)?.text
-			: color?.text ?? "text-slate-700";
+			: color?.text ?? "text-base-dark";
 
 	/** @type {Map<AvatarSize, string>} */
 	const fontSizeMap = new Map([

@@ -114,7 +114,7 @@ export function SearchInputFilterTable(props) {
 				id={id}
 				name={name}
 				class={clsx(
-					"flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50",
+					"flex w-full h-10 px-3 py-2 text-sm border rounded-md",
 					className
 				)}
 			/>
@@ -140,7 +140,7 @@ export function SelectFilterTable(props) {
 			<Select
 				x-on:select={`filterByOperatorType("select", event.detail.operator, "${index}", event.detail.value)`}
 				class={clsx(
-					"flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50",
+					"flex w-full h-10 px-3 py-2 text-sm border rounded-md",
 					className
 				)}
 				placeholder={placeholder}
@@ -160,7 +160,7 @@ export function TableHead(props) {
 	const { class: className, columns, ...restProps } = props;
 	return (
 		<thead>
-			<tr x-ref="thead" class={clsx("text-neutral-500 border-b", className)}>
+			<tr x-ref="thead" class={clsx("border-b", className)}>
 				<template x-for="column in columns">
 					<th
 						x-on:click={`column.sort && setSortIndex(column.index)`}
@@ -174,14 +174,14 @@ export function TableHead(props) {
 										name="arrow-up-s-fill"
 										size={5}
 										fill="currentColor"
-										x-bind:class="order === 'DESC' && column.index === currentSortIndex ? 'text-red-600' : 'text-slate-600'"
+										x-bind:class="order === 'DESC' && column.index === currentSortIndex ? 'text-danger' : 'text-foreground'"
 										class="translate-y-2"
 									/>
 									<Icon
 										name="arrow-down-s-fill"
 										size={5}
 										fill="currentColor"
-										x-bind:class="order === 'ASC' && column.index === currentSortIndex ? 'text-red-600' : 'text-slate-600'"
+										x-bind:class="order === 'ASC' && column.index === currentSortIndex ? 'text-danger' : 'text-foreground'"
 										class="mb-2"
 									/>
 								</div>
@@ -235,9 +235,9 @@ export function TableHead(props) {
 export function TableBody(props) {
 	const { class: className, ...restProps } = props;
 	return (
-		<tbody class={clsx("divide-y divide-neutral-200", className)}>
+		<tbody class={clsx("divide-y divide-base-light", className)}>
 			<template x-for="item in sortItemsByIndex()">
-				<tr class="text-neutral-800">
+				<tr class="">
 					<template x-for="column in columns">
 						<template x-if="item[column.index]">
 							<td class="px-5 py-4 text-sm whitespace-nowrap">
@@ -253,7 +253,7 @@ export function TableBody(props) {
 				</tr>
 			</template>
 			<template x-if="!items.length">
-				<tr class="text-neutral-800 shrink">
+				<tr class="shrink">
 					<td colspan="100%" class="text-center p-4">
 						<p>No data to display</p>
 					</td>
@@ -279,7 +279,7 @@ export function Table(props) {
 	} = props;
 
 	return (
-		<div class={clsx("divide-y divide-neutral-200", className)}>
+		<div class={clsx("divide-y divide-base-light", className)}>
 			<table
 				x-data={`table(${JSON.stringify(columns)}, ${JSON.stringify(items)})`}
 				class="min-w-full"

@@ -25,9 +25,9 @@ export function Badge({
 	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantMap = new Map([
-		["solid", "bg-slate-500 text-white"],
-		["outlined", "bg-slate-300 text-slate-700"],
-		["inversed", "border border-slate-700 text-slate-700"]
+		["solid", "bg-base text-background"],
+		["outlined", "bg-base-light text-base-dark"],
+		["inversed", "border border-muted-foreground text-muted-foreground"]
 	]);
 
 	/**
@@ -65,9 +65,9 @@ export function PrimaryBadge({
 	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
-		["solid", "bg-primary-600 text-white"],
-		["outlined", "bg-primary-200 text-primary-700"],
-		["inversed", "border border-primary-600 text-primary-600"]
+		["solid", "bg-primary text-primary-foreground"],
+		["outlined", "bg-primary-light text-primary-dark"],
+		["inversed", "border border-primary text-primary"]
 	]);
 
 	return (
@@ -94,8 +94,8 @@ export function SecondaryBadge({
 	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
-		["solid", "bg-secondary text-white"],
-		["outlined", "bg-slate-400 text-secondary"],
+		["solid", "bg-secondary text-secondary-foreground"],
+		["outlined", "bg-secondary-light text-secondary"],
 		["inversed", "border border-secondary text-secondary"]
 	]);
 
@@ -123,9 +123,9 @@ export function SuccessBadge({
 	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
-		["solid", "bg-success-600 text-white"],
-		["outlined", "bg-success-200 text-success-700"],
-		["inversed", "border border-success-600 text-success-600"]
+		["solid", "bg-success text-success-foreground"],
+		["outlined", "bg-success-light text-success-dark"],
+		["inversed", "border border-success text-success"]
 	]);
 
 	return (
@@ -152,9 +152,9 @@ export function DangerBadge({
 	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
-		["solid", "bg-danger-600 text-white"],
-		["outlined", "bg-danger-200 text-danger-700"],
-		["inversed", "border border-danger-600 text-danger-600"]
+		["solid", "bg-danger text-danger-foreground"],
+		["outlined", "bg-danger-light text-danger-dark"],
+		["inversed", "border border-danger text-danger"]
 	]);
 
 	return (
@@ -181,9 +181,9 @@ export function InfoBadge({
 	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
-		["solid", "bg-info-600 text-white"],
-		["outlined", "bg-info-200 text-info-700"],
-		["inversed", "border border-info-600 text-info-600"]
+		["solid", "bg-info text-info-foreground"],
+		["outlined", "bg-info-light text-info-dark"],
+		["inversed", "border border-info text-info"]
 	]);
 
 	return (
@@ -210,9 +210,9 @@ export function WarningBadge({
 	 * @type {Map<import("../common/types").VariantColorType, string>}
 	 */
 	const variantClassMap = new Map([
-		["solid", "bg-warning-600 text-white"],
-		["outlined", "bg-warning-200 text-warning-700"],
-		["inversed", "border border-warning-600 text-warning-600"]
+		["solid", "bg-warning text-warning-foreground"],
+		["outlined", "bg-warning-light text-warning-dark"],
+		["inversed", "border border-warning text-warning"]
 	]);
 
 	return (

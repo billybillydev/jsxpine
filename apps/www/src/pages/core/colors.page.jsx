@@ -34,12 +34,18 @@ function ColorsView() {
 	 * @type {Array<keyof COLORS>}
 	 */
 	const themeColorNames = [
+		"base",
+		"background",
+		"foreground",
+		"accent",
+		"muted",
 		"primary",
 		"secondary",
 		"success",
 		"danger",
 		"info",
-		"warning"
+		"warning",
+		"overlay"
 	];
 
 	const mainColorNames = /** @type {Array<keyof COLORS>} */ (
@@ -94,6 +100,7 @@ function ColorList({ colorsMap }) {
 			)
 		]
 	);
+
 	return (
 		<>
 			<ul class={"grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6"}>

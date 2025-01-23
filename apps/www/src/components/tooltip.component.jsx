@@ -29,12 +29,12 @@ export function Tooltip(props) {
 	 * @type {Map<import("../common/types").ThemeColorType, string>}
 	 */
 	const colorTypeClassMap = new Map([
-		["primary", "bg-primary-400"],
+		["primary", "bg-primary"],
 		["secondary", "bg-secondary"],
-		["success", "bg-success-400"],
-		["danger", "bg-danger-400"],
-		["info", "bg-info-400"],
-		["warning", "bg-warning-400"]
+		["success", "bg-success"],
+		["danger", "bg-danger"],
+		["info", "bg-info"],
+		["warning", "bg-warning"]
 	]);
 
 	/**
@@ -82,7 +82,7 @@ export function Tooltip(props) {
 					x-transition=""
 					class={clsx(
 						"relative px-2 py-1 bg-opacity-90",
-						type ? colorTypeClassMap.get(type) : "bg-slate-700 text-white"
+						type ? colorTypeClassMap.get(type) : "bg-base-dark text-base-light"
 					)}
 				>
 					{text ? (
@@ -100,7 +100,7 @@ export function Tooltip(props) {
 							class={clsx(
 								"w-1.5 h-1.5 bg-opacity-90",
 								arrowOrientationClassMap.get(position),
-								type ? colorTypeClassMap.get(type) : "bg-slate-700 text-white"
+								type ? colorTypeClassMap.get(type) : "bg-base-dark text-base-light"
 							)}
 						></div>
 					</div>

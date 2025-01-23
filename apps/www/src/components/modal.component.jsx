@@ -69,7 +69,7 @@ export function SimpleModalContent(props) {
 					x-on:click="close()"
 					class={clsx(
 						"absolute inset-0 w-full h-full",
-						overlay === "light" ? "bg-white/75" : "bg-black/75"
+						overlay === "light" ? "bg-overlay-light/80" : "bg-overlay-dark/80"
 					)}
 				/>
 				<div
@@ -80,11 +80,11 @@ export function SimpleModalContent(props) {
 					x-transition:leave="ease-in duration-200"
 					x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
 					x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-					class="relative w-full bg-white sm:max-w-lg rounded-lg"
+					class="relative w-full bg-background sm:max-w-lg rounded-lg border"
 				>
 					<button
 						x-bind="closerClick"
-						class="absolute z-10 -top-3 -right-3 flex items-center justify-center w-8 h-8 border bg-white text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50"
+						class="absolute z-10 -top-3 -right-3 flex items-center justify-center w-8 h-8 border bg-background text-muted-foreground rounded-full hover:text-foreground"
 					>
 						<Icon name="close-fill" stroke-width="1.5" size={5} />
 					</button>
@@ -120,7 +120,7 @@ export function FullScreenModalContent(props) {
 				<button
 					x-bind="closerClick"
 					aria-label="Close"
-					class="absolute top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-3 mr-3 space-x-1 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
+					class="absolute top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-3 mr-3 gap-x-1 text-xs font-medium uppercase border rounded-md border-base-light hover:text-foreground"
 				>
 					<Icon name="close-fill" stroke-width="1.5" size={5} />
 					<span>Close</span>

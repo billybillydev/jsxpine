@@ -55,23 +55,23 @@ export function CarouselPage({ ...restProps }) {
 	];
 	const contents = [
 		{
-			color: "bg-info-500",
+			color: "bg-info",
 			text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptatem aliquid nam, quaerat eligendi quasi iste sed, placeat consequuntur enim ad quis tenetur praesentium impedit! Suscipit cumque natus ipsam earum."
 		},
 		{
-			color: "bg-primary-500",
+			color: "bg-primary",
 			text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, perspiciatis."
 		},
 		{
-			color: "bg-success-500",
+			color: "bg-success",
 			text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum aliquid vel eligendi minus nesciunt rerum illo beatae eos dolor. Esse voluptatem excepturi eligendi ab rem, nam possimus sed sequi quaerat corrupti consequuntur molestias sint rerum repudiandae explicabo est necessitatibus non autem vitae hic illo officiis obcaecati asperiores maxime. Facere, eum?"
 		},
 		{
-			color: "bg-warning-500",
+			color: "bg-warning",
 			text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dolor dicta cumque nemo. Architecto quam odit obcaecati laboriosam sapiente inventore, dolorem iusto? Numquam velit sed minima culpa magni sapiente. Distinctio quas voluptatem sed dignissimos cumque heading sequi ratione consequatur at, dicta iste repellat non! Quam quod totam aperiam magni repellat dolorum dolore mollitia illo, fugit qui possimus voluptatibus! Maiores eveniet consectetur voluptates nostrum magni doloribus in, ea autem itaque nam maxime minus necessitatibus illum ad?"
 		},
 		{
-			color: "bg-danger-500",
+			color: "bg-danger",
 			text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis magni, aperiam repellendus nisi itaque facere! Consequatur beatae voluptas reiciendis minus quidem inventore ea heading harum dicta obcaecati aut nam sunt ipsum odit dolore doloribus iure nemo quasi, officia asperiores. Vero?"
 		}
 	];

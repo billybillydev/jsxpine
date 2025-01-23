@@ -19,7 +19,7 @@ export const asideRightId = "aside-right";
 export function RootLayout({
 	children,
 	class:
-		className = "bg-slate-100 dark:bg-[#0d1117] dark:text-white h-screen flex flex-col",
+		className = "h-screen flex flex-col bg-background text-foreground",
 	seo,
 	url,
 	isHTMX,

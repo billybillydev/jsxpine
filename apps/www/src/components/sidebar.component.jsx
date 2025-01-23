@@ -126,7 +126,7 @@ export function SidebarContent(props) {
 				x-transition:leave-start="opacity-100"
 				x-transition:leave-end="opacity-0"
 				x-on:click="close()"
-				class="absolute inset-0 w-full h-full bg-black bg-opacity-40"
+				class="absolute inset-0 w-full h-full bg-overlay-dark/75"
 			/>
 			<div
 				x-bind="shower"
@@ -137,7 +137,7 @@ export function SidebarContent(props) {
 				x-transition:leave-start={transitionClassMap.get(position)?.leave.start}
 				x-transition:leave-end={transitionClassMap.get(position)?.leave.end}
 				class={clsx(
-					"absolute inset-O flex flex-col gap-y-2 h-full overflow-y-scroll bg-white border-neutral-100/70",
+					"absolute inset-O flex flex-col gap-y-2 h-full overflow-y-scroll bg-background border-base-dark/70",
 					positionClassMap.get(position),
 					className
 				)}
@@ -145,7 +145,7 @@ export function SidebarContent(props) {
 				<div class="flex items-center justify-between w-full p-2 sm:p-4">
 					{title ? (
 						<h2
-							class="text-base font-semibold leading-6 text-gray-900 w-full"
+							class="text-base font-semibold leading-6 w-full"
 							id="slide-over-title"
 							safe
 						>
@@ -155,7 +155,7 @@ export function SidebarContent(props) {
 					<div class="flex items-center justify-end w-full">
 						<button
 							x-bind="closerClick"
-							class="flex items-center justify-between px-3 py-2 gap-x-2 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
+							class="flex items-center justify-between px-3 py-2 gap-x-2 text-xs font-medium uppercase bg-background text-muted-foreground rounded-md hover:text-foreground"
 						>
 							<Icon name="close-line" />
 							<span>Close</span>

@@ -1,10 +1,10 @@
+import { Icon } from "./icon.component";
+import clsx from "clsx";
+
 /**
  * @typedef {Object} InputProps
  * @type {Omit<JSX.HtmlInputTag, "className"> & import("../common/props").CLSXClassProps}
  */
-
-import { Icon } from "./icon.component";
-import clsx from "clsx";
 
 /**
  * @typedef TextInputProps
@@ -69,10 +69,20 @@ export function DateInput(props) {
 	const { value = "", class: className, ...restProps } = props;
 	return (
 		<div
-			class={clsx("input flex items-center justify-center", className)}
+			class={clsx("input flex items-center justify-center gap-x-2", className)}
 			x-data={`{ value: "${value}" }`}
 		>
-			<input type="date" {...restProps} x-model="value" class="flex-1 px-1" />
+			<input
+				x-ref="dateInput"
+				type="date"
+				{...restProps}
+				x-model="value"
+				class="flex-1 px-1"
+			/>
+			{/* Because calendar-picker-icon doesn't change with theme toggle */}
+			<button x-on:click="$refs.dateInput.showPicker()">
+				<Icon name="calendar-line" />
+			</button>
 		</div>
 	);
 }
@@ -205,14 +215,18 @@ export function SelectInput(props) {
 			{...restProps}
 			x-data={`{ value: "${value}" }`}
 			class={clsx(
-				"w-full p-2 text-base border border-gray-300 rounded cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500"
+				"w-full p-2 text-md border border-base-light rounded cursor-pointer focus:outline-none focus:ring-2 focus:border-primary"
 			)}
 		>
 			<option class={clsx({ hidden: hidePlaceholder })} selected safe>
 				{placeholder}
 			</option>
 			{items.map((item) => {
-				return <option value={String(item.value)} safe>{item.label}</option>;
+				return (
+					<option value={String(item.value)} safe>
+						{item.label}
+					</option>
+				);
 			})}
 		</select>
 	);
@@ -269,13 +283,23 @@ export function TextareaInput(props) {
  * @type {import("../common/props").JSXComponent<TextInputProps>}
  */
 export function TimeInput(props) {
-const { value = "", class: className, ...restProps } = props;
+	const { value = "", class: className, ...restProps } = props;
 	return (
 		<div
-			class={clsx("input flex items-center justify-center", className)}
+			class={clsx("input flex items-center justify-center gap-x-2", className)}
 			x-data={`{ value: "${value}" }`}
 		>
-			<input type="time" {...restProps} x-model="value" class="flex-1 px-1" />
+			<input
+				x-ref="timeInput"
+				type="time"
+				{...restProps}
+				x-model="value"
+				class="flex-1 px-1"
+			/>
+			{/* Because calendar-picker-icon doesn't change with theme toggle */}
+			<button x-on:click="$refs.timeInput.showPicker()">
+				<Icon name="time-line" />
+			</button>
 		</div>
 	);
 }

@@ -10,7 +10,7 @@ export function FullScreenModalExample() {
 			<ModalTrigger>
 				<span>Open Full Screen</span>
 			</ModalTrigger>
-			<ModalContent class={"bg-white"} type="full-screen">
+			<ModalContent class={"bg-background"} type="full-screen">
 				<div class="relative top-0 bottom-0 right-0 flex-shrink-0 hidden w-1/3 overflow-hidden bg-cover lg:block">
 					<a
 						href="#_"

@@ -21,7 +21,7 @@ export function HoverDropdownExample() {
 							class="rounded-full w-14 h-14"
 						/>
 						<div class="relative">
-							<p class="mb-1 font-bold">@thedevdojo</p>
+							<p class="mb-1 font-bold text-base-dark">@thedevdojo</p>
 							<p class="mb-1 text-sm text-gray-600">
 								The creative platform for developers. Community, tools,
 								products, and more

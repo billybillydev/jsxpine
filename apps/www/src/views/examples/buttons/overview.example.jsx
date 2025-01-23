@@ -23,7 +23,7 @@ export function OverviewButtonExample() {
 			</Button>
 			<SecondaryButton borderRadius="curve" text="Curve" />
 			<Button variant="outlined" text="Base button outlined" />
-			<Button class="bg-slate-300 text-slate-800 p-4" borderRadius="pill">
+			<Button class="bg-slate-300 hover:bg-slate-800 text-slate-800 hover:text-slate-300 p-4" borderRadius="pill">
 				Pill borderRadius with custom class
 			</Button>
 			<WarningButton borderRadius="circle" text="Circle" />

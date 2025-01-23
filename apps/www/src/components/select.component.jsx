@@ -56,8 +56,8 @@ export function Select(props) {
 				x-ref="selectButton"
 				type="button"
 				x-on:click="selectOpen =! selectOpen"
-				x-bind:class="{ 'focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400' : !selectOpen }"
-				class="relative w-full flex items-center justify-between p-1 gap-x-2 text-left bg-white hover:cursor-pointer disabled:cursor-not-allowed disabled:text-neutral-600/30 focus:outline-none text-sm"
+				x-bind:class="{ 'focus:ring-2 focus:ring-offset-2 focus:ring-base' : !selectOpen }"
+				class="relative w-full flex items-center justify-between p-1 gap-x-2 text-left hover:cursor-pointer disabled:cursor-not-allowed disabled:text-base/30 focus:outline-none text-sm"
 				disabled={disabled}
 			>
 				<span
@@ -81,7 +81,7 @@ export function Select(props) {
 					"x-transition:enter-end": "opacity-100"
 				}}
 				x-bind:class="{ 'bottom-0 mb-10' : selectDropdownPosition == 'top', 'top-0 mt-10' : selectDropdownPosition == 'bottom' }"
-				class="absolute flex flex-col z-10 grow py-1 mt-1 overflow-y-auto text-sm bg-white rounded-md shadow-md max-h-56 ring-1 ring-black ring-opacity-5 focus:outline-none"
+				class="absolute bg-background text-foreground flex flex-col z-10 w-full grow py-1 mt-1 overflow-y-auto text-sm rounded-md shadow-md max-h-56"
 				x-cloak="true"
 			>
 				<template x-for="item in selectableItems" x-bind:key="item.value">
@@ -89,14 +89,13 @@ export function Select(props) {
 						x-on:click="selectedItem = item; selectOpen = false; $refs.selectButton.focus(); $dispatch('select', item)"
 						x-bind:id="item.value + '-' + selectId"
 						x-bind:data-disabled="item.disabled ?? false"
-						x-bind:class="selectableItemIsActive && 'bg-neutral-100 text-gray-900'"
 						x-on:mousemove="selectableItemActive = item"
-						class="relative flex items-center h-full py-2 pr-2 pl-8 text-gray-700 cursor-pointer select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none"
+						class="relative flex items-center h-full py-2 pr-2 pl-8 cursor-pointer select-none hover:bg-base/30 data-[disabled]:bg-base-light data-[disabled]:text-base-dark data-[disabled]:pointer-events-none data-[disabled]:pointer-not-allowed"
 					>
 						<Icon
 							name="check-line"
 							x-show="selectedItem?.value == item.value"
-							class="absolute left-0 w-4 h-4 ml-2 stroke-current text-neutral-400"
+							class="absolute left-0 size-4 ml-2 stroke-current text-nmuted-foreground"
 						/>
 						<span class="block font-medium truncate" x-text="item.label"></span>
 					</li>

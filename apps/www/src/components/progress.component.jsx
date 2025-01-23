@@ -24,12 +24,12 @@ export function BarProgress(props) {
 	 * @type {Map<import("../common/types").ThemeColorType, string>}
 	 */
 	const themeColorClassMap = new Map([
-		["primary", "bg-primary-500"],
+		["primary", "bg-primary"],
 		["secondary", "bg-secondary"],
-		["success", "bg-success-600"],
-		["danger", "bg-danger-600"],
-		["info", "bg-info-500"],
-		["warning", "bg-warning-500"]
+		["success", "bg-success"],
+		["danger", "bg-danger"],
+		["info", "bg-info"],
+		["warning", "bg-warning"]
 	]);
 	return (
 		<div
@@ -37,7 +37,7 @@ export function BarProgress(props) {
 				interval ?? duration / value
 			}, ${noAnimation})`}
 			class={clsx(
-				"relative w-full h-3 overflow-hidden rounded-full bg-neutral-100",
+				"relative w-full h-3 overflow-hidden rounded-full bg-base-light",
 				className
 			)}
 			{...restProps}
@@ -46,7 +46,7 @@ export function BarProgress(props) {
 				x-bind:style="`width: ${progress}%; transition-duration: ${interval}ms;`"
 				class={clsx(
 					`absolute h-full ease-linear`,
-					type ? themeColorClassMap.get(type) : "bg-neutral-700"
+					type ? themeColorClassMap.get(type) : "bg-base-dark"
 				)}
 				x-cloak="true"
 			></span>

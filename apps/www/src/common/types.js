@@ -26,7 +26,7 @@ const iconsKeys = [...Object.keys(icons.icons)];
 
 /**
  * Theme Color Type enum
- * @typedef {"primary" | "secondary" | "success" | "danger" | "info" | "warning"} ThemeColorType
+ * @typedef {"base" | "background" | "foreground" | "muted" | "accent" | "primary" | "secondary" | "success" | "danger" | "info" | "warning" | "overlay"} ThemeColorType
  */
 
 /**

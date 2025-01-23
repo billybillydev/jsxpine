@@ -42,14 +42,14 @@ export function CardBody(props) {
 	const { children, class: className, title, text, texts, controls } = props;
 	return (
 		<div
-			class={clsx("bg-white flex flex-col gap-y-4 rounded-lg p-4", className)}
+			class={clsx("flex flex-col gap-y-4 rounded-lg p-4", className)}
 			id="card-body"
 		>
 			{children ?? (
 				<>
 					{title ? (
 						<h4
-							class="text-xl font-bold leading-none tracking-tight text-neutral-900"
+							class="text-xl font-bold leading-none tracking-tight text-foreground"
 							safe
 						>
 							{title}
@@ -61,12 +61,12 @@ export function CardBody(props) {
 						<div id="card-body-text">
 							{texts?.length ? (
 								texts.map((line) => (
-									<p class="text-neutral-500" safe>
+									<p class="text-foreground/85" safe>
 										{line}
 									</p>
 								))
 							) : text ? (
-								<p class="text-neutral-500" safe>
+								<p class="text-foreground/85" safe>
 									{text}
 								</p>
 							) : (
@@ -147,7 +147,7 @@ export function Card(props) {
 	return (
 		<div
 			class={clsx(
-				"flex rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm w-full",
+				"flex rounded-lg overflow-hidden border border-base-light shadow-sm w-full",
 				directionClassMap.get(direction),
 				className
 			)}

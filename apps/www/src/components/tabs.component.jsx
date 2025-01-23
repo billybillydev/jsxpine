@@ -26,7 +26,7 @@ export function TabHeaderItem({
 			)}
 			{...{
 				"x-bind:class":
-					"tabButtonActive($el) ? 'w-full h-full bg-white rounded-md' : ''",
+					"tabButtonActive($el) ? 'w-full h-full bg-accent-foreground text-background rounded-md' : ''",
 				...restProps
 			}}
 		>
@@ -51,7 +51,7 @@ export function TabsHeader({ children, class: className }) {
 			x-ref="tabButtons"
 			x-bind:class="direction === 'horizontal' ? 'h-full max-w-xl' : 'w-full h-10'"
 			class={clsx(
-				"relative grid items-center justify-center p-1 text-gray-500 bg-gray-100 rounded-lg select-none",
+				"relative grid items-center justify-center p-1 rounded-lg select-none",
 				className
 			)}
 		>

@@ -8,7 +8,6 @@ export function FullScreenButtonTriggerModalExample() {
 		<div id={fullScreenModalPreviewID} class={"w-full h-[32rem] relative"}>
 			<Modal>
 				<SecondaryButton
-					variant="inversed"
 					borderRadius="square"
 					text="Secondary Button as Trigger"
 					x-bind="trigger"
@@ -16,7 +15,7 @@ export function FullScreenButtonTriggerModalExample() {
 				<ModalContent
 					selector={`#${fullScreenModalPreviewID}`}
 					type="full-screen"
-					class={"bg-white"}
+					class={"bg-background"}
 				>
 					<div class="relative flex flex-wrap items-center w-full h-full px-8">
 						<div class="relative w-full max-w-sm mx-auto lg:mb-0">

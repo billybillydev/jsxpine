@@ -63,7 +63,7 @@ export function Header() {
 					{SITE.github && (
 						<a
 							title="Github"
-							class="border-2 border-transparent hover:border-[#0d1117] dark:hover:border-slate-100 flex items-center justify-center p-2 rounded-lg transition-colors"
+							class="border-2 border-transparent hover:border-foreground flex items-center justify-center p-2 rounded-lg transition-colors"
 							target="_blank"
 							href={"https://github.com/" + SITE.github}
 						>

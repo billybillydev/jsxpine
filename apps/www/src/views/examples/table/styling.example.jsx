@@ -6,7 +6,7 @@ export function StylingTableExample() {
 		<div class="flex flex-col gap-y-8">
 			<div>
 				<Table
-					class="bg-white rounded-lg border"
+					class="rounded-lg border"
 					columns={columns}
 					items={items}
 					theadClass="divide-x"
@@ -15,10 +15,10 @@ export function StylingTableExample() {
 			</div>
 			<div>
 				<Table
-					class="bg-white rounded-lg border"
+					class="rounded-lg border"
 					columns={columns}
 					items={items}
-					tbodyClass="[&>*:nth-child(even)]:bg-slate-100 divide-y-0"
+					tbodyClass="[&>*:nth-child(even)]:bg-slate-100 [&>*:nth-child(even)]:text-base-dark divide-y-0"
 				/>
 			</div>
 		</div>

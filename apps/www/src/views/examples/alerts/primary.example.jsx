@@ -39,7 +39,7 @@ export function PrimaryAlertExample() {
  */
 function PrimaryAlertCustomIcon({ text }) {
 	return (
-		<span class={"p-1 bg-primary-500 text-primary-100 rounded-full"} safe>
+		<span class={"p-1 bg-primary text-primary-light-2 rounded-full"} safe>
 			{text}
 		</span>
 	);

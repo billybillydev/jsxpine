@@ -15,7 +15,7 @@ export function Switch(props) {
 		name,
 		id,
 		label,
-		type = "info",
+		type = "primary",
 		...restProps
 	} = props;
 
@@ -23,12 +23,42 @@ export function Switch(props) {
 	 * @type {Map<import("../common/types").ThemeColorType, { button: string; label: string }>}
 	 */
 	const colorType = new Map([
-		["primary", { button: "bg-primary-500", label: "text-primary-600" }],
-		["secondary", { button: "bg-secondary", label: "text-secondary" }],
-		["success", { button: "bg-success-600", label: "text-success-600" }],
-		["danger", { button: "bg-danger-600", label: "text-danger-600" }],
-		["info", { button: "bg-info-600", label: "text-info-600" }],
-		["warning", { button: "bg-warning-600", label: "text-warning-600" }]
+		[
+			"primary",
+			{
+				button: "bg-primary",
+				label: "text-primary-dark-1 dark:text-primary-light-1"
+			}
+		],
+		[
+			"secondary",
+			{
+				button: "bg-secondary",
+				label: "text-secondary dark:text-secondary-light"
+			}
+		],
+		[
+			"success",
+			{
+				button: "bg-success",
+				label: "text-success-dark dark:text-success-light"
+			}
+		],
+		[
+			"danger",
+			{ button: "bg-danger", label: "text-danger-dark" }
+		],
+		[
+			"info",
+			{ button: "bg-info", label: "text-info-dark dark:text-info-light" }
+		],
+		[
+			"warning",
+			{
+				button: "bg-warning",
+				label: "text-warning-dark dark:text-warning-light"
+			}
+		]
 	]);
 	return (
 		<div
@@ -51,13 +81,13 @@ export function Switch(props) {
 				x-on:click="toggle"
 				x-bind:class={`switchOn ? '${
 					colorType.get(type)?.button
-				}' : 'bg-neutral-200'`}
+				}' : 'bg-base-light'`}
 				class="relative transition-colors duration-200 inline-flex focus:outline-none rounded-full grow"
 				x-cloak="true"
 			>
 				<span
 					x-bind:class="switchOn ? 'left-full -translate-x-[110%]' : 'translate-x-0.5'"
-					class="absolute top-1/2 -translate-y-1/2 left-0 w-5 h-5 duration-200 ease-in-out bg-white rounded-full shadow-md"
+					class="absolute top-1/2 -translate-y-1/2 left-0 w-5 h-5 duration-200 ease-in-out bg-background rounded-full shadow-md"
 				/>
 			</button>
 
@@ -66,7 +96,7 @@ export function Switch(props) {
 					x-on:click="$refs.switchButton.click(); $refs.switchButton.focus()"
 					x-bind:class={`{ '${
 						colorType.get(type)?.label
-					}' : switchOn, 'text-gray-400': !switchOn }`}
+					}' : switchOn, 'text-foreground': !switchOn }`}
 					x-text="label"
 					class="text-sm select-none"
 					x-cloak="true"

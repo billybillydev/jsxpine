@@ -6,7 +6,7 @@ export function ThemeToggle() {
 			x-data={"themeToggle"}
 			x-on:click="toggle"
 			class={
-				"border-2 border-transparent hover:border-[#0d1117] dark:hover:border-slate-100 p-2 rounded-lg transition-colors"
+				"border-2 border-transparent hover:border-foreground p-2 rounded-lg transition-colors"
 			}
 		>
 			<Icon name="sun-fill" size={6} x-show="!darkMode" />

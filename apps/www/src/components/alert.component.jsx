@@ -20,20 +20,14 @@ export function Alert({
 	return (
 		<div
 			class={clsx(
-				"relative w-full flex flex-col gap-y-2 rounded-lg border p-4 [&>svg]:absolute [&>svg]:text-foreground [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11",
+				"relative w-full flex flex-col gap-y-2 rounded-lg border p-4",
 				className
 			)}
 			{...restProps}
 		>
 			{title ? (
 				<h4 class="mb-1 font-medium leading-none tracking-tight flex items-center gap-x-3">
-					{icon ? (
-						typeof icon === "string" ? (
-							<Icon name={String(icon)} size={5} />
-						) : (
-							icon
-						)
-					) : null}
+					{icon ? <Icon name={String(icon)} size={5} strokeWidth={0.5} /> || icon : null}
 					<span safe>{title}</span>
 				</h4>
 			) : null}

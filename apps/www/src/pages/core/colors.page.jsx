@@ -1,10 +1,4 @@
-import {
-	SoloAccordion,
-	SoloAccordionContent,
-	SoloAccordionTrigger
-} from "$components/accordion.component";
-import { SecondaryButton } from "$components/button.component";
-import { CodeToCopy } from "$components/code-to-copy.component";
+import { Modal, ModalContent } from "$components/modal.component";
 import { COLORS } from "$config/design";
 import { CorePresentation } from "$views/core.view";
 import { MainLayout } from "$views/layouts.view";
@@ -102,72 +96,36 @@ function ColorList({ colorsMap }) {
 	);
 
 	return (
-		<>
-			<ul class={"grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6"}>
-				{[...simpleColorsMap].map(([name, value]) => {
-					const color = new ColorTranslator(value, {
-						decimals: 2
-					});
-
-					return (
-						<li class="flex flex-col gap-y-2">
-							<h3 class="w-full capitalize">{name}</h3>
-							<div
-								class="w-full h-24 transition-all rounded-lg"
-								style={`background: ${value}`}
-							/>
-							<SoloAccordion class={"grow"}>
-								<SoloAccordionTrigger as="button" class="w-full text-sm">
-									Click here to copy
-								</SoloAccordionTrigger>
-								<SoloAccordionContent>
-									<div class="flex flex-col gap-y-2 font-mono text-slate-500 dark:text-slate-200">
-										<ColorToCopy color={color.HSL} />
-										<ColorToCopy color={value} />
-										<ColorToCopy color={color.RGB} />
-									</div>
-								</SoloAccordionContent>
-							</SoloAccordion>
-						</li>
-					);
-				})}
-			</ul>
+		<div class={"space-y-6"}>
 			<ul class="flex flex-col list-none gap-y-6">
 				{[...colorsWithVariantsMap].map(([name, color]) => (
 					<li class="flex flex-col gap-y-2">
 						<h3 class="w-full capitalize">{name}</h3>
-						<ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-4 gap-y-6">
+						<ul class="flex gap-x-2">
 							{Object.entries(color).map(([variant, value]) => {
 								const color = new ColorTranslator(value, {
 									decimals: 2
 								});
 
 								return (
-									<li class="space-y-2">
-										<p class={"text-center"}>
+									<li class="space-y-2 w-full">
+										<p class={"text-center text-sm"}>
 											<span class={"text-sm"}>{variant}</span>
 										</p>
-										<div
-											class="w-full h-24 transition-all rounded-lg"
-											style={`background: ${value}`}
-										/>
-										{typeof value === "string" ? (
-											<SoloAccordion class={"grow"}>
-												<SoloAccordionTrigger
-													as="button"
-													class="w-full text-sm"
-												>
-													Click here to copy
-												</SoloAccordionTrigger>
-												<SoloAccordionContent>
-													<div class="flex flex-col gap-y-2 font-mono text-slate-500 dark:text-slate-200">
-														<ColorToCopy color={color.HSL} />
-														<ColorToCopy color={value} />
-														<ColorToCopy color={color.RGB} />
-													</div>
-												</SoloAccordionContent>
-											</SoloAccordion>
-										) : null}
+										<Modal>
+											<div
+												class="min-w-7 h-7 md:h-12 transition-all rounded-lg"
+												style={`background: ${value}`}
+												x-bind="trigger"
+											/>
+											<ModalContent>
+												<div class="p-6 border rounded bg-background flex flex-col gap-y-2 font-mono">
+													<ColorToCopy color={color.HSL} />
+													<ColorToCopy color={value} />
+													<ColorToCopy color={color.RGB} />
+												</div>
+											</ModalContent>
+										</Modal>
 									</li>
 								);
 							})}
@@ -175,7 +133,35 @@ function ColorList({ colorsMap }) {
 					</li>
 				))}
 			</ul>
-		</>
+
+			<ul class={"flex gap-x-6"}>
+				{[...simpleColorsMap].map(([name, value]) => {
+					const color = new ColorTranslator(value, {
+						decimals: 2
+					});
+
+					return (
+						<li class="flex flex-col gap-y-2">
+							<h3 class="capitalize">{name}</h3>
+							<Modal>
+								<div
+									class="min-w-32 h-12 transition-all rounded-lg"
+									style={`background: ${value}`}
+									x-bind="trigger"
+								/>
+								<ModalContent>
+									<div class="p-6 border rounded bg-background flex flex-col gap-y-2 font-mono">
+										<ColorToCopy color={color.HSL} />
+										<ColorToCopy color={value} />
+										<ColorToCopy color={color.RGB} />
+									</div>
+								</ModalContent>
+							</Modal>
+						</li>
+					);
+				})}
+			</ul>
+		</div>
 	);
 }
 
@@ -193,7 +179,7 @@ function ColorToCopy({ color }) {
 				"flex gap-x-2 items-center justify-between w-full border-transparent p-1 border hover:border-inherit rounded"
 			}
 		>
-			<span x-ref="codeToCopyContent" class="text-xs">
+			<span x-ref="codeToCopyContent">
 				{color}
 			</span>
 			<div class={"shrink-0 text-xs"}>

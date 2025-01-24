@@ -81,8 +81,8 @@ export function Tooltip(props) {
 					x-show="visible"
 					x-transition=""
 					class={clsx(
-						"relative px-2 py-1 bg-opacity-90",
-						type ? colorTypeClassMap.get(type) : "bg-base-dark text-base-light"
+						"relative px-2 py-1 p-1",
+						type ? colorTypeClassMap.get(type) : "bg-background border"
 					)}
 				>
 					{text ? (
@@ -98,9 +98,9 @@ export function Tooltip(props) {
 					>
 						<div
 							class={clsx(
-								"w-1.5 h-1.5 bg-opacity-90",
+								"w-1.5 h-1.5 p-1",
 								arrowOrientationClassMap.get(position),
-								type ? colorTypeClassMap.get(type) : "bg-base-dark text-base-light"
+								type ? colorTypeClassMap.get(type) : "bg-background border"
 							)}
 						></div>
 					</div>

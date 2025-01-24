@@ -13,6 +13,7 @@ export function SVG(props) {
         class: className,
         fill = "none",
         stroke = "currentColor",
+        strokeWidth = 0.5,
         ...restProps
         } = props;
     return (
@@ -21,6 +22,7 @@ export function SVG(props) {
             fill={fill}
             stroke={stroke}
             class={className}
+            style={{ strokeWidth: String(strokeWidth) }}
             {...restProps}
         >
             {children}

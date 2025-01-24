@@ -49,7 +49,7 @@ export function Icon(props) {
 		<SVG
 			viewBox={viewBox}
 			{...restProps}
-			class={clsx(`w-${size} h-${size}`, `size-${size}`, className)}
+			class={clsx(`size-${size}`, className)}
 		>
 			{children}
 			<path

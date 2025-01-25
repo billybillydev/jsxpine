@@ -60,20 +60,28 @@ export function Header() {
 					</a>
 				</div>
 				<div class={"hidden lg:flex gap-x-4"}>
-					<a
-						class={"btn btn-secondary-inversed px-2 py-1 rounded"}
-						title="Docs"
-						href="/core"
-					>
-						Docs
-					</a>
-					<a
-						class={"btn btn-secondary-inversed px-2 py-1 rounded"}
-						title="Theme"
-						href="/theme"
-					>
-						Theme
-					</a>
+					{[
+						{
+							title: "Docs",
+							href: "/core"
+						},
+						{
+							title: "Components",
+							href: "/components"
+						},
+						{
+							title: "Theme",
+							href: "/theme"
+						}
+					].map(({ title, href }) => (
+						<a
+							class={"btn btn-secondary-inversed px-2 py-1 rounded"}
+							title={title}
+							href={href}
+						>
+							{title}
+						</a>
+					))}
 				</div>
 				<div class="flex gap-x-4 items-center">
 					{SITE.github && (

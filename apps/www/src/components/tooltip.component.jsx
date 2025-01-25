@@ -70,7 +70,7 @@ export function Tooltip(props) {
 	return (
 		<div x-data={`tooltip(${triggerOnHover})`} class="relative inline-flex">
 			<div
-				x-show="visible"
+				x-bind="tooltipContent"
 				class={clsx(
 					"absolute",
 					positionClassMap.get(position),
@@ -78,7 +78,6 @@ export function Tooltip(props) {
 				)}
 			>
 				<div
-					x-show="visible"
 					x-transition=""
 					class={clsx(
 						"relative px-2 py-1 p-1",
@@ -86,7 +85,9 @@ export function Tooltip(props) {
 					)}
 				>
 					{text ? (
-						<p class="flex-shrink-0 block whitespace-nowrap" safe>{text}</p>
+						<p class="flex-shrink-0 block whitespace-nowrap" safe>
+							{text}
+						</p>
 					) : (
 						component
 					)}
@@ -106,7 +107,7 @@ export function Tooltip(props) {
 					</div>
 				</div>
 			</div>
-			<div x-ref="tooltipContent" class="inline-table">
+			<div x-ref="tooltipTrigger" class="inline-table">
 				{children}
 			</div>
 		</div>

@@ -1,10 +1,10 @@
 import { AppContext, serverConfig } from "$config/server";
-import { notFoundController } from "$controllers/404.controller";
 import { componentsController } from "$controllers/components/*";
 import { coreController } from "$controllers/core/*";
 import { homeController } from "$controllers/home.controller";
 import { useCasesController } from "$controllers/usecases/*";
 import { htmxMiddleware } from "$middlewares/htmx.middleware";
+import { NotFoundPage } from "$pages/404.page";
 import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
 
@@ -25,8 +25,15 @@ app
 	.route("/core", coreController)
 	.route("/components", componentsController)
 	.route("/usecases", useCasesController)
-	.route("/404-not-found", notFoundController)
-	.notFound(ctx => ctx.redirect("/404-not-found"));
+	.notFound(ctx => {
+		if (ctx.var.isHTMX) {
+			ctx.header("HX-Reswap", "outerHTML");
+			ctx.header("HX-Retarget", "#main-content");
+		}
+		return ctx.html(
+			<NotFoundPage seo={{ title: "Page not found" }} {...ctx.var} />
+		);
+	});
 
 export default {
 	port: serverConfig.port,

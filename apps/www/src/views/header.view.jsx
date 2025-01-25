@@ -32,7 +32,7 @@ export function Header() {
 				class="max-w-7xl mx-auto flex justify-between items-center px-4"
 			>
 				<div class={"flex gap-x-4 items-center relative"}>
-					<Sidebar id={mobileSidebarId} attrs={{ "@close": "close()"}}>
+					<Sidebar id={mobileSidebarId} attrs={{ "@close": "close()" }}>
 						<SidebarTrigger
 							class={
 								"p-2 rounded-lg bg-inherit text-inherit border border-inherit block lg:hidden"
@@ -57,6 +57,22 @@ export function Header() {
 						<h1 class={"hidden md:block"} safe>
 							{SITE.title}
 						</h1>
+					</a>
+				</div>
+				<div class={"hidden lg:flex gap-x-4"}>
+					<a
+						class={"btn btn-secondary-inversed px-2 py-1 rounded"}
+						title="Docs"
+						href="/core"
+					>
+						Docs
+					</a>
+					<a
+						class={"btn btn-secondary-inversed px-2 py-1 rounded"}
+						title="Theme"
+						href="/theme"
+					>
+						Theme
 					</a>
 				</div>
 				<div class="flex gap-x-4 items-center">

@@ -195,7 +195,7 @@ body {
 	}
 
 	.btn-secondary-inversed {
-		color: hsla(var(--secondary));
+		color: hsla(var(--foreground));
 		border: 1px solid hsla(var(--secondary));
 		background-color: transparent;
 

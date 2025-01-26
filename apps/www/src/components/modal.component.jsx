@@ -80,7 +80,7 @@ export function SimpleModalContent(props) {
 					x-transition:leave="ease-in duration-200"
 					x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
 					x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-					class="relative w-full bg-background sm:max-w-lg rounded-lg border"
+					class="relative bg-background rounded-lg border"
 				>
 					<button
 						x-bind="closerClick"
@@ -88,7 +88,7 @@ export function SimpleModalContent(props) {
 					>
 						<Icon name="close-fill" stroke-width="1.5" size={5} />
 					</button>
-					<div class="relative w-auto">{children}</div>
+					<div class="relative w-auto h-auto">{children}</div>
 				</div>
 			</div>
 	);

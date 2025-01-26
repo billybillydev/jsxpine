@@ -1,5 +1,6 @@
 import { toKebabCase } from "@kitajs/html";
 import { ColorTranslator } from "colortranslator";
+import { getHighlighter } from "shikiji";
 
 /**
  * @typedef {Object} ThemeSelectorVariables
@@ -57,7 +58,8 @@ import { ColorTranslator } from "colortranslator";
  * @property {ThemeSelectorVariables | null} selectedPalette
  * @property {(palette: ThemeSelectorVariables) => void} choosePalette
  * @property {(palette: ThemeSelectorVariables) => boolean} isSelected
- * @property {(key1: keyof ThemeSelectorVariables) => string} getHSLColor
+ * @property {(colorVariable: keyof ThemeSelectorVariables, themeMode?: "dark" | "light") => string} getHSLColor
+ * @property {() => Promise<string>} createPaletteColors
  * @property {Record<string, Function>} styler
  */
 
@@ -79,7 +81,7 @@ export function themeSelectorData(palettes) {
 		isSelected(palette) {
 			return JSON.stringify(this.selectedPalette) === JSON.stringify(palette);
 		},
-		getHSLColor(colorVariable) {
+		getHSLColor(colorVariable, darkMode) {
 			if (!this.selectedPalette) {
 				return "";
 			}
@@ -88,12 +90,61 @@ export function themeSelectorData(palettes) {
 
 			const color =
 				typeof variableFromPalette === "object"
-					? variableFromPalette[this.$store.darkMode ? "dark" : "light"]
+					? variableFromPalette[
+							darkMode ?? this.$store.darkMode ? "dark" : "light"
+					  ]
 					: variableFromPalette;
 
 			const hslColor = new ColorTranslator(color).HSLObject;
 
 			return `${hslColor.H}, ${hslColor.S}%, ${hslColor.L}%`;
+		},
+		async createPaletteColors() {
+			if (!this.selectedPalette) {
+				return "";
+			}
+
+			const text = `
+:root {
+	${Object.keys(this.selectedPalette)
+		.map((key, index) =>
+			`${index > 0 ? "\t" : ""}--${toKebabCase(key)}: ${this.getHSLColor(
+				/** @type {keyof ThemeSelectorVariables} */ (key),
+				"light"
+			)};`.trimEnd()
+		)
+		.join("\n")}
+}
+
+.dark {
+	${Object.entries(this.selectedPalette).reduce((acc, [key, value], index) => {
+		if (typeof value === "object") {
+			acc += `${index > 0 ? "\t" : ""}--${toKebabCase(key)}: ${this.getHSLColor(
+				/** @type {keyof ThemeSelectorVariables} */ (key),
+				"dark"
+			)};\n`;
+		}
+
+		return acc;
+	}, "")}
+}
+			`;
+
+			const langs = ["css"];
+			const themes = ["vitesse-dark", "nord"];
+
+			const highlighter = await getHighlighter({
+				themes,
+				langs
+			});
+
+			const htmlContent = highlighter.codeToHtml(text, {
+				lang: langs[0],
+				theme: themes[0],
+				mergeWhitespaces: false
+			});
+
+			return htmlContent.toString();
 		},
 		styler: {
 			[":style"]() {
@@ -101,9 +152,14 @@ export function themeSelectorData(palettes) {
 					return "";
 				}
 
-                return Object.keys(this.selectedPalette).map(
-                    (key) => `--${toKebabCase(key)}: ${this.getHSLColor(/** @type {keyof ThemeSelectorVariables} */(key))};`
-                ).join("\n");
+				return Object.keys(this.selectedPalette)
+					.map(
+						(key) =>
+							`--${toKebabCase(key)}: ${this.getHSLColor(
+								/** @type {keyof ThemeSelectorVariables} */ (key)
+							)};`
+					)
+					.join("\n");
 			}
 		}
 	};

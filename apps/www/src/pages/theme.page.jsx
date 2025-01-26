@@ -3,6 +3,7 @@ import { SecondaryButton } from "$components/button.component";
 import { Card, CardBody } from "$components/card.component";
 import { Dropdown, DropdownContent } from "$components/dropdown.component";
 import { Icon } from "$components/icon.component";
+import { Modal, ModalContent } from "$components/modal.component";
 import { Select } from "$components/select.component";
 import { RootLayout } from "$views/layouts.view";
 
@@ -10,7 +11,7 @@ import { RootLayout } from "$views/layouts.view";
  * @param {import("$components/page.component").PageContext<{ description: string }>} props
  */
 export function ThemePage({ description, ...restProps }) {
-    /** @type {import("$scripts/alpine/data/theme-selector.data").ThemeSelectorVariables[]} */
+	/** @type {import("$scripts/alpine/data/theme-selector.data").ThemeSelectorVariables[]} */
 	const palettes = [
 		{
 			background: {
@@ -296,8 +297,8 @@ export function ThemePage({ description, ...restProps }) {
 				dark: "hsl(230, 40%, 90%)"
 			},
 			accentForeground: {
-				light: "hsl(230, 40%, 90%)",
-				dark: "hsl(230, 20%, 20%)"
+				light: "hsl(230, 40%, 20%)",
+				dark: "hsl(230, 20%, 90%)"
 			},
 			muted: {
 				light: "hsl(230, 20%, 20%)",
@@ -455,10 +456,10 @@ export function ThemePage({ description, ...restProps }) {
 			>
 				<div class={"p-2 md:p-8 w-full space-y-4"}>
 					<h1>Own it. Design your theme.</h1>
-					<h3>{description}</h3>
+					<h3 class="text-accent-foreground">{description}</h3>
 					<div class={"flex items-center gap-x-4"}>
 						<ThemePaletteSelector />
-						<SecondaryButton text="Copy code" variant="inversed" />
+						<ThemeToCopy />
 					</div>
 				</div>
 				<div class={"border-t h-full w-full p-2 md:p-4 xl:p-8 flex flex-wrap"}>
@@ -475,7 +476,7 @@ function TeamMemberList() {
 			<CardBody class={"p-4 bg-primary/5 [&_p]:text-foreground/75"}>
 				<div>
 					<strong class={"text-lg"}>Team Members</strong>
-					<p>Invite your team members to participate.</p>
+					<p>Invite your team members to collaborate.</p>
 				</div>
 				<ul class={"space-y-2"}>
 					{[
@@ -548,5 +549,37 @@ function ThemePaletteSelector() {
 				</ul>
 			</DropdownContent>
 		</Dropdown>
+	);
+}
+
+function ThemeToCopy() {
+	return (
+		<Modal>
+			<SecondaryButton text="Copy code" x-bind="trigger" variant="inversed" />
+			<ModalContent>
+				<div x-data="codeToCopy" class="p-4 h-3/4 max-w-[40rem] flex flex-col">
+					<h2>Theme</h2>
+					<p class={"text-sm text-accent-foreground"}>
+						Click on the code to copy and paste the following code into your CSS
+						file.
+					</p>
+					<div class={"relative rounded-lg overflow-y-auto grow mt-4"}>
+						<p
+							x-html="await createPaletteColors()"
+							x-ref="codeToCopyContent"
+							x-bind="click"
+						/>
+						<span
+							x-show="copied"
+							class={
+								"absolute top-4 right-4 py-1 px-2 rounded text-success bg-success/10 text-sm"
+							}
+						>
+							Copied !
+						</span>
+					</div>
+				</div>
+			</ModalContent>
+		</Modal>
 	);
 }

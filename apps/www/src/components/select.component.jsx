@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 /**
  * @typedef SelectProps
- * @type {import("./input.component").SelectInputProps & { noInputIcon?: boolean }}
+ * @type {import("./input.component").SelectInputProps & { noInputIcon?: boolean, defaultValue?: import("$components/input.component").SelectOptionType | null }}
  */
 
 /**
@@ -17,11 +17,12 @@ export function Select(props) {
 		placeholder = "Select Item",
 		noInputIcon = false,
 		disabled,
+		defaultValue,
 		...restProps
 	} = props;
 	return (
 		<div
-			x-data={`dropdownSelect(${JSON.stringify(items)})`}
+			x-data={`dropdownSelect(${JSON.stringify(items)}, ${defaultValue ? JSON.stringify(defaultValue) : "" })`}
 			x-on:keydown="selectKeydown($event);"
 			class={clsx("relative", className)}
 			{...{
@@ -81,7 +82,7 @@ export function Select(props) {
 					"x-transition:enter-end": "opacity-100"
 				}}
 				x-bind:class="{ 'bottom-0 mb-10' : selectDropdownPosition == 'top', 'top-0 mt-10' : selectDropdownPosition == 'bottom' }"
-				class="absolute bg-background text-foreground flex flex-col z-10 w-full grow py-1 mt-1 overflow-y-auto text-sm rounded-md shadow-md max-h-56"
+				class="absolute bg-background text-foreground flex flex-col z-[1] w-full grow py-1 mt-1 overflow-y-auto text-sm rounded-md shadow-md max-h-56"
 				x-cloak="true"
 			>
 				<template x-for="item in selectableItems" x-bind:key="item.value">

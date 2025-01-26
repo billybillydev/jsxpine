@@ -2,6 +2,7 @@ import { AppContext, serverConfig } from "$config/server";
 import { componentsController } from "$controllers/components/*";
 import { coreController } from "$controllers/core/*";
 import { homeController } from "$controllers/home.controller";
+import { themeController } from "$controllers/theme.controller";
 import { useCasesController } from "$controllers/usecases/*";
 import { htmxMiddleware } from "$middlewares/htmx.middleware";
 import { NotFoundPage } from "$pages/404.page";
@@ -25,6 +26,7 @@ app
 	.route("/core", coreController)
 	.route("/components", componentsController)
 	.route("/usecases", useCasesController)
+	.route("/theme", themeController)
 	.notFound(ctx => {
 		if (ctx.var.isHTMX) {
 			ctx.header("HX-Reswap", "outerHTML");

@@ -147,9 +147,9 @@ export function Card(props) {
 	return (
 		<div
 			class={clsx(
+				className,
 				"flex rounded-lg overflow-hidden border border-base-light shadow-sm w-full",
 				directionClassMap.get(direction),
-				className
 			)}
 		>
 			{children ?? (

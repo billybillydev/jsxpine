@@ -1,7 +1,8 @@
 import { existsSync, promises as fs } from "fs";
-import path from "path";
 import fetch from "node-fetch";
+import path from "path";
 import * as z from "zod";
+import { BaseColorType } from "../../templates";
 import { Config } from "../config/schema";
 import { BASE_URL } from "./constants";
 import {
@@ -17,6 +18,10 @@ export type RegistryItem = z.infer<typeof registryItemSchema>;
 export type RegistryComponentItem = z.infer<
 	typeof registryItemWithComponentSchema
 >;
+export type RegistryBaseColor = {
+	label: string;
+	name: BaseColorType;
+};
 
 export class RegistryUtils {
 	static async getRegistryIndex() {
@@ -72,7 +77,9 @@ export class RegistryUtils {
 
 	static async fetchAlpineData() {
 		try {
-			const [result] = await this.fetchRegistry<RegistryAlpine>(["alpine.json"]);
+			const [result] = await this.fetchRegistry<RegistryAlpine>([
+				"alpine.json"
+			]);
 			return result.data;
 		} catch (error) {
 			throw new Error(`Failed to fetch alpine data from registry.`);
@@ -83,7 +90,9 @@ export class RegistryUtils {
 		return path.join(config.resolvedPaths["components"], item);
 	}
 
-	static async fetchRegistry<T extends Object>(paths: string[]): Promise<T[]> {
+	static async fetchRegistry<T extends Object>(
+		paths: string[]
+	): Promise<T[]> {
 		try {
 			const results = await Promise.all(
 				paths.map(async (path) => {
@@ -99,6 +108,31 @@ export class RegistryUtils {
 			console.log("In fetchRegistry : ", error);
 			throw new Error(`Failed to fetch registry from ${BASE_URL}.`);
 		}
+	}
+
+	static getRegistryBaseColors(): RegistryBaseColor[] {
+		return [
+			{
+				name: "slate",
+				label: "Slate"
+			},
+			{
+				name: "gray",
+				label: "Gray"
+			},
+			{
+				name: "zinc",
+				label: "Zinc"
+			},
+			{
+				name: "neutral",
+				label: "Neutral"
+			},
+			{
+				name: "stone",
+				label: "Stone"
+			}
+		];
 	}
 
 	static async transformObjectToDirectory(obj: any, rootPath: string) {
@@ -123,31 +157,6 @@ export class RegistryUtils {
 // 	} catch (error) {
 // 		throw new Error(`Failed to fetch styles from registry.`);
 // 	}
-// }
-
-// export async function getRegistryBaseColors() {
-// 	return [
-// 		{
-// 			name: "slate",
-// 			label: "Slate"
-// 		},
-// 		{
-// 			name: "gray",
-// 			label: "Gray"
-// 		},
-// 		{
-// 			name: "zinc",
-// 			label: "Zinc"
-// 		},
-// 		{
-// 			name: "neutral",
-// 			label: "Neutral"
-// 		},
-// 		{
-// 			name: "stone",
-// 			label: "Stone"
-// 		}
-// 	];
 // }
 
 // export async function getRegistryBaseColor(baseColor: string) {

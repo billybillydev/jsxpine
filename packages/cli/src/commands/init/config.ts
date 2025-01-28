@@ -1,12 +1,19 @@
-import { existsSync } from "fs";
 import chalk from "chalk";
+import { existsSync } from "fs";
 import ora from "ora";
 import prompts from "prompts";
-import { DEFAULT_APP_SCRIPT_DIRECTORY, DEFAULT_COMMON_DIRECTORY, DEFAULT_COMPONENTS_DIRECTORY, DEFAULT_TAILWIND_CONFIG_FILE, DEFAULT_TAILWIND_CSS_FILE } from "../../utils/config/constants";
+import {
+	DEFAULT_APP_SCRIPT_DIRECTORY,
+	DEFAULT_COMMON_DIRECTORY,
+	DEFAULT_COMPONENTS_DIRECTORY,
+	DEFAULT_TAILWIND_BASE_COLOR,
+	DEFAULT_TAILWIND_CONFIG_FILE,
+	DEFAULT_TAILWIND_CSS_FILE
+} from "../../utils/config/constants";
 import { Config, RawConfig, rawConfigSchema } from "../../utils/config/schema";
 import { FileUtils } from "../../utils/file";
 import { LoggerUtils } from "../../utils/logger/index";
-
+import { RegistryUtils } from "../../utils/registry";
 
 export class InitConfig {
 	constructor(
@@ -18,8 +25,11 @@ export class InitConfig {
 
 	public async setConfigFromPrompts() {
 		// const styles = await getRegistryStyles();
-		// const baseColors = await getRegistryBaseColors();
+		const baseColors = RegistryUtils.getRegistryBaseColors();
 		const defaultOptions = {
+			tailwindBaseColor:
+				this.defaultConfig?.tailwind.baseColor ??
+				DEFAULT_TAILWIND_BASE_COLOR,
 			tailwindCss:
 				this.defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS_FILE,
 			tailwindConfig:
@@ -48,17 +58,17 @@ export class InitConfig {
 					// 		value: style.name
 					// 	}))
 					// },
-					// {
-					// 	type: "select",
-					// 	name: "tailwindBaseColor",
-					// 	message: `Which color would you like to use as ${this.highlight(
-					// 		"base color"
-					// 	)}?`,
-					// 	choices: baseColors.map((color) => ({
-					// 		title: color.label,
-					// 		value: color.name
-					// 	}))
-					// },
+					{
+						type: "select",
+						name: "tailwindBaseColor",
+						message: `Which color would you like to use as ${this.highlight(
+							"base color"
+						)}?`,
+						choices: baseColors.map((color) => ({
+							title: color.label,
+							value: color.name
+						}))
+					},
 					{
 						type: "text",
 						name: "tailwindCss",
@@ -126,8 +136,8 @@ export class InitConfig {
 			// style: options.style,
 			tailwind: {
 				config: options.tailwindConfig,
-				css: options.tailwindCss
-				// baseColor: options.tailwindBaseColor
+				css: options.tailwindCss,
+				baseColor: options.tailwindBaseColor
 			},
 			aliases: {
 				scripts: options.scripts,

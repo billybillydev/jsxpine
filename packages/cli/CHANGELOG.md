@@ -1,5 +1,11 @@
 # jsxpine
 
+## 1.1.0
+
+### Minor Changes
+
+-   Add theme css variables in init command
+
 ## 1.0.1
 
 ### Patch Changes

@@ -7,9 +7,10 @@ import * as templates from "../../templates";
 import { Config } from "../../utils/config/schema";
 import { FileUtils } from "../../utils/file";
 import { handleError } from "../../utils/handle-error";
-import { LoggerUtils } from "../../utils/logger/index";
-import { BASE_URL } from "../../utils/registry/constants";
+import { LoggerUtils } from "../../utils/logger";
 import { RegistryUtils } from "../../utils/registry";
+import { BASE_URL } from "../../utils/registry/constants";
+
 
 export class InitDependencies {
 	private readonly DEPENDENCIES = [
@@ -19,36 +20,25 @@ export class InitDependencies {
 		"@alpinejs/collapse",
 		"@alpinejs/focus",
 		"alpinejs-manage",
-		"tailwindcss",
 		"clsx",
-		"tailwindcss-mosiui-mini",
 		"alpinejs"
 	] as const;
 
 	private readonly DEV_DEPENDENCIES = [
 		"@types/alpinejs",
 		"@kitajs/ts-html-plugin",
+		"tailwindcss",
 		"esbuild"
 	] as const;
-
-	private readonly cwd!: string;
-	private readonly config!: Config;
-	private readonly skip!: boolean;
-	private readonly logger!: LoggerUtils;
 
 	private isAliasPathUsed!: boolean;
 
 	constructor(
-		cwd: string,
-		config: Config,
-		skip: boolean = false,
-		logger: LoggerUtils
-	) {
-		this.cwd = cwd;
-		this.config = config;
-		this.skip = skip;
-		this.logger = logger;
-	}
+		private readonly cwd: string,
+		private readonly config: Config,
+		private readonly skip: boolean,
+		private readonly logger: LoggerUtils
+	) {}
 
 	/**
 	 * Prompts the user whether to use the alias path from the tsconfig file for
@@ -131,8 +121,12 @@ export class InitDependencies {
 					BASE_URL + "/registry/common.json"
 				);
 				const common = await commonRes.json();
+
 				await Promise.all(
-					await RegistryUtils.transformObjectToDirectory(common, dirname)
+					await RegistryUtils.transformObjectToDirectory(
+						common,
+						dirname
+					)
 				);
 			}
 
@@ -171,17 +165,13 @@ export class InitDependencies {
 	 *   the `aliases.alpine` path in the config.
 	 */
 	private async createRegistryFiles(config: Config, isAliasPathUsed = false) {
-		// Write app.ts script
-		await fs.writeFile(
-			`${config.resolvedPaths.scripts}/app.js`,
-			templates.APP_SCRIPT,
-			"utf8"
-		);
-
 		// Write tailwind config.
+		this.logger.info("\nWriting tailwind config file. This step extends tailwind theme by setting theme css variables and utility classes.");
 		await fs.writeFile(
 			config.resolvedPaths.tailwindConfig,
-			templates.TAILWIND_CONFIG,
+			templates.TAILWIND_CONFIG_WITH_VARIABLES(
+				config.tailwind.baseColor as templates.BaseColorType
+			),
 			"utf8"
 		);
 
@@ -194,9 +184,17 @@ export class InitDependencies {
 		await fs.unlink(cjsConfig).catch((e) => e); // throws when it DNE
 
 		// Write to global css file
+		this.logger.info("Writing global css file. This step adds theme css variables and theme classes.");
 		await fs.writeFile(
 			config.resolvedPaths.tailwindCss,
 			templates.STYLES,
+			"utf8"
+		);
+
+		// Write app.ts script
+		await fs.writeFile(
+			`${config.resolvedPaths.scripts}/app.js`,
+			templates.APP_SCRIPT,
 			"utf8"
 		);
 
@@ -247,7 +245,12 @@ export class InitDependencies {
 				[
 					packageManager === "npm" ? "install" : "add",
 					"-D",
-					...this.DEV_DEPENDENCIES
+					...this.DEV_DEPENDENCIES.map((dep) => {
+						if (dep === "tailwindcss") {
+							return `${dep}@3.4.17`;
+						}
+						return dep;
+					})
 				],
 				{
 					cwd: this.cwd

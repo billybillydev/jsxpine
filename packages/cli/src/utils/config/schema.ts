@@ -6,8 +6,8 @@ export const rawConfigSchema = z
 		// style: z.string(),
 		tailwind: z.object({
 			config: z.string(),
-			css: z.string()
-			// baseColor: z.string()
+			css: z.string(),
+			baseColor: z.string()
 			// cssVariables: z.boolean().default(true)
 		}),
 		aliases: z.object({

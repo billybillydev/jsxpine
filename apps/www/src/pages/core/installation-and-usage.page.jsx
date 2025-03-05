@@ -80,6 +80,12 @@ function ManualInstallationSection() {
 }
 
 function ConfigurationSection() {
+	const grayColors = ["slate", "gray", "zinc", "neutral", "stone"];
+	const listFormatter = new Intl.ListFormat("en-GB", {
+		style: "long",
+		type: "conjunction"
+	});
+	
 	return (
 		<CoreSection heading="Configuration">
 			<p>You have to know what JSXPine is composed.</p>
@@ -116,6 +122,14 @@ function ConfigurationSection() {
 								<span class={"font-medium"}>css</span>: This proprety's value is
 								your global css file's path. It will applied everything set in
 								this file to your components' style.
+							</p>
+						</li>
+						<li>
+							<p>
+								<span class={"font-medium"}>baseColor</span>: This one define
+								the base gray color from tailwindcss you want to use. With this,
+								every shade of gray fit your design system. According to
+								tailwindcss, the values are: {listFormatter.format(grayColors)}.
 							</p>
 						</li>
 					</ListWithDot>

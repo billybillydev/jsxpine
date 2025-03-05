@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 /**
  * @typedef IconProps
- * @type {{size?: number, name: string, color?: string, applyDefsId?: string} & import("./svg.component").SVGProps}
+ * @type {{size?: number, name: import("../common/types").IconKeyType, color?: string, applyDefsId?: string} & import("./svg.component").SVGProps}
  */
 
 /**

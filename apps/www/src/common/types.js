@@ -1,5 +1,3 @@
-import { icons } from "@iconify-json/ri/index.js";
-
 /**
  * Border Radius Type enum
  * @typedef {"square" | "curve" | "arc" | "rounded" | "pill" | "circle"} BorderRadiusType
@@ -10,9 +8,8 @@ import { icons } from "@iconify-json/ri/index.js";
  * @typedef {"horizontal" | "vertical"} DirectionType
  */
 
-const iconsKeys = [...Object.keys(icons.icons)];
 /**
- * @typedef {typeof iconsKeys} IconKeyType
+ * @typedef {keyof typeof import("@iconify-json/ri/icons.json")["icons"]} IconKeyType
  */
 
 /**

@@ -5,7 +5,7 @@ import { Alert } from "$components/alert.component";
  */
 export function ImportantNote({ children, class: className }) {
 	return (
-		<Alert title="Notes" icon="information-line" class={className}>
+		<Alert title="Notes" iconName="ri.information-line" class={className}>
 			{children}
 		</Alert>
 	);

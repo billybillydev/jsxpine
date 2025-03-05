@@ -276,17 +276,18 @@ function CLISection() {
 				modules and adding component(s).
 			</p>
 			<p>With your chosen npm package manager, do:</p>
-			<CodeToCopy lang="bash">npm install jsxpine</CodeToCopy>
-			<p>or</p>
-			<CodeToCopy lang="bash">yarn add jsxpine</CodeToCopy>
-			<p>or</p>
-			<CodeToCopy lang="bash">pnpm add jsxpine</CodeToCopy>
-			<p>or</p>
-			<CodeToCopy lang="bash">bun add jsxpine</CodeToCopy>
-			<p>In case you don't want to install it locally, you can do:</p>
-			<CodeToCopy lang="bash">npx jsxpine init</CodeToCopy>
-			<p>or</p>
-			<CodeToCopy lang="bash">bunx jsxpine init</CodeToCopy>
+			<div class="grid grid-cols-1 md:grid-cols-2 items-center justify-items-center gap-4">
+				<CodeToCopy lang="bash">npm install jsxpine</CodeToCopy>
+				<CodeToCopy lang="bash">yarn add jsxpine</CodeToCopy>
+				<CodeToCopy lang="bash">pnpm add jsxpine</CodeToCopy>
+				<CodeToCopy lang="bash">bun add jsxpine</CodeToCopy>
+			</div>
+			<p class="mt-6">In case you don't want to install it locally, you can do:</p>
+			<div class="flex flex-col md:flex-row items-center justify-evenly">
+				<CodeToCopy lang="bash">npx jsxpine init</CodeToCopy>
+				<p>or</p>
+				<CodeToCopy lang="bash">bunx jsxpine init</CodeToCopy>
+			</div>
 			<ImportantNote class={"mt-4"}>
 				<p>
 					With these two commands above, you directly initiate jsxpine usage in

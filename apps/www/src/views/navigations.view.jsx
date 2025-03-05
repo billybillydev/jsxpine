@@ -172,7 +172,7 @@ export function PreviousNextNavigation({ currentPath }) {
 					hx-swap="innerHTML scroll:top"
 					hx-select-oob={`#${rightSidebarId},#${previousNextNavigationId}`}
 				>
-					<Icon name="arrow-left-s-line" size={6} />
+					<Icon name="ri.arrow-left-s-line" size={6} />
 					<div class={"flex flex-col"}>
 						<span class={"text-sm"}>{previous.section}</span>
 						<span>{previous.text}</span>
@@ -191,7 +191,7 @@ export function PreviousNextNavigation({ currentPath }) {
 						<span class={"text-sm"}>{next.section}</span>
 						<span>{next.text}</span>
 					</div>
-					<Icon name="arrow-right-s-line" size={6} />
+					<Icon name="ri.arrow-right-s-line" size={6} />
 				</a>
 			) : null}
 		</section>

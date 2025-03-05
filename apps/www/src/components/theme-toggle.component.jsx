@@ -9,8 +9,8 @@ export function ThemeToggle() {
 				"border border-transparent hover:border-foreground p-2 rounded-lg transition-colors duration-300"
 			}
 		>
-			<Icon name="sun-fill" size={6} x-show="!darkMode" />
-			<Icon name="moon-clear-line" size={6} x-show="darkMode" />
+			<Icon name="ri.sun-fill" size={6} x-show="!darkMode" />
+			<Icon name="ri.moon-clear-line" size={6} x-show="darkMode" />
 		</button>
 	);
 }

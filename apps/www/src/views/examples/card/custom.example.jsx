@@ -6,7 +6,7 @@ export function CustomCardExample() {
 	return (
 		<Card class="p-4">
 			<h3 class="relative flex gap-x-1 items-center">
-				<Icon name="lightbulb-line" stroke-width="0.5" />
+				<Icon name="ri.lightbulb-line" stroke-width="0.5" />
 				<span class="font-semibold underline">Adding items to the command</span>
 			</h3>
 			<p class="px-4">
@@ -19,7 +19,7 @@ export function CustomCardExample() {
 			<div class="flex items-center justify-end">
 				<SecondaryButton class="flex gap-x-2">
 					<span>View More</span>
-					<Icon name="arrow-right-line" size={5} />
+					<Icon name="ri.arrow-right-line" size={5} />
 				</SecondaryButton>
 			</div>
 		</Card>

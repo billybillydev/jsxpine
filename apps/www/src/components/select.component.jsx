@@ -67,7 +67,7 @@ export function Select(props) {
 				/>
 				{!noInputIcon && (
 					<span class="right-0 flex items-center pointer-events-none">
-						<Icon name="expand-up-down-line" stroke-width="0.5" />
+						<Icon name="ri.expand-up-down-line" stroke-width="0.5" />
 					</span>
 				)}
 			</button>
@@ -94,7 +94,7 @@ export function Select(props) {
 						class="relative flex items-center h-full py-2 pr-2 pl-8 cursor-pointer select-none hover:bg-base/30 data-[disabled]:bg-base-light data-[disabled]:text-base-dark data-[disabled]:pointer-events-none data-[disabled]:pointer-not-allowed"
 					>
 						<Icon
-							name="check-line"
+							name="ri.check-line"
 							x-show="selectedItem?.value == item.value"
 							class="absolute left-0 size-4 ml-2 stroke-current text-nmuted-foreground"
 						/>

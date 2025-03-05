@@ -20,7 +20,7 @@ export function CustomNavigationsCarouselExample(props) {
 							class="absolute top-1/2 -translate-y-1/2 left-4"
 						>
 							<Icon
-								name="arrow-left-line"
+								name="ri.arrow-left-line"
 								size={6}
 								fill="none"
 								stroke="currentColor"
@@ -33,7 +33,7 @@ export function CustomNavigationsCarouselExample(props) {
 							class="absolute top-1/2 -translate-y-1/2 right-4"
 						>
 							<Icon
-								name="arrow-right-line"
+								name="ri.arrow-right-line"
 								size={6}
 								fill="none"
 								stroke="currentColor"

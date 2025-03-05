@@ -4,24 +4,27 @@ import { SITE } from "$config/seo";
 import { BrandLogo } from "$views/brand-logo.view";
 
 export function HomePage() {
+	/**
+	 * @type {Array<{ title: string; description: string; url: string; icon: import("../common/types").IconName }>}
+	 */
 	const navItems = [
 		{
 			title: "Core",
 			description: "Installation, base colors, typography, shadows, and more.",
 			url: "/core/introduction",
-			icon: "planet-line"
+			icon: "ri.planet-line"
 		},
 		{
 			title: "Components",
 			description: "The building blocks for our UI. Discover the fusion of JSX and Alpine JS.",
 			url: "/components",
-			icon: "code-s-slash-line"
+			icon: "ri.code-s-slash-line"
 		},
 		{
 			title: "Use Cases",
 			description: "A set of interesting use cases where jsxpine can help you build better interfaces.",
 			url: "/usecases",
-			icon: "carousel-view"
+			icon: "ri.carousel-view"
 		}
 	];
 	return (

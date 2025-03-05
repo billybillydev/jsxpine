@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 /**
  * @typedef AlertProps
- * @type {{ title?: string, icon?: import("@kitajs/html").Children } & import("../common/props").VariantColorProps & import("../common/props").HTMLTag}
+ * @type {{ title?: string, icon?: import("@kitajs/html").Children, iconName?: import("../common/types").IconName } & import("../common/props").VariantColorProps & import("../common/props").HTMLTag}
  */
 
 /**
@@ -15,6 +15,7 @@ export function Alert({
 	title,
 	children,
 	icon,
+	iconName,
 	...restProps
 }) {
 	return (
@@ -27,7 +28,7 @@ export function Alert({
 		>
 			{title ? (
 				<h4 class="mb-1 font-medium leading-none tracking-tight flex items-center gap-x-3">
-					{icon ? <Icon name={String(icon)} size={5} strokeWidth={0.5} /> || icon : null}
+					{icon ?? (iconName ? <Icon name={iconName} /> : null)}
 					<span safe>{title}</span>
 				</h4>
 			) : null}
@@ -47,7 +48,10 @@ export function PrimaryAlert({ variant = "solid", ...restProps }) {
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-primary text-primary-foreground"],
 		["outlined", "border-transparent text-primary bg-primary-light-1"],
-		["inversed", "border-primary text-primary dark:border-primary-light-1 dark:text-primary-light-1"]
+		[
+			"inversed",
+			"border-primary text-primary dark:border-primary-light-1 dark:text-primary-light-1"
+		]
 	]);
 
 	return <Alert class={variantColorMap.get(variant)} {...restProps} />;
@@ -83,10 +87,7 @@ export function SuccessAlert({ variant = "solid", ...restProps }) {
 	 */
 	const variantColorMap = new Map([
 		["solid", "border-transparent bg-success text-foreground"],
-		[
-			"outlined",
-			"border-transparent text-success-dark bg-success-light"
-		],
+		["outlined", "border-transparent text-success-dark bg-success-light"],
 		["inversed", "border-success text-success"]
 	]);
 

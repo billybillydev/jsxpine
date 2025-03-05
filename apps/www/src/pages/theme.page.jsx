@@ -542,7 +542,7 @@ function ThemePaletteSelector() {
 								x-bind:style={"`background-color: ${palette.primary}`"}
 								x-on:click="choosePalette(palette)"
 							>
-								<Icon name="check-line" x-show="isSelected(palette)" />
+								<Icon name="ri.check-line" x-show="isSelected(palette)" />
 							</button>
 						</li>
 					</template>

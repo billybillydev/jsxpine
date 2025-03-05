@@ -22,7 +22,7 @@ export function SuccessAlertExample() {
 			})}
 			<SuccessAlert
 				title={`Success Alert with Icon`}
-				icon="checkbox-circle-fill"
+				iconName="ri.checkbox-circle-fill"
 			>
 				This is the subtext for your alert message, providing important
 				information or instructions.

@@ -9,7 +9,7 @@
  */
 
 /**
- * @typedef {keyof typeof import("@iconify-json/ri/icons.json")["icons"]} IconKeyType
+ * @typedef {`ri.${keyof typeof import("@iconify-json/ri/icons.json")["icons"]}`} IconName
  */
 
 /**

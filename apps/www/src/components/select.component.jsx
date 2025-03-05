@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 /**
  * @typedef SelectProps
- * @type {import("./input.component").SelectInputProps & { noInputIcon?: boolean, defaultValue?: import("$components/input.component").SelectOptionType | null }}
+ * @type {import("./input.component").SelectInputProps & { noInputIcon?: boolean, defaultValue?: import("./input.component").SelectOptionType | null }}
  */
 
 /**

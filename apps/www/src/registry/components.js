@@ -127,7 +127,7 @@ export const components = /** @type {const} */ ([
 	{
 		name: "select",
 		alpineDependencies: ["dropdown-select"],
-		registryDependencies: ["icon"]
+		registryDependencies: ["icon", "input"]
 	},
 	{
 		name: "sidebar",

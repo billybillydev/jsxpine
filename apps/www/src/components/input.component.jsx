@@ -81,7 +81,7 @@ export function DateInput(props) {
 			/>
 			{/* Because calendar-picker-icon doesn't change with theme toggle */}
 			<button x-on:click="$refs.dateInput.showPicker()">
-				<Icon name="calendar-line" />
+				<Icon name="ri.calendar-line" />
 			</button>
 		</div>
 	);
@@ -106,7 +106,7 @@ export function EmailInput(props) {
 				class="flex items-center justify-center"
 				x-bind:class="value ? 'opacity-100' : 'opacity-0'"
 			>
-				<Icon name="close-line" size={5} />
+				<Icon name="ri.close-line" size={5} />
 			</button>
 		</div>
 	);
@@ -178,10 +178,10 @@ export function PasswordInput(props) {
 					class="flex items-center justify-center"
 				>
 					<template x-if="!show">
-						<Icon name="eye-line" stroke-width="0.5" size={5} />
+						<Icon name="ri.eye-line" stroke-width="0.5" size={5} />
 					</template>
 					<template x-if="show">
-						<Icon name="eye-off-line" stroke-width="0.5" size={5} />
+						<Icon name="ri.eye-off-line" stroke-width="0.5" size={5} />
 					</template>
 				</button>
 			) : null}
@@ -251,7 +251,7 @@ export function TextInput(props) {
 				class="flex items-center justify-center"
 				x-bind:class="value ? 'opacity-100' : 'opacity-0'"
 			>
-				<Icon name="close-line" size={5} />
+				<Icon name="ri.close-line" size={5} />
 			</button>
 		</div>
 	);
@@ -298,7 +298,7 @@ export function TimeInput(props) {
 			/>
 			{/* Because calendar-picker-icon doesn't change with theme toggle */}
 			<button x-on:click="$refs.timeInput.showPicker()">
-				<Icon name="time-line" />
+				<Icon name="ri.time-line" />
 			</button>
 		</div>
 	);

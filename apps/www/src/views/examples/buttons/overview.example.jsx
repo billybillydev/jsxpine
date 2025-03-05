@@ -19,7 +19,7 @@ export function OverviewButtonExample() {
 			<DangerButton borderRadius="square" text="Square" />
 			<SuccessButton borderRadius="arc" text="With Arc borderRadius" />
 			<Button variant="inversed" borderRadius="circle">
-				<Icon name="edit-box-line" />
+				<Icon name="ri.edit-box-line" />
 			</Button>
 			<SecondaryButton borderRadius="curve" text="Curve" />
 			<Button variant="outlined" text="Base button outlined" />

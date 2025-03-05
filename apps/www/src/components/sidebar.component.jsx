@@ -157,7 +157,7 @@ export function SidebarContent(props) {
 							x-bind="closerClick"
 							class="flex items-center justify-between px-3 py-2 gap-x-2 text-xs font-medium uppercase bg-background text-muted-foreground rounded-md hover:text-foreground"
 						>
-							<Icon name="close-line" />
+							<Icon name="ri.close-line" />
 							<span>Close</span>
 						</button>
 					</div>

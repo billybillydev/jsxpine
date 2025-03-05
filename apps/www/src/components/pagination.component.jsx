@@ -51,7 +51,7 @@ export function Pagination(props) {
 					{firstButtonLabel ? (
 						<span safe>{firstButtonLabel}</span>
 					) : (
-						<Icon name="arrow-left-double-line" />
+						<Icon name="ri.arrow-left-double-line" />
 					)}
 				</Button>
 			)}
@@ -60,7 +60,7 @@ export function Pagination(props) {
 					{previousButtonLabel ? (
 						<span safe>{previousButtonLabel}</span>
 					) : (
-						<Icon name="arrow-left-s-line" />
+						<Icon name="ri.arrow-left-s-line" />
 					)}
 				</Button>
 			)}
@@ -70,7 +70,7 @@ export function Pagination(props) {
 					{nextButtonLabel ? (
 						<span safe>{nextButtonLabel}</span>
 					) : (
-						<Icon name="arrow-right-s-line" />
+						<Icon name="ri.arrow-right-s-line" />
 					)}
 				</Button>
 			)}
@@ -79,7 +79,7 @@ export function Pagination(props) {
 					{lastButtonLabel ? (
 						<span safe>{lastButtonLabel}</span>
 					) : (
-						<Icon name="arrow-right-double-line" />
+						<Icon name="ri.arrow-right-double-line" />
 					)}
 				</Button>
 			)}

@@ -113,7 +113,7 @@ export function MenuTreeExample() {
 						>
 							<span x-text="menu.label"></span>
 							<template x-if="menu.children">
-								<Icon name="arrow-right-s-line" />
+								<Icon name="ri.arrow-right-s-line" />
 							</template>
 						</button>
 						<div class="p-4" x-show="!menu.children">

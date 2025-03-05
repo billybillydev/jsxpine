@@ -45,14 +45,17 @@ export function CarouselNavigations(props) {
 	]);
 
 	/**
-	 * @type {Map<import("../common/types").DirectionType, { previous: string; next: string }>}
+	 * @type {Map<import("../common/types").DirectionType, { previous: import("../common/types").IconName; next: import("../common/types").IconName }>}
 	 */
 	const navigationIconDirectionClassMap = new Map([
 		[
 			"horizontal",
-			{ previous: "arrow-left-s-line", next: "arrow-right-s-line" }
+			{ previous: "ri.arrow-left-s-line", next: "ri.arrow-right-s-line" }
 		],
-		["vertical", { previous: "arrow-up-s-line", next: "arrow-down-s-line" }]
+		[
+			"vertical",
+			{ previous: "ri.arrow-up-s-line", next: "ri.arrow-down-s-line" }
+		]
 	]);
 
 	const navIcon = navigationIconDirectionClassMap.get(direction);

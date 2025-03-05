@@ -86,7 +86,7 @@ export function SimpleModalContent(props) {
 						x-bind="closerClick"
 						class="absolute z-10 -top-3 -right-3 flex items-center justify-center w-8 h-8 border bg-background text-muted-foreground rounded-full hover:text-foreground"
 					>
-						<Icon name="close-fill" stroke-width="1.5" size={5} />
+						<Icon name="ri.close-fill" stroke-width="1.5" size={5} />
 					</button>
 					<div class="relative w-auto h-auto">{children}</div>
 				</div>
@@ -122,7 +122,7 @@ export function FullScreenModalContent(props) {
 					aria-label="Close"
 					class="absolute top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-3 mr-3 gap-x-1 text-xs font-medium uppercase border rounded-md border-base-light hover:text-foreground"
 				>
-					<Icon name="close-fill" stroke-width="1.5" size={5} />
+					<Icon name="ri.close-fill" stroke-width="1.5" size={5} />
 					<span>Close</span>
 				</button>
 				{children}

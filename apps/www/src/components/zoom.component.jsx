@@ -49,7 +49,7 @@ export function Zoom(props) {
 								x-bind:disabled="disablePreviousNavigation"
 								class="absolute left-0 flex items-center justify-center text-white translate-x-10 rounded-full cursor-pointer xl:-translate-x-24 2xl:-translate-x-32 bg-neutral-800/75 w-14 h-14 hover:bg-white/20"
 							>
-								<Icon name="arrow-left-line" size={6} />
+								<Icon name="ri.arrow-left-line" size={6} />
 							</Button>
 						)}
 						<Image
@@ -68,7 +68,7 @@ export function Zoom(props) {
 								x-bind:disabled="disableNextNavigation"
 								class="absolute right-0 flex items-center justify-center text-white -translate-x-10 rounded-full cursor-pointer xl:translate-x-24 2xl:translate-x-32 bg-neutral-800/75 w-14 h-14 hover:bg-white/20"
 							>
-								<Icon name="arrow-right-line" size={6} />
+								<Icon name="ri.arrow-right-line" size={6} />
 							</Button>
 						)}
 					</div>

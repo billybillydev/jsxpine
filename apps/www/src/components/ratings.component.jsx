@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 /**
  * @typedef {Object} RatingsProps
- * @type {{ applyDefsId: string, nb?: number, value: number, max?: number, size?: number, icon?: string, color?: { empty: string, fill: string } } & import("../common/props").HTMLTagWithChildren}
+ * @type {{ applyDefsId: string, nb?: number, value: number, max?: number, size?: number, icon?: import("../common/types").IconName, color?: { empty: string, fill: string } } & import("../common/props").HTMLTagWithChildren}
  */
 
 /**
@@ -50,7 +50,7 @@ export function Ratings(props) {
 		max = 5,
 		color,
 		size = 6,
-		icon = "star-fill",
+		icon = "ri.star-fill",
 		...restProps
 	} = props;
 

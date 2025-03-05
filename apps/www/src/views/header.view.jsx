@@ -38,7 +38,7 @@ export function Header() {
 								"p-2 rounded-lg bg-inherit text-inherit border border-inherit block lg:hidden"
 							}
 						>
-							<Icon name="menu-fill" size={6} />
+							<Icon name="ri.menu-fill" size={6} />
 						</SidebarTrigger>
 						<SidebarContent
 							class={
@@ -91,7 +91,7 @@ export function Header() {
 							target="_blank"
 							href={"https://github.com/" + SITE.github}
 						>
-							<Icon name="github-line" size={6} />
+							<Icon name="ri.github-line" size={6} />
 						</a>
 					)}
 					<ThemeToggle />

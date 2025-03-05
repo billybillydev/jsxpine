@@ -171,14 +171,14 @@ export function TableHead(props) {
 							<template x-if="column.sort">
 								<div class="flex flex-col">
 									<Icon
-										name="arrow-up-s-fill"
+										name="ri.arrow-up-s-fill"
 										size={5}
 										fill="currentColor"
 										x-bind:class="order === 'DESC' && column.index === currentSortIndex ? 'text-danger' : 'text-foreground'"
 										class="translate-y-2"
 									/>
 									<Icon
-										name="arrow-down-s-fill"
+										name="ri.arrow-down-s-fill"
 										size={5}
 										fill="currentColor"
 										x-bind:class="order === 'ASC' && column.index === currentSortIndex ? 'text-danger' : 'text-foreground'"

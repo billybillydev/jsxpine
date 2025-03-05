@@ -34,7 +34,7 @@ export function DefaultCheckboxExample() {
 						class="group/item flex items-start p-5 space-x-3 text-base-dark bg-white border rounded-md shadow-sm hover:bg-info/15 border-base-light peer-checked:border-info peer-checked:[&>svg]:visible peer-checked:[&>*]:text-info peer-disabled:cursor-not-allowed peer-disabled:bg-white peer-disabled:text-base-light"
 					>
 						<Icon
-							name="check-line"
+							name="ri.check-line"
 							stroke-width="3"
 							size={6}
 							class="invisible"

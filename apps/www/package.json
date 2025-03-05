@@ -1,6 +1,6 @@
 {
 	"name": "www",
-	"version": "1.15.1",
+	"version": "1.15.2",
 	"module": "src/index.js",
 	"scripts": {
 		"dev": "bun run --hot src/index.tsx",

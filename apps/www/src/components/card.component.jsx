@@ -86,7 +86,7 @@ export function CardBody(props) {
 					{controls.map(async (control) => {
 						const ButtonControl = await import(`./button.component`).then(
 							/**
-							 * @returns {typeof import("/Users/billybillydev/mosi-projects/jsxpine/apps/www/src/components/button.component")[keyof typeof import("/Users/billybillydev/mosi-projects/jsxpine/apps/www/src/components/button.component")]}
+							 * @returns {typeof import("./button.component")[keyof typeof import("./button.component")]}
 							 * */
 							function (m) {
 								switch (control.type) {

@@ -1,10 +1,9 @@
 /**
  *
  * @param {import("../../../components/page.component").SeoData} params
- * @returns {import("alpinejs").AlpineComponent<{}>}
+ * @returns {import("alpinejs").AlpineComponent<{ currentUrl?: URL }>}
  */
-export function seoData({ title, description, openGraph, robots }) {
-
+export function seoData({ title, description, openGraph, robots, jsonLd }) {
 	return {
 		init() {
 			this.currentUrl = new URL(window.location.href);
@@ -13,9 +12,7 @@ export function seoData({ title, description, openGraph, robots }) {
 			const descriptionMetaHead = headElement.querySelector(
 				'meta[name="description"]'
 			);
-			const robotsMetaHead = headElement.querySelector(
-				'meta[name="robots"]'
-			);
+			const robotsMetaHead = headElement.querySelector('meta[name="robots"]');
 			if (titleHead && title) {
 				titleHead.textContent = title;
 			}
@@ -36,9 +33,9 @@ export function seoData({ title, description, openGraph, robots }) {
 								const openGraphMetaSubKey = headElement.querySelector(
 									`meta[property="og:${key}:${subKey}"]`
 								);
-                                if (openGraphMetaSubKey) {
-                                    openGraphMetaSubKey.setAttribute("content", String(subValue));
-                                }
+								if (openGraphMetaSubKey) {
+									openGraphMetaSubKey.setAttribute("content", String(subValue));
+								}
 							});
 						} else {
 							openGraphMetaKey.setAttribute("content", value);
@@ -46,6 +43,11 @@ export function seoData({ title, description, openGraph, robots }) {
 					}
 				});
 			}
+
+			const scriptTag = document.createElement("script");
+			scriptTag.type = "application/ld+json";
+			scriptTag.textContent = JSON.stringify(jsonLd);
+			document.head.appendChild(scriptTag);
 		}
 	};
 }

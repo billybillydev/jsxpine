@@ -46,6 +46,7 @@ import clsx from "clsx";
  * @property {RobotsMetaData} [robots] Information about robots indexing. Contains two boolean properties: index and follow.
  * @property {OpenGraphMetaData} [openGraph] The openGraph meta data
  * @property {TwitterMetaData} [twitter] The twitter meta data
+ * @property {Object} [jsonLd] The jsonLd meta data
  */
 
 /**
@@ -107,11 +108,17 @@ function SeoTwitter({ name, property }) {
 /**
  * @param {PageProps<{}>} props
  */
-export function Page(props) {
-	const { children, seo, class: className, url, favicon, ...restProps } = props;
-
+export function Page({
+	children,
+	seo,
+	class: className,
+	url,
+	favicon,
+	lang = "en",
+	...restProps
+}) {
 	return (
-		<html lang="en">
+		<html lang={lang}>
 			<head>
 				<meta charset="UTF-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -119,9 +126,7 @@ export function Page(props) {
 				{seo.description ? (
 					<meta name="description" content={seo.description} />
 				) : null}
-				{seo.author ? (
-					<meta name="author" content={seo.author} />
-				) : null}
+				{seo.author ? <meta name="author" content={seo.author} /> : null}
 				{seo.robots ? (
 					<meta name="robots" content={seo.robots.join(", ")} />
 				) : null}
@@ -139,6 +144,11 @@ export function Page(props) {
 				></script>
 				<script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
 				<script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
+				{seo.jsonLd ? (
+					<script type="application/ld+json">
+						{JSON.stringify(seo.jsonLd)}
+					</script>
+				) : null}
 			</head>
 			<body
 				class={clsx(className)}

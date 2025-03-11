@@ -6,8 +6,8 @@ import { Config } from "../../utils/config/schema";
 import { handleError } from "../../utils/handle-error";
 import { LoggerUtils } from "../../utils/logger/index";
 import { RegistryAlpine, RegistryComponentItem } from "../../utils/registry";
-import { AddComponents } from "./components";
-import { AddCheckOptions } from "./options";
+import { ComponentInstallation } from "./components";
+import { ComponentRegistration } from "./options";
 
 export const addOptionsSchema = z.object({
 	components: z.array(z.string()).optional(),
@@ -72,18 +72,18 @@ class AddCommand {
 	}
 
 	private async checkOptionsAndSelectComponents() {
-		const addCheckOptions = new AddCheckOptions(
+		const componentRegistration = new ComponentRegistration(
 			this.options.cwd,
 			this.options.components,
 			this.logger
 		);
 
-		await addCheckOptions.resolveComponentsInRegistry()
-		await addCheckOptions.checkPath();
+		await componentRegistration.resolveComponentsInRegistry()
+		await componentRegistration.checkPath();
 
-		this.config = await addCheckOptions.getConfig();
-		this.componentsPayload = await addCheckOptions.getComponentsPayload();
-		this.alpineDataPayload = await addCheckOptions.getAlpineDataPayload();
+		this.config = await componentRegistration.getConfig();
+		this.componentsPayload = await componentRegistration.getComponentsPayload();
+		this.alpineDataPayload = await componentRegistration.getAlpineDataPayload();
 	}
 
 	private async installComponents() {
@@ -99,14 +99,14 @@ class AddCommand {
 			return;
 		}
 
-		const addComponents = new AddComponents(
+		const componentInstallation = new ComponentInstallation(
 			this.config,
 			this.componentsPayload,
 			this.alpineDataPayload
 		);
 
-		await addComponents.installComponentsAndAlpineDependencies(spinner);
-		await addComponents.updateAlpineScript();
+		await componentInstallation.installComponentsAndAlpineDependencies(spinner);
+		await componentInstallation.updateAlpineScript();
 
 		this.logger.info("");
 		this.logger.info("");

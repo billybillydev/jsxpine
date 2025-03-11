@@ -13,7 +13,7 @@ import {
 
 type AdditionalAlpineDataComponent = { component: string; path: string };
 
-export class AddComponents {
+export class ComponentInstallation {
 	private alpineDependencies: string[] = [];
 
 	constructor(

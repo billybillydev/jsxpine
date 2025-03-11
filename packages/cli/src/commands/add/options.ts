@@ -6,7 +6,7 @@ import { LoggerUtils } from "../../utils/logger/index";
 import { RegistryItem, RegistryUtils } from "../../utils/registry";
 
 
-export class AddCheckOptions {
+export class ComponentRegistration {
 	registryTree: RegistryItem[] = [];
 
 	constructor(

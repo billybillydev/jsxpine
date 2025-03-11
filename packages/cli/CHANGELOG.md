@@ -1,5 +1,11 @@
 # jsxpine
 
+## 1.1.2
+
+### Patch Changes
+
+-   [fix] renamed class helpers in add command
+
 ## 1.1.1
 
 ### Patch Changes

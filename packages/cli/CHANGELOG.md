@@ -1,5 +1,11 @@
 # jsxpine
 
+## 1.1.1
+
+### Patch Changes
+
+-   [fix] exit process when component(s) not found
+
 ## 1.1.0
 
 ### Minor Changes

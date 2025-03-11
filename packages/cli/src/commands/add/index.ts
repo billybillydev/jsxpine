@@ -78,7 +78,7 @@ class AddCommand {
 			this.logger
 		);
 
-		await addCheckOptions.checkComponentsInRegistry();
+		await addCheckOptions.resolveComponentsInRegistry()
 		await addCheckOptions.checkPath();
 
 		this.config = await addCheckOptions.getConfig();

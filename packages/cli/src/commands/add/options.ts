@@ -21,8 +21,7 @@ export class AddCheckOptions {
 			this.logger.error(
 				`The path ${this.cwd} does not exist. Please try again.`
 			);
-			process.exitCode = 1;
-			return;
+			process.exit(0);
 		}
     }
 
@@ -30,7 +29,7 @@ export class AddCheckOptions {
 		return await ConfigUtils.getConfig(this.cwd);
 	}
 
-	public async checkComponentsInRegistry() {
+	public async resolveComponentsInRegistry() {
 		const registryIndex = await RegistryUtils.getRegistryIndex();
 
 		let selectedComponents = this.components;
@@ -52,8 +51,7 @@ export class AddCheckOptions {
 
 		if (!selectedComponents?.length) {
 			this.logger.warn("No components selected. Exiting.");
-			process.exitCode = 0;
-			return;
+			process.exit(0);
 		}
 
 		this.registryTree = await RegistryUtils.resolveTree(
@@ -63,8 +61,7 @@ export class AddCheckOptions {
 
         if (!this.registryTree?.length) {
 			this.logger.warn("Selected components not found. Exiting.");
-			process.exitCode = 0;
-			return;
+			process.exit(0);
 		}
 	}
 

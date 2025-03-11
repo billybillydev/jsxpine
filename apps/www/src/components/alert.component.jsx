@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 /**
  * @typedef AlertProps
- * @type {{ title?: string, icon?: import("@kitajs/html").Children, iconName?: import("../common/types").IconName } & import("../common/props").VariantColorProps & import("../common/props").HTMLTag}
+ * @type {{ title?: string, icon?: import("@kitajs/html").Children, iconName?: import("./icon.component").IconName } & import("../common/props").VariantColorProps & import("../common/props").HTMLTag}
  */
 
 /**

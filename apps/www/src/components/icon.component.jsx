@@ -1,42 +1,28 @@
-import { SVG } from "./svg.component";
 import { icons } from "@iconify-json/ri/icons.json";
 import clsx from "clsx";
+import { SVG } from "./svg.component";
+
+/**
+ * @typedef {`ri.${keyof typeof import("@iconify-json/ri/icons.json")["icons"]}`} IconName
+ */
 
 /**
  * @typedef IconProps
- * @type {{size?: number, name: import("../common/types").IconName, color?: string, applyDefsId?: string} & import("./svg.component").SVGProps}
+ * @type {{size?: number, name: IconName, color?: string, applyDefsId?: string} & import("./svg.component").SVGProps}
  */
 
 /**
  * Icon component props
- * @type {import("../common/props").JSXComponent<Omit<IconProps, "viewBox">>}
+ * @param {Omit<IconProps, "viewBox">} props
  */
-export function Icon(props) {
-	const {
-		children,
-		size = 4,
-		name,
-		applyDefsId,
-		class: className,
-		...restProps
-	} = props;
-	// const iconData = getIconData(icons, name);
-	// if (!iconData) {
-	// 	console.error("Icon data is null or undefined");
-	// 	return "";
-	// }
-	// const iconSvg = iconToSVG(iconData, {
-	// 	height: "auto"
-	// });
-	// if (!iconSvg) {
-	// 	console.error(`Icon "${name}" is missing`);
-	// 	return "";
-	// }
-	// const {
-	// 	attributes: { viewBox },
-	// 	body
-	// } = iconSvg;
-
+export function Icon({
+	children,
+	size = 4,
+	name,
+	applyDefsId,
+	class: className,
+	...restProps
+}) {
 	const iconType = name.split(".")[0];
 	const iconName = /** @type {keyof typeof icons} */ (name.split(".")[1]);
 	if (!icons[iconName]) {

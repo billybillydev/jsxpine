@@ -10,7 +10,7 @@ export function CustomIconRatingsExample() {
 				max={3}
 				size={12}
 				color={{ empty: COLORS.slate[300], fill: COLORS.red[500] }}
-				icon="heart-3-fill"
+				icon="ri.heart-3-fill"
                 applyDefsId="custom-icon-ratings-example"
 			/>
 		</div>

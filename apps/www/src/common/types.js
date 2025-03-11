@@ -9,10 +9,6 @@
  */
 
 /**
- * @typedef {`ri.${keyof typeof import("@iconify-json/ri/icons.json")["icons"]}`} IconName
- */
-
-/**
  * Position Type enum
  * @typedef {"top" | "bottom" | "left" | "right"} PositionType
  */

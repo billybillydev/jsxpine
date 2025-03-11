@@ -330,10 +330,10 @@ export const SIDEBAR = [
 				}
 			],
 			[
-				"components/icon",
+				"components/icons",
 				{
 					text: "Icon",
-					link: "/components/icon",
+					link: "/components/icons",
 					chapters: [
 						{ text: "Overview", slug: "overview" },
 						{
@@ -346,7 +346,7 @@ export const SIDEBAR = [
 						},
 						{ text: "Size Props", slug: "size-props" },
 						{ text: "Color Props", slug: "color-props" },
-						{ text: "Customized Icon", slug: "customized-icon" }
+						{ text: "Use Other Iconify Icons", slug: "use-other-iconify-icons" },
 					]
 				}
 			],

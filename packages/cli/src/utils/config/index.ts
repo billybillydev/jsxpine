@@ -43,16 +43,6 @@ export class ConfigUtils {
 
 	static async resolveConfigPaths(cwd: string, config: RawConfig) {
 		const TSCONFIG_PATH = "tsconfig.json";
-		if (!existsSync(TSCONFIG_PATH)) {
-			const packageManager = await FileUtils.getPackageManager(cwd);
-			await execa(
-				packageManager === "npm" ? "npx" : packageManager,
-				["astro", "sync"],
-				{
-					cwd
-				}
-			);
-		}
 
 		const tsconfigPath = path.resolve(cwd, TSCONFIG_PATH);
 		const tsConfig = loadConfig(tsconfigPath);

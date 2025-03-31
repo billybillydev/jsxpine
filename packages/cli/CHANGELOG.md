@@ -1,5 +1,11 @@
 # jsxpine
 
+## 1.1.3
+
+### Patch Changes
+
+-   remove astro sync script
+
 ## 1.1.2
 
 ### Patch Changes

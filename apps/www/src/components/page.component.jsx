@@ -114,55 +114,61 @@ export function Page({
 	class: className,
 	url,
 	favicon,
-	lang = "en",
+	lang,
 	...restProps
 }) {
 	return (
-		<html lang={lang}>
-			<head>
-				<meta charset="UTF-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<title safe>{seo.title}</title>
-				{seo.description ? (
-					<meta name="description" content={seo.description} />
-				) : null}
-				{seo.author ? <meta name="author" content={seo.author} /> : null}
-				{seo.robots ? (
-					<meta name="robots" content={seo.robots.join(", ")} />
-				) : null}
-				{seo.openGraph ? <SeoOpenGraph {...seo.openGraph} /> : null}
-				{seo.twitter ? <SeoTwitter {...seo.twitter} /> : null}
-				{favicon ? (
-					<link rel="shortcut icon" href={favicon} type="image/x-icon" />
-				) : null}
-				<link rel="stylesheet" href="/public/styles/index.css" />
-				<script src="/public/script/app.js" defer></script>
-				<script
-					src="https://unpkg.com/htmx.org@1.9.11"
-					integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
-					crossorigin="anonymous"
-				></script>
-				<script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
-				<script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
-				{seo.jsonLd ? (
-					<script type="application/ld+json">
-						{JSON.stringify(seo.jsonLd)}
-					</script>
-				) : null}
-			</head>
-			<body
-				class={clsx(className)}
-				hx-ext="response-targets"
-				x-data="{ currentUrl: new URL(window.location) }"
-				x-init={`
+		<>
+			{"<!DOCTYPE html>"}
+			<html lang={lang}>
+				<head>
+					<meta charset="UTF-8" />
+					<meta
+						name="viewport"
+						content="width=device-width, initial-scale=1.0"
+					/>
+					<title safe>{seo.title}</title>
+					{seo.description ? (
+						<meta name="description" content={seo.description} />
+					) : null}
+					{seo.author ? <meta name="author" content={seo.author} /> : null}
+					{seo.robots ? (
+						<meta name="robots" content={seo.robots.join(", ")} />
+					) : null}
+					{seo.openGraph ? <SeoOpenGraph {...seo.openGraph} /> : null}
+					{seo.twitter ? <SeoTwitter {...seo.twitter} /> : null}
+					{favicon ? (
+						<link rel="shortcut icon" href={favicon} type="image/x-icon" />
+					) : null}
+					<link rel="stylesheet" href="/public/styles/index.css" />
+					<script src="/public/script/app.js" defer></script>
+					<script
+						src="https://unpkg.com/htmx.org@1.9.11"
+						integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+						crossorigin="anonymous"
+					></script>
+					<script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
+					<script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
+					{seo.jsonLd ? (
+						<script type="application/ld+json">
+							{JSON.stringify(seo.jsonLd)}
+						</script>
+					) : null}
+				</head>
+				<body
+					class={clsx(className)}
+					hx-ext="response-targets"
+					x-data="{ currentUrl: new URL(window.location) }"
+					x-init={`
 					navigation.addEventListener('navigate', ({ destination }) => {
 						currentUrl = new URL(destination.url);
 					});
 				`}
-				{...restProps}
-			>
-				{children}
-			</body>
-		</html>
+					{...restProps}
+				>
+					{children}
+				</body>
+			</html>
+		</>
 	);
 }

@@ -5,7 +5,7 @@ import { BrandLogo } from "$views/brand-logo.view";
 
 export function HomePage() {
 	/**
-	 * @type {Array<{ title: string; description: string; url: string; icon: import("../common/types").IconName }>}
+	 * @type {Array<{ title: string; description: string; url: string; icon: import("$components/icon.component").IconName }>}
 	 */
 	const navItems = [
 		{

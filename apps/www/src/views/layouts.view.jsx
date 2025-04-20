@@ -23,6 +23,7 @@ export function RootLayout({
 	seo,
 	url,
 	isHTMX,
+	lang,
 	...restProps
 }) {
 	return isHTMX ? (
@@ -35,6 +36,7 @@ export function RootLayout({
 			class={clsx(className)}
 			favicon={defaultFavicon}
 			seo={seo}
+			lang={lang || "en"}
 			{...restProps}
 			x-bind:class={"$store.darkMode && 'dark'"}
 		>

@@ -1,4 +1,4 @@
-export const SITE = {
+export const SITE = /** @type {const} */ ({
 	title: "JSXPine",
 	description:
 		"Pine UI in JSX reusable components to build your design system fast.",
@@ -7,7 +7,7 @@ export const SITE = {
 	github: "billybillydev/jsxpine",
 	linkedin: "",
 	keywords: `shadcn,JSX,TailwindCSS,Alpine JS,Pine UI,Dev Dojo`
-};
+});
 
 /**
  * @typedef SiteConfig

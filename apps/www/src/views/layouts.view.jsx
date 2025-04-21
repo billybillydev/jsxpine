@@ -1,5 +1,6 @@
 import { Page } from "$components/page.component";
 import { SeoModifier } from "$components/seo-modifier.component";
+import { SITE } from "$config/seo";
 import { Footer } from "$views/footer.view";
 import { Header } from "$views/header.view";
 import {
@@ -36,7 +37,7 @@ export function RootLayout({
 			class={clsx(className)}
 			favicon={defaultFavicon}
 			seo={seo}
-			lang={lang || "en"}
+			lang={lang || SITE.defaultLanguage}
 			{...restProps}
 			x-bind:class={"$store.darkMode && 'dark'"}
 		>

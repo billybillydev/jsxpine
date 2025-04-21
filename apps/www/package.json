@@ -1,11 +1,12 @@
 {
 	"name": "www",
 	"version": "1.16.7",
-	"module": "src/index.js",
+	"module": "src/index.tsx",
+	"type": "module",
 	"scripts": {
 		"dev": "bun run --hot src/index.tsx",
-		"tailwind:dev": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css --watch",
-		"tailwind:prod": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css",
+		"tailwind:dev": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css --minify --watch",
+		"tailwind:prod": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/index.css --minify",
 		"build:watch": "bunx esbuild --bundle --minify --sourcemap ./src/scripts/app.js --outfile=./public/script/app.js --watch",
 		"build:prod": "bunx esbuild --bundle --minify --sourcemap ./src/scripts/app.js --outfile=./public/script/app.js",
 		"start:dev": "concurrently \"bun dev\" \"bun tailwind:dev\" \"bun build:watch\"",

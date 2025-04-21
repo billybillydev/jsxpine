@@ -1,4 +1,4 @@
-import { Button } from "$components/button.component";
+import { Button, SecondaryButton } from "$components/button.component";
 import { CodeToCopy } from "$components/code-to-copy.component";
 import { CodeViewer } from "$components/code-viewer.component";
 import {
@@ -38,7 +38,7 @@ export function ComponentPresentation({
 	return (
 		<div
 			class={clsx(
-				"relative leading-loose flex flex-col gap-y-6 w-full py-4",
+				"relative leading-loose flex flex-col gap-y-6 w-full py-4 [content-visibility:auto]",
 				className,
 				emClass,
 				h2Class
@@ -82,7 +82,7 @@ export function ComponentSection({
 }) {
 	const id = kebabCase(heading);
 	return (
-		<section id={id}>
+		<section id={id} class={clsx("[content-visibility:auto]")}>
 			<h2 safe>{heading}</h2>
 			{children}
 			{examples?.length ? (
@@ -191,9 +191,21 @@ export async function ComponentInstallation({ name }) {
 		<div class={"space-y-4"}>
 			<ImportantNote>
 				<div class={"space-y-4"}>
-					<p>To use this component, you need to initialize your project first. If not done yet, run one of the following command:</p>
-					<p><em>npx jsxpine init</em> or <em>yarn jsxpine init</em> or <em>pnpm jsxpine init</em> or <em>bunx jsxpine init</em>.</p>
-					<p>Go to the <a href="/installation-and-usage" class="link link-primary">installation and usage</a> page to learn more.</p>
+					<p>
+						To use this component, you need to initialize your project first. If
+						not done yet, run one of the following command:
+					</p>
+					<p>
+						<em>npx jsxpine init</em> or <em>yarn jsxpine init</em> or{" "}
+						<em>pnpm jsxpine init</em> or <em>bunx jsxpine init</em>.
+					</p>
+					<p>
+						Go to the{" "}
+						<a href="/installation-and-usage" class="link link-primary">
+							installation and usage
+						</a>{" "}
+						page to learn more.
+					</p>
 				</div>
 			</ImportantNote>
 			<Tabs>
@@ -203,7 +215,7 @@ export async function ComponentInstallation({ name }) {
 				</TabsHeader>
 				<TabsBody>
 					<TabBodyItem class={"flex items-center justify-center px-2 py-4"}>
-						<CodeToCopy lang="typescript">jsxpine add {name}</CodeToCopy>
+						<CodeToCopy lang="bash">jsxpine add {name}</CodeToCopy>
 					</TabBodyItem>
 					<TabBodyItem class="max-h-[40rem] overflow-y-auto">
 						<ComponentCodeToCopy text={codeText} lang="javascript" />

@@ -10,10 +10,6 @@
 html,
 body {
 	@apply bg-white dark:bg-gray-950;
-
-	@media (prefers-color-scheme: dark) {
-		color-scheme: dark;
-	}
 }
 
 @layer base {
@@ -52,6 +48,10 @@ body {
 		--warning-foreground: 224, 71%, 4%;
 		--overlay-dark: 0, 0%, 0%;
 		--overlay-light: 0, 0%, 100%;
+
+		@media (prefers-color-scheme: dark) {
+			color-scheme: dark;
+		}
 	}
 
 	.dark {
@@ -211,7 +211,7 @@ body {
 		background-color: hsla(var(--success));
 
 		&:hover {
-			background-color: hsla(var(--success), .75);
+			background-color: hsla(var(--success), 0.75);
 		}
 	}
 
@@ -242,7 +242,7 @@ body {
 		background-color: hsla(var(--danger));
 
 		&:hover {
-			background-color: hsla(var(--danger), .75);
+			background-color: hsla(var(--danger), 0.75);
 		}
 	}
 
@@ -273,7 +273,7 @@ body {
 		background-color: hsla(var(--info));
 
 		&:hover {
-			background-color: hsla(var(--info), .75);
+			background-color: hsla(var(--info), 0.75);
 		}
 	}
 
@@ -304,7 +304,7 @@ body {
 		background-color: hsla(var(--warning));
 
 		&:hover {
-			background-color: hsla(var(--warning), .75);
+			background-color: hsla(var(--warning), 0.75);
 		}
 	}
 

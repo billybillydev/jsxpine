@@ -39,7 +39,7 @@ export function CoreSection({ heading, children, class: className }) {
 	const id = kebabCase(heading);
 
 	return (
-		<section id={id} class={clsx(className)}>
+		<section id={id} class={clsx("[content-visibility:auto]", className)}>
 			<h2 safe>{heading}</h2>
 			{children}
 		</section>

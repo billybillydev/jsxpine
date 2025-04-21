@@ -146,9 +146,16 @@ export function Page({
 						src="https://unpkg.com/htmx.org@1.9.11"
 						integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
 						crossorigin="anonymous"
-					></script>
-					<script src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"></script>
-					<script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
+						defer
+					/>
+					<script
+						src="https://unpkg.com/htmx.org/dist/ext/response-targets.js"
+						defer
+					/>
+					<script
+						src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"
+						defer
+					/>
 					{seo.jsonLd ? (
 						<script type="application/ld+json">
 							{JSON.stringify(seo.jsonLd)}

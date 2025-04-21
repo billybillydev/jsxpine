@@ -29,7 +29,8 @@ export function HomePage() {
 	];
 	return (
 		<Page
-			seo={{ title: SITE.title }}
+			lang={SITE.defaultLanguage}
+			seo={{ title: SITE.title, description: SITE.description }}
 			x-bind:class={"$store.darkMode && 'dark'"}
 		>
 			<div class="min-h-screen text-center bg-gradient-to-br from-slate-200 to-white dark:from-slate-800 dark:to-black">
